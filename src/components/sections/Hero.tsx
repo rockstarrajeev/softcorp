@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { FiArrowRight, FiPlay } from "react-icons/fi";
 
-export default function Hero({ companyData }: { companyData: any }) {
+export default function Hero() {
     return (
         <section
             id="home"
@@ -45,20 +45,14 @@ export default function Hero({ companyData }: { companyData: any }) {
                         transition={{ duration: 0.6, delay: 0.1 }}
                         className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6"
                     >
-                        {companyData?.name ? (
-                            <>
-                                <span className="gradient-text">{companyData.name}</span>
-                            </>
-                        ) : (
-                            <>
-                                We Build{" "}
-                                <span className="gradient-text">Digital Presence</span>
-                                <br />
-                                That Drives{" "}
-                            </>
-                        )}
+                        <>
+                            We Build{" "}
+                            <span className="gradient-text">Digital Presence</span>
+                            <br />
+                            That Drives{" "}
+                        </>
                         <span className="text-white relative ml-2">
-                            {companyData?.name ? "Group" : "Results"}
+                            Results
                             <svg
                                 className="absolute -bottom-2 left-0 w-full"
                                 viewBox="0 0 200 8"
@@ -87,8 +81,7 @@ export default function Hero({ companyData }: { companyData: any }) {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="text-lg md:text-xl text-slate-400 max-w-2xl mb-10 leading-relaxed"
                     >
-                        {companyData?.tagline ||
-                            "Full-service digital marketing agency specializing in social media management, content creation, web development, and brand strategy. Let us amplify your brand across every platform."}
+                        Full-service digital marketing agency specializing in social media management, content creation, web development, and brand strategy. Let us amplify your brand across every platform.
                     </motion.p>
 
                     {/* CTAs */}
