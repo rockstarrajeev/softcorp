@@ -5,9 +5,21 @@ import bcrypt from "bcryptjs";
 import prisma from "@/lib/db";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
+    trustHost: true,
     session: { strategy: "jwt" },
     pages: {
         signIn: "/login",
+    },
+    cookies: {
+        pkceCodeVerifier: {
+            name: "next-auth.pkce.code_verifier",
+            options: {
+                httpOnly: true,
+                sameSite: "none",
+                path: "/",
+                secure: true,
+            },
+        },
     },
     providers: [
         Google({
