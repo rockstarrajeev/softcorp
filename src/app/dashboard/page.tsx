@@ -29,20 +29,33 @@ export default async function ClientDashboard() {
         }),
     ]);
 
-    const serializedOrders = orders.map((o) => ({
-        id: o.id,
-        serviceName: o.service.name,
-        serviceCategory: o.service.category,
-        status: o.status,
-        totalAmount: o.totalAmount,
-        currency: o.currency,
-        requirements: o.requirements,
-        notes: o.notes,
-        deadline: o.deadline?.toISOString() || null,
-        createdAt: o.createdAt.toISOString(),
-        updatedAt: o.updatedAt.toISOString(),
-        paymentStatus: o.payment?.status || "unpaid",
-    }));
+    const serializedOrders = orders.map((o) => {
+        // Safe Date conversion helper
+        const toSafeISOString = (date: any) => {
+            if (!date) return null;
+            if (date instanceof Date && !isNaN(date.getTime())) {
+                return date.toISOString();
+            }
+            // If it's already a string, return it as is or try to parse
+            if (typeof date === "string") return date;
+            return null;
+        };
+
+        return {
+            id: o.id,
+            serviceName: o.service?.name || "Deleted Service",
+            serviceCategory: o.service?.category || "unknown",
+            status: o.status,
+            totalAmount: o.totalAmount,
+            currency: o.currency,
+            requirements: o.requirements,
+            notes: o.notes,
+            deadline: toSafeISOString(o.deadline),
+            createdAt: toSafeISOString(o.createdAt) || new Date().toISOString(),
+            updatedAt: toSafeISOString(o.updatedAt) || new Date().toISOString(),
+            paymentStatus: o.payment?.status || "unpaid",
+        };
+    });
 
     const serializedServices = services.map((s) => ({
         id: s.id,
