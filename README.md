@@ -2,6 +2,17 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+It's a Next.js + Prisma project. What would you like to work on? Here's what I can see:
+
+Framework: Next.js (TypeScript)
+
+Database: Prisma ORM with a SQLite dev database
+
+Deployment: Has a deploy.sh and ecosystem.config.js (PM2) — looks like it's been deployed to your OCI server
+
+Styling: Tailwind CSS (PostCSS config present)
+
+
 First, run the development server:
 
 ```bash
