@@ -74,7 +74,7 @@ export default function AISolutions() {
                             </p>
 
                             {/* Service list for snippet */}
-                            <div className="space-y-3 pt-6 border-t border-white/5">
+                            <div className="space-y-3 pt-6 border-t border-white/5 mb-8">
                                 {category.services.slice(0, 3).map((service, sIndex) => (
                                     <div key={sIndex} className="flex items-center gap-3 text-slate-300 text-sm">
                                         <service.icon size={14} className="text-brand-500/70" />
@@ -87,6 +87,15 @@ export default function AISolutions() {
                                     </div>
                                 )}
                             </div>
+
+                            {/* Get Started Button */}
+                            <Link
+                                href="/login?callbackUrl=/dashboard"
+                                className="w-full py-3 px-4 bg-white/5 border border-white/10 rounded-xl text-white font-medium hover:bg-white/10 hover:border-white/20 transition-all flex items-center justify-center gap-2 group-hover:bg-brand-600/10 group-hover:border-brand-500/30"
+                            >
+                                Get Started
+                                <FiArrowRight size={16} className="text-brand-400" />
+                            </Link>
                         </motion.div>
                     ))}
                 </div>
