@@ -62,11 +62,11 @@ export default function Contact() {
                         Get In Touch
                     </p>
                     <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                        Let&apos;s <span className="gradient-text">Work Together</span>
+                        Book a <span className="gradient-text">Free IT Consultation</span>
                     </h2>
                     <p className="text-slate-400 max-w-2xl mx-auto text-lg">
-                        Ready to elevate your digital presence? Fill out the form below and
-                        we&apos;ll get back to you within 24 hours.
+                        Ready to modernize your infrastructure or scale with AI? 
+                        Schedule a discovery call to discuss your enterprise requirements.
                     </p>
                 </motion.div>
 
@@ -181,13 +181,13 @@ export default function Contact() {
                                             onChange={handleChange}
                                             className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500/50 transition-all"
                                         >
-                                            <option value="" className="bg-surface-900">Select a service</option>
-                                            <option value="Social Media Marketing" className="bg-surface-900">Social Media Marketing</option>
-                                            <option value="YouTube Management" className="bg-surface-900">YouTube Management</option>
-                                            <option value="Instagram Growth" className="bg-surface-900">Instagram Growth</option>
-                                            <option value="Website Development" className="bg-surface-900">Website Development</option>
-                                            <option value="Brand Identity" className="bg-surface-900">Brand Identity</option>
-                                            <option value="SEO & SEM" className="bg-surface-900">SEO & SEM</option>
+                                            <option value="" className="bg-surface-900">Select an area</option>
+                                            <option value="Cloud Infrastructure" className="bg-surface-900">Cloud Infrastructure</option>
+                                            <option value="Server Maintenance" className="bg-surface-900">Server Maintenance</option>
+                                            <option value="AI Automation" className="bg-surface-900">AI Automation</option>
+                                            <option value="Software Development" className="bg-surface-900">Software Development</option>
+                                            <option value="Network Security" className="bg-surface-900">Network Security</option>
+                                            <option value="Enterprise Strategy" className="bg-surface-900">Enterprise Strategy</option>
                                             <option value="Other" className="bg-surface-900">Other</option>
                                         </select>
                                     </div>

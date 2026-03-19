@@ -64,6 +64,12 @@
       "namedRegex": "^/admin(?:/)?$"
     },
     {
+      "page": "/ai-solutions",
+      "regex": "^/ai\\-solutions(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/ai\\-solutions(?:/)?$"
+    },
+    {
       "page": "/api/admin/messages",
       "regex": "^/api/admin/messages(?:/)?$",
       "routeKeys": {},

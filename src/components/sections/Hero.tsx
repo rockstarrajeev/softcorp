@@ -45,14 +45,11 @@ export default function Hero() {
                         transition={{ duration: 0.6, delay: 0.1 }}
                         className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6"
                     >
-                        <>
-                            We Build{" "}
-                            <span className="gradient-text">Digital Presence</span>
-                            <br />
-                            That Drives{" "}
-                        </>
-                        <span className="text-white relative ml-2">
-                            Results
+                        Enterprise-Grade <br />
+                        <span className="gradient-text">IT Infrastructure</span>
+                        <br />
+                        <span className="text-white relative">
+                            & Software Solutions
                             <svg
                                 className="absolute -bottom-2 left-0 w-full"
                                 viewBox="0 0 200 8"
@@ -81,7 +78,10 @@ export default function Hero() {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="text-lg md:text-xl text-slate-400 max-w-2xl mb-10 leading-relaxed"
                     >
-                        Full-service digital marketing agency specializing in social media management, content creation, web development, and brand strategy. Let us amplify your brand across every platform.
+                        6+ years of specialized expertise managing complex, high-stakes IT 
+                        environments for global organizations including <strong>Swissport</strong>, 
+                        <strong>Air Liquide</strong>, and <strong>Tata Teleservices</strong>. 
+                        Scaling businesses through robust architecture and AI modernization.
                     </motion.p>
 
                     {/* CTAs */}
@@ -92,18 +92,18 @@ export default function Hero() {
                         className="flex flex-wrap gap-4"
                     >
                         <a
-                            href="#services"
+                            href="#contact"
                             className="group px-8 py-4 gradient-brand text-white font-semibold rounded-xl hover:opacity-90 transition-all flex items-center gap-2 shadow-lg shadow-brand-600/25"
                         >
-                            Explore Services
+                            Book a Free IT Consultation
                             <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
                         </a>
                         <a
-                            href="#about"
+                            href="#services"
                             className="px-8 py-4 glass-light text-white font-semibold rounded-xl hover:bg-white/10 transition-all flex items-center gap-2"
                         >
                             <FiPlay size={16} />
-                            Learn More
+                            Explore Solutions
                         </a>
                     </motion.div>
 
@@ -115,9 +115,9 @@ export default function Hero() {
                         className="mt-16 flex flex-wrap gap-12"
                     >
                         {[
+                            { value: "6+ Years", label: "Specialized Exp" },
                             { value: "50+", label: "Projects Delivered" },
-                            { value: "30+", label: "Happy Clients" },
-                            { value: "6+", label: "Platforms Covered" },
+                            { value: "3+", label: "Global Giants Served" },
                         ].map((stat) => (
                             <div key={stat.label}>
                                 <p className="text-3xl font-bold gradient-text">{stat.value}</p>

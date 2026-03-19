@@ -8,11 +8,12 @@ import { FiMenu, FiX, FiUser } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "Services", href: "#services" },
-    { name: "About", href: "#about" },
-    { name: "Process", href: "#process" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/#home" },
+    { name: "AI Solutions", href: "/ai-solutions" },
+    { name: "Services", href: "/#services" },
+    { name: "About", href: "/#about" },
+    { name: "Process", href: "/#process" },
+    { name: "Contact", href: "/#contact" },
 ];
 
 export default function Navbar() {

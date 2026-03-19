@@ -11,11 +11,11 @@ import {
 } from "react-icons/fa6";
 
 const socialLinks = [
-    { icon: FaLinkedinIn, href: "#", label: "LinkedIn" },
-    { icon: FaXTwitter, href: "#", label: "X" },
-    { icon: FaYoutube, href: "#", label: "YouTube" },
-    { icon: FaInstagram, href: "#", label: "Instagram" },
-    { icon: FaFacebookF, href: "#", label: "Facebook" },
+    { icon: FaLinkedinIn, href: "https://www.linkedin.com/in/rajeevrockstar/", label: "LinkedIn" },
+    { icon: FaXTwitter, href: "https://x.com/rajeevrockstar", label: "X" },
+    { icon: FaYoutube, href: "https://www.youtube.com/@RajeevRockstar", label: "YouTube" },
+    { icon: FaInstagram, href: "https://www.instagram.com/rockstar_rajeevupadhyay/", label: "Instagram" },
+    { icon: FaFacebookF, href: "https://www.facebook.com/rajeevrohitupadhyay", label: "Facebook" },
 ];
 
 const quickLinks = [
@@ -42,9 +42,11 @@ export default function Footer() {
                             <span className="text-slate-500 text-lg ml-1">Group LLC</span>
                         </h2>
                         <p className="text-slate-400 max-w-md leading-relaxed mb-6">
-                            Your trusted partner for digital growth. We help businesses scale
-                            through expert social media marketing, web development, and
-                            creative branding solutions.
+                            Enterprise-grade IT infrastructure, cloud solutions, and AI 
+                            modernization for scaling businesses. Led by Rajeev Upadhyay.
+                        </p>
+                        <p className="text-slate-500 text-sm mb-6 italic">
+                            Global Availability: Serving Europe, UAE, Australia, and New Zealand.
                         </p>
                         <div className="flex gap-3">
                             {socialLinks.map((social) => (

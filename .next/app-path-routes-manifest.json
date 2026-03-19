@@ -2,6 +2,7 @@
   "/_global-error/page": "/_global-error",
   "/_not-found/page": "/_not-found",
   "/admin/page": "/admin",
+  "/ai-solutions/page": "/ai-solutions",
   "/api/admin/messages/route": "/api/admin/messages",
   "/api/admin/orders/route": "/api/admin/orders",
   "/api/auth/[...nextauth]/route": "/api/auth/[...nextauth]",

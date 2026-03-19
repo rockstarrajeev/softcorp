@@ -2,6 +2,7 @@
   "/_global-error/page": "app/_global-error/page.js",
   "/_not-found/page": "app/_not-found/page.js",
   "/admin/page": "app/admin/page.js",
+  "/ai-solutions/page": "app/ai-solutions/page.js",
   "/api/admin/messages/route": "app/api/admin/messages/route.js",
   "/api/admin/orders/route": "app/api/admin/orders/route.js",
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",

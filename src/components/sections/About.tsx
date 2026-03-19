@@ -5,28 +5,28 @@ import { FiTarget, FiUsers, FiZap, FiAward } from "react-icons/fi";
 
 const highlights = [
     {
-        icon: FiTarget,
-        title: "Results-Driven",
+        icon: FiAward,
+        title: "Academic Rigor",
         description:
-            "Every campaign is backed by data and optimized for measurable ROI.",
+            "Post Graduate in Computer Science from the prestigious BHU Varanasi.",
     },
     {
         icon: FiUsers,
-        title: "Dedicated Team",
+        title: "Corporate Standard",
         description:
-            "A specialized team assigned to each project for personalized attention.",
+            "Project execution experience at TCS, mastering global SLAs and workflows.",
     },
     {
         icon: FiZap,
-        title: "Fast Delivery",
+        title: "High-Stakes IT",
         description:
-            "Rapid turnaround without compromising quality or strategic depth.",
+            "Managing complex infrastructure for Swissport, Air Liquide, and Tata.",
     },
     {
-        icon: FiAward,
-        title: "Industry Expertise",
+        icon: FiTarget,
+        title: "AI Modernization",
         description:
-            "Deep knowledge across tech, enterprise IT, and digital marketing.",
+            "Leading the transition from legacy systems to intelligent AI ecosystems.",
     },
 ];
 
@@ -48,28 +48,30 @@ export default function About() {
                         transition={{ duration: 0.6 }}
                     >
                         <p className="text-brand-400 font-semibold text-sm uppercase tracking-widest mb-3">
-                            About Us
+                            The Expertise
                         </p>
                         <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                            Why Choose{" "}
-                            <span className="gradient-text">Softcorp Group?</span>
+                            Personal Branding Meets <br />
+                            <span className="gradient-text">Corporate Trust</span>
                         </h2>
                         <div className="space-y-4 text-slate-400 leading-relaxed text-lg">
                             <p>
-                                Softcorp Group LLC is a full-service digital marketing and
-                                technology agency. We help businesses and creators amplify their
-                                digital presence across every major platform.
+                                I am <strong>Rajeev Upadhyay</strong>, an Infrastructure Support 
+                                Engineer and the founder of Softcorp Group LLC. With over 6 years 
+                                of hands-on experience in managing global IT infrastructure, I build 
+                                systems that scale with authority.
                             </p>
                             <p>
-                                From social media strategy to custom web development, our team
-                                combines creative excellence with data-driven insights to
-                                deliver impactful results. We don&apos;t just post content — we build
-                                brands.
+                                Having executed critical projects under industry giants like 
+                                <strong>TCS</strong> and supported global organizations like 
+                                <strong>Swissport</strong> and <strong>Air Liquide</strong>, I 
+                                understand the non-negotiable nature of uptime, security, and 
+                                professional communication.
                             </p>
                             <p>
-                                Whether you&apos;re a startup looking for your first 1,000 followers
-                                or an enterprise scaling across multiple channels, we tailor our
-                                approach to your unique goals.
+                                My academic foundation from <strong>BHU Varanasi</strong> combined 
+                                with years of enterprise troubleshooting allows me to bridge the 
+                                gap between legacy reliability and modern AI-driven innovation.
                             </p>
                         </div>
                     </motion.div>
