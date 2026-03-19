@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-It's a Next.js + Prisma project. What would you like to work on? Here's what I can see:
+It's a Next.js + Prisma project.
 
 Framework: Next.js (TypeScript)
 
