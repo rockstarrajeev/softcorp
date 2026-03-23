@@ -50,23 +50,30 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     ],
     callbacks: {
         async signIn({ user, account }) {
-            // For Google SSO, auto-create user if not exists
-            if (account?.provider === "google" && user.email) {
-                const existing = await prisma.user.findUnique({
-                    where: { email: user.email },
-                });
-                if (!existing) {
-                    await prisma.user.create({
-                        data: {
-                            email: user.email,
-                            name: user.name || "Client",
-                            image: user.image,
-                            role: "client",
-                        },
+            try {
+                // For Google SSO, auto-create user if not exists
+                if (account?.provider === "google" && user.email) {
+                    const existing = await prisma.user.findUnique({
+                        where: { email: user.email },
                     });
+                    if (!existing) {
+                        await prisma.user.create({
+                            data: {
+                                email: user.email,
+                                name: user.name || "Client",
+                                image: user.image,
+                                role: "client",
+                            },
+                        });
+                    }
                 }
+                return true;
+            } catch (error) {
+                console.error("Database connection error during sign-in:", error);
+                // Return true if you want to allow them to login even if DB fails, 
+                // OR false to deny. Since role relies on DB, we deny, but error is logged.
+                return false; 
             }
-            return true;
         },
         async jwt({ token, user, account }) {
             if (user) {
