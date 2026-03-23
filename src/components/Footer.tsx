@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { FiMail, FiMapPin, FiPhone } from "react-icons/fi";
 import {
@@ -36,11 +37,16 @@ export default function Footer() {
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
                     {/* Brand */}
                     <div className="lg:col-span-2">
-                        <h2 className="text-2xl font-bold mb-4">
-                            <span className="gradient-text">Soft</span>
-                            <span className="text-white">corp</span>
-                            <span className="text-slate-500 text-lg ml-1">Group LLC</span>
-                        </h2>
+                        <div className="mb-6">
+                            <Image 
+                                src="/logo.png" 
+                                alt="SoftCorp Group" 
+                                width={256}
+                                height={256}
+                                className="h-24 lg:h-32 w-auto object-contain"
+                                unoptimized
+                            />
+                        </div>
                         <p className="text-slate-400 max-w-md leading-relaxed mb-6">
                             Enterprise-grade IT infrastructure, cloud solutions, and AI 
                             modernization for scaling businesses. Led by Rajeev Upadhyay.

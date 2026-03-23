@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { FiMenu, FiX, FiUser } from "react-icons/fi";
@@ -45,13 +46,20 @@ export default function Navbar() {
         >
             <div className="container mx-auto px-6 lg:px-12 flex justify-between items-center">
                 {/* Logo */}
-                <Link href="/" className="text-2xl font-bold tracking-tight">
-                    <span className="gradient-text">Soft</span>
-                    <span className="text-white">corp</span>
+                <Link href="/" className="flex items-center">
+                    <Image 
+                        src="/logo.png" 
+                        alt="SoftCorp Group" 
+                        width={256}
+                        height={256}
+                        className="h-20 lg:h-24 w-auto object-contain"
+                        priority
+                        unoptimized
+                    />
                 </Link>
 
                 {/* Desktop Nav */}
-                <nav className="hidden md:flex items-center gap-8">
+                <nav className="hidden lg:flex items-center gap-8">
                     {navLinks.map((link) => (
                         <a
                             key={link.name}
@@ -84,7 +92,7 @@ export default function Navbar() {
                 {/* Mobile Toggle */}
                 <button
                     onClick={() => setIsOpen(!isOpen)}
-                    className="md:hidden text-white p-2"
+                    className="lg:hidden text-white p-2"
                     aria-label="Toggle Menu"
                 >
                     {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
@@ -98,7 +106,7 @@ export default function Navbar() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden glass border-t border-white/5"
+                        className="lg:hidden glass border-t border-white/5"
                     >
                         <nav className="flex flex-col items-center py-6 gap-4">
                             {navLinks.map((link) => (

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { FiMail, FiLock, FiArrowRight } from "react-icons/fi";
 import { FcGoogle } from "react-icons/fc";
@@ -48,9 +49,15 @@ export default function LoginPage() {
                 className="relative z-10 w-full max-w-md"
             >
                 <div className="text-center mb-8">
-                    <Link href="/" className="text-3xl font-bold inline-block mb-2">
-                        <span className="gradient-text">Soft</span>
-                        <span className="text-white">corp</span>
+                    <Link href="/" className="inline-block mb-2">
+                        <Image 
+                            src="/logo.png" 
+                            alt="SoftCorp Group" 
+                            width={256}
+                            height={256}
+                            className="h-24 lg:h-32 w-auto object-contain mx-auto"
+                            unoptimized
+                        />
                     </Link>
                     <p className="text-slate-400">Sign in to your account</p>
                 </div>

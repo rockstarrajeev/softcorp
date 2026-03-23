@@ -7,7 +7,7 @@ export default function Hero() {
     return (
         <section
             id="home"
-            className="relative min-h-screen flex items-center overflow-hidden"
+            className="relative min-h-screen flex flex-col overflow-hidden pt-36 pb-20 justify-start lg:justify-center"
         >
             {/* Animated Background */}
             <div className="absolute inset-0">

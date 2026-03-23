@@ -34,6 +34,9 @@ export const metadata: Metadata = {
     siteName: "Softcorp Group LLC",
     type: "website",
   },
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({
