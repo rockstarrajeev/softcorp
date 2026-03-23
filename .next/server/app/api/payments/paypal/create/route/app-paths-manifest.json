@@ -1,0 +1,3 @@
+{
+  "/api/payments/paypal/create/route": "app/api/payments/paypal/create/route.js"
+}
