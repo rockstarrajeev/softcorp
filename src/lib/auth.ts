@@ -10,17 +10,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     pages: {
         signIn: "/login",
     },
-    cookies: {
-        pkceCodeVerifier: {
-            name: "next-auth.pkce.code_verifier",
-            options: {
-                httpOnly: true,
-                sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
-                path: "/",
-                secure: process.env.NODE_ENV === "production",
-            },
-        },
-    },
     providers: [
         Google({
             clientId: process.env.GOOGLE_CLIENT_ID ?? "",
