@@ -68,29 +68,33 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
                     }
                 }
                 return true;
-            } catch (error) {
+            } catch (error: any) {
                 console.error("Database connection error during sign-in:", error);
-                // Return true if you want to allow them to login even if DB fails, 
-                // OR false to deny. Since role relies on DB, we deny, but error is logged.
-                return false; 
+                // Redirect user to the login page with the exact error message in the URL
+                return `/login?error=DatabaseError&message=${encodeURIComponent(error.message || "Unknown error")}`; 
             }
         },
         async jwt({ token, user, account }) {
-            if (user) {
-                // For credentials login, role comes from authorize()
-                if ((user as { role?: string }).role) {
-                    token.role = (user as { role?: string }).role;
-                    token.id = user.id;
-                } else if (account?.provider === "google" && user.email) {
-                    // For Google SSO, fetch role from database
-                    const dbUser = await prisma.user.findUnique({
-                        where: { email: user.email },
-                    });
-                    token.role = dbUser?.role || "client";
-                    token.id = dbUser?.id || user.id;
+            try {
+                if (user) {
+                    // For credentials login, role comes from authorize()
+                    if ((user as { role?: string }).role) {
+                        token.role = (user as { role?: string }).role;
+                        token.id = user.id;
+                    } else if (account?.provider === "google" && user.email) {
+                        // For Google SSO, fetch role from database
+                        const dbUser = await prisma.user.findUnique({
+                            where: { email: user.email },
+                        });
+                        token.role = dbUser?.role || "client";
+                        token.id = dbUser?.id || user.id;
+                    }
                 }
+                return token;
+            } catch (error: any) {
+                console.error("JWT Db Error", error);
+                return token; // At least don't crash the session entirely
             }
-            return token;
         },
         async session({ session, token }) {
             if (session.user) {
