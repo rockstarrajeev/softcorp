@@ -40,5 +40,16 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-/src/generated/prisma
-/prisma/dev.db
+# sqlite databases
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+/prisma/*.db*
+dev.db
+
+# generated prisma client
+src/generated/
+
+# graphify cache
+graphify-out/cache/

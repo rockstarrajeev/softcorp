@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 import prisma from "@/lib/db";
 import Stripe from "stripe";
+import { checkRateLimit } from "@/lib/rate-limit";
 
 // POST — Create Stripe Checkout Session
 export async function POST(request: Request) {
@@ -16,6 +17,14 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: "Invalid session" }, { status: 401 });
         }
 
+        const rateLimit = checkRateLimit(`stripe_${userId}`, 10, 10 * 60 * 1000);
+        if (!rateLimit.success) {
+            return NextResponse.json(
+                { error: "Too many checkout requests. Please wait a moment." },
+                { status: 429 }
+            );
+        }
+
         const secretKey = process.env.STRIPE_SECRET_KEY;
         if (!secretKey) {
             return NextResponse.json({ error: "Stripe not configured" }, { status: 500 });
@@ -24,6 +33,9 @@ export async function POST(request: Request) {
         const stripe = new Stripe(secretKey);
 
         const { serviceId, requirements } = await request.json();
+        const sanitizedRequirements = requirements && typeof requirements === "string"
+            ? requirements.trim().slice(0, 3000)
+            : null;
 
         const service = await prisma.service.findUnique({
             where: { id: serviceId },
@@ -39,7 +51,7 @@ export async function POST(request: Request) {
                 serviceId: service.id,
                 totalAmount: service.price,
                 currency: service.currency,
-                requirements: requirements || null,
+                requirements: sanitizedRequirements,
                 status: "pending",
             },
         });

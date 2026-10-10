@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { FiSend, FiMail, FiMapPin, FiPhone } from "react-icons/fi";
+import { FiSend, FiMail, FiMapPin, FiPhone, FiCheck, FiClock, FiShield } from "react-icons/fi";
+import SpotlightCard from "@/components/ui/SpotlightCard";
 
 export default function Contact() {
     const [formData, setFormData] = useState({
@@ -14,6 +15,18 @@ export default function Contact() {
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
+    const [errorMsg, setErrorMsg] = useState("");
+    const [currentTime, setCurrentTime] = useState("");
+
+    useEffect(() => {
+        const updateTime = () => {
+            const now = new Date();
+            setCurrentTime(now.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit", second: "2-digit", timeZoneName: "short" }));
+        };
+        updateTime();
+        const interval = setInterval(updateTime, 1000);
+        return () => clearInterval(interval);
+    }, []);
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -24,6 +37,7 @@ export default function Contact() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
+        setErrorMsg("");
 
         try {
             const res = await fetch("/api/contact", {
@@ -34,22 +48,22 @@ export default function Contact() {
 
             if (res.ok) {
                 setIsSuccess(true);
+                setErrorMsg("");
                 setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
                 setTimeout(() => setIsSuccess(false), 5000);
+            } else {
+                const data = await res.json().catch(() => ({}));
+                setErrorMsg(data.error || "Failed to transmit message. Please contact us directly at support@wesoftcorp.com.");
             }
         } catch {
-            console.error("Failed to send message");
+            setErrorMsg("Network error. Please try again or reach us at support@wesoftcorp.com.");
         } finally {
             setIsSubmitting(false);
         }
     };
 
     return (
-        <section id="contact" className="py-24 relative">
-            <div className="absolute inset-0">
-                <div className="absolute top-1/3 left-1/3 w-96 h-96 bg-brand-600/5 rounded-full blur-[128px]" />
-            </div>
-
+        <section id="contact" className="py-24 relative overflow-hidden">
             <div className="container mx-auto px-6 lg:px-12 relative z-10">
                 {/* Section Header */}
                 <motion.div
@@ -58,36 +72,38 @@ export default function Contact() {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <p className="text-brand-400 font-semibold text-sm uppercase tracking-widest mb-3">
-                        Get In Touch
-                    </p>
-                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                        Book a <span className="gradient-text">Free IT Consultation</span>
+                    <span className="inline-block px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-3">
+                        Initiate Collaboration
+                    </span>
+                    <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">
+                        Schedule a Free <span className="gradient-text">IT Architecture Discovery</span>
                     </h2>
-                    <p className="text-slate-400 max-w-2xl mx-auto text-lg">
-                        Ready to modernize your infrastructure or scale with AI? 
-                        Schedule a discovery call to discuss your enterprise requirements.
+                    <p className="text-slate-300 max-w-2xl mx-auto text-base md:text-lg">
+                        Ready to eliminate downtime vulnerabilities or deploy autonomous AI agent pipelines? 
+                        Let&apos;s map out your solution.
                     </p>
                 </motion.div>
 
-                <div className="grid lg:grid-cols-5 gap-12">
-                    {/* Contact Info */}
+                <div className="grid lg:grid-cols-12 gap-12 items-start">
+                    {/* Left Column — Contact Cards & Global Time */}
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        className="lg:col-span-2 space-y-8"
+                        className="lg:col-span-5 space-y-6"
                     >
-                        <div className="glass rounded-2xl p-8 space-y-6">
+                        <SpotlightCard className="p-8 space-y-6">
+                            <h3 className="text-xl font-bold text-white mb-2">Direct Enterprise Channels</h3>
+                            
                             <div className="flex items-start gap-4">
-                                <div className="w-10 h-10 rounded-lg gradient-brand flex items-center justify-center shrink-0">
+                                <div className="w-10 h-10 rounded-xl gradient-brand flex items-center justify-center shrink-0 shadow-md">
                                     <FiMail size={18} className="text-white" />
                                 </div>
                                 <div>
-                                    <p className="text-white font-semibold mb-1">Email</p>
+                                    <p className="text-white font-semibold text-sm">Direct Email</p>
                                     <a
                                         href="mailto:support@wesoftcorp.com"
-                                        className="text-slate-400 hover:text-brand-400 transition-colors text-sm"
+                                        className="text-cyan-400 hover:text-cyan-300 transition-colors text-sm font-mono"
                                     >
                                         support@wesoftcorp.com
                                     </a>
@@ -95,41 +111,72 @@ export default function Contact() {
                             </div>
 
                             <div className="flex items-start gap-4">
-                                <div className="w-10 h-10 rounded-lg gradient-brand flex items-center justify-center shrink-0">
+                                <div className="w-10 h-10 rounded-xl gradient-brand flex items-center justify-center shrink-0 shadow-md">
                                     <FiPhone size={18} className="text-white" />
                                 </div>
                                 <div>
-                                    <p className="text-white font-semibold mb-1">Phone</p>
-                                    <p className="text-slate-400 text-sm">+1 9292664560 US</p>
+                                    <p className="text-white font-semibold text-sm">Direct Enterprise Line &amp; WhatsApp</p>
+                                    <a
+                                        href="tel:+19292664560"
+                                        className="text-slate-300 hover:text-white transition-colors text-sm font-mono"
+                                    >
+                                        +1 929-266-4560
+                                    </a>
                                 </div>
                             </div>
 
                             <div className="flex items-start gap-4">
-                                <div className="w-10 h-10 rounded-lg gradient-brand flex items-center justify-center shrink-0">
+                                <div className="w-10 h-10 rounded-xl gradient-brand flex items-center justify-center shrink-0 shadow-md">
                                     <FiMapPin size={18} className="text-white" />
                                 </div>
                                 <div>
-                                    <p className="text-white font-semibold mb-1">Location</p>
-                                    <p className="text-slate-400 text-sm">United States</p>
+                                    <p className="text-white font-semibold text-sm">Registered Operations &amp; HQ</p>
+                                    <p className="text-slate-300 text-xs leading-relaxed">
+                                        Plot No 17/18, Gulab Ashiyana, Chinhat, Matiyari, Lucknow, Uttar Pradesh - 226028, India
+                                    </p>
+                                    <span className="inline-block text-[11px] font-mono text-emerald-400 mt-0.5">
+                                        MSME Reg: UDYAM-UP-50-0298723
+                                    </span>
+                                </div>
+                            </div>
+                        </SpotlightCard>
+
+                        {/* Live SLA & Global Coverage Widget */}
+                        <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/10 space-y-4">
+                            <div className="flex items-center justify-between text-xs font-mono">
+                                <span className="flex items-center gap-1.5 text-slate-300">
+                                    <FiClock className="text-cyan-400" />
+                                    Active System Time
+                                </span>
+                                <span className="text-cyan-400 font-semibold">{currentTime || "Live Telemetry"}</span>
+                            </div>
+                            <div className="grid grid-cols-2 gap-3 text-xs pt-2 border-t border-white/5">
+                                <div className="flex items-center gap-2 text-slate-300">
+                                    <FiShield className="text-emerald-400" />
+                                    <span>NDA Protected</span>
+                                </div>
+                                <div className="flex items-center gap-2 text-slate-300">
+                                    <FiCheck className="text-emerald-400" />
+                                    <span>24-Hour Response</span>
                                 </div>
                             </div>
                         </div>
                     </motion.div>
 
-                    {/* Contact Form */}
+                    {/* Right Column — Modern Interactive Form */}
                     <motion.div
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="lg:col-span-3"
+                        className="lg:col-span-7"
                     >
-                        <div className="glass rounded-2xl p-8">
-                            <form onSubmit={handleSubmit} className="space-y-5">
-                                <div className="grid sm:grid-cols-2 gap-5">
+                        <SpotlightCard className="p-8 lg:p-10">
+                            <form onSubmit={handleSubmit} className="space-y-6">
+                                <div className="grid sm:grid-cols-2 gap-6">
                                     <div>
-                                        <label className="block text-sm font-medium text-slate-300 mb-2">
-                                            Name *
+                                        <label className="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-2">
+                                            Full Name *
                                         </label>
                                         <input
                                             type="text"
@@ -137,13 +184,13 @@ export default function Contact() {
                                             value={formData.name}
                                             onChange={handleChange}
                                             required
-                                            className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500/50 transition-all"
-                                            placeholder="Your name"
+                                            className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition-all text-sm"
+                                            placeholder="John Doe"
                                         />
                                     </div>
                                     <div>
-                                        <label className="block text-sm font-medium text-slate-300 mb-2">
-                                            Email *
+                                        <label className="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-2">
+                                            Work Email *
                                         </label>
                                         <input
                                             type="email"
@@ -151,83 +198,93 @@ export default function Contact() {
                                             value={formData.email}
                                             onChange={handleChange}
                                             required
-                                            className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500/50 transition-all"
-                                            placeholder="you@example.com"
+                                            className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition-all text-sm"
+                                            placeholder="john@enterprise.com"
                                         />
                                     </div>
                                 </div>
 
-                                <div className="grid sm:grid-cols-2 gap-5">
+                                <div className="grid sm:grid-cols-2 gap-6">
                                     <div>
-                                        <label className="block text-sm font-medium text-slate-300 mb-2">
-                                            Phone
+                                        <label className="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-2">
+                                            Phone / WhatsApp
                                         </label>
                                         <input
                                             type="tel"
                                             name="phone"
                                             value={formData.phone}
                                             onChange={handleChange}
-                                            className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500/50 transition-all"
+                                            className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition-all text-sm"
                                             placeholder="+1 (555) 000-0000"
                                         />
                                     </div>
                                     <div>
-                                        <label className="block text-sm font-medium text-slate-300 mb-2">
-                                            Service Interested In
+                                        <label className="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-2">
+                                            Area of Engagement
                                         </label>
                                         <select
                                             name="subject"
                                             value={formData.subject}
                                             onChange={handleChange}
-                                            className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500/50 transition-all"
+                                            className="w-full px-4 py-3 bg-slate-900 border border-white/10 rounded-xl text-white focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition-all text-sm"
                                         >
-                                            <option value="" className="bg-surface-900">Select an area</option>
-                                            <option value="Cloud Infrastructure" className="bg-surface-900">Cloud Infrastructure</option>
-                                            <option value="Server Maintenance" className="bg-surface-900">Server Maintenance</option>
-                                            <option value="AI Automation" className="bg-surface-900">AI Automation</option>
-                                            <option value="Software Development" className="bg-surface-900">Software Development</option>
-                                            <option value="Network Security" className="bg-surface-900">Network Security</option>
-                                            <option value="Enterprise Strategy" className="bg-surface-900">Enterprise Strategy</option>
-                                            <option value="Other" className="bg-surface-900">Other</option>
+                                            <option value="">Select Focus Area</option>
+                                            <option value="Cloud Infrastructure">High-Availability Cloud Architecture</option>
+                                            <option value="Server Maintenance">24/7 Server & Zabbix Telemetry</option>
+                                            <option value="AI Automation">Autonomous AI Agents & Workflows</option>
+                                            <option value="Software Development">Full-Stack Platform Engineering</option>
+                                            <option value="Network Security">Zero-Trust & Compliance Audits</option>
+                                            <option value="Other">Custom Enterprise Engagement</option>
                                         </select>
                                     </div>
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-slate-300 mb-2">
-                                        Message *
+                                    <label className="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-2">
+                                        Project Scope & Challenges *
                                     </label>
                                     <textarea
                                         name="message"
                                         value={formData.message}
                                         onChange={handleChange}
                                         required
-                                        rows={5}
-                                        className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500/50 transition-all resize-none"
-                                        placeholder="Tell us about your project..."
+                                        rows={4}
+                                        className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition-all resize-none text-sm"
+                                        placeholder="Describe your current infrastructure bottlenecks, goals, or AI modernization requirements..."
                                     />
                                 </div>
 
                                 <button
                                     type="submit"
                                     disabled={isSubmitting}
-                                    className="w-full sm:w-auto px-8 py-4 gradient-brand text-white font-semibold rounded-xl hover:opacity-90 transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-brand-600/25"
+                                    className="w-full sm:w-auto px-8 py-4 gradient-brand text-white font-bold text-sm tracking-wide rounded-xl hover:brightness-110 transition-all flex items-center justify-center gap-2.5 disabled:opacity-50 disabled:cursor-not-allowed shadow-xl shadow-cyan-500/25"
                                 >
-                                    {isSubmitting ? "Sending..." : "Send Message"}
-                                    <FiSend size={16} />
+                                    <span>{isSubmitting ? "Transmitting..." : "Send Architecture Inquiry"}</span>
+                                    <FiSend size={15} />
                                 </button>
 
                                 {isSuccess && (
-                                    <motion.p
+                                    <motion.div
                                         initial={{ opacity: 0, y: 10 }}
                                         animate={{ opacity: 1, y: 0 }}
-                                        className="text-green-400 font-medium text-sm"
+                                        className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-sm font-medium flex items-center gap-2"
                                     >
-                                        ✓ Message sent successfully! We&apos;ll get back to you within 24 hours.
-                                    </motion.p>
+                                        <FiCheck size={18} />
+                                        <span>Message transmitted successfully! Our team will respond within 24 hours.</span>
+                                    </motion.div>
+                                )}
+
+                                {errorMsg && (
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        className="p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-300 text-sm font-medium"
+                                    >
+                                        {errorMsg}
+                                    </motion.div>
                                 )}
                             </form>
-                        </div>
+                        </SpotlightCard>
                     </motion.div>
                 </div>
             </div>

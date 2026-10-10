@@ -2,63 +2,132 @@ import { NextResponse } from "next/server";
 import prisma from "@/lib/db";
 import bcrypt from "bcryptjs";
 
-// GET /api/seed — Seeds the database with admin user and services
-// Only works if no admin exists yet (safety check)
-export async function GET() {
+// GET /api/seed — Secure database seeding endpoint
+// In production, requires header `x-seed-token` matching process.env.ADMIN_SEED_SECRET
+export async function GET(request: Request) {
     try {
+        const seedSecret = process.env.ADMIN_SEED_SECRET;
+        const authHeader = request.headers.get("x-seed-token");
+
+        // Strict production check
+        if (process.env.NODE_ENV === "production") {
+            if (!seedSecret || authHeader !== seedSecret) {
+                return NextResponse.json(
+                    { error: "Forbidden: Seeding endpoint is disabled in production without valid authorization token." },
+                    { status: 403 }
+                );
+            }
+        }
+
         const existingAdmin = await prisma.user.findUnique({
             where: { email: "admin@wesoftcorp.com" },
         });
 
-        if (existingAdmin) {
-            return NextResponse.json({ message: "Database already seeded." });
+        if (!existingAdmin) {
+            // Create Admin User with env-specified password or default dev password
+            const rawPassword = process.env.ADMIN_INITIAL_PASSWORD || "Admin@123";
+            const adminPassword = await bcrypt.hash(rawPassword, 12);
+            await prisma.user.create({
+                data: {
+                    name: "Softcorp Admin",
+                    email: "admin@wesoftcorp.com",
+                    password: adminPassword,
+                    role: "admin",
+                },
+            });
         }
 
-        // Create Admin User
-        const adminPassword = await bcrypt.hash("Admin@123", 12);
-        await prisma.user.create({
-            data: {
-                name: "Softcorp Admin",
-                email: "admin@wesoftcorp.com",
-                password: adminPassword,
-                role: "admin",
-            },
-        });
-
-        // Seed Services
+        // Official Udyam Registration Services (8 Certified Activities, Research-Backed Oct 2026 INR Rates)
         const services = [
-            { name: "Social Media Strategy", slug: "social-media-strategy", category: "social-media", description: "Custom strategy aligned to your business goals, audience analysis, and competitor benchmarking.", price: 499, pricingModel: "fixed", sortOrder: 1 },
-            { name: "Content Creation & Design", slug: "content-creation-design", category: "social-media", description: "High-quality graphics, Reels, Shorts, Stories, carousel posts, and motion design.", price: 299, pricingModel: "monthly", sortOrder: 2 },
-            { name: "Social Media Management", slug: "social-media-management", category: "social-media", description: "Daily posting, scheduling, community engagement across all your platforms.", price: 599, pricingModel: "monthly", sortOrder: 3 },
-            { name: "Paid Ads Management", slug: "paid-ads-management", category: "social-media", description: "Facebook, Instagram, YouTube, and X Ads — campaign setup, optimization, A/B testing.", price: 399, pricingModel: "monthly", sortOrder: 4 },
-            { name: "Influencer Marketing", slug: "influencer-marketing", category: "social-media", description: "Identify, vet, and manage influencer collaborations to build authenticity.", price: 799, pricingModel: "fixed", sortOrder: 5 },
-            { name: "Analytics & Reporting", slug: "analytics-reporting", category: "social-media", description: "Monthly performance reports with KPIs, engagement metrics, and ROI tracking.", price: 199, pricingModel: "monthly", sortOrder: 6 },
-            { name: "Reputation Management", slug: "reputation-management", category: "social-media", description: "Brand mention monitoring, sentiment analysis, and crisis response.", price: 349, pricingModel: "monthly", sortOrder: 7 },
-            { name: "YouTube Channel Management", slug: "youtube-management", category: "platform", description: "Uploads, SEO, thumbnails, end screens, analytics, and growth strategy.", price: 499, pricingModel: "monthly", sortOrder: 8 },
-            { name: "Instagram Growth & Engagement", slug: "instagram-growth", category: "platform", description: "Reels, Stories, hashtag strategy, engagement optimization, and follower growth.", price: 399, pricingModel: "monthly", sortOrder: 9 },
-            { name: "Facebook Page & Group Management", slug: "facebook-management", category: "platform", description: "Content calendar, community moderation, and lead generation.", price: 349, pricingModel: "monthly", sortOrder: 10 },
-            { name: "X (Twitter) Marketing", slug: "x-twitter-marketing", category: "platform", description: "Tweet threads, Spaces hosting, trend-jacking, and engagement strategy.", price: 299, pricingModel: "monthly", sortOrder: 11 },
-            { name: "LinkedIn Marketing", slug: "linkedin-marketing", category: "platform", description: "Thought leadership content, company page management, and B2B lead generation.", price: 449, pricingModel: "monthly", sortOrder: 12 },
-            { name: "TikTok Marketing", slug: "tiktok-marketing", category: "platform", description: "Trend-based content creation, creator partnerships, and viral growth.", price: 399, pricingModel: "monthly", sortOrder: 13 },
-            { name: "Website Design & Development", slug: "website-design-development", category: "web-tech", description: "Custom responsive websites, landing pages, and web applications.", price: 1499, pricingModel: "fixed", sortOrder: 14 },
-            { name: "SEO & SEM", slug: "seo-sem", category: "web-tech", description: "On-page SEO, keyword research, Google Ads management, and organic growth.", price: 499, pricingModel: "monthly", sortOrder: 15 },
-            { name: "Email Marketing", slug: "email-marketing", category: "web-tech", description: "Campaign design, automation workflows, newsletters, and drip sequences.", price: 249, pricingModel: "monthly", sortOrder: 16 },
-            { name: "E-commerce Setup", slug: "ecommerce-setup", category: "web-tech", description: "Shopify, WooCommerce, or custom store setup with payment integration.", price: 1999, pricingModel: "fixed", sortOrder: 17 },
-            { name: "Brand Identity Design", slug: "brand-identity-design", category: "creative", description: "Logo, color palette, typography, and comprehensive brand guidelines.", price: 999, pricingModel: "fixed", sortOrder: 18 },
-            { name: "Video Production & Editing", slug: "video-production", category: "creative", description: "Promo videos, explainers, testimonials, and professional video editing.", price: 599, pricingModel: "fixed", sortOrder: 19 },
-            { name: "Copywriting", slug: "copywriting", category: "creative", description: "Ad copy, blog posts, website content, and persuasive sales copy.", price: 199, pricingModel: "fixed", sortOrder: 20 },
+            {
+                name: "Custom Software Engineering (NIC 62011)",
+                slug: "custom-software-engineering",
+                category: "software-engineering",
+                description: "Full-cycle custom software, REST/gRPC microservices, ERP connectors, and backend platforms.",
+                price: 149999,
+                pricingModel: "fixed",
+                sortOrder: 1,
+            },
+            {
+                name: "Web Architecture & Digital Platforms (NIC 62012)",
+                slug: "web-architecture-platforms",
+                category: "web-platforms",
+                description: "High-performance Next.js 15+ and React 19 digital platforms, accessible design systems, and enterprise UI/UX engineering.",
+                price: 124999,
+                pricingModel: "fixed",
+                sortOrder: 2,
+            },
+            {
+                name: "IT Infrastructure Support & Telemetry (NIC 62013)",
+                slug: "it-infrastructure-support",
+                category: "infrastructure",
+                description: "High-availability Linux/Windows server clusters, Keepalived failover, and continuous 24/7 Zabbix & Prometheus telemetry.",
+                price: 24999,
+                pricingModel: "monthly",
+                sortOrder: 3,
+            },
+            {
+                name: "Enterprise IT Consultancy & Cloud Migration (NIC 62020)",
+                slug: "enterprise-it-consultancy",
+                category: "it-consultancy",
+                description: "Strategic multi-cloud architecture migration (AWS/Azure/OCI), disaster recovery runbooks, and FinOps cost optimization.",
+                price: 74999,
+                pricingModel: "fixed",
+                sortOrder: 4,
+            },
+            {
+                name: "Autonomous AI Workflows & Modern IT (NIC 62099)",
+                slug: "autonomous-ai-workflows",
+                category: "ai-modernization",
+                description: "Autonomous multi-agent systems, deterministic enterprise RAG pipelines, zero-trust network access, and self-healing automation.",
+                price: 299999,
+                pricingModel: "fixed",
+                sortOrder: 5,
+            },
+            {
+                name: "Data Processing, ETL & Cloud Hosting (NIC 63119)",
+                slug: "data-processing-cloud-hosting",
+                category: "cloud-hosting",
+                description: "Real-time and batch ETL streaming ingestion, PostgreSQL/Redis database clustering, and isolated encrypted cloud hosting enclaves.",
+                price: 34999,
+                pricingModel: "monthly",
+                sortOrder: 6,
+            },
+            {
+                name: "Enterprise Web Portals & Search Systems (NIC 63121)",
+                slug: "web-portals-search-systems",
+                category: "web-portals",
+                description: "Custom B2B client self-service portals, semantic knowledge indices, Elasticsearch/Meilisearch engines, and automated multi-currency checkout.",
+                price: 199999,
+                pricingModel: "fixed",
+                sortOrder: 7,
+            },
+            {
+                name: "IT Annual Maintenance & Facilities Management (NIC 62020-AMC)",
+                slug: "it-amc-facilities-management",
+                category: "it-amc",
+                description: "Comprehensive Annual Maintenance Contracts (AMC) covering desktops, laptops, servers & network hardware with scheduled preventive maintenance.",
+                price: 19999,
+                pricingModel: "monthly",
+                sortOrder: 8,
+            },
         ];
 
         for (const service of services) {
-            await prisma.service.create({ data: service });
+            await prisma.service.upsert({
+                where: { slug: service.slug },
+                update: { ...service, isActive: true },
+                create: service,
+            });
         }
 
         return NextResponse.json({
             success: true,
-            message: `Seeded admin user and ${services.length} services.`,
+            message: "Services verified and synchronized.",
+            count: services.length,
         });
     } catch (error) {
-        console.error("Seed error:", error);
-        return NextResponse.json({ error: String(error) }, { status: 500 });
+        console.error("Seed route error:", error);
+        return NextResponse.json({ error: "Database initialization failed" }, { status: 500 });
     }
 }

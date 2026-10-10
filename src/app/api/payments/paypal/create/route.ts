@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 import prisma from "@/lib/db";
+import { checkRateLimit } from "@/lib/rate-limit";
 
 // POST — Create a PayPal order
 export async function POST(request: Request) {
@@ -15,7 +16,18 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: "Invalid session" }, { status: 401 });
         }
 
+        const rateLimit = checkRateLimit(`paypal_${userId}`, 10, 10 * 60 * 1000);
+        if (!rateLimit.success) {
+            return NextResponse.json(
+                { error: "Too many checkout requests. Please wait a moment." },
+                { status: 429 }
+            );
+        }
+
         const { serviceId, requirements } = await request.json();
+        const sanitizedRequirements = requirements && typeof requirements === "string"
+            ? requirements.trim().slice(0, 3000)
+            : null;
 
         const service = await prisma.service.findUnique({
             where: { id: serviceId },
@@ -76,7 +88,7 @@ export async function POST(request: Request) {
                 serviceId: service.id,
                 totalAmount: service.price,
                 currency: service.currency,
-                requirements: requirements || null,
+                requirements: sanitizedRequirements,
                 status: "pending",
             },
         });

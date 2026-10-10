@@ -36,9 +36,8 @@ function CheckoutSuccessContent() {
                     });
                     const data = await res.json();
                     setVerified(data.success);
-                } else if (orderId) {
-                    // Razorpay already verified client-side
-                    setVerified(true);
+                } else {
+                    setVerified(false);
                 }
             } catch {
                 setVerified(false);

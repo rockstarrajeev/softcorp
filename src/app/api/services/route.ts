@@ -9,7 +9,14 @@ export async function GET() {
             orderBy: { sortOrder: "asc" },
         });
 
-        return NextResponse.json({ services });
+        return NextResponse.json(
+            { services },
+            {
+                headers: {
+                    "Cache-Control": "public, s-maxage=60, stale-while-revalidate=300",
+                },
+            }
+        );
     } catch (error) {
         console.error("Services error:", error);
         return NextResponse.json(

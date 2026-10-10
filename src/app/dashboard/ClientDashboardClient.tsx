@@ -64,6 +64,13 @@ const tabs = [
 ];
 
 const categoryLabels: Record<string, string> = {
+    "software-engineering": "Software Eng (NIC 62011)",
+    "web-platforms": "Web Platforms (NIC 62012)",
+    "infrastructure": "IT Infrastructure (NIC 62013)",
+    "it-consultancy": "IT Consultancy (NIC 62020)",
+    "ai-modernization": "Autonomous AI (NIC 62099)",
+    "cloud-hosting": "Cloud & Data (NIC 63119)",
+    "web-portals": "Web Portals (NIC 63121)",
     "social-media": "Social Media",
     platform: "Platform",
     "web-tech": "Web & Tech",
@@ -71,6 +78,13 @@ const categoryLabels: Record<string, string> = {
 };
 
 const categoryColors: Record<string, string> = {
+    "software-engineering": "from-blue-600 to-cyan-400",
+    "web-platforms": "from-emerald-600 to-teal-400",
+    "infrastructure": "from-cyan-600 to-blue-500",
+    "it-consultancy": "from-indigo-600 to-violet-500",
+    "ai-modernization": "from-purple-600 to-pink-500",
+    "cloud-hosting": "from-amber-600 to-orange-400",
+    "web-portals": "from-teal-600 to-emerald-400",
     "social-media": "from-blue-500 to-cyan-400",
     platform: "from-purple-500 to-pink-400",
     "web-tech": "from-emerald-500 to-teal-400",
@@ -299,7 +313,7 @@ function OverviewTab({
         },
         {
             label: "Total Spent",
-            value: `$${totalSpent.toLocaleString()}`,
+            value: `₹${totalSpent.toLocaleString()}`,
             icon: FiDollarSign,
             color: "from-orange-500 to-amber-400",
         },
@@ -499,7 +513,7 @@ function ServicesTab({
                         <div className="flex items-end justify-between pt-3 border-t border-white/5">
                             <div>
                                 <span className="text-2xl font-bold text-white">
-                                    ${service.price}
+                                    ₹{service.price}
                                 </span>
                                 <span className="text-slate-500 text-sm ml-1">
                                     {pricingLabels[service.pricingModel]}
@@ -614,7 +628,7 @@ function OrdersTab({
 
                                     <div className="flex items-center gap-4 shrink-0">
                                         <span className="text-white font-semibold text-sm">
-                                            ${order.totalAmount}
+                                            ₹{order.totalAmount}
                                         </span>
                                         <span
                                             className={`px-2.5 py-1 rounded-md text-xs font-medium border ${statusColors[order.status] || statusColors.pending}`}
@@ -811,7 +825,7 @@ function ProfileTab({
                     <div className="bg-white/[0.03] rounded-xl p-5">
                         <p className="text-slate-500 text-sm">Total Spent</p>
                         <p className="text-3xl font-bold text-white mt-1">
-                            ${totalSpent.toLocaleString()}
+                            ₹{totalSpent.toLocaleString()}
                         </p>
                     </div>
                 </div>

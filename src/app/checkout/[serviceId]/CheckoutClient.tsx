@@ -17,7 +17,6 @@ import {
     FaCcVisa,
     FaCcMastercard,
 } from "react-icons/fa";
-import { SiRazorpay } from "react-icons/si";
 
 interface ServiceDetails {
     id: string;
@@ -31,12 +30,20 @@ interface ServiceDetails {
 
 interface Props {
     service: ServiceDetails;
-    gateways: { paypal: boolean; stripe: boolean; razorpay: boolean };
+    gateways: { paypal: boolean; stripe: boolean };
     userName: string;
     userEmail: string;
 }
 
 const categoryLabels: Record<string, string> = {
+    "software-engineering": "Software Eng (NIC 62011)",
+    "web-platforms": "Web Platforms (NIC 62012)",
+    "infrastructure": "IT Infrastructure (NIC 62013)",
+    "it-consultancy": "IT Consultancy (NIC 62020)",
+    "ai-modernization": "Autonomous AI (NIC 62099)",
+    "cloud-hosting": "Cloud & Data (NIC 63119)",
+    "web-portals": "Web Portals (NIC 63121)",
+    "it-amc": "IT AMC & Facilities (NIC 62020)",
     "social-media": "Social Media",
     platform: "Platform",
     "web-tech": "Web & Tech",
@@ -48,14 +55,6 @@ const pricingLabels: Record<string, string> = {
     hourly: "Per hour",
     monthly: "Per month",
 };
-
-declare global {
-    interface Window {
-        Razorpay: new (options: Record<string, unknown>) => {
-            open: () => void;
-        };
-    }
-}
 
 export default function CheckoutClient({
     service,
@@ -126,64 +125,9 @@ export default function CheckoutClient({
         }
     }
 
-    async function handleRazorpay() {
-        setProcessing(true);
-        setError("");
-        try {
-            const res = await fetch("/api/payments/razorpay", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    serviceId: service.id,
-                    requirements: requirements || null,
-                }),
-            });
-            const data = await res.json();
-
-            if (!data.razorpayOrderId) {
-                throw new Error(data.error || "Failed to create Razorpay order");
-            }
-
-            // Load Razorpay script
-            const script = document.createElement("script");
-            script.src = "https://checkout.razorpay.com/v1/checkout.js";
-            script.onload = () => {
-                const options = {
-                    key: data.razorpayKeyId,
-                    amount: data.amount,
-                    currency: data.currency,
-                    name: "Softcorp Group LLC",
-                    description: data.serviceName,
-                    order_id: data.razorpayOrderId,
-                    prefill: { name: userName, email: userEmail },
-                    theme: { color: "#6366f1" },
-                    handler: async (response: { razorpay_payment_id: string }) => {
-                        await fetch("/api/payments/razorpay/verify", {
-                            method: "POST",
-                            headers: { "Content-Type": "application/json" },
-                            body: JSON.stringify({
-                                orderId: data.orderId,
-                                razorpayPaymentId: response.razorpay_payment_id,
-                            }),
-                        });
-                        router.push(`/checkout/success?orderId=${data.orderId}`);
-                    },
-                };
-                const razorpay = new window.Razorpay(options);
-                razorpay.open();
-                setProcessing(false);
-            };
-            document.body.appendChild(script);
-        } catch (err) {
-            setError(err instanceof Error ? err.message : "Razorpay error");
-            setProcessing(false);
-        }
-    }
-
     function handlePay() {
         if (selectedGateway === "paypal") handlePayPal();
         else if (selectedGateway === "stripe") handleStripe();
-        else if (selectedGateway === "razorpay") handleRazorpay();
     }
 
     return (
@@ -244,23 +188,23 @@ export default function CheckoutClient({
                             </div>
                         </motion.div>
 
-                        {/* Gateway Selection */}
+                        {/* Payment Method */}
                         <motion.div
                             initial={{ opacity: 0, y: 12 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.1 }}
                             className="glass rounded-2xl p-6"
                         >
-                            <h3 className="text-lg font-semibold text-white mb-4">
-                                Payment Method
-                            </h3>
+                            <h2 className="text-lg font-semibold text-white mb-4">
+                                Select Payment Method
+                            </h2>
 
                             <div className="space-y-3">
                                 {gateways.paypal && (
                                     <GatewayOption
                                         id="paypal"
                                         label="PayPal"
-                                        description="Pay with PayPal account or card"
+                                        description="Pay with PayPal balance, cards, or bank transfer"
                                         icon={<FaPaypal className="text-[#00457C]" size={22} />}
                                         selected={selectedGateway === "paypal"}
                                         onSelect={() => setSelectedGateway("paypal")}
@@ -269,26 +213,17 @@ export default function CheckoutClient({
                                 {gateways.stripe && (
                                     <GatewayOption
                                         id="stripe"
-                                        label="Credit / Debit Card"
-                                        description="Visa, Mastercard, Amex via Stripe"
+                                        label="Credit / Debit Cards & Global Checkout"
+                                        description="Visa, Mastercard, Amex, Apple Pay via Stripe"
                                         icon={
-                                            <div className="flex gap-1">
+                                            <div className="flex gap-1.5 items-center">
                                                 <FaCcVisa className="text-[#1A1F71]" size={20} />
                                                 <FaCcMastercard className="text-[#EB001B]" size={20} />
+                                                <FaStripe className="text-[#635BFF]" size={28} />
                                             </div>
                                         }
                                         selected={selectedGateway === "stripe"}
                                         onSelect={() => setSelectedGateway("stripe")}
-                                    />
-                                )}
-                                {gateways.razorpay && (
-                                    <GatewayOption
-                                        id="razorpay"
-                                        label="UPI / Indian Cards / Wallets"
-                                        description="Razorpay — UPI, Paytm, PhonePe, Cards"
-                                        icon={<SiRazorpay className="text-[#3395FF]" size={22} />}
-                                        selected={selectedGateway === "razorpay"}
-                                        onSelect={() => setSelectedGateway("razorpay")}
                                     />
                                 )}
                             </div>
@@ -315,35 +250,33 @@ export default function CheckoutClient({
 
                             <div className="space-y-3 mb-5">
                                 <div className="flex justify-between text-sm">
-                                    <span className="text-slate-400">{service.name}</span>
-                                    <span className="text-white font-medium">
-                                        ${service.price}
+                                    <span className="text-slate-400">Service</span>
+                                    <span className="text-white font-medium text-right max-w-[180px] truncate">
+                                        {service.name}
                                     </span>
                                 </div>
-                                <div className="flex justify-between text-xs">
-                                    <span className="text-slate-500">Pricing</span>
-                                    <span className="text-slate-400">
-                                        {pricingLabels[service.pricingModel]}
+                                <div className="flex justify-between text-sm">
+                                    <span className="text-slate-400">Billing Model</span>
+                                    <span className="text-white">
+                                        {pricingLabels[service.pricingModel] || service.pricingModel}
                                     </span>
                                 </div>
-                            </div>
-
-                            <div className="border-t border-white/5 pt-4 mb-6">
-                                <div className="flex justify-between">
+                                <div className="flex justify-between text-sm">
+                                    <span className="text-slate-400">Client</span>
+                                    <span className="text-white">{userName}</span>
+                                </div>
+                                <div className="border-t border-white/10 pt-3 flex justify-between items-baseline">
                                     <span className="text-white font-semibold">Total</span>
                                     <span className="text-2xl font-bold text-white">
-                                        ${service.price}
+                                        ₹{service.price.toLocaleString("en-IN")}
                                     </span>
                                 </div>
-                                <p className="text-slate-500 text-xs mt-1">
-                                    {service.currency}
-                                </p>
                             </div>
 
                             <button
                                 onClick={handlePay}
                                 disabled={!selectedGateway || processing}
-                                className="w-full py-3.5 gradient-brand text-white font-semibold rounded-lg hover:opacity-90 transition-all flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed shadow-lg shadow-brand-600/25"
+                                className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold flex items-center justify-center gap-2 transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-lg shadow-cyan-500/20 cursor-pointer"
                             >
                                 {processing ? (
                                     <>
@@ -354,12 +287,9 @@ export default function CheckoutClient({
                                     <>
                                         <FiCreditCard size={16} />
                                         {selectedGateway
-                                            ? `Pay $${service.price} with ${selectedGateway === "paypal"
-                                                ? "PayPal"
-                                                : selectedGateway === "stripe"
-                                                    ? "Card"
-                                                    : "Razorpay"
-                                            }`
+                                            ? `Pay ₹${service.price.toLocaleString("en-IN")} with ${
+                                                  selectedGateway === "paypal" ? "PayPal" : "Stripe"
+                                              }`
                                             : "Select a payment method"}
                                     </>
                                 )}
@@ -367,7 +297,7 @@ export default function CheckoutClient({
 
                             <div className="mt-4 flex items-center justify-center gap-2 text-xs text-slate-500">
                                 <FiShield size={12} />
-                                Secure payment · 256-bit SSL
+                                Secure 256-bit SSL encrypted checkout
                             </div>
                         </div>
                     </motion.div>
@@ -393,28 +323,22 @@ function GatewayOption({
     onSelect: () => void;
 }) {
     return (
-        <button
+        <div
             onClick={onSelect}
-            className={`w-full flex items-center gap-4 p-4 rounded-xl border transition-all text-left ${selected
-                    ? "border-brand-500/40 bg-brand-600/10"
-                    : "border-white/5 bg-white/[0.02] hover:bg-white/[0.04]"
-                }`}
+            className={`p-4 rounded-xl border transition-all cursor-pointer flex items-center gap-4 ${
+                selected
+                    ? "bg-brand-500/10 border-brand-500/50 ring-1 ring-brand-500/30"
+                    : "bg-white/[0.02] border-white/5 hover:border-white/15"
+            }`}
         >
-            <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
-                {icon}
+            <div className="w-5 h-5 rounded-full border border-white/20 flex items-center justify-center shrink-0">
+                {selected && <div className="w-2.5 h-2.5 rounded-full bg-brand-400" />}
             </div>
+            <div className="shrink-0">{icon}</div>
             <div className="flex-1 min-w-0">
-                <p className="text-white text-sm font-medium">{label}</p>
-                <p className="text-slate-500 text-xs">{description}</p>
+                <div className="text-sm font-medium text-white">{label}</div>
+                <div className="text-xs text-slate-400 truncate">{description}</div>
             </div>
-            <div
-                className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 ${selected
-                        ? "border-brand-400 bg-brand-500"
-                        : "border-white/20"
-                    }`}
-            >
-                {selected && <FiCheck size={10} className="text-white" />}
-            </div>
-        </button>
+        </div>
     );
 }

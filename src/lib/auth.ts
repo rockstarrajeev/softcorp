@@ -67,10 +67,12 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
                     }
                 }
                 return true;
-            } catch (error: any) {
+            } catch (error: unknown) {
                 console.error("Database connection error during sign-in:", error);
-                // Redirect user to the login page with the exact error message in the URL
-                return `/login?error=DatabaseError&message=${encodeURIComponent(error.message || "Unknown error")}`; 
+                const safeMessage = process.env.NODE_ENV === "production" 
+                    ? "Unable to connect to service. Please try again later."
+                    : ((error instanceof Error ? error.message : String(error)) || "Database connection error");
+                return `/login?error=DatabaseError&message=${encodeURIComponent(safeMessage)}`; 
             }
         },
         async jwt({ token, user, account }) {
@@ -90,7 +92,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
                     }
                 }
                 return token;
-            } catch (error: any) {
+            } catch (error: unknown) {
                 console.error("JWT Db Error", error);
                 return token; // At least don't crash the session entirely
             }

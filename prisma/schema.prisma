@@ -85,6 +85,8 @@ model Service {
   updatedAt    DateTime @updatedAt
 
   orders Order[]
+
+  @@index([isActive, sortOrder])
 }
 
 model Order {
@@ -103,6 +105,10 @@ model Order {
   user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
   service Service @relation(fields: [serviceId], references: [id])
   payment Payment?
+
+  @@index([userId])
+  @@index([status])
+  @@index([serviceId])
 }
 
 model Payment {
@@ -119,6 +125,9 @@ model Payment {
 
   order Order @relation(fields: [orderId], references: [id], onDelete: Cascade)
   user  User  @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+  @@index([status])
 }
 
 model ContactMessage {
@@ -130,4 +139,6 @@ model ContactMessage {
   message   String
   isRead    Boolean  @default(false)
   createdAt DateTime @default(now())
+
+  @@index([isRead, createdAt])
 }

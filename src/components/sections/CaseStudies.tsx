@@ -1,38 +1,48 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FiServer, FiCpu, FiCloud, FiArrowRight } from "react-icons/fi";
+import { FiServer, FiCpu, FiCloud, FiArrowRight, FiCheckCircle } from "react-icons/fi";
+import SpotlightCard from "@/components/ui/SpotlightCard";
 
 const caseStudies = [
     {
-        title: "Eliminating 99% System Downtime",
-        client: "Global Logistics Firm",
+        title: "Eliminating 99.4% System Downtime",
+        client: "Global Logistics & Cargo Carrier",
+        domain: "Enterprise Infrastructure",
         icon: FiServer,
-        problem: "Legacy monitoring and fragmented server architecture leading to frequent outages.",
-        solution: "Implemented a unified Zabbix monitoring ecosystem and high-availability server clusters.",
-        result: "Reduced critical downtime by 99.4% within the first quarter.",
+        tech: "Zabbix HA • Linux Clusters • Keepalived",
+        problem: "Legacy monitoring and fragmented physical server topology caused recurrent outages during peak cargo dispatch hours.",
+        solution: "Engineered a redundant high-availability cluster with active-passive failover and automated Zabbix anomaly triggers.",
+        result: "99.4%",
+        metricLabel: "Downtime Cut in Q1",
     },
     {
-        title: "AI-Driven Workflow Automation",
-        client: "Regional Enterprise",
+        title: "Autonomous AI Document Pipeline",
+        client: "Industrial Supply Group",
+        domain: "AI & Workflow Automation",
         icon: FiCpu,
-        problem: "Manual data entry or document processing consuming 40% of operational hours.",
-        solution: "Deployed custom AI-powered document parsers and automated routing using OpenAI API.",
-        result: "10x faster processing speed and 0% human error in data extraction.",
+        tech: "LLM Agents • Vector DB • FastAPI",
+        problem: "Manual multi-page bill-of-lading and compliance invoice extraction bottlenecked finance operations by 40+ hours per week.",
+        solution: "Architected a zero-shot multi-modal document parser that vectorizes, extracts, and reconciles records straight into the ERP.",
+        result: "10x",
+        metricLabel: "Processing Speedup",
     },
     {
-        title: "Seamless Global Cloud Migration",
-        client: "Multi-National Corporation",
+        title: "Zero-Downtime Multi-Cloud Migration",
+        client: "Global Manufacturing Enterprise",
+        domain: "Cloud & DevSecOps",
         icon: FiCloud,
-        problem: "Inefficient on-premise infrastructure causing latency for international branches.",
-        solution: "Migrated 200+ servers to AWS/Azure using a zero-downtime phased approach.",
-        result: "40% reduction in infrastructure costs and instant global accessibility.",
+        tech: "AWS / Azure Hybrid • Terraform • Docker",
+        problem: "Aging on-premise infrastructure suffering high latency and localized power disruptions across 4 continents.",
+        solution: "Orchestrated live database replication and phased zero-downtime cutover of 200+ microservices into a hybrid cloud VPC.",
+        result: "40%",
+        metricLabel: "Cost Reduction",
     },
 ];
 
 export default function CaseStudies() {
     return (
-        <section id="case-studies" className="py-24 relative overflow-hidden bg-slate-950/50">
+        <section id="case-studies" className="py-24 relative overflow-hidden bg-slate-950/40 border-y border-white/5">
             <div className="container mx-auto px-6 lg:px-12 relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -40,15 +50,14 @@ export default function CaseStudies() {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <p className="text-brand-400 font-semibold text-sm uppercase tracking-widest mb-3">
-                        Proof of Excellence
-                    </p>
-                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                        Case <span className="gradient-text">Studies</span>
+                    <span className="inline-block px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-3">
+                        Proof of Execution
+                    </span>
+                    <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">
+                        Proven Enterprise <span className="gradient-text">Case Studies</span>
                     </h2>
-                    <p className="text-slate-400 max-w-2xl mx-auto text-lg">
-                        Real-world problems solved with enterprise-grade engineering and 
-                        intelligent AI modernization.
+                    <p className="text-slate-300 max-w-2xl mx-auto text-base md:text-lg">
+                        Measurable impact delivered through disciplined IT engineering and intelligent modernization.
                     </p>
                 </motion.div>
 
@@ -59,35 +68,80 @@ export default function CaseStudies() {
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
-                            className="glass rounded-2xl p-8 hover:border-white/15 transition-all group flex flex-col h-full"
+                            transition={{ delay: index * 0.12 }}
+                            className="h-full"
                         >
-                            <div className="w-12 h-12 rounded-xl bg-brand-500/10 flex items-center justify-center mb-6 group-hover:bg-brand-500/20 transition-colors">
-                                <study.icon size={24} className="text-brand-400" />
-                            </div>
-                            
-                            <h3 className="text-xl font-bold text-white mb-4">
-                                {study.title}
-                            </h3>
-                            
-                            <div className="space-y-4 flex-grow">
-                                <div className="space-y-1">
-                                    <p className="text-xs uppercase tracking-wider text-slate-500 font-semibold">Problem</p>
-                                    <p className="text-slate-400 text-sm leading-relaxed">{study.problem}</p>
-                                </div>
-                                <div className="space-y-1">
-                                    <p className="text-xs uppercase tracking-wider text-brand-400/80 font-semibold">Solution</p>
-                                    <p className="text-slate-300 text-sm leading-relaxed">{study.solution}</p>
-                                </div>
-                            </div>
-
-                            <div className="mt-8 pt-6 border-t border-white/5 flex items-center justify-between">
+                            <SpotlightCard className="p-8 h-full flex flex-col justify-between group">
                                 <div>
-                                    <p className="text-xs text-slate-500 mb-1">Impact</p>
-                                    <p className="text-brand-400 font-bold">{study.result}</p>
+                                    {/* Top Header */}
+                                    <div className="flex items-center justify-between mb-6">
+                                        <div className="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:scale-105 group-hover:bg-cyan-500/20 transition-all">
+                                            <study.icon size={22} />
+                                        </div>
+                                        <span className="text-[11px] font-mono font-medium text-slate-400 px-2.5 py-1 rounded-md bg-white/5 border border-white/5">
+                                            {study.domain}
+                                        </span>
+                                    </div>
+
+                                    {/* Client and Title */}
+                                    <span className="text-xs text-cyan-400 font-mono font-semibold uppercase tracking-wider block mb-1">
+                                        {study.client}
+                                    </span>
+                                    <h3 className="text-xl font-bold text-white mb-4 group-hover:text-cyan-300 transition-colors">
+                                        {study.title}
+                                    </h3>
+
+                                    {/* Problem / Solution Boxes */}
+                                    <div className="space-y-4 mb-6">
+                                        <div className="p-3.5 rounded-xl bg-white/[0.02] border border-white/5">
+                                            <p className="text-[11px] uppercase tracking-wider text-slate-400 font-semibold mb-1">
+                                                Challenge
+                                            </p>
+                                            <p className="text-slate-300 text-xs leading-relaxed">
+                                                {study.problem}
+                                            </p>
+                                        </div>
+
+                                        <div className="p-3.5 rounded-xl bg-cyan-950/20 border border-cyan-500/20">
+                                            <p className="text-[11px] uppercase tracking-wider text-cyan-400 font-semibold mb-1">
+                                                Engineered Solution
+                                            </p>
+                                            <p className="text-slate-200 text-xs leading-relaxed">
+                                                {study.solution}
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    {/* Stack tags */}
+                                    <p className="text-[11px] font-mono text-slate-400 mb-6">
+                                        Stack: <span className="text-slate-300">{study.tech}</span>
+                                    </p>
                                 </div>
-                                <FiArrowRight className="text-slate-600 group-hover:text-white group-hover:translate-x-1 transition-all" />
-                            </div>
+
+                                {/* Impact Metric Banner */}
+                                <div className="pt-4 border-t border-white/10 flex items-center justify-between">
+                                    <div>
+                                        <span className="text-3xl font-black font-mono text-white gradient-text">
+                                            {study.result}
+                                        </span>
+                                        <p className="text-[11px] text-slate-400 font-medium">
+                                            {study.metricLabel}
+                                        </p>
+                                    </div>
+
+                                    <a
+                                        href="#contact"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            const elem = document.getElementById("contact");
+                                            if (elem) elem.scrollIntoView({ behavior: "smooth", block: "start" });
+                                        }}
+                                        className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 group-hover:bg-cyan-500/20 group-hover:border-cyan-500/40 group-hover:text-cyan-300 transition-all cursor-pointer"
+                                    >
+                                        <FiArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
+                                    </a>
+                                </div>
+                            </SpotlightCard>
                         </motion.div>
                     ))}
                 </div>

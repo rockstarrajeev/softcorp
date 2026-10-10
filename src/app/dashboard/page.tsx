@@ -31,7 +31,7 @@ export default async function ClientDashboard() {
 
     const serializedOrders = orders.map((o) => {
         // Safe Date conversion helper
-        const toSafeISOString = (date: any) => {
+        const toSafeISOString = (date: Date | string | null | undefined) => {
             if (!date) return null;
             if (date instanceof Date && !isNaN(date.getTime())) {
                 return date.toISOString();

@@ -1,132 +1,152 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FiArrowRight, FiPlay } from "react-icons/fi";
+import { FiArrowRight, FiShield, FiCpu, FiAward, FiCheckCircle } from "react-icons/fi";
+import CommandCenterHUD from "@/components/ui/CommandCenterHUD";
+import EnterpriseMarquee from "@/components/ui/EnterpriseMarquee";
 
 export default function Hero() {
     return (
         <section
             id="home"
-            className="relative min-h-screen flex flex-col overflow-hidden pt-36 pb-20 justify-start lg:justify-center"
+            className="relative min-h-screen flex flex-col justify-between overflow-hidden pt-32 lg:pt-36"
         >
-            {/* Animated Background */}
-            <div className="absolute inset-0">
-                <div className="absolute top-1/4 -left-32 w-96 h-96 bg-brand-600/20 rounded-full blur-[128px] animate-pulse" />
-                <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-accent-500/15 rounded-full blur-[128px] animate-pulse delay-1000" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-700/10 rounded-full blur-[160px]" />
-                {/* Grid pattern */}
-                <div
-                    className="absolute inset-0 opacity-[0.03]"
-                    style={{
-                        backgroundImage:
-                            "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
-                        backgroundSize: "60px 60px",
-                    }}
-                />
-            </div>
+            <div className="container mx-auto px-6 lg:px-12 relative z-10 flex-grow flex items-center py-12">
+                <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center w-full">
+                    {/* Left Column — Value Proposition & Actions */}
+                    <div className="lg:col-span-7 max-w-2xl">
+                        {/* Live Status Badge */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 15 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5 }}
+                            className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-cyan-500/30 bg-cyan-950/40 backdrop-blur-xl text-xs font-semibold text-cyan-300 mb-8 shadow-lg shadow-cyan-500/10"
+                        >
+                            <span className="relative flex h-2 w-2">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+                            </span>
+                            <span>Enterprise Infrastructure Support & AI Modernization</span>
+                        </motion.div>
 
-            <div className="container mx-auto px-6 lg:px-12 relative z-10">
-                <div className="max-w-4xl">
-                    {/* Badge */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-light text-sm text-brand-300 mb-8"
-                    >
-                        <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                        Now Accepting New Clients
-                    </motion.div>
+                        {/* Main Title */}
+                        <motion.h1
+                            initial={{ opacity: 0, y: 25 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.1 }}
+                            className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-[1.1] mb-6"
+                        >
+                            Zero-Downtime <br />
+                            <span className="gradient-text text-glow">IT Infrastructure</span>
+                            <br />
+                            <span className="text-white relative inline-block mt-1">
+                                & AI Modernization
+                                <svg
+                                    className="absolute -bottom-2 left-0 w-full"
+                                    viewBox="0 0 240 10"
+                                    fill="none"
+                                >
+                                    <path
+                                        d="M2 6.5C50 2 110 2 150 4C190 6 220 3 238 6.5"
+                                        stroke="url(#heroGrad)"
+                                        strokeWidth="3"
+                                        strokeLinecap="round"
+                                    />
+                                    <defs>
+                                        <linearGradient id="heroGrad" x1="0" y1="0" x2="240" y2="0" gradientUnits="userSpaceOnUse">
+                                            <stop stopColor="#06b6d4" />
+                                            <stop offset="0.5" stopColor="#3b82f6" />
+                                            <stop offset="1" stopColor="#8b5cf6" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </span>
+                        </motion.h1>
 
-                    {/* Heading */}
-                    <motion.h1
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.1 }}
-                        className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6"
-                    >
-                        Enterprise-Grade <br />
-                        <span className="gradient-text">IT Infrastructure</span>
-                        <br />
-                        <span className="text-white relative">
-                            & Software Solutions
-                            <svg
-                                className="absolute -bottom-2 left-0 w-full"
-                                viewBox="0 0 200 8"
-                                fill="none"
+                        {/* Description */}
+                        <motion.p
+                            initial={{ opacity: 0, y: 25 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                            className="text-base sm:text-lg text-slate-300/90 leading-relaxed mb-8 max-w-xl"
+                        >
+                            6+ years of mission-critical engineering managing complex IT environments for 
+                            global giants including <strong className="text-white font-semibold">Swissport</strong>, 
+                            <strong className="text-white font-semibold"> Air Liquide</strong>, and 
+                            <strong className="text-white font-semibold"> Tata Teleservices</strong>. We combine enterprise reliability with autonomous AI workflows.
+                        </motion.p>
+
+                        {/* CTAs */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 25 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.3 }}
+                            className="flex flex-wrap items-center gap-4 mb-12"
+                        >
+                            <a
+                                href="#contact"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    const elem = document.getElementById("contact");
+                                    if (elem) elem.scrollIntoView({ behavior: "smooth", block: "start" });
+                                }}
+                                className="group relative px-7 py-4 gradient-brand text-white font-bold text-sm tracking-wide rounded-xl hover:brightness-110 transition-all flex items-center gap-2.5 shadow-xl shadow-cyan-500/25 cursor-pointer"
                             >
-                                <path
-                                    d="M1 5.5C40 2 80 2 100 4C120 6 160 3 199 5.5"
-                                    stroke="url(#grad)"
-                                    strokeWidth="2"
-                                    strokeLinecap="round"
-                                />
-                                <defs>
-                                    <linearGradient id="grad" x1="0" y1="0" x2="200" y2="0" gradientUnits="userSpaceOnUse">
-                                        <stop stopColor="#3288ff" />
-                                        <stop offset="1" stopColor="#22d3ee" />
-                                    </linearGradient>
-                                </defs>
-                            </svg>
-                        </span>
-                    </motion.h1>
+                                <span>Book Free IT Consultation</span>
+                                <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
+                            </a>
+                            <a
+                                href="#services"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    const elem = document.getElementById("services");
+                                    if (elem) elem.scrollIntoView({ behavior: "smooth", block: "start" });
+                                }}
+                                className="px-7 py-4 bg-white/5 border border-white/10 text-white font-semibold text-sm rounded-xl hover:bg-white/10 hover:border-white/20 transition-all flex items-center gap-2 cursor-pointer"
+                            >
+                                <FiCpu className="text-cyan-400" />
+                                <span>Explore Solutions</span>
+                            </a>
+                        </motion.div>
 
-                    {/* Description */}
-                    <motion.p
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="text-lg md:text-xl text-slate-400 max-w-2xl mb-10 leading-relaxed"
-                    >
-                        6+ years of specialized expertise managing complex, high-stakes IT 
-                        environments for global organizations including <strong>Swissport</strong>, 
-                        <strong>Air Liquide</strong>, and <strong>Tata Teleservices</strong>. 
-                        Scaling businesses through robust architecture and AI modernization.
-                    </motion.p>
-
-                    {/* CTAs */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.3 }}
-                        className="flex flex-wrap gap-4"
-                    >
-                        <a
-                            href="#contact"
-                            className="group px-8 py-4 gradient-brand text-white font-semibold rounded-xl hover:opacity-90 transition-all flex items-center gap-2 shadow-lg shadow-brand-600/25"
+                        {/* Key Credential Badges */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.4 }}
+                            className="grid grid-cols-3 gap-6 pt-6 border-t border-white/10"
                         >
-                            Book a Free IT Consultation
-                            <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
-                        </a>
-                        <a
-                            href="#services"
-                            className="px-8 py-4 glass-light text-white font-semibold rounded-xl hover:bg-white/10 transition-all flex items-center gap-2"
-                        >
-                            <FiPlay size={16} />
-                            Explore Solutions
-                        </a>
-                    </motion.div>
-
-                    {/* Stats */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.5 }}
-                        className="mt-16 flex flex-wrap gap-12"
-                    >
-                        {[
-                            { value: "6+ Years", label: "Specialized Exp" },
-                            { value: "50+", label: "Projects Delivered" },
-                            { value: "3+", label: "Global Giants Served" },
-                        ].map((stat) => (
-                            <div key={stat.label}>
-                                <p className="text-3xl font-bold gradient-text">{stat.value}</p>
-                                <p className="text-sm text-slate-500 mt-1">{stat.label}</p>
+                            <div>
+                                <div className="flex items-center gap-1.5 text-2xl font-bold font-mono text-cyan-400">
+                                    <span>6+</span>
+                                    <span className="text-xs text-slate-400 font-sans font-normal">Yrs</span>
+                                </div>
+                                <p className="text-xs text-slate-400 mt-0.5">Enterprise Expertise</p>
                             </div>
-                        ))}
-                    </motion.div>
+                            <div>
+                                <div className="flex items-center gap-1.5 text-2xl font-bold font-mono text-emerald-400">
+                                    <span>99.99%</span>
+                                </div>
+                                <p className="text-xs text-slate-400 mt-0.5">Target SLA Uptime</p>
+                            </div>
+                            <div>
+                                <div className="flex items-center gap-1.5 text-2xl font-bold font-mono text-blue-400">
+                                    <span>Global</span>
+                                </div>
+                                <p className="text-xs text-slate-400 mt-0.5">US, EMEA & APAC</p>
+                            </div>
+                        </motion.div>
+                    </div>
+
+                    {/* Right Column — Interactive Command Center HUD */}
+                    <div className="lg:col-span-5 flex justify-center lg:justify-end">
+                        <CommandCenterHUD />
+                    </div>
                 </div>
             </div>
+
+            {/* Credibility Marquee at base of hero */}
+            <EnterpriseMarquee />
         </section>
     );
 }

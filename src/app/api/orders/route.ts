@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 import prisma from "@/lib/db";
+import { checkRateLimit } from "@/lib/rate-limit";
 
 // POST /api/orders — Create a new order (authenticated clients)
 export async function POST(request: Request) {
@@ -15,8 +16,24 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: "Invalid session" }, { status: 401 });
         }
 
+        const rateLimit = checkRateLimit(`orders_${userId}`, 10, 10 * 60 * 1000);
+        if (!rateLimit.success) {
+            return NextResponse.json(
+                { error: "Too many order requests. Please wait a few minutes." },
+                {
+                    status: 429,
+                    headers: {
+                        "Retry-After": Math.ceil(rateLimit.resetMs / 1000).toString(),
+                    },
+                }
+            );
+        }
+
         const body = await request.json();
         const { serviceId, requirements } = body;
+        const sanitizedRequirements = requirements && typeof requirements === "string"
+            ? requirements.trim().slice(0, 3000)
+            : null;
 
         if (!serviceId) {
             return NextResponse.json(
@@ -42,7 +59,7 @@ export async function POST(request: Request) {
                 serviceId: service.id,
                 totalAmount: service.price,
                 currency: service.currency,
-                requirements: requirements || null,
+                requirements: sanitizedRequirements,
                 status: "pending",
             },
             include: { service: true },

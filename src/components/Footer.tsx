@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FiMail, FiMapPin, FiPhone } from "react-icons/fi";
 import {
@@ -10,6 +11,7 @@ import {
     FaInstagram,
     FaFacebookF,
 } from "react-icons/fa6";
+import { UdyamMiniBadge } from "@/components/UdyamVerification";
 
 const socialLinks = [
     { icon: FaLinkedinIn, href: "https://www.linkedin.com/in/rajeevrockstar/", label: "LinkedIn" },
@@ -20,65 +22,102 @@ const socialLinks = [
 ];
 
 const quickLinks = [
-    { name: "Home", href: "#home" },
-    { name: "Services", href: "#services" },
-    { name: "About", href: "#about" },
-    { name: "Process", href: "#process" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/#home" },
+    { name: "AI Solutions", href: "/ai-solutions" },
+    { name: "Services", href: "/#services" },
+    { name: "Case Studies", href: "/#case-studies" },
+    { name: "Leadership", href: "/#about" },
+    { name: "Delivery Process", href: "/#process" },
+    { name: "MSME Verification", href: "/#udyam-verification" },
+    { name: "FAQ", href: "/#faq" },
+    { name: "Contact", href: "/#contact" },
 ];
 
 export default function Footer() {
     const pathname = usePathname();
     if (pathname?.startsWith("/studio")) return null;
 
+    const handleFooterLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        if (!href.includes("#")) return;
+        const targetId = href.split("#")[1];
+        if (pathname === "/" || pathname === "" || !pathname) {
+            e.preventDefault();
+            if (targetId === "home" || !targetId) {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+                try { window.history.pushState(null, "", "/"); } catch {}
+                return;
+            }
+            const elem = document.getElementById(targetId);
+            if (elem) {
+                elem.scrollIntoView({ behavior: "smooth", block: "start" });
+                try { window.history.pushState(null, "", `#${targetId}`); } catch {}
+            }
+        }
+    };
+
     return (
-        <footer className="bg-surface-950 border-t border-white/5">
-            <div className="container mx-auto px-6 lg:px-12 py-16">
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
-                    {/* Brand */}
-                    <div className="lg:col-span-2">
-                        <div className="mb-6">
+        <footer className="bg-slate-950 border-t border-white/10 relative overflow-hidden">
+            <div className="container mx-auto px-6 lg:px-12 py-16 relative z-10">
+                <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-12">
+                    {/* Brand Column */}
+                    <div className="lg:col-span-5 space-y-5">
+                        <Link 
+                            href="/" 
+                            onClick={(e) => {
+                                if (pathname === "/" || pathname === "" || !pathname) {
+                                    e.preventDefault();
+                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                                    try { window.history.pushState(null, "", "/"); } catch {}
+                                }
+                            }}
+                            className="inline-block group cursor-pointer"
+                        >
                             <Image 
-                                src="/logo.png" 
+                                src="/logo-clean.png" 
                                 alt="SoftCorp Group" 
-                                width={256}
-                                height={256}
-                                className="h-24 lg:h-32 w-auto object-contain"
-                                unoptimized
+                                width={240}
+                                height={60}
+                                className="h-10 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                             />
+                        </Link>
+                        <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
+                            Enterprise-grade IT infrastructure, high-availability cloud architecture, 
+                            and intelligent AI automation. Certified Government of India MSME Micro Enterprise.
+                        </p>
+
+                        {/* Government of India MSME Mini-Badge Trigger */}
+                        <div>
+                            <UdyamMiniBadge />
                         </div>
-                        <p className="text-slate-400 max-w-md leading-relaxed mb-6">
-                            Enterprise-grade IT infrastructure, cloud solutions, and AI 
-                            modernization for scaling businesses. Led by Rajeev Upadhyay.
-                        </p>
-                        <p className="text-slate-500 text-sm mb-6 italic">
-                            Global Availability: Serving Europe, UAE, Australia, and New Zealand.
-                        </p>
-                        <div className="flex gap-3">
+
+                        <div className="flex gap-2.5 pt-2">
                             {socialLinks.map((social) => (
                                 <a
                                     key={social.label}
                                     href={social.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     aria-label={social.label}
-                                    className="w-10 h-10 flex items-center justify-center rounded-lg glass-light text-slate-400 hover:text-white hover:bg-brand-600/20 transition-all"
+                                    className="w-9 h-9 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-cyan-500/20 hover:border-cyan-500/40 transition-all cursor-pointer"
                                 >
-                                    <social.icon size={16} />
+                                    <social.icon size={15} />
                                 </a>
                             ))}
                         </div>
                     </div>
 
-                    {/* Quick Links */}
-                    <div>
-                        <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">
-                            Quick Links
+                    {/* Quick Links Column */}
+                    <div className="lg:col-span-3">
+                        <h3 className="text-white font-bold mb-4 text-xs font-mono uppercase tracking-wider text-cyan-400">
+                            Navigation
                         </h3>
-                        <ul className="space-y-3">
+                        <ul className="space-y-2.5">
                             {quickLinks.map((link) => (
                                 <li key={link.name}>
                                     <a
                                         href={link.href}
-                                        className="text-slate-400 hover:text-brand-400 transition-colors text-sm"
+                                        onClick={(e) => handleFooterLinkClick(e, link.href)}
+                                        className="text-slate-400 hover:text-cyan-300 transition-colors text-sm cursor-pointer"
                                     >
                                         {link.name}
                                     </a>
@@ -87,41 +126,51 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Contact Info */}
-                    <div>
-                        <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">
-                            Contact
+                    {/* Contact & Registered Operations Column */}
+                    <div className="lg:col-span-4 space-y-4">
+                        <h3 className="text-white font-bold mb-4 text-xs font-mono uppercase tracking-wider text-cyan-400">
+                            Registered Office &amp; Operations
                         </h3>
-                        <ul className="space-y-4">
-                            <li className="flex items-start gap-3 text-sm text-slate-400">
-                                <FiMail className="mt-0.5 text-brand-400 shrink-0" size={16} />
-                                <span>support@wesoftcorp.com</span>
+                        <ul className="space-y-3.5 text-sm text-slate-400">
+                            <li className="flex items-start gap-3">
+                                <FiMail className="mt-0.5 text-cyan-400 shrink-0" size={16} />
+                                <a href="mailto:support@wesoftcorp.com" className="hover:text-white transition-colors font-mono">
+                                    support@wesoftcorp.com
+                                </a>
                             </li>
-                            <li className="flex items-start gap-3 text-sm text-slate-400">
-                                <FiPhone className="mt-0.5 text-brand-400 shrink-0" size={16} />
-                                <span>+1 9292664560 US</span>
+                            <li className="flex items-start gap-3">
+                                <FiPhone className="mt-0.5 text-cyan-400 shrink-0" size={16} />
+                                <span className="font-mono">+1 929-266-4560 / WhatsApp Available</span>
                             </li>
-                            <li className="flex items-start gap-3 text-sm text-slate-400">
-                                <FiMapPin className="mt-0.5 text-brand-400 shrink-0" size={16} />
-                                <span>United States</span>
+                            <li className="flex items-start gap-3">
+                                <FiMapPin className="mt-0.5 text-cyan-400 shrink-0" size={16} />
+                                <span className="leading-relaxed">
+                                    Plot No 17/18, Gulab Ashiyana, Chinhat, Matiyari, Dewa Road, Lucknow, Uttar Pradesh, Pin - 226028, India
+                                </span>
                             </li>
                         </ul>
                     </div>
                 </div>
 
-                {/* Bottom Bar */}
-                <div className="mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4">
-                    <p className="text-slate-500 text-sm">
-                        © {new Date().getFullYear()} Softcorp Group LLC. All rights
-                        reserved.
+                {/* Bottom Bar with MSMED Act Compliance Notice */}
+                <div className="mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+                    <p>
+                        © {new Date().getFullYear()} SOFTCORP GROUP (UDYAM-UP-50-0298723). Protected under Section 15 of MSMED Act. All rights reserved.
                     </p>
-                    <div className="flex gap-6 text-sm text-slate-500">
-                        <a href="#" className="hover:text-slate-300 transition-colors">
+                    <div className="flex gap-6">
+                        <Link 
+                            href="/#udyam-verification" 
+                            onClick={(e) => handleFooterLinkClick(e, "/#udyam-verification")}
+                            className="text-emerald-400/80 hover:text-emerald-300 transition-colors cursor-pointer"
+                        >
+                            MSME Certificate
+                        </Link>
+                        <span className="hover:text-slate-400 cursor-pointer transition-colors">
                             Privacy Policy
-                        </a>
-                        <a href="#" className="hover:text-slate-300 transition-colors">
+                        </span>
+                        <span className="hover:text-slate-400 cursor-pointer transition-colors">
                             Terms of Service
-                        </a>
+                        </span>
                     </div>
                 </div>
             </div>

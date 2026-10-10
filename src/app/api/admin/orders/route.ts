@@ -37,11 +37,15 @@ export async function PATCH(request: Request) {
             );
         }
 
+        const sanitizedNotes = notes !== undefined && typeof notes === "string"
+            ? notes.trim().slice(0, 2000)
+            : notes;
+
         const order = await prisma.order.update({
             where: { id: orderId },
             data: {
                 status,
-                ...(notes !== undefined ? { notes } : {}),
+                ...(notes !== undefined ? { notes: sanitizedNotes } : {}),
             },
             include: { user: true, service: true },
         });
