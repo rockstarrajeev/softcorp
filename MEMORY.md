@@ -99,4 +99,4 @@
 - **SEO & Indexing Infrastructure:** Implemented dynamic `robots.ts` and `sitemap.ts` with prioritized routes, change frequencies, GoogleBot indexing instructions, OpenGraph tags, Twitter Cards, and canonical URLs.
 - **Database Query Performance:** Composite & foreign-key indexes added on `Service`, `Order`, `Payment`, and `ContactMessage` in `schema.prisma`. All dashboard reads parallelized via `Promise.all`.
 - **Payment Verification Bug Fix:** Corrected Stripe verification callback in `src/app/checkout/success/page.tsx` ensuring `setVerified(data.success)` is dispatched reliably.
-
+- **OCI Production Deployment Live:** Automated swap-aware build (`NODE_OPTIONS="--max-old-space-size=2048" npm run build`) in `deploy.sh`. Production live and healthy at `wesoftcorp.com` under PM2.
