@@ -25,7 +25,8 @@ npx prisma db push
 echo "4. Seeding Database (if not seeded)..."
 npx prisma db seed
 
-echo "6. Skipping build (Files pre-compiled on GitHub)"
+echo "6. Building Next.js production bundle..."
+NODE_OPTIONS="--max-old-space-size=2048" npm run build
 
 echo "7. Restarting application with PM2..."
 pm2 reload softcorp || pm2 start ecosystem.config.js
