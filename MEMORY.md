@@ -104,6 +104,13 @@
   - Converted monolithic single-page layout into a professional, first-class multi-page system with dedicated routes: `/` (Home Portal), `/products` (Software), `/ai-solutions` (AI Modernization), `/services` (Certified Services), `/case-studies` (Case Studies), `/about` (Leadership), `/process` (Delivery Protocol), and `/contact` (Contact & HQ).
   - Every page includes standard browser history integration (Back button cleanly navigates to Home).
   - Removed anchor hash jumps (`#services`, `#contact`, etc.) from Navbar, Hero, and Footer.
-  - Prerendered all 32 application pages as static and on-demand routes cleanly with zero TypeScript errors.
+- **Cupertino iOS Liquid Frosted Glass Theme & Day Mode Text Contrast Engine:**
+  - Implemented Apple iOS 18 / macOS Sonoma Liquid Frosted Glass design system with `backdrop-filter: blur(28px) saturate(190%)`, specular hairline borders (`rgba(255, 255, 255, 0.9)`), and multi-tier diffuse shadows.
+  - Eliminated text invisibility in Day Mode across all pages using universal wildcard opacity matching (`[class*="text-slate-300"]`, `[class*="text-white"]`, etc.).
+  - Enforced solid WCAG AAA contrast hierarchy: Headings `#0f172a`, Body text `#334155`, Subtext `#475569`.
+  - Replaced low-contrast light cyan gradient headers with high-contrast jewel sapphire-to-emerald gradient text (`linear-gradient(135deg, #1d4ed8 0%, #0284c7 45%, #0f766e 100%)`).
+  - Converted neon cyan/emerald badges and accents into rich day-mode jewel tones (`#0284c7`, `#047857`, `#d97706`).
+  - Replaced dark vignettes and input styles with iOS frosted glass controls.
+  - Verified with 100% clean TypeScript type check and Next.js Turbopack production build (3.9s).
 
 

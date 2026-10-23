@@ -19,10 +19,10 @@ export default function ThemeToggle({ className = "", showLabel = false }: Theme
       onClick={toggleTheme}
       aria-label={isDark ? "Switch to Day Mode" : "Switch to Night Mode"}
       title={isDark ? "Switch to Day Mode" : "Switch to Night Mode"}
-      className={`relative inline-flex items-center gap-2 p-2 rounded-full border transition-all duration-300 cursor-pointer ${
+      className={`relative inline-flex items-center gap-2 p-2 rounded-full border transition-all duration-300 cursor-pointer backdrop-blur-xl ${
         isDark
-          ? "bg-slate-900/80 border-white/10 text-cyan-400 hover:border-cyan-500/40 hover:bg-slate-800"
-          : "bg-white/90 border-slate-200 text-amber-500 hover:border-amber-400 hover:bg-slate-50 shadow-sm"
+          ? "bg-slate-900/80 border-white/10 text-cyan-400 hover:border-cyan-500/40 hover:bg-slate-800 shadow-lg shadow-black/30"
+          : "bg-white/85 border-white text-amber-500 hover:border-amber-400 hover:bg-white shadow-md shadow-slate-200/80"
       } ${className}`}
     >
       <motion.div

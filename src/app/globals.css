@@ -186,12 +186,15 @@ body {
   box-shadow: 0 25px 50px -12px rgba(6, 182, 212, 0.12), inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
 }
 
-/* ─── Day (Light) Mode Architecture ─── */
+/* ─── Apple iOS / macOS Cupertino Frosted Glass Theme & High-Contrast Light Mode ─── */
 html.light,
 [data-theme="light"] {
   --color-surface-950: #f8fafc;
   --color-surface-900: #f1f5f9;
   --color-surface-800: #e2e8f0;
+  --color-surface-100: #1e293b;
+  --color-surface-50: #0f172a;
+  color-scheme: light;
 }
 
 html.light body,
@@ -200,76 +203,283 @@ html.light body,
   color: #0f172a;
 }
 
-/* Surfaces & Containers */
-html.light .bg-slate-950,
-html.light .bg-slate-950\/85,
-html.light .bg-slate-950\/95,
-html.light .bg-slate-950\/60,
-html.light .bg-slate-950\/50,
-html.light .bg-slate-950\/40 {
-  background-color: rgba(248, 250, 252, 0.95);
+/* ─── Universal High-Contrast Typography Cascade (Day Mode) ─── */
+html.light h1,
+html.light h2,
+html.light h3,
+html.light h4,
+html.light h5,
+html.light h6 {
+  color: #0f172a !important;
 }
 
-html.light .bg-slate-900,
-html.light .bg-slate-900\/60,
-html.light .bg-slate-900\/80,
-html.light .bg-slate-900\/50 {
-  background-color: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05);
+html.light p,
+html.light li,
+html.light dt,
+html.light dd,
+html.light label {
+  color: #334155 !important;
 }
 
-html.light .bg-white\/\[0\.03\],
-html.light .bg-white\/5 {
-  background-color: rgba(15, 23, 42, 0.03);
+html.light strong,
+html.light b {
+  color: #0f172a !important;
+  font-weight: 700 !important;
 }
 
-html.light .bg-white\/10 {
-  background-color: rgba(15, 23, 42, 0.06);
-}
-
-/* Glass Morphism */
-html.light .glass {
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
-}
-
-html.light .glass-card {
-  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.95), rgba(241, 245, 249, 0.85));
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.06);
-}
-
-/* Text Hierarchy */
+/* Wildcard catches for all Tailwind opacity variants like text-white/90, text-white/80, etc. */
+html.light [class*="text-white"],
 html.light .text-white {
   color: #0f172a !important;
 }
 
+html.light [class*="text-slate-100"],
+html.light [class*="text-slate-200"],
+html.light .text-slate-100,
 html.light .text-slate-200 {
   color: #1e293b !important;
 }
 
+html.light [class*="text-slate-300"],
 html.light .text-slate-300 {
   color: #334155 !important;
 }
 
+html.light [class*="text-slate-400"],
 html.light .text-slate-400 {
   color: #475569 !important;
 }
 
+html.light [class*="text-slate-500"],
 html.light .text-slate-500 {
   color: #64748b !important;
 }
 
-/* Borders */
-html.light .border-white\/10,
-html.light .border-white\/5,
-html.light .border-white\/15,
-html.light .border-white\/20 {
+/* Neon accents adjusted to rich WCAG AAA jewel tones in Light Mode */
+html.light [class*="text-cyan-300"],
+html.light [class*="text-cyan-400"],
+html.light .text-cyan-300,
+html.light .text-cyan-400 {
+  color: #0284c7 !important;
+}
+
+html.light [class*="text-cyan-500"],
+html.light .text-cyan-500 {
+  color: #0369a1 !important;
+}
+
+html.light [class*="text-emerald-300"],
+html.light [class*="text-emerald-400"],
+html.light .text-emerald-300,
+html.light .text-emerald-400 {
+  color: #047857 !important;
+}
+
+html.light [class*="text-emerald-500"],
+html.light .text-emerald-500 {
+  color: #065f46 !important;
+}
+
+html.light [class*="text-amber-300"],
+html.light [class*="text-amber-400"],
+html.light .text-amber-300,
+html.light .text-amber-400 {
+  color: #d97706 !important;
+}
+
+html.light [class*="text-blue-300"],
+html.light [class*="text-blue-400"],
+html.light .text-blue-300,
+html.light .text-blue-400 {
+  color: #1d4ed8 !important;
+}
+
+html.light [class*="text-indigo-400"],
+html.light [class*="text-purple-400"] {
+  color: #6d28d9 !important;
+}
+
+/* Light mode terminal / code buffer */
+html.light .bg-black\/60 {
+  background-color: rgba(241, 245, 249, 0.95) !important;
+  border-color: rgba(203, 213, 225, 0.85) !important;
+  color: #334155 !important;
+}
+
+/* High-Contrast Jewel Gradient Text for Light Mode */
+html.light .gradient-text {
+  background: linear-gradient(135deg, #1d4ed8 0%, #0284c7 45%, #0f766e 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  text-shadow: none !important;
+}
+
+html.light .text-glow {
+  text-shadow: none !important;
+}
+
+/* ─── Apple iOS / macOS Liquid Frosted Glass Surfaces ─── */
+html.light .glass,
+html.light .glass-card,
+html.light [class*="bg-slate-900"],
+html.light [class*="bg-slate-950"] {
+  background: rgba(255, 255, 255, 0.78) !important;
+  backdrop-filter: blur(28px) saturate(190%) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(190%) !important;
+  border-color: rgba(255, 255, 255, 0.9) !important;
+  box-shadow: 
+    0 16px 36px -10px rgba(15, 23, 42, 0.08), 
+    0 1px 3px 0 rgba(0, 0, 0, 0.04), 
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.95) !important;
+}
+
+html.light .glass:hover,
+html.light .glass-card:hover {
+  border-color: rgba(2, 132, 199, 0.35) !important;
+  box-shadow: 
+    0 24px 48px -12px rgba(2, 132, 199, 0.12), 
+    0 1px 3px 0 rgba(0, 0, 0, 0.04), 
+    inset 0 1px 1px 0 rgba(255, 255, 255, 1) !important;
+}
+
+/* Inner nested translucent cards */
+html.light [class*="bg-white/[0.0"],
+html.light [class*="bg-white/5"],
+html.light [class*="bg-white/10"],
+html.light [class*="bg-slate-950/40"],
+html.light [class*="bg-slate-950/60"] {
+  background: rgba(255, 255, 255, 0.65) !important;
+  border: 1px solid rgba(226, 232, 240, 0.85) !important;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.9), 0 1px 3px rgba(15, 23, 42, 0.03) !important;
+}
+
+/* ─── iOS Frosted Pill Badges & Tags ─── */
+html.light [class*="bg-cyan-500/10"],
+html.light [class*="bg-cyan-950/40"],
+html.light [class*="bg-cyan-500/20"] {
+  background-color: rgba(2, 132, 199, 0.09) !important;
+  border: 1px solid rgba(2, 132, 199, 0.28) !important;
+  color: #0369a1 !important;
+  box-shadow: 0 2px 6px -1px rgba(2, 132, 199, 0.12) !important;
+}
+
+html.light [class*="bg-emerald-500/10"],
+html.light [class*="bg-emerald-500/20"] {
+  background-color: rgba(5, 150, 105, 0.09) !important;
+  border: 1px solid rgba(5, 150, 105, 0.28) !important;
+  color: #047857 !important;
+  box-shadow: 0 2px 6px -1px rgba(5, 150, 105, 0.12) !important;
+}
+
+/* ─── Clean iOS Form Controls (Inputs, Selects, Textareas) ─── */
+html.light input:not([type="range"]),
+html.light textarea,
+html.light select {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(203, 213, 225, 0.9) !important;
+  color: #0f172a !important;
+  box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.04), 0 1px 2px rgba(255, 255, 255, 0.9) !important;
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #64748b !important;
+  opacity: 1 !important;
+}
+
+html.light input:focus,
+html.light textarea:focus,
+html.light select:focus {
+  border-color: #0284c7 !important;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.18) !important;
+  outline: none !important;
+}
+
+html.light select option {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+/* Range sliders */
+html.light input[type="range"] {
+  background: rgba(203, 213, 225, 0.8) !important;
+}
+
+/* ─── Buttons & Actions (Day Mode) ─── */
+html.light .gradient-brand {
+  background: linear-gradient(135deg, #1d4ed8 0%, #0284c7 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 10px 25px -4px rgba(2, 132, 199, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+}
+
+html.light .gradient-brand * {
+  color: #ffffff !important;
+}
+
+/* ─── Floating Header & Navigation Pill (iOS Glass) ─── */
+html.light header.bg-slate-950\/85 {
+  background: rgba(255, 255, 255, 0.78) !important;
+  backdrop-filter: blur(28px) saturate(190%) !important;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.85) !important;
+  box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.06) !important;
+}
+
+html.light nav.bg-white\/\[0\.03\] {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.06), inset 0 1px 1px rgba(255, 255, 255, 1) !important;
+}
+
+html.light nav a.text-slate-300 {
+  color: #334155 !important;
+}
+
+html.light nav a.text-slate-300:hover {
+  color: #0f172a !important;
+}
+
+html.light nav a.text-cyan-400 {
+  color: #0284c7 !important;
+  font-weight: 700 !important;
+}
+
+/* ─── Gradient Stops & Vignette Suppression in Day Mode ─── */
+html.light .from-slate-950,
+html.light .from-slate-950\/85,
+html.light .from-slate-950\/60,
+html.light .from-cyan-950\/60 {
+  --tw-gradient-from: rgba(248, 250, 252, 1) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+
+html.light .via-slate-950\/60,
+html.light .via-slate-900\/80 {
+  --tw-gradient-stops: var(--tw-gradient-from), rgba(248, 250, 252, 0.75), var(--tw-gradient-to) !important;
+}
+
+html.light .to-slate-950,
+html.light .to-blue-950\/60 {
+  --tw-gradient-to: rgba(248, 250, 252, 1) !important;
+}
+
+/* ─── Borders & Dividers ─── */
+html.light [class*="border-white/"] {
   border-color: rgba(15, 23, 42, 0.08) !important;
 }
 
-/* Custom Scrollbar for Light */
+html.light [class*="border-slate-800"],
+html.light [class*="border-slate-700"] {
+  border-color: rgba(203, 213, 225, 0.85) !important;
+}
+
+/* ─── Footer in Day Mode ─── */
+html.light footer.bg-slate-950 {
+  background: rgba(241, 245, 249, 0.85) !important;
+  border-top: 1px solid rgba(226, 232, 240, 0.9) !important;
+}
+
+/* ─── Custom Scrollbar for Light Mode ─── */
 html.light ::-webkit-scrollbar-track {
   background: #f8fafc;
 }
