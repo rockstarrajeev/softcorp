@@ -111,6 +111,10 @@
   - Replaced low-contrast light cyan gradient headers with high-contrast jewel sapphire-to-emerald gradient text (`linear-gradient(135deg, #1d4ed8 0%, #0284c7 45%, #0f766e 100%)`).
   - Converted neon cyan/emerald badges and accents into rich day-mode jewel tones (`#0284c7`, `#047857`, `#d97706`).
   - Replaced dark vignettes and input styles with iOS frosted glass controls.
-  - Verified with 100% clean TypeScript type check and Next.js Turbopack production build (3.9s).
+- **Official SoftCorp Logo Favicon Suite:**
+  - Extracted and centered the official SoftCorp blue/cyan teardrop emblem (`public/logo-icon.png`).
+  - Generated multi-resolution `favicon.ico` (16x16, 32x32, 48x48) in both `src/app/` and `public/`.
+  - Created high-res `icon.png` (512x512) and Apple Touch Icon `apple-icon.png` (180x180) in `src/app/` and `public/`.
+  - Updated Next.js App Router metadata configuration in `layout.tsx`.
 
 

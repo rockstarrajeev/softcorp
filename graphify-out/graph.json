@@ -1446,7 +1446,7 @@
       "label": "RootLayout()",
       "file_type": "code",
       "source_file": "src/app/layout.tsx",
-      "source_location": "L80",
+      "source_location": "L88",
       "id": "app_layout_rootlayout",
       "community": 6,
       "norm_label": "rootlayout()"
@@ -5595,9 +5595,9 @@
       "source_file": "src/components/Navbar.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_navbar",
-      "target": "components_themetoggle",
-      "confidence_score": 1.0
+      "target": "components_themetoggle"
     },
     {
       "relation": "contains",
@@ -5616,9 +5616,9 @@
       "source_file": "src/components/Providers.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_providers",
-      "target": "components_themeprovider",
-      "confidence_score": 1.0
+      "target": "components_themeprovider"
     },
     {
       "relation": "imports",
@@ -5627,9 +5627,9 @@
       "source_file": "src/components/Providers.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_providers",
-      "target": "components_themeprovider_themeprovider",
-      "confidence_score": 1.0
+      "target": "components_themeprovider_themeprovider"
     },
     {
       "relation": "contains",
@@ -5637,9 +5637,9 @@
       "source_file": "src/components/ThemeProvider.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_themeprovider",
-      "target": "components_themeprovider_theme",
-      "confidence_score": 1.0
+      "target": "components_themeprovider_theme"
     },
     {
       "relation": "contains",
@@ -5647,9 +5647,9 @@
       "source_file": "src/components/ThemeProvider.tsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_themeprovider",
-      "target": "components_themeprovider_themecontext",
-      "confidence_score": 1.0
+      "target": "components_themeprovider_themecontext"
     },
     {
       "relation": "contains",
@@ -5657,9 +5657,9 @@
       "source_file": "src/components/ThemeProvider.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_themeprovider",
-      "target": "components_themeprovider_themecontexttype",
-      "confidence_score": 1.0
+      "target": "components_themeprovider_themecontexttype"
     },
     {
       "relation": "contains",
@@ -5667,9 +5667,9 @@
       "source_file": "src/components/ThemeProvider.tsx",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_themeprovider",
-      "target": "components_themeprovider_themeprovider",
-      "confidence_score": 1.0
+      "target": "components_themeprovider_themeprovider"
     },
     {
       "relation": "contains",
@@ -5677,9 +5677,9 @@
       "source_file": "src/components/ThemeProvider.tsx",
       "source_location": "L65",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_themeprovider",
-      "target": "components_themeprovider_usetheme",
-      "confidence_score": 1.0
+      "target": "components_themeprovider_usetheme"
     },
     {
       "relation": "imports_from",
@@ -5688,9 +5688,9 @@
       "source_file": "src/components/ThemeToggle.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_themetoggle",
-      "target": "components_themeprovider",
-      "confidence_score": 1.0
+      "target": "components_themeprovider"
     },
     {
       "relation": "imports",
@@ -5699,9 +5699,9 @@
       "source_file": "src/components/ThemeToggle.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_themetoggle",
-      "target": "components_themeprovider_usetheme",
-      "confidence_score": 1.0
+      "target": "components_themeprovider_usetheme"
     },
     {
       "relation": "calls",
@@ -5720,9 +5720,9 @@
       "source_file": "src/components/ThemeToggle.tsx",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_themetoggle",
-      "target": "components_themetoggle_themetoggle",
-      "confidence_score": 1.0
+      "target": "components_themetoggle_themetoggle"
     },
     {
       "relation": "contains",
@@ -5730,9 +5730,9 @@
       "source_file": "src/components/ThemeToggle.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_themetoggle",
-      "target": "components_themetoggle_themetoggleprops",
-      "confidence_score": 1.0
+      "target": "components_themetoggle_themetoggleprops"
     },
     {
       "relation": "contains",
@@ -7208,5 +7208,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "6a784d7bea358b1a6f99cb83ce3c7d116909eee1"
+  "built_at_commit": "644a3bfabd3885a369cb373e02d369df3daff805"
 }

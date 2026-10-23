@@ -72,8 +72,16 @@ export const metadata: Metadata = {
     creator: "@rajeevrockstar",
   },
   icons: {
-    icon: "/logo-clean.png",
-    apple: "/logo-icon.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png" },
+      { url: "/logo-icon.png", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", type: "image/png" },
+      { url: "/logo-icon.png", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
   },
 };
 

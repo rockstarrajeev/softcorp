@@ -155,8 +155,8 @@
     "semantic_hash": ""
   },
   "src/app/layout.tsx": {
-    "mtime": 1791635566.208311,
-    "ast_hash": "da189aa10f10c1c85ec2379147d214d8",
+    "mtime": 1792749957.1001694,
+    "ast_hash": "e102c0d468f0ac6f343a9590d292136b",
     "semantic_hash": ""
   },
   "src/app/login/page.tsx": {
@@ -290,8 +290,8 @@
     "semantic_hash": ""
   },
   "MEMORY.md": {
-    "mtime": 1792748663.8648982,
-    "ast_hash": "cd222e2b66c7810c703eea5ba823fea8",
+    "mtime": 1792749733.6508265,
+    "ast_hash": "16a4738021ef22fbe92cf344b0c2a590",
     "semantic_hash": ""
   },
   "README.md": {
@@ -612,6 +612,26 @@
   "src/components/ThemeToggle.tsx": {
     "mtime": 1792749527.379214,
     "ast_hash": "274a9edb020bb55ab046d93e4677a283",
+    "semantic_hash": ""
+  },
+  "public/apple-icon.png": {
+    "mtime": 1792749940.6864154,
+    "ast_hash": "3e90d1de200cd7e02a762a93a9d85bb6",
+    "semantic_hash": ""
+  },
+  "public/icon.png": {
+    "mtime": 1792749940.6717231,
+    "ast_hash": "cb63aec0f9ae49f4bf84c85116852fda",
+    "semantic_hash": ""
+  },
+  "src/app/apple-icon.png": {
+    "mtime": 1792749940.7014823,
+    "ast_hash": "3e90d1de200cd7e02a762a93a9d85bb6",
+    "semantic_hash": ""
+  },
+  "src/app/icon.png": {
+    "mtime": 1792749940.6727161,
+    "ast_hash": "cb63aec0f9ae49f4bf84c85116852fda",
     "semantic_hash": ""
   }
 }
