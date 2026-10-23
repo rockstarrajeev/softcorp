@@ -91,7 +91,7 @@ export default function CommandCenterHUD() {
         initial={{ opacity: 0, y: 30, scale: 0.95 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative rounded-2xl border border-cyan-500/20 bg-slate-950/85 backdrop-blur-2xl shadow-2xl shadow-black/80 overflow-hidden"
+        className="relative rounded-2xl border border-cyan-500/30 bg-slate-950/85 backdrop-blur-2xl shadow-2xl shadow-black/80 overflow-hidden card-lift transition-all duration-500"
       >
         {/* Top Header Bar */}
         <div className="px-5 py-3.5 border-b border-white/10 flex items-center justify-between bg-white/[0.02]">

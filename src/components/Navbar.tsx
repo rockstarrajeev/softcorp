@@ -122,7 +122,7 @@ export default function Navbar() {
                     {session?.user ? (
                         <Link
                             href={dashboardHref}
-                            className="px-5 py-2 text-xs font-bold uppercase tracking-wider text-white gradient-brand rounded-full hover:brightness-110 transition-all shadow-lg shadow-cyan-500/20 flex items-center gap-2"
+                            className="px-5 py-2 text-xs font-bold uppercase tracking-wider text-white gradient-brand rounded-full hover:brightness-110 transition-all shadow-lg shadow-cyan-500/20 flex items-center gap-2 shine-sweep card-lift cursor-pointer"
                         >
                             <FiUser size={14} />
                             <span>Dashboard</span>
@@ -131,7 +131,7 @@ export default function Navbar() {
                         <>
                             <Link
                                 href="/login"
-                                className="px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 rounded-full transition-all flex items-center gap-2 cursor-pointer"
+                                className="px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 rounded-full transition-all flex items-center gap-2 cursor-pointer shine-sweep"
                                 title="Client Portal Login & Instant Payments"
                             >
                                 <FiUser size={13} className="text-cyan-400" />
@@ -139,7 +139,7 @@ export default function Navbar() {
                             </Link>
                             <Link
                                 href="/contact"
-                                className="group relative inline-flex items-center gap-2 px-5 py-2 text-xs font-bold uppercase tracking-wider text-white gradient-brand rounded-full hover:brightness-110 transition-all shadow-lg shadow-cyan-500/20 cursor-pointer"
+                                className="group relative inline-flex items-center gap-2 px-5 py-2 text-xs font-bold uppercase tracking-wider text-white gradient-brand rounded-full hover:brightness-110 transition-all shadow-lg shadow-cyan-500/20 cursor-pointer shine-sweep card-lift"
                             >
                                 <span>Book Consultation</span>
                                 <FiArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />

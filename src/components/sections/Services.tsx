@@ -54,7 +54,7 @@ export default function Services() {
                         Government of India MSME Certified Activities (UDYAM-UP-50-0298723)
                     </span>
                     <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">
-                        Our Core <span className="gradient-text">Service Offerings</span>
+                        Our Core <span className="gradient-text-animated">Service Offerings</span>
                     </h2>
                     <p className="text-slate-300 max-w-3xl mx-auto text-base md:text-lg leading-relaxed">
                         All 7 technical sectors officially certified under our National Industrial Classification (NIC 2008) registration, 
@@ -292,22 +292,17 @@ export default function Services() {
 
                                             <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
                                                 {/* Consult / Discovery Button */}
-                                                <a
-                                                    href="#contact"
-                                                    onClick={(e) => {
-                                                        e.preventDefault();
-                                                        const elem = document.getElementById("contact");
-                                                        if (elem) elem.scrollIntoView({ behavior: "smooth", block: "start" });
-                                                    }}
-                                                    className="px-3.5 py-2 rounded-xl text-xs font-medium text-slate-300 hover:text-white bg-white/5 hover:bg-white/10 transition-all cursor-pointer text-center"
+                                                <Link
+                                                    href="/contact"
+                                                    className="px-3.5 py-2 rounded-xl text-xs font-medium text-slate-300 hover:text-white bg-white/5 hover:bg-white/10 transition-all cursor-pointer text-center shine-sweep"
                                                 >
                                                     Free Consultation
-                                                </a>
+                                                </Link>
 
                                                 {/* Seek Service in Portal Button */}
                                                 <Link
                                                     href="/login"
-                                                    className="px-4 py-2 gradient-brand text-white font-bold text-xs rounded-xl hover:brightness-110 transition-all flex items-center justify-center gap-1.5 shadow-md shadow-cyan-500/20 cursor-pointer"
+                                                    className="px-4 py-2 gradient-brand text-white font-bold text-xs rounded-xl hover:brightness-110 transition-all flex items-center justify-center gap-1.5 shadow-md shadow-cyan-500/20 cursor-pointer shine-sweep card-lift"
                                                     title="Log in to Client Portal to seek this service and manage projects"
                                                 >
                                                     <FiUser size={13} />

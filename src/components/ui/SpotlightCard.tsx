@@ -44,7 +44,7 @@ export default function SpotlightCard({
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`glass-card relative overflow-hidden rounded-2xl border border-white/10 transition-all duration-300 hover:border-cyan-500/40 hover:shadow-2xl hover:shadow-cyan-500/10 ${className}`}
+      className={`glass-card card-lift group relative overflow-hidden rounded-2xl border border-white/10 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-cyan-500/50 hover:shadow-2xl hover:shadow-cyan-500/15 ${className}`}
       {...props}
     >
       {/* High-performance direct DOM spotlight effect */}

@@ -47,7 +47,7 @@ export default function AISolutionsPage() {
                         className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-8 leading-[1.1]"
                     >
                         Enterprise-Grade <br />
-                        <span className="gradient-text">AI Modernization Solutions</span>
+                        <span className="gradient-text-animated">AI Modernization Solutions</span>
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
@@ -91,7 +91,7 @@ export default function AISolutionsPage() {
                                     {category.services.map((service, sIndex) => (
                                         <div 
                                             key={sIndex} 
-                                            className="p-4 rounded-xl bg-white/[0.03] border border-white/5 hover:border-cyan-500/30 hover:bg-cyan-500/10 transition-all group"
+                                            className="p-4 rounded-xl bg-white/[0.03] border border-white/5 hover:border-cyan-500/30 hover:bg-cyan-500/10 transition-all group card-lift"
                                         >
                                             <div className="flex items-center gap-2.5 mb-1.5">
                                                 <service.icon size={16} className="text-cyan-400 group-hover:scale-110 transition-transform" />
@@ -138,8 +138,8 @@ export default function AISolutionsPage() {
                                     </div>
 
                                     <Link
-                                        href="/#contact"
-                                        className="w-full py-3 px-4 gradient-brand rounded-xl text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:brightness-110 shadow-lg shadow-cyan-500/20 transition-all"
+                                        href="/contact"
+                                        className="w-full py-3 px-4 gradient-brand rounded-xl text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:brightness-110 shadow-lg shadow-cyan-500/20 transition-all shine-sweep card-lift"
                                     >
                                         <span>Deploy This Architecture</span>
                                         <FiArrowRight />
@@ -160,22 +160,22 @@ export default function AISolutionsPage() {
                     <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent" />
                     
                     <h2 className="text-3xl md:text-5xl font-extrabold mb-4 relative z-10 text-white">
-                        Ready to Modernize Your Operations with <span className="gradient-text">Softcorp AI</span>?
+                        Ready to Modernize Your Operations with <span className="gradient-text-animated">Softcorp AI</span>?
                     </h2>
                     <p className="text-base md:text-lg text-slate-300 mb-8 max-w-2xl mx-auto relative z-10">
                         Schedule an executive discovery call with Rajeev Upadhyay and our solutions architects to review your technical roadmap.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
                         <Link 
-                            href="/#contact" 
-                            className="px-8 py-4 gradient-brand text-white font-bold text-sm rounded-xl hover:brightness-110 shadow-xl shadow-cyan-500/25 transition-all flex items-center justify-center gap-2"
+                            href="/contact" 
+                            className="px-8 py-4 gradient-brand text-white font-bold text-sm rounded-xl hover:brightness-110 shadow-xl shadow-cyan-500/25 transition-all flex items-center justify-center gap-2 shine-sweep card-lift"
                         >
                             <span>Book Architecture Discovery</span>
                             <FiArrowRight />
                         </Link>
                         <Link 
                             href="/" 
-                            className="px-8 py-4 bg-white/5 border border-white/10 text-white font-semibold text-sm rounded-xl hover:bg-white/10 transition-colors"
+                            className="px-8 py-4 bg-white/5 border border-white/10 text-white font-semibold text-sm rounded-xl hover:bg-white/10 transition-colors shine-sweep"
                         >
                             Return to Home
                         </Link>

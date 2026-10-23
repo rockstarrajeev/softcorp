@@ -48,7 +48,7 @@ export default function FAQ() {
             <FiHelpCircle /> Transparent Answers
           </span>
           <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">
-            Frequently Asked <span className="gradient-text">Questions</span>
+            Frequently Asked <span className="gradient-text-animated">Questions</span>
           </h2>
           <p className="text-slate-300 max-w-2xl mx-auto text-base md:text-lg">
             Everything you need to know about our enterprise IT SLAs, AI security boundaries, and collaboration models.
@@ -59,47 +59,54 @@ export default function FAQ() {
           {faqs.map((faq, idx) => {
             const isOpen = openIndex === idx;
             return (
-              <SpotlightCard
+              <motion.div
                 key={idx}
-                className={`transition-all duration-300 ${
-                  isOpen ? "border-cyan-500/40 bg-slate-900/80" : "border-white/5 bg-slate-950/60"
-                }`}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.45, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
               >
-                <button
-                  type="button"
-                  onClick={() => toggle(idx)}
-                  className="w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none cursor-pointer"
+                <SpotlightCard
+                  className={`transition-all duration-300 ${
+                    isOpen ? "border-cyan-500/40 bg-slate-900/80 shadow-lg shadow-cyan-500/10" : "border-white/5 bg-slate-950/60"
+                  }`}
                 >
-                  <span className="text-base sm:text-lg font-bold text-white group-hover:text-cyan-300 transition-colors">
-                    {faq.q}
-                  </span>
-                  <div
-                    className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-300 ${
-                      isOpen
-                        ? "bg-cyan-500/20 text-cyan-300 rotate-180"
-                        : "bg-white/5 text-slate-400"
-                    }`}
+                  <button
+                    type="button"
+                    onClick={() => toggle(idx)}
+                    className="w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none cursor-pointer"
                   >
-                    <FiChevronDown size={18} />
-                  </div>
-                </button>
-
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.25, ease: "easeInOut" }}
-                      className="overflow-hidden"
+                    <span className="text-base sm:text-lg font-bold text-white group-hover:text-cyan-300 transition-colors">
+                      {faq.q}
+                    </span>
+                    <div
+                      className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-300 ${
+                        isOpen
+                          ? "bg-cyan-500/20 text-cyan-300 rotate-180"
+                          : "bg-white/5 text-slate-400"
+                      }`}
                     >
-                      <div className="px-6 pb-6 pt-1 text-sm text-slate-300 leading-relaxed border-t border-white/5">
-                        {faq.a}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </SpotlightCard>
+                      <FiChevronDown size={18} />
+                    </div>
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.25, ease: "easeInOut" }}
+                        className="overflow-hidden"
+                      >
+                        <div className="px-6 pb-6 pt-1 text-sm text-slate-300 leading-relaxed border-t border-white/5">
+                          {faq.a}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </SpotlightCard>
+              </motion.div>
             );
           })}
         </div>

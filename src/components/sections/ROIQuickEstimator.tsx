@@ -31,7 +31,7 @@ export default function ROIQuickEstimator() {
               <FiTrendingUp /> Enterprise Value Calculator
             </span>
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-3">
-              Estimate Your <span className="gradient-text">Efficiency & Savings</span>
+              Estimate Your <span className="gradient-text-animated">Efficiency & Savings</span>
             </h2>
             <p className="text-slate-400 text-sm lg:text-base">
               See what high-availability IT clustering and AI workflow automation can save your organization each year.
@@ -136,18 +136,13 @@ export default function ROIQuickEstimator() {
                   </div>
                 </div>
 
-                <a
-                  href="#contact"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    const elem = document.getElementById("contact");
-                    if (elem) elem.scrollIntoView({ behavior: "smooth", block: "start" });
-                  }}
-                  className="w-full py-3.5 px-6 gradient-brand text-white font-bold rounded-xl hover:opacity-90 transition-all flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20 group cursor-pointer"
+                <Link
+                  href="/contact"
+                  className="w-full py-3.5 px-6 gradient-brand text-white font-bold rounded-xl hover:brightness-110 transition-all flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20 group cursor-pointer shine-sweep card-lift"
                 >
                   <span>Book Free IT Audit</span>
                   <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
-                </a>
+                </Link>
               </motion.div>
             </div>
           </div>

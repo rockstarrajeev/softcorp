@@ -55,8 +55,8 @@
     "semantic_hash": ""
   },
   "src/app/ai-solutions/page.tsx": {
-    "mtime": 1791626019.8886297,
-    "ast_hash": "8897c04df17e221fed82a6522b77ac9d",
+    "mtime": 1792753696.8025026,
+    "ast_hash": "507806a2cd6077adfcbfe57207a80ae3",
     "semantic_hash": ""
   },
   "src/app/api/admin/messages/route.ts": {
@@ -165,8 +165,8 @@
     "semantic_hash": ""
   },
   "src/app/page.tsx": {
-    "mtime": 1792752885.857939,
-    "ast_hash": "05e1abbfa1a7ea85873f91ed21ea77aa",
+    "mtime": 1792753599.3323054,
+    "ast_hash": "2425929e39e23e01bfcb65aa16b560ce",
     "semantic_hash": ""
   },
   "src/app/register/page.tsx": {
@@ -175,13 +175,13 @@
     "semantic_hash": ""
   },
   "src/components/Footer.tsx": {
-    "mtime": 1792750605.2862346,
-    "ast_hash": "fd5d31aee0c53e0275c9e289361b5d89",
+    "mtime": 1792753652.9765873,
+    "ast_hash": "a2b29877257df3d036ba0c3b3775ba59",
     "semantic_hash": ""
   },
   "src/components/Navbar.tsx": {
-    "mtime": 1792750584.740801,
-    "ast_hash": "373c87f7312480da77010dbb5ad9d5b0",
+    "mtime": 1792753623.416215,
+    "ast_hash": "2c3e3adddb9588742cff28f3bc801fd2",
     "semantic_hash": ""
   },
   "src/components/Providers.tsx": {
@@ -195,48 +195,48 @@
     "semantic_hash": ""
   },
   "src/components/sections/About.tsx": {
-    "mtime": 1791628262.5817788,
-    "ast_hash": "335cca0aa5f680c35d1aef077c43a9a8",
+    "mtime": 1792753909.140401,
+    "ast_hash": "ed69205fdb415d9c41bcd08d85f42fe5",
     "semantic_hash": ""
   },
   "src/components/sections/CaseStudies.tsx": {
-    "mtime": 1791627757.0144613,
-    "ast_hash": "0f0aaaeee5b958af9ddeac29bd8576cd",
+    "mtime": 1792753885.7050717,
+    "ast_hash": "64c8907207c2a2be482f2ca98c3825fc",
     "semantic_hash": ""
   },
   "src/components/sections/Contact.tsx": {
-    "mtime": 1792744903.5436194,
-    "ast_hash": "8f000b39299f18e4a17ca7dd3542458a",
+    "mtime": 1792754005.7077866,
+    "ast_hash": "98a571fa3ef261d34b4ef95f362d119f",
     "semantic_hash": ""
   },
   "src/components/sections/Hero.tsx": {
-    "mtime": 1792748526.176102,
-    "ast_hash": "2e434202d3095b9336daa3c93ad64c12",
+    "mtime": 1792753298.5191743,
+    "ast_hash": "97cb3cfb48cbfe4980d15d98aea88f3e",
     "semantic_hash": ""
   },
   "src/components/sections/Process.tsx": {
-    "mtime": 1791624348.4213872,
-    "ast_hash": "cfd4fac43be2957859c4de83b0e46961",
+    "mtime": 1792753936.1177492,
+    "ast_hash": "47b6c7929798543982c76180aa5ad77b",
     "semantic_hash": ""
   },
   "src/components/sections/ROIQuickEstimator.tsx": {
-    "mtime": 1791627718.4552374,
-    "ast_hash": "632d5f579953fc8a1716a7d9e9c120c4",
+    "mtime": 1792753798.1267028,
+    "ast_hash": "7ce741a92eecbe9d9aa5329724f2f060",
     "semantic_hash": ""
   },
   "src/components/sections/Services.tsx": {
-    "mtime": 1791634619.2642217,
-    "ast_hash": "b953e101de417bd954703b05d6f544fb",
+    "mtime": 1792754044.4023798,
+    "ast_hash": "f79f3204fb1c73ddaf3bab3ca71320a5",
     "semantic_hash": ""
   },
   "src/components/ui/AmbientBackground.tsx": {
-    "mtime": 1791635619.362529,
-    "ast_hash": "500c55529e2d36200ab38d58d5547d12",
+    "mtime": 1792753266.0028164,
+    "ast_hash": "abf5e1783aed2f9acc5b9f9b02454ff2",
     "semantic_hash": ""
   },
   "src/components/ui/CommandCenterHUD.tsx": {
-    "mtime": 1791635626.1210585,
-    "ast_hash": "a9c31164908e6107e908aaf0800c0c8e",
+    "mtime": 1792753610.0007782,
+    "ast_hash": "a3172bab1079c700bc0e8f54c06e672c",
     "semantic_hash": ""
   },
   "src/components/ui/EnterpriseMarquee.tsx": {
@@ -250,8 +250,8 @@
     "semantic_hash": ""
   },
   "src/components/ui/SpotlightCard.tsx": {
-    "mtime": 1792749511.8924365,
-    "ast_hash": "b694313069b8985f16309036d3cb9d98",
+    "mtime": 1792753315.993265,
+    "ast_hash": "f62b91e56eccdc948f666251b52f7c51",
     "semantic_hash": ""
   },
   "src/lib/auth.ts": {
@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/components/sections/FAQ.tsx": {
-    "mtime": 1791628228.1030223,
-    "ast_hash": "00be13c57dbcf161a4035a41d68a565a",
+    "mtime": 1792753830.5516982,
+    "ast_hash": "fa154366b0c46c2403a8a01041c4e919",
     "semantic_hash": ""
   },
   "src/components/UdyamVerification.tsx": {
@@ -570,8 +570,8 @@
     "semantic_hash": ""
   },
   "src/app/products/page.tsx": {
-    "mtime": 1792752914.807982,
-    "ast_hash": "1c9e514895b3f0833d25662946dd8d5b",
+    "mtime": 1792753423.7025523,
+    "ast_hash": "ffab0f9bcebbd99e76544594c3b0d9e6",
     "semantic_hash": ""
   },
   "src/lib/products.ts": {

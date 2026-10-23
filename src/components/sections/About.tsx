@@ -54,7 +54,7 @@ export default function About() {
 
                         <h2 className="text-3xl md:text-5xl font-extrabold text-white leading-[1.15] tracking-tight">
                             Personal Craftsmanship <br />
-                            Meets <span className="gradient-text">Enterprise Trust</span>
+                            Meets <span className="gradient-text-animated">Enterprise Trust</span>
                         </h2>
 
                         <div className="space-y-4 text-slate-300 leading-relaxed text-base md:text-lg">

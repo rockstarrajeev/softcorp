@@ -68,6 +68,35 @@ export default function AmbientBackground() {
         }}
       />
 
+      {/* High-Tech Cyber Laser Grid Beam */}
+      <div className="absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-cyan-400/35 to-transparent laser-beam pointer-events-none" />
+
+      {/* Floating Micro-Dust / Cyber Particles */}
+      {[
+        { x: "12%", duration: 18, delay: 0 },
+        { x: "28%", duration: 24, delay: 3 },
+        { x: "46%", duration: 20, delay: 6 },
+        { x: "68%", duration: 22, delay: 2 },
+        { x: "85%", duration: 26, delay: 5 },
+      ].map((pt, i) => (
+        <motion.div
+          key={i}
+          animate={{
+            y: ["110vh", "-10vh"],
+            opacity: [0, 0.45, 0.8, 0.45, 0],
+            scale: [0.8, 1.2, 0.9],
+          }}
+          transition={{
+            duration: pt.duration,
+            repeat: Infinity,
+            ease: "linear",
+            delay: pt.delay,
+          }}
+          style={{ left: pt.x }}
+          className="absolute w-1 h-1 rounded-full bg-cyan-400/60 blur-[0.5px] pointer-events-none"
+        />
+      ))}
+
       {/* Top subtle vignette */}
       <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-slate-950 via-slate-950/60 to-transparent" />
 

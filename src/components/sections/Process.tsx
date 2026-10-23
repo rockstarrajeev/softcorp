@@ -54,7 +54,7 @@ export default function Process() {
                         Disciplined Methodology
                     </span>
                     <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">
-                        Our Engineered <span className="gradient-text">Delivery Process</span>
+                        Our Engineered <span className="gradient-text-animated">Delivery Process</span>
                     </h2>
                     <p className="text-slate-300 max-w-2xl mx-auto text-base md:text-lg">
                         A battle-tested 4-phase workflow designed for zero surprises, high transparency, and rock-solid stability.

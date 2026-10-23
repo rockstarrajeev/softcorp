@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { FiServer, FiCpu, FiCloud, FiArrowRight, FiCheckCircle } from "react-icons/fi";
 import SpotlightCard from "@/components/ui/SpotlightCard";
@@ -54,7 +55,7 @@ export default function CaseStudies() {
                         Proof of Execution
                     </span>
                     <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">
-                        Proven Enterprise <span className="gradient-text">Case Studies</span>
+                        Proven Enterprise <span className="gradient-text-animated">Case Studies</span>
                     </h2>
                     <p className="text-slate-300 max-w-2xl mx-auto text-base md:text-lg">
                         Measurable impact delivered through disciplined IT engineering and intelligent modernization.
@@ -129,17 +130,12 @@ export default function CaseStudies() {
                                         </p>
                                     </div>
 
-                                    <a
-                                        href="#contact"
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            const elem = document.getElementById("contact");
-                                            if (elem) elem.scrollIntoView({ behavior: "smooth", block: "start" });
-                                        }}
-                                        className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 group-hover:bg-cyan-500/20 group-hover:border-cyan-500/40 group-hover:text-cyan-300 transition-all cursor-pointer"
+                                    <Link
+                                        href="/contact"
+                                        className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 group-hover:bg-cyan-500/20 group-hover:border-cyan-500/40 group-hover:text-cyan-300 transition-all cursor-pointer card-lift"
                                     >
                                         <FiArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
-                                    </a>
+                                    </Link>
                                 </div>
                             </SpotlightCard>
                         </motion.div>

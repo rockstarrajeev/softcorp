@@ -1878,7 +1878,7 @@
       "label": "CaseStudies",
       "file_type": "code",
       "source_file": "src/components/sections/CaseStudies.tsx",
-      "source_location": "L43",
+      "source_location": "L44",
       "id": "sections_casestudies_casestudies",
       "community": 63,
       "norm_label": "casestudies"
@@ -7208,5 +7208,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "9db88b913b6a9523d92b08f8a0ce1ec448a1b715"
+  "built_at_commit": "2175834a37bdda66e64e70a7d2505268c25fe20b"
 }

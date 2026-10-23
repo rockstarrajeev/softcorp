@@ -76,7 +76,7 @@ export default function Contact() {
                         Initiate Collaboration
                     </span>
                     <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">
-                        Schedule a Free <span className="gradient-text">IT Architecture Discovery</span>
+                        Schedule a Free <span className="gradient-text-animated">IT Architecture Discovery</span>
                     </h2>
                     <p className="text-slate-300 max-w-2xl mx-auto text-base md:text-lg">
                         Ready to eliminate downtime vulnerabilities or deploy autonomous AI agent pipelines? 
@@ -242,7 +242,7 @@ export default function Contact() {
                                 <button
                                     type="submit"
                                     disabled={isSubmitting}
-                                    className="w-full sm:w-auto px-8 py-4 gradient-brand text-white font-bold text-sm tracking-wide rounded-xl hover:brightness-110 transition-all flex items-center justify-center gap-2.5 disabled:opacity-50 disabled:cursor-not-allowed shadow-xl shadow-cyan-500/25"
+                                    className="w-full sm:w-auto px-8 py-4 gradient-brand text-white font-bold text-sm tracking-wide rounded-xl hover:brightness-110 transition-all flex items-center justify-center gap-2.5 disabled:opacity-50 disabled:cursor-not-allowed shadow-xl shadow-cyan-500/25 shine-sweep card-lift cursor-pointer"
                                 >
                                     <span>{isSubmitting ? "Transmitting..." : "Send Architecture Inquiry"}</span>
                                     <FiSend size={15} />

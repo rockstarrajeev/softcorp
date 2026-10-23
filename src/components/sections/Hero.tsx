@@ -38,7 +38,7 @@ export default function Hero() {
                             className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-[1.1] mb-6"
                         >
                             Zero-Downtime <br />
-                            <span className="gradient-text text-glow">IT Infrastructure</span>
+                            <span className="gradient-text-animated text-glow">IT Infrastructure</span>
                             <br />
                             <span className="text-white relative inline-block mt-1">
                                 & AI Modernization
@@ -86,14 +86,14 @@ export default function Hero() {
                         >
                             <Link
                                 href="/contact"
-                                className="group relative px-7 py-4 gradient-brand text-white font-bold text-sm tracking-wide rounded-xl hover:brightness-110 transition-all flex items-center gap-2.5 shadow-xl shadow-cyan-500/25 cursor-pointer"
+                                className="group relative px-7 py-4 gradient-brand text-white font-bold text-sm tracking-wide rounded-xl hover:brightness-110 transition-all flex items-center gap-2.5 shadow-xl shadow-cyan-500/25 cursor-pointer shine-sweep card-lift"
                             >
                                 <span>Book Free IT Consultation</span>
                                 <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
                             </Link>
                             <Link
                                 href="/services"
-                                className="px-7 py-4 bg-white/5 border border-white/10 text-white font-semibold text-sm rounded-xl hover:bg-white/10 hover:border-white/20 transition-all flex items-center gap-2 cursor-pointer"
+                                className="px-7 py-4 bg-white/5 border border-white/10 text-white font-semibold text-sm rounded-xl hover:bg-white/10 hover:border-white/20 transition-all flex items-center gap-2 cursor-pointer shine-sweep card-lift"
                             >
                                 <FiCpu className="text-cyan-400" />
                                 <span>Explore Solutions</span>
