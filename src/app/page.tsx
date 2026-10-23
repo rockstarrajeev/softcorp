@@ -119,7 +119,7 @@ export default function Home() {
                         className="w-full py-2.5 px-3 rounded-xl font-bold text-xs bg-white/5 hover:bg-white/10 border border-white/10 text-slate-200 flex items-center justify-center gap-2 transition-all shine-sweep"
                       >
                         <FiDownload size={13} />
-                        {isSDM ? "Download Trial (.exe)" : isTradeboard ? "Docs & Platform" : product.id === "spectrum" ? "Microsoft Store" : product.id === "melodrift" ? "Web Player & Dash" : "Get Software"}
+                        {isSDM ? "Download Trial (.exe)" : isTradeboard ? "Docs & Platform" : product.id === "spectrum" ? "Microsoft Store" : product.id === "melodrift" ? "Launch Web Player" : "Get Software"}
                       </Link>
                       <Link
                         href="/products"

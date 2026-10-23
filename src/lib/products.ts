@@ -147,7 +147,6 @@ export const SOFTWARE_PRODUCTS: SoftwareProduct[] = [
     installerFileName: "Melodrift_Setup_v1.0.exe",
     downloadUrl: "https://melodrift.rajeevupadhyay.com/",
     webUrl: "https://melodrift.rajeevupadhyay.com/",
-    dashboardUrl: "https://melodash.wesoftcorp.com/",
     storeUrl: "https://apps.microsoft.com/detail/9NTMFZ12Q80S?hl=en-us&gl=IN&ocid=pdpshare",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.melodrift",
     badge: "🔥 Free Showcase Access",
@@ -156,7 +155,7 @@ export const SOFTWARE_PRODUCTS: SoftwareProduct[] = [
     features: [
       "Limited-Time Showcase Access: 100% Free ad-free high-fidelity music streaming",
       "Live high-fidelity web player at melodrift.rajeevupadhyay.com",
-      "Dedicated creator & station cloud dashboard at melodash.wesoftcorp.com",
+      "High-fidelity 320kbps audio engine with offline caching and zero buffering",
       "10-band studio equalizer with bass boost, audio virtualizer & acoustic presets",
       "Synchronized real-time karaoke lyrics with line-by-line and offline lyric caching",
       "Cross-platform cloud library sync across Android, Web and Windows devices",
@@ -165,7 +164,7 @@ export const SOFTWARE_PRODUCTS: SoftwareProduct[] = [
     specs: [
       { label: "Showcase Offer", value: "100% Free Limited Access" },
       { label: "Web Player", value: "melodrift.rajeevupadhyay.com" },
-      { label: "Cloud Dashboard", value: "melodash.wesoftcorp.com" },
+      { label: "Audio Engine", value: "320kbps Studio Acoustic Engine" },
       { label: "Platforms", value: "Web, Windows & Android" },
       { label: "License Model", value: "Full Supporter Showcase License" }
     ],

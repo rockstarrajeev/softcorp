@@ -361,27 +361,17 @@ export default function ProductsPage() {
                       : `Buy Lifetime Pro (${displayPrice})`}
                   </button>
 
-                  {/* Secondary: Download / Store / Docs / Web & Dashboard */}
+                  {/* Secondary: Download / Store / Docs / Web */}
                   {isMelodrift ? (
                     <div className="space-y-2">
-                      <div className="grid grid-cols-2 gap-2">
-                        <a
-                          href={product.webUrl || "https://melodrift.rajeevupadhyay.com/"}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="py-2.5 px-3 rounded-xl font-semibold text-xs text-emerald-300 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center gap-1.5 transition-colors shine-sweep"
-                        >
-                          <FiExternalLink size={13} /> Launch Player
-                        </a>
-                        <a
-                          href={product.dashboardUrl || "https://melodash.wesoftcorp.com/"}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="py-2.5 px-3 rounded-xl font-semibold text-xs text-teal-300 bg-teal-500/10 hover:bg-teal-500/20 border border-teal-500/30 flex items-center justify-center gap-1.5 transition-colors shine-sweep"
-                        >
-                          <FiExternalLink size={13} /> Dashboard
-                        </a>
-                      </div>
+                      <a
+                        href={product.webUrl || "https://melodrift.rajeevupadhyay.com/"}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full py-2.5 px-3 rounded-xl font-semibold text-xs text-emerald-300 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center gap-1.5 transition-colors shine-sweep"
+                      >
+                        <FiExternalLink size={13} /> Launch Melodrift Web Player
+                      </a>
                       <div className="flex items-center justify-center gap-3 text-[11px] text-slate-400 pt-0.5">
                         <a
                           href={product.storeUrl}
