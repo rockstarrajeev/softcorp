@@ -9,15 +9,14 @@ import { FiMenu, FiX, FiUser, FiArrowRight } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-    { name: "Home", href: "/#home" },
+    { name: "Home", href: "/" },
     { name: "Products", href: "/products" },
     { name: "AI Solutions", href: "/ai-solutions" },
-    { name: "Services", href: "/#services" },
-    { name: "Case Studies", href: "/#case-studies" },
-    { name: "About", href: "/#about" },
-    { name: "Process", href: "/#process" },
-    { name: "FAQ", href: "/#faq" },
-    { name: "Contact", href: "/#contact" },
+    { name: "Services", href: "/services" },
+    { name: "Case Studies", href: "/case-studies" },
+    { name: "About", href: "/about" },
+    { name: "Process", href: "/process" },
+    { name: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -29,7 +28,6 @@ export default function Navbar() {
 
     useEffect(() => {
         let lastScrolled = false;
-
         const handleScroll = () => {
             const next = window.scrollY > 30;
             if (next !== lastScrolled) {
@@ -45,58 +43,6 @@ export default function Navbar() {
             window.removeEventListener("scroll", handleScroll);
         };
     }, []);
-
-    // Robust smooth scroll executor
-    const scrollToTarget = (targetId: string) => {
-        if (!targetId || targetId === "home") {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-            try {
-                window.history.pushState(null, "", "/");
-            } catch {}
-            return;
-        }
-
-        const elem = document.getElementById(targetId);
-        if (elem) {
-            elem.scrollIntoView({ behavior: "smooth", block: "start" });
-            try {
-                window.history.pushState(null, "", `#${targetId}`);
-            } catch {}
-        }
-    };
-
-    // Smooth scroll handler that works reliably across routes, ids, and hash targets
-    const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, target: string) => {
-        // If it's an external or subpage link without a hash (e.g. "/ai-solutions"), let default navigation run
-        if (!target.includes("#") && target !== "contact" && target !== "home") {
-            return;
-        }
-
-        const targetId = target.includes("#")
-            ? target.split("#")[1]
-            : target.replace(/^\/?#?/, "");
-
-        if (pathname === "/" || pathname === "" || !pathname) {
-            e.preventDefault();
-            scrollToTarget(targetId);
-        }
-    };
-
-    // Automatically smooth scroll to section if URL has a hash upon initial load or page transition
-    useEffect(() => {
-        if (typeof window !== "undefined" && window.location.hash) {
-            const hash = window.location.hash.replace("#", "");
-            if (hash) {
-                const timer = setTimeout(() => {
-                    const elem = document.getElementById(hash);
-                    if (elem) {
-                        elem.scrollIntoView({ behavior: "smooth", block: "start" });
-                    }
-                }, 150);
-                return () => clearTimeout(timer);
-            }
-        }
-    }, [pathname]);
 
     const dashboardHref = session?.user
         ? (session.user as { role?: string }).role === "admin"
@@ -118,15 +64,6 @@ export default function Navbar() {
                 {/* Logo */}
                 <Link 
                     href="/" 
-                    onClick={(e) => {
-                        if (pathname === "/" || pathname === "" || !pathname) {
-                            e.preventDefault();
-                            window.scrollTo({ top: 0, behavior: "smooth" });
-                            try {
-                                window.history.pushState(null, "", "/");
-                            } catch {}
-                        }
-                    }}
                     className="flex items-center gap-2 group cursor-pointer"
                 >
                     <Image 
@@ -141,25 +78,33 @@ export default function Navbar() {
 
                 {/* Desktop Nav */}
                 <nav className="hidden lg:flex items-center gap-1 bg-white/[0.03] border border-white/10 rounded-full px-4 py-1.5 backdrop-blur-xl">
-                    {navLinks.map((link) => (
-                        <a
-                            key={link.name}
-                            href={link.href}
-                            onClick={(e) => handleNavClick(e, link.href)}
-                            onMouseEnter={() => setActiveHover(link.name)}
-                            onMouseLeave={() => setActiveHover(null)}
-                            className="relative px-3.5 py-1.5 text-xs font-semibold tracking-wide text-slate-300 hover:text-white transition-colors duration-200 cursor-pointer"
-                        >
-                            {activeHover === link.name && (
-                                <motion.span
-                                    layoutId="navHover"
-                                    className="absolute inset-0 rounded-full bg-cyan-500/15 border border-cyan-500/30 -z-10"
-                                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                                />
-                            )}
-                            {link.name}
-                        </a>
-                    ))}
+                    {navLinks.map((link) => {
+                        const isActive = pathname === link.href || (link.href !== "/" && pathname?.startsWith(link.href));
+
+                        return (
+                            <Link
+                                key={link.name}
+                                href={link.href}
+                                onMouseEnter={() => setActiveHover(link.name)}
+                                onMouseLeave={() => setActiveHover(null)}
+                                className={`relative px-3.5 py-1.5 text-xs font-semibold tracking-wide transition-colors duration-200 cursor-pointer ${
+                                    isActive ? "text-cyan-400 font-bold" : "text-slate-300 hover:text-white"
+                                }`}
+                            >
+                                {activeHover === link.name && (
+                                    <motion.span
+                                        layoutId="navHover"
+                                        className="absolute inset-0 rounded-full bg-cyan-500/15 border border-cyan-500/30 -z-10"
+                                        transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                                    />
+                                )}
+                                {isActive && !activeHover && (
+                                    <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-cyan-400 rounded-full" />
+                                )}
+                                {link.name}
+                            </Link>
+                        );
+                    })}
                 </nav>
 
                 {/* Actions */}
@@ -183,8 +128,7 @@ export default function Navbar() {
                                 <span>Client Portal</span>
                             </Link>
                             <Link
-                                href="/#contact"
-                                onClick={(e) => handleNavClick(e, "contact")}
+                                href="/contact"
                                 className="group relative inline-flex items-center gap-2 px-5 py-2 text-xs font-bold uppercase tracking-wider text-white gradient-brand rounded-full hover:brightness-110 transition-all shadow-lg shadow-cyan-500/20 cursor-pointer"
                             >
                                 <span>Book Consultation</span>
@@ -215,26 +159,27 @@ export default function Navbar() {
                         className="lg:hidden bg-slate-950/95 backdrop-blur-2xl border-b border-white/10 px-6 py-6 overflow-hidden"
                     >
                         <nav className="flex flex-col gap-3">
-                            {navLinks.map((link) => (
-                                <Link
-                                    key={link.name}
-                                    href={link.href}
-                                    onClick={(e) => {
-                                        setIsOpen(false);
-                                        handleNavClick(e, link.href);
-                                    }}
-                                    className="px-4 py-2.5 rounded-xl text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all cursor-pointer"
-                                >
-                                    {link.name}
-                                </Link>
-                            ))}
+                            {navLinks.map((link) => {
+                                const isActive = pathname === link.href || (link.href !== "/" && pathname?.startsWith(link.href));
+                                return (
+                                    <Link
+                                        key={link.name}
+                                        href={link.href}
+                                        onClick={() => setIsOpen(false)}
+                                        className={`px-4 py-2.5 rounded-xl text-base font-medium transition-all cursor-pointer ${
+                                            isActive
+                                                ? "text-cyan-400 bg-cyan-500/10 font-bold border border-cyan-500/20"
+                                                : "text-slate-300 hover:text-white hover:bg-white/5"
+                                        }`}
+                                    >
+                                        {link.name}
+                                    </Link>
+                                );
+                            })}
                             <div className="pt-4 border-t border-white/10 mt-2 flex flex-col gap-3">
                                 <Link
-                                    href="/#contact"
-                                    onClick={(e) => {
-                                        setIsOpen(false);
-                                        handleNavClick(e, "contact");
-                                    }}
+                                    href="/contact"
+                                    onClick={() => setIsOpen(false)}
                                     className="w-full py-3 text-center text-sm font-bold text-white gradient-brand rounded-xl cursor-pointer"
                                 >
                                     Book a Free Consultation

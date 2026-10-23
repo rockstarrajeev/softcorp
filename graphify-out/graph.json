@@ -588,6 +588,24 @@
       "norm_label": "main()"
     },
     {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "src/app/about/page.tsx",
+      "source_location": "L1",
+      "id": "about_page",
+      "community": 63,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "AboutPage()",
+      "file_type": "code",
+      "source_file": "src/app/about/page.tsx",
+      "source_location": "L8",
+      "id": "about_page_aboutpage",
+      "community": 63,
+      "norm_label": "aboutpage()"
+    },
+    {
       "label": "AdminDashboardClient.tsx",
       "file_type": "code",
       "source_file": "src/app/admin/AdminDashboardClient.tsx",
@@ -755,7 +773,7 @@
       "source_file": "src/app/admin/page.tsx",
       "source_location": "L1",
       "id": "admin_page",
-      "community": 0,
+      "community": 4,
       "norm_label": "page.tsx"
     },
     {
@@ -764,7 +782,7 @@
       "source_file": "src/app/admin/page.tsx",
       "source_location": "L6",
       "id": "admin_page_admindashboard",
-      "community": 0,
+      "community": 4,
       "norm_label": "admindashboard()"
     },
     {
@@ -1038,12 +1056,30 @@
       "norm_label": "get()"
     },
     {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "src/app/case-studies/page.tsx",
+      "source_location": "L1",
+      "id": "case_studies_page",
+      "community": 63,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "CaseStudiesPage()",
+      "file_type": "code",
+      "source_file": "src/app/case-studies/page.tsx",
+      "source_location": "L8",
+      "id": "case_studies_page_casestudiespage",
+      "community": 63,
+      "norm_label": "casestudiespage()"
+    },
+    {
       "label": "CheckoutClient.tsx",
       "file_type": "code",
       "source_file": "src/app/checkout/[serviceId]/CheckoutClient.tsx",
       "source_location": "L1",
       "id": "serviceid_checkoutclient",
-      "community": 9,
+      "community": 0,
       "norm_label": "checkoutclient.tsx"
     },
     {
@@ -1052,7 +1088,7 @@
       "source_file": "src/app/checkout/[serviceId]/CheckoutClient.tsx",
       "source_location": "L21",
       "id": "serviceid_checkoutclient_servicedetails",
-      "community": 9,
+      "community": 0,
       "norm_label": "servicedetails"
     },
     {
@@ -1061,7 +1097,7 @@
       "source_file": "src/app/checkout/[serviceId]/CheckoutClient.tsx",
       "source_location": "L31",
       "id": "serviceid_checkoutclient_props",
-      "community": 9,
+      "community": 0,
       "norm_label": "props"
     },
     {
@@ -1070,7 +1106,7 @@
       "source_file": "src/app/checkout/[serviceId]/CheckoutClient.tsx",
       "source_location": "L38",
       "id": "serviceid_checkoutclient_categorylabels",
-      "community": 9,
+      "community": 0,
       "norm_label": "categorylabels"
     },
     {
@@ -1079,7 +1115,7 @@
       "source_file": "src/app/checkout/[serviceId]/CheckoutClient.tsx",
       "source_location": "L53",
       "id": "serviceid_checkoutclient_pricinglabels",
-      "community": 9,
+      "community": 0,
       "norm_label": "pricinglabels"
     },
     {
@@ -1088,7 +1124,7 @@
       "source_file": "src/app/checkout/[serviceId]/CheckoutClient.tsx",
       "source_location": "L59",
       "id": "serviceid_checkoutclient_checkoutclient",
-      "community": 9,
+      "community": 0,
       "norm_label": "checkoutclient()"
     },
     {
@@ -1097,7 +1133,7 @@
       "source_file": "src/app/checkout/[serviceId]/CheckoutClient.tsx",
       "source_location": "L310",
       "id": "serviceid_checkoutclient_gatewayoption",
-      "community": 9,
+      "community": 0,
       "norm_label": "gatewayoption()"
     },
     {
@@ -1162,6 +1198,24 @@
       "id": "success_page_checkoutsuccesspage",
       "community": 13,
       "norm_label": "checkoutsuccesspage()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "src/app/contact/page.tsx",
+      "source_location": "L1",
+      "id": "contact_page",
+      "community": 63,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "ContactPage()",
+      "file_type": "code",
+      "source_file": "src/app/contact/page.tsx",
+      "source_location": "L8",
+      "id": "contact_page_contactpage",
+      "community": 63,
+      "norm_label": "contactpage()"
     },
     {
       "label": "ClientDashboardClient.tsx",
@@ -1331,7 +1385,7 @@
       "source_file": "src/app/dashboard/page.tsx",
       "source_location": "L1",
       "id": "dashboard_page",
-      "community": 0,
+      "community": 5,
       "norm_label": "page.tsx"
     },
     {
@@ -1340,7 +1394,7 @@
       "source_file": "src/app/dashboard/page.tsx",
       "source_location": "L6",
       "id": "dashboard_page_clientdashboard",
-      "community": 0,
+      "community": 5,
       "norm_label": "clientdashboard()"
     },
     {
@@ -1425,40 +1479,31 @@
       "norm_label": "page.tsx"
     },
     {
-      "label": "ROIQuickEstimator",
-      "file_type": "code",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L10",
-      "id": "app_page_roiquickestimator",
-      "community": 63,
-      "norm_label": "roiquickestimator"
-    },
-    {
-      "label": "FAQ",
-      "file_type": "code",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L14",
-      "id": "app_page_faq",
-      "community": 63,
-      "norm_label": "faq"
-    },
-    {
-      "label": "Contact",
-      "file_type": "code",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L18",
-      "id": "app_page_contact",
-      "community": 63,
-      "norm_label": "contact"
-    },
-    {
       "label": "Home()",
       "file_type": "code",
       "source_file": "src/app/page.tsx",
-      "source_location": "L22",
+      "source_location": "L23",
       "id": "app_page_home",
       "community": 63,
       "norm_label": "home()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "src/app/process/page.tsx",
+      "source_location": "L1",
+      "id": "process_page",
+      "community": 63,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "ProcessPage()",
+      "file_type": "code",
+      "source_file": "src/app/process/page.tsx",
+      "source_location": "L8",
+      "id": "process_page_processpage",
+      "community": 63,
+      "norm_label": "processpage()"
     },
     {
       "label": "page.tsx",
@@ -1515,6 +1560,24 @@
       "norm_label": "robots()"
     },
     {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "src/app/services/page.tsx",
+      "source_location": "L1",
+      "id": "services_page",
+      "community": 63,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "ServicesPage()",
+      "file_type": "code",
+      "source_file": "src/app/services/page.tsx",
+      "source_location": "L9",
+      "id": "services_page_servicespage",
+      "community": 63,
+      "norm_label": "servicespage()"
+    },
+    {
       "label": "sitemap.ts",
       "file_type": "code",
       "source_file": "src/app/sitemap.ts",
@@ -1563,7 +1626,7 @@
       "label": "Footer()",
       "file_type": "code",
       "source_file": "src/components/Footer.tsx",
-      "source_location": "L36",
+      "source_location": "L35",
       "id": "components_footer_footer",
       "community": 6,
       "norm_label": "footer()"
@@ -1590,7 +1653,7 @@
       "label": "Navbar()",
       "file_type": "code",
       "source_file": "src/components/Navbar.tsx",
-      "source_location": "L23",
+      "source_location": "L22",
       "id": "components_navbar_navbar",
       "community": 6,
       "norm_label": "navbar()"
@@ -1797,7 +1860,7 @@
       "label": "Hero()",
       "file_type": "code",
       "source_file": "src/components/sections/Hero.tsx",
-      "source_location": "L8",
+      "source_location": "L9",
       "id": "sections_hero_hero",
       "community": 25,
       "norm_label": "hero()"
@@ -2838,6 +2901,33 @@
       "norm_label": "{ get, post }"
     },
     {
+      "label": "ROIQuickEstimator",
+      "file_type": "code",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L10",
+      "community": 63,
+      "norm_label": "roiquickestimator",
+      "id": "app_page_roiquickestimator"
+    },
+    {
+      "label": "FAQ",
+      "file_type": "code",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L14",
+      "community": 63,
+      "norm_label": "faq",
+      "id": "app_page_faq"
+    },
+    {
+      "label": "Contact",
+      "file_type": "code",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L18",
+      "community": 63,
+      "norm_label": "contact",
+      "id": "app_page_contact"
+    },
+    {
       "label": "UdyamVerification",
       "file_type": "code",
       "source_file": "src/app/page.tsx",
@@ -2896,7 +2986,7 @@
       "file_type": "code",
       "source_file": "src/app/checkout/[serviceId]/CheckoutClient.tsx",
       "source_location": "L61",
-      "community": 9,
+      "community": 0,
       "norm_label": "window",
       "id": "serviceid_checkoutclient_window"
     },
@@ -2905,7 +2995,7 @@
       "file_type": "document",
       "source_file": "implementation_plan.md",
       "source_location": "L1",
-      "community": 7,
+      "community": 29,
       "norm_label": "modernization & animation implementation plan: softcorp enterprise web platform",
       "id": "implementation_plan_modernization_animation_implementation_plan_softcorp_enterprise_web_platform"
     },
@@ -2914,7 +3004,7 @@
       "file_type": "document",
       "source_file": "implementation_plan.md",
       "source_location": "L3",
-      "community": 7,
+      "community": 29,
       "norm_label": "aesthetic stance: cyber-enterprise precision (deep obsidian & cyan aurora)",
       "id": "implementation_plan_aesthetic_stance_cyber_enterprise_precision_deep_obsidian_cyan_aurora"
     },
@@ -2923,7 +3013,7 @@
       "file_type": "document",
       "source_file": "implementation_plan.md",
       "source_location": "L15",
-      "community": 7,
+      "community": 29,
       "norm_label": "key enhancements & animations breakdown",
       "id": "implementation_plan_key_enhancements_animations_breakdown"
     },
@@ -2932,7 +3022,7 @@
       "file_type": "document",
       "source_file": "implementation_plan.md",
       "source_location": "L17",
-      "community": 7,
+      "community": 29,
       "norm_label": "1. global visual system & atmosphere (`src/app/globals.css`, `src/components/ui/ambientbackground.tsx`)",
       "id": "implementation_plan_1_global_visual_system_atmosphere_src_app_globals_css_src_components_ui_ambientbackground_tsx"
     },
@@ -2941,7 +3031,7 @@
       "file_type": "document",
       "source_file": "implementation_plan.md",
       "source_location": "L23",
-      "community": 7,
+      "community": 29,
       "norm_label": "2. navigation experience (`src/components/navbar.tsx`)",
       "id": "implementation_plan_2_navigation_experience_src_components_navbar_tsx"
     },
@@ -2950,7 +3040,7 @@
       "file_type": "document",
       "source_file": "implementation_plan.md",
       "source_location": "L29",
-      "community": 7,
+      "community": 29,
       "norm_label": "3. hero section overhaul (`src/components/sections/hero.tsx`)",
       "id": "implementation_plan_3_hero_section_overhaul_src_components_sections_hero_tsx"
     },
@@ -2959,7 +3049,7 @@
       "file_type": "document",
       "source_file": "implementation_plan.md",
       "source_location": "L40",
-      "community": 7,
+      "community": 29,
       "norm_label": "4. next-gen ai solutions (`src/components/sections/aisolutions.tsx`)",
       "id": "implementation_plan_4_next_gen_ai_solutions_src_components_sections_aisolutions_tsx"
     },
@@ -2968,7 +3058,7 @@
       "file_type": "document",
       "source_file": "implementation_plan.md",
       "source_location": "L47",
-      "community": 7,
+      "community": 29,
       "norm_label": "5. services section (`src/components/sections/services.tsx`)",
       "id": "implementation_plan_5_services_section_src_components_sections_services_tsx"
     },
@@ -2977,7 +3067,7 @@
       "file_type": "document",
       "source_file": "implementation_plan.md",
       "source_location": "L52",
-      "community": 7,
+      "community": 29,
       "norm_label": "6. case studies (`src/components/sections/casestudies.tsx`)",
       "id": "implementation_plan_6_case_studies_src_components_sections_casestudies_tsx"
     },
@@ -2986,7 +3076,7 @@
       "file_type": "document",
       "source_file": "implementation_plan.md",
       "source_location": "L57",
-      "community": 7,
+      "community": 29,
       "norm_label": "7. about rajeev upadhyay (`src/components/sections/about.tsx`)",
       "id": "implementation_plan_7_about_rajeev_upadhyay_src_components_sections_about_tsx"
     },
@@ -2995,7 +3085,7 @@
       "file_type": "document",
       "source_file": "implementation_plan.md",
       "source_location": "L63",
-      "community": 7,
+      "community": 29,
       "norm_label": "8. interactive process pipeline (`src/components/sections/process.tsx`)",
       "id": "implementation_plan_8_interactive_process_pipeline_src_components_sections_process_tsx"
     },
@@ -3004,7 +3094,7 @@
       "file_type": "document",
       "source_file": "implementation_plan.md",
       "source_location": "L67",
-      "community": 7,
+      "community": 29,
       "norm_label": "9. interactive roi / it health assessment widget",
       "id": "implementation_plan_9_interactive_roi_it_health_assessment_widget"
     },
@@ -3013,7 +3103,7 @@
       "file_type": "document",
       "source_file": "implementation_plan.md",
       "source_location": "L70",
-      "community": 7,
+      "community": 29,
       "norm_label": "10. contact & footer polishing (`src/components/sections/contact.tsx`, `src/components/footer.tsx`)",
       "id": "implementation_plan_10_contact_footer_polishing_src_components_sections_contact_tsx_src_components_footer_tsx"
     },
@@ -3022,7 +3112,7 @@
       "file_type": "document",
       "source_file": "implementation_plan.md",
       "source_location": "L77",
-      "community": 7,
+      "community": 29,
       "norm_label": "execution steps",
       "id": "implementation_plan_execution_steps"
     }
@@ -3598,6 +3688,27 @@
       "confidence_score": 1.0,
       "source": "prisma_seed",
       "target": "prisma_seed_prisma"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/about/page.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "about_page",
+      "target": "about_page_aboutpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/about/page.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "about_page",
+      "target": "sections_about",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -4483,6 +4594,27 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/app/case-studies/page.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "case_studies_page",
+      "target": "case_studies_page_casestudiespage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/case-studies/page.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "case_studies_page",
+      "target": "sections_casestudies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/app/checkout/[serviceId]/CheckoutClient.tsx",
       "source_location": "L39",
       "weight": 1.0,
@@ -4622,6 +4754,27 @@
       "confidence_score": 1.0,
       "source": "success_page",
       "target": "success_page_checkoutsuccesspage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/contact/page.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "contact_page",
+      "target": "contact_page_contactpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/contact/page.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "contact_page",
+      "target": "sections_contact",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -5007,6 +5160,28 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/app/page.tsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "app_page",
+      "target": "lib_products",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "app_page",
+      "target": "lib_products_software_products",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/page.tsx",
       "source_location": "L5",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -5105,6 +5280,38 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "app_page",
+      "target": "ui_spotlightcard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/process/page.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "process_page",
+      "target": "process_page_processpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/process/page.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "process_page",
+      "target": "sections_process",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "src/app/products/page.tsx",
       "source_location": "L23",
       "weight": 1.0,
@@ -5185,6 +5392,38 @@
       "confidence_score": 1.0,
       "source": "app_robots",
       "target": "app_robots_robots"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/services/page.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "services_page",
+      "target": "sections_roiquickestimator",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/services/page.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "services_page",
+      "target": "sections_services",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/services/page.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "services_page",
+      "target": "services_page_servicespage",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6752,5 +6991,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "40dbdd17751771e00044831ce46943462ac56790"
+  "built_at_commit": "9affb9e9c924ad116cce9a3ff62e0b463ef65930"
 }

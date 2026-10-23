@@ -100,10 +100,10 @@
 - **Database Query Performance:** Composite & foreign-key indexes added on `Service`, `Order`, `Payment`, and `ContactMessage` in `schema.prisma`. All dashboard reads parallelized via `Promise.all`.
 - **Payment Verification Bug Fix:** Corrected Stripe verification callback in `src/app/checkout/success/page.tsx` ensuring `setVerified(data.success)` is dispatched reliably.
 - **OCI Production Deployment Live:** Automated swap-aware build (`NODE_OPTIONS="--max-old-space-size=2048" npm run build`) in `deploy.sh`. Production live and healthy at `wesoftcorp.com` under PM2.
-- **Commercial Software Products Page (`/products`):**
-  - Built dedicated flagship software showcase ([src/app/products/page.tsx](file:///d:/Code/Antigravity/My_Projects/softcorp/src/app/products/page.tsx)) featuring Softcorp Download Manager (SDM), Spectrum Studio, and Melodrift.
-  - Linked direct installer download for `SDM_Setup_v1.0.exe` (133 MB) placed inside [public/downloads/](file:///d:/Code/Antigravity/My_Projects/softcorp/public/downloads/).
-  - Built PayPal checkout & capture backend routes ([src/app/api/products/paypal/route.ts](file:///d:/Code/Antigravity/My_Projects/softcorp/src/app/api/products/paypal/route.ts)) with automated cryptographic serial generation (`SDM-PRO-XXXX-XXXX-XXXX`).
-  - Integrated Instant UPI Direct Pay for Indian customers with dynamic QR generation and UTR verification.
-  - Updated global navigation in [Navbar.tsx](file:///d:/Code/Antigravity/My_Projects/softcorp/src/components/Navbar.tsx) and [Footer.tsx](file:///d:/Code/Antigravity/My_Projects/softcorp/src/components/Footer.tsx).
+- **Full Multi-Page Architecture Restructuring (Next.js App Router):**
+  - Converted monolithic single-page layout into a professional, first-class multi-page system with dedicated routes: `/` (Home Portal), `/products` (Software), `/ai-solutions` (AI Modernization), `/services` (Certified Services), `/case-studies` (Case Studies), `/about` (Leadership), `/process` (Delivery Protocol), and `/contact` (Contact & HQ).
+  - Every page includes standard browser history integration (Back button cleanly navigates to Home).
+  - Removed anchor hash jumps (`#services`, `#contact`, etc.) from Navbar, Hero, and Footer.
+  - Prerendered all 32 application pages as static and on-demand routes cleanly with zero TypeScript errors.
+
 

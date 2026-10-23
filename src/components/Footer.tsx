@@ -22,38 +22,19 @@ const socialLinks = [
 ];
 
 const quickLinks = [
-    { name: "Home", href: "/#home" },
+    { name: "Home", href: "/" },
     { name: "Software Products", href: "/products" },
     { name: "AI Solutions", href: "/ai-solutions" },
-    { name: "Services", href: "/#services" },
-    { name: "Case Studies", href: "/#case-studies" },
-    { name: "Leadership", href: "/#about" },
-    { name: "Delivery Process", href: "/#process" },
-    { name: "FAQ", href: "/#faq" },
-    { name: "Contact", href: "/#contact" },
+    { name: "Services", href: "/services" },
+    { name: "Case Studies", href: "/case-studies" },
+    { name: "Leadership & About", href: "/about" },
+    { name: "Delivery Process", href: "/process" },
+    { name: "Contact & HQ", href: "/contact" },
 ];
 
 export default function Footer() {
     const pathname = usePathname();
     if (pathname?.startsWith("/studio")) return null;
-
-    const handleFooterLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-        if (!href.includes("#")) return;
-        const targetId = href.split("#")[1];
-        if (pathname === "/" || pathname === "" || !pathname) {
-            e.preventDefault();
-            if (targetId === "home" || !targetId) {
-                window.scrollTo({ top: 0, behavior: "smooth" });
-                try { window.history.pushState(null, "", "/"); } catch {}
-                return;
-            }
-            const elem = document.getElementById(targetId);
-            if (elem) {
-                elem.scrollIntoView({ behavior: "smooth", block: "start" });
-                try { window.history.pushState(null, "", `#${targetId}`); } catch {}
-            }
-        }
-    };
 
     return (
         <footer className="bg-slate-950 border-t border-white/10 relative overflow-hidden">
@@ -114,13 +95,12 @@ export default function Footer() {
                         <ul className="space-y-2.5">
                             {quickLinks.map((link) => (
                                 <li key={link.name}>
-                                    <a
+                                    <Link
                                         href={link.href}
-                                        onClick={(e) => handleFooterLinkClick(e, link.href)}
                                         className="text-slate-400 hover:text-cyan-300 transition-colors text-sm cursor-pointer"
                                     >
                                         {link.name}
-                                    </a>
+                                    </Link>
                                 </li>
                             ))}
                         </ul>
