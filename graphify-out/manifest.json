@@ -1,7 +1,7 @@
 {
   "deploy.sh": {
-    "mtime": 1773844010.7472568,
-    "ast_hash": "c3af7bf0e17a2a1126a7b240ee32ea95",
+    "mtime": 1791637690.6229274,
+    "ast_hash": "293ec938800780eaac3161edbe5d1f77",
     "semantic_hash": ""
   },
   "ecosystem.config.js": {
@@ -10,8 +10,8 @@
     "semantic_hash": ""
   },
   "eslint.config.mjs": {
-    "mtime": 1772350390.174002,
-    "ast_hash": "dfa1f5f6a7037bf39dc510f30b180002",
+    "mtime": 1791636032.1737692,
+    "ast_hash": "82d9d05d2820b4d3c37c120e7e6b51a0",
     "semantic_hash": ""
   },
   "eslint.json": {
@@ -150,8 +150,8 @@
     "semantic_hash": ""
   },
   "src/app/dashboard/page.tsx": {
-    "mtime": 1773911581.5202477,
-    "ast_hash": "6d78a669a41cb7767a8fb58168bf9ea9",
+    "mtime": 1791636083.040908,
+    "ast_hash": "23331532b1ceb20744c906d454686ef9",
     "semantic_hash": ""
   },
   "src/app/layout.tsx": {
@@ -175,13 +175,13 @@
     "semantic_hash": ""
   },
   "src/components/Footer.tsx": {
-    "mtime": 1791628166.5467658,
-    "ast_hash": "a0123a9bd252ce375e1f2b87483f3a0d",
+    "mtime": 1791636094.5454667,
+    "ast_hash": "672936d9f700decf4e25d62d08e31ce6",
     "semantic_hash": ""
   },
   "src/components/Navbar.tsx": {
-    "mtime": 1791635656.7152946,
-    "ast_hash": "1b01e538554b7c8e2545036d360de164",
+    "mtime": 1791636123.2615209,
+    "ast_hash": "524d7920a01315cba7c6aa1628544216",
     "semantic_hash": ""
   },
   "src/components/Providers.tsx": {
@@ -255,8 +255,8 @@
     "semantic_hash": ""
   },
   "src/lib/auth.ts": {
-    "mtime": 1791634079.2389388,
-    "ast_hash": "03c2c86f4f47f0e5084787446cffdda0",
+    "mtime": 1791636045.225615,
+    "ast_hash": "90944a8ef872e84ba15243cb8a90d7e0",
     "semantic_hash": ""
   },
   "src/lib/db.ts": {
@@ -265,8 +265,8 @@
     "semantic_hash": ""
   },
   "src/utils/serviceData.ts": {
-    "mtime": 1791634581.4048362,
-    "ast_hash": "ca907641c48992fb48b6ad04f48bb3b0",
+    "mtime": 1791636057.9261274,
+    "ast_hash": "6056c34aa67c0a7e602350429aefc929",
     "semantic_hash": ""
   },
   "test_query.ts": {
@@ -290,8 +290,8 @@
     "semantic_hash": ""
   },
   "MEMORY.md": {
-    "mtime": 1791635321.9056318,
-    "ast_hash": "f2ad7a8850e107b118df8d48a96b8a01",
+    "mtime": 1791637879.3481078,
+    "ast_hash": "5a03e97aba9b9ca99a5cbcdb5a1f4d4b",
     "semantic_hash": ""
   },
   "README.md": {
@@ -355,8 +355,8 @@
     "semantic_hash": ""
   },
   "src/components/UdyamVerification.tsx": {
-    "mtime": 1791633605.432608,
-    "ast_hash": "516f44ae2290eb4b35c91619646fb025",
+    "mtime": 1791636154.3369553,
+    "ast_hash": "37f07b1e2b2cc1127833ebec9442b0d6",
     "semantic_hash": ""
   },
   "docs/PRICING_RESEARCH.md": {
