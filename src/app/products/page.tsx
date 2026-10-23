@@ -271,25 +271,65 @@ export default function ProductsPage() {
                   <FiKey size={16} /> Buy Lifetime Pro ({displayPrice})
                 </button>
 
-                {/* Secondary: Download / Store / Docs */}
-                <a
-                  href={product.downloadUrl}
-                  download={isSDM ? product.installerFileName : undefined}
-                  target={!isSDM ? "_blank" : undefined}
-                  rel="noopener noreferrer"
-                  className="w-full py-2.5 px-4 rounded-xl font-semibold text-xs text-slate-300 bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center gap-2 cursor-pointer transition-colors"
-                >
-                  {isSDM && <FiDownload size={14} />}
-                  {isTradeboard && <FiExternalLink size={14} />}
-                  {isSpectrum && <FiExternalLink size={14} />}
-                  {isMelodrift && <FiExternalLink size={14} />}
-                  <span>
-                    {isSDM && "Download Free Trial (.exe, 133 MB)"}
-                    {isTradeboard && "Open Documentation & Quickstart"}
-                    {isSpectrum && "Get on Microsoft Store (Verified)"}
-                    {isMelodrift && "Get on Microsoft Store & Google Play"}
-                  </span>
-                </a>
+                {/* Secondary: Download / Store / Docs / Web & Dashboard */}
+                {isMelodrift ? (
+                  <div className="space-y-2">
+                    <div className="grid grid-cols-2 gap-2">
+                      <a
+                        href={product.webUrl || "https://melodrift.rajeevupadhyay.com/"}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="py-2.5 px-3 rounded-xl font-semibold text-xs text-emerald-300 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center gap-1.5 transition-colors"
+                      >
+                        <FiExternalLink size={13} /> Launch Player
+                      </a>
+                      <a
+                        href={product.dashboardUrl || "https://melodash.wesoftcorp.com/"}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="py-2.5 px-3 rounded-xl font-semibold text-xs text-teal-300 bg-teal-500/10 hover:bg-teal-500/20 border border-teal-500/30 flex items-center justify-center gap-1.5 transition-colors"
+                      >
+                        <FiExternalLink size={13} /> Dashboard
+                      </a>
+                    </div>
+                    <div className="flex items-center justify-center gap-3 text-[11px] text-slate-400 pt-0.5">
+                      <a
+                        href={product.storeUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-cyan-300 underline underline-offset-2 flex items-center gap-1"
+                      >
+                        <FiExternalLink size={11} /> Microsoft Store
+                      </a>
+                      <span>•</span>
+                      <a
+                        href={product.playStoreUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-emerald-300 underline underline-offset-2 flex items-center gap-1"
+                      >
+                        <FiExternalLink size={11} /> Google Play
+                      </a>
+                    </div>
+                  </div>
+                ) : (
+                  <a
+                    href={product.downloadUrl}
+                    download={isSDM ? product.installerFileName : undefined}
+                    target={!isSDM ? "_blank" : undefined}
+                    rel="noopener noreferrer"
+                    className="w-full py-2.5 px-4 rounded-xl font-semibold text-xs text-slate-300 bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center gap-2 cursor-pointer transition-colors"
+                  >
+                    {isSDM && <FiDownload size={14} />}
+                    {isTradeboard && <FiExternalLink size={14} />}
+                    {isSpectrum && <FiExternalLink size={14} />}
+                    <span>
+                      {isSDM && "Download Free Trial (.exe, 133 MB)"}
+                      {isTradeboard && "Open Documentation & Quickstart"}
+                      {isSpectrum && "Get on Microsoft Store (Verified)"}
+                    </span>
+                  </a>
+                )}
               </div>
             </SpotlightCard>
           );
@@ -389,6 +429,8 @@ export default function ProductsPage() {
                         ? `Download Installer (${selectedProduct.installerFileName})`
                         : selectedProduct.id === "tradeboard"
                         ? "Open Tradeboard Documentation & Platform"
+                        : selectedProduct.id === "melodrift"
+                        ? "Launch Melodrift Web Player"
                         : "Open Microsoft Store / App Portal"}
                     </a>
                     <button

@@ -14,6 +14,8 @@ export interface SoftwareProduct {
   storeUrl?: string;
   playStoreUrl?: string;
   docsUrl?: string;
+  webUrl?: string;
+  dashboardUrl?: string;
   badge: string;
   rating: number;
   downloadsCount: string;
@@ -59,12 +61,12 @@ export const SOFTWARE_PRODUCTS: SoftwareProduct[] = [
     id: "tradeboard",
     name: "Tradeboard Algo Platform",
     tagline: "Unified Multi-Broker Algorithmic Trading Platform, Flow Visual Strategy Builder & Options Analytics Engine",
-    version: "v2.4.0 Enterprise",
+    version: "v2.0.2.7",
     category: "Fintech & Algorithmic Trading",
     platform: "Self-Hosted Web / Python 3.12+ / Docker",
     usdPrice: 49.99,
     inrPrice: 3999,
-    installerFileName: "tradeboard-v2.4.0.zip",
+    installerFileName: "tradeboard-v2.0.2.7.zip",
     downloadUrl: "https://docs.algo.wesoftcorp.com",
     docsUrl: "https://docs.algo.wesoftcorp.com",
     badge: "Algorithmic Platform",
@@ -127,30 +129,32 @@ export const SOFTWARE_PRODUCTS: SoftwareProduct[] = [
     tagline: "High-Fidelity Ad-Free Music Streaming Client, 10-Band Studio Equalizer & Offline Vault",
     version: "v1.0.0",
     category: "Audio Streaming & Media Player",
-    platform: "Windows 10/11 (MSIX) & Android (APK)",
+    platform: "Web / Windows 10/11 (MSIX) / Android",
     usdPrice: 14.99,
     inrPrice: 799,
     installerFileName: "Melodrift_Setup_v1.0.exe",
-    downloadUrl: "https://apps.microsoft.com/detail/9NTMFZ12Q80S?hl=en-us&gl=IN&ocid=pdpshare",
+    downloadUrl: "https://melodrift.rajeevupadhyay.com/",
+    webUrl: "https://melodrift.rajeevupadhyay.com/",
+    dashboardUrl: "https://melodash.wesoftcorp.com/",
     storeUrl: "https://apps.microsoft.com/detail/9NTMFZ12Q80S?hl=en-us&gl=IN&ocid=pdpshare",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.melodrift",
-    badge: "Google Play & Store Verified",
+    badge: "Web, Play & Store Verified",
     rating: 4.9,
     downloadsCount: "42,000+",
     features: [
       "Sub-300ms zero-buffering audio engine with lookahead chunk prefetching",
-      "10-band studio equalizer with bass boost, audio virtualizer & genre acoustic presets",
+      "Live high-fidelity web player at melodrift.rajeevupadhyay.com",
+      "Dedicated creator & station cloud dashboard at melodash.wesoftcorp.com",
+      "10-band studio equalizer with bass boost, audio virtualizer & acoustic presets",
       "Synchronized real-time karaoke lyrics with line-by-line and offline lyric caching",
-      "Cross-platform cloud library sync across Android and Windows devices",
-      "High-performance encrypted offline local music downloads for zero-data listening",
-      "100% ad-free & privacy-focused: Zero audio interruptions, Google AD_ID omitted",
-      "Available on both the official Microsoft Store and Google Play Store"
+      "Cross-platform cloud library sync across Android, Web and Windows devices",
+      "100% ad-free & privacy-focused: Zero audio interruptions, Google AD_ID omitted"
     ],
     specs: [
-      { label: "Platforms", value: "Windows 10/11 & Android" },
+      { label: "Web Player", value: "melodrift.rajeevupadhyay.com" },
+      { label: "Cloud Dashboard", value: "melodash.wesoftcorp.com" },
+      { label: "Platforms", value: "Web, Windows & Android" },
       { label: "Microsoft Store ID", value: "9NTMFZ12Q80S" },
-      { label: "Audio Quality", value: "32-bit Float Dynamic Bitrate" },
-      { label: "Equalizer", value: "10-Band Parametric + Bass" },
       { label: "License Model", value: "Producer Lifetime Supporter" }
     ],
     licensePrefix: "MELO-PRO"
