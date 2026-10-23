@@ -51,14 +51,15 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {SOFTWARE_PRODUCTS.map((product) => {
               const isSDM = product.id === "sdm";
+              const isTradeboard = product.id === "tradeboard";
               return (
                 <SpotlightCard
                   key={product.id}
                   className="p-7 flex flex-col justify-between border-white/10"
-                  spotlightColor={isSDM ? "rgba(6, 182, 212, 0.2)" : "rgba(16, 185, 129, 0.15)"}
+                  spotlightColor={isSDM ? "rgba(6, 182, 212, 0.2)" : isTradeboard ? "rgba(99, 102, 241, 0.18)" : "rgba(16, 185, 129, 0.15)"}
                 >
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
@@ -80,7 +81,7 @@ export default function Home() {
                         <span className="text-slate-500 text-[11px] ml-1">/ ₹{product.inrPrice}</span>
                       </div>
                       <span className="text-emerald-400 text-[11px] bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
-                        Free Trial Included
+                        {isTradeboard ? "Self-Hosted Core" : "Free Trial Included"}
                       </span>
                     </div>
                   </div>
@@ -91,7 +92,7 @@ export default function Home() {
                       className="w-full py-2.5 px-3 rounded-xl font-bold text-xs bg-white/5 hover:bg-white/10 border border-white/10 text-slate-200 flex items-center justify-center gap-2 transition-colors"
                     >
                       <FiDownload size={13} />
-                      {isSDM ? "Download Free Trial (.exe)" : "Get Software"}
+                      {isSDM ? "Download Trial (.exe)" : isTradeboard ? "Docs & Platform" : "Get Software"}
                     </Link>
                     <Link
                       href="/products"

@@ -119,5 +119,13 @@
   - Implemented `.dark-logo` and `.light-logo` classes across `Navbar`, `Footer`, `login`, and `register` pages.
   - Upgraded floating navbar pill with Apple macOS/iOS gradient grey glass shade (`linear-gradient(135deg, rgba(238, 242, 247, 0.96) 0%, rgba(220, 228, 237, 0.92) 50%, rgba(234, 240, 246, 0.96) 100%)`), specular top/bottom rim highlights, and ambient drop shadows.
   - Added gradient slate canvas backdrop (`linear-gradient(180deg, #f8fafc 0%, #edf2f7 40%, #f1f5f9 100%)`) and matching gradient grey glass footer.
+- **Product Catalog Verification & Tradeboard Addition (October 2026):**
+  - **Comprehensive Codebase Audit:** Inspected authentic repositories under `d:\Code\Antigravity\My_Projects\` (`sdm`, `tradeboard`, `spectrum`, `melodrift`) to extract real-world specifications, versions, distribution channels, and architectures.
+  - **Softcorp Download Manager (SDM):** 133.10 MB Windows installer (`/downloads/SDM_Setup_v1.0.exe`), 32-socket parallel HTTP range acceleration, in-page universal video grabber (YouTube, Twitter/X, Reddit, TikTok, Facebook, Vimeo), integrated FFmpeg single-file audio+video muxer, Manifest V3 extensions, and Obsidian Cyber-Glass DRM.
+  - **Tradeboard Algo Platform Added:** Full-stack algorithmic trading workstation, unified broker API for 34+ Indian brokers (Zerodha, AngelOne, Dhan, Kotak Neo, Fyers, Upstox, Delta India), Flow drag-and-drop no-code visual strategy builder, Python Strategy Host with IST market scheduling, 12-tool Options Trading Suite (Greeks, Payoff diagrams, IV Smile, Max Pain, GEX), ₹1 Crore sandbox paper trading, ZeroMQ real-time streaming, and LLM/MCP agent server integration. Quickstart & docs linked to `https://docs.algo.wesoftcorp.com`.
+  - **Spectrum Studio:** Live verified Microsoft Store release (Store ID: `9P1QW99KRX7N`), ultra-fast Flutter/Dart 3 spatial RAW viewer (Sony ARW, Canon CR2/CR3, Nikon NEF, DNG, Fuji RAF) and 60/120 FPS darkroom handling 5,000+ photos in <800 KB RAM.
+  - **Melodrift:** Verified Microsoft Store release (Store ID: `9NTMFZ12Q80S`) and Google Play Store (`com.melodrift`), sub-300ms zero-buffering audio streaming, 10-band studio parametric EQ, real-time synchronized karaoke lyrics, and encrypted offline vault.
+  - **Multi-Product Matrix UI:** Upgraded `/products` to a responsive 2x2 grid with contextual badges, platform-specific action buttons (Direct EXE download for SDM, Documentation & Quickstart for Tradeboard, Microsoft Store verified badge for Spectrum, and dual MS Store + Google Play badges for Melodrift), and 4-column balanced showcase on the home page (`/`).
+  - **Automated License System:** Integrated `TRADE-PRO` license key generation and PayPal/UPI instant checkout compatible with all 4 products.
 
 

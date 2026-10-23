@@ -159,11 +159,32 @@ export default function ProductsPage() {
         </div>
       </div>
 
-      {/* ─── Products Grid ─── */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      {/* ─── Products Grid (2x2 Multi-Product Matrix) ─── */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {SOFTWARE_PRODUCTS.map((product) => {
           const isSDM = product.id === "sdm";
+          const isTradeboard = product.id === "tradeboard";
+          const isSpectrum = product.id === "spectrum";
+          const isMelodrift = product.id === "melodrift";
           const displayPrice = currency === "USD" ? `$${product.usdPrice}` : `₹${product.inrPrice}`;
+
+          let badgeStyle = "border-cyan-500/40 bg-cyan-500/10 text-cyan-300";
+          let spotlightColor = "rgba(6, 182, 212, 0.15)";
+          let btnGradient = "bg-gradient-to-r from-cyan-500 to-teal-500 text-slate-950";
+
+          if (isTradeboard) {
+            badgeStyle = "border-indigo-500/40 bg-indigo-500/10 text-indigo-300";
+            spotlightColor = "rgba(99, 102, 241, 0.18)";
+            btnGradient = "bg-gradient-to-r from-indigo-500 to-blue-600 text-white";
+          } else if (isSpectrum) {
+            badgeStyle = "border-sky-500/40 bg-sky-500/10 text-sky-300";
+            spotlightColor = "rgba(14, 165, 233, 0.16)";
+            btnGradient = "bg-gradient-to-r from-sky-500 to-cyan-500 text-slate-950";
+          } else if (isMelodrift) {
+            badgeStyle = "border-emerald-500/40 bg-emerald-500/10 text-emerald-300";
+            spotlightColor = "rgba(16, 185, 129, 0.16)";
+            btnGradient = "bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950";
+          }
 
           return (
             <SpotlightCard
@@ -171,17 +192,13 @@ export default function ProductsPage() {
               className={`flex flex-col justify-between p-7 relative transition-all duration-300 ${
                 isSDM ? "border-cyan-500/40 ring-1 ring-cyan-500/20" : "border-white/10"
               }`}
-              spotlightColor={isSDM ? "rgba(6, 182, 212, 0.2)" : "rgba(16, 185, 129, 0.15)"}
+              spotlightColor={spotlightColor}
             >
               <div className="space-y-6">
                 {/* Header & Badges */}
                 <div className="flex items-center justify-between">
                   <span
-                    className={`text-[11px] font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${
-                      isSDM
-                        ? "border-cyan-500/40 bg-cyan-500/10 text-cyan-300"
-                        : "border-emerald-500/40 bg-emerald-500/10 text-emerald-300"
-                    }`}
+                    className={`text-[11px] font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${badgeStyle}`}
                   >
                     {product.badge}
                   </span>
@@ -213,7 +230,7 @@ export default function ProductsPage() {
                     <span className="text-xs text-slate-500 ml-1">/ one-time</span>
                   </div>
                   <span className="text-xs text-emerald-400 font-medium bg-emerald-500/10 px-2 py-1 rounded border border-emerald-500/20">
-                    Free Trial Included
+                    {isTradeboard ? "Self-Hosted Core" : isSDM ? "Free Trial Included" : "Store Version Ready"}
                   </span>
                 </div>
 
@@ -223,7 +240,7 @@ export default function ProductsPage() {
                     Core Capabilities
                   </div>
                   <ul className="space-y-2 text-xs text-slate-300">
-                    {product.features.slice(0, 5).map((feature, idx) => (
+                    {product.features.slice(0, 6).map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-2">
                         <FiCheck className="text-cyan-400 shrink-0 mt-0.5" />
                         <span className="leading-snug">{feature}</span>
@@ -249,16 +266,12 @@ export default function ProductsPage() {
                 <button
                   type="button"
                   onClick={() => openCheckout(product)}
-                  className={`w-full py-3 px-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 shadow-lg ${
-                    isSDM
-                      ? "bg-gradient-to-r from-cyan-500 to-teal-500 text-slate-950 hover:brightness-110 shadow-cyan-500/20"
-                      : "bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 hover:brightness-110 shadow-emerald-500/20"
-                  }`}
+                  className={`w-full py-3 px-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 shadow-lg hover:brightness-110 ${btnGradient}`}
                 >
                   <FiKey size={16} /> Buy Lifetime Pro ({displayPrice})
                 </button>
 
-                {/* Secondary: Download Trial */}
+                {/* Secondary: Download / Store / Docs */}
                 <a
                   href={product.downloadUrl}
                   download={isSDM ? product.installerFileName : undefined}
@@ -266,10 +279,16 @@ export default function ProductsPage() {
                   rel="noopener noreferrer"
                   className="w-full py-2.5 px-4 rounded-xl font-semibold text-xs text-slate-300 bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center gap-2 cursor-pointer transition-colors"
                 >
-                  <FiDownload size={14} />
-                  {isSDM
-                    ? `Download Free Trial (.exe, 133 MB)`
-                    : `Get ${product.name}`}
+                  {isSDM && <FiDownload size={14} />}
+                  {isTradeboard && <FiExternalLink size={14} />}
+                  {isSpectrum && <FiExternalLink size={14} />}
+                  {isMelodrift && <FiExternalLink size={14} />}
+                  <span>
+                    {isSDM && "Download Free Trial (.exe, 133 MB)"}
+                    {isTradeboard && "Open Documentation & Quickstart"}
+                    {isSpectrum && "Get on Microsoft Store (Verified)"}
+                    {isMelodrift && "Get on Microsoft Store & Google Play"}
+                  </span>
                 </a>
               </div>
             </SpotlightCard>
@@ -361,9 +380,16 @@ export default function ProductsPage() {
                     <a
                       href={selectedProduct.downloadUrl}
                       download={selectedProduct.id === "sdm" ? selectedProduct.installerFileName : undefined}
+                      target={selectedProduct.id !== "sdm" ? "_blank" : undefined}
+                      rel="noopener noreferrer"
                       className="w-full py-3 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-cyan-500 to-teal-500 text-slate-950 flex items-center justify-center gap-2 hover:brightness-110 shadow-lg shadow-cyan-500/25"
                     >
-                      <FiDownload size={16} /> Download Installer ({selectedProduct.installerFileName})
+                      {selectedProduct.id === "sdm" ? <FiDownload size={16} /> : <FiExternalLink size={16} />}
+                      {selectedProduct.id === "sdm"
+                        ? `Download Installer (${selectedProduct.installerFileName})`
+                        : selectedProduct.id === "tradeboard"
+                        ? "Open Tradeboard Documentation & Platform"
+                        : "Open Microsoft Store / App Portal"}
                     </a>
                     <button
                       type="button"
