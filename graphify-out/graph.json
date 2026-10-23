@@ -845,7 +845,7 @@
       "source_file": "src/app/api/auth/register/route.ts",
       "source_location": "L1",
       "id": "register_route",
-      "community": 0,
+      "community": 8,
       "norm_label": "route.ts"
     },
     {
@@ -854,7 +854,7 @@
       "source_file": "src/app/api/auth/register/route.ts",
       "source_location": "L9",
       "id": "register_route_post",
-      "community": 0,
+      "community": 8,
       "norm_label": "post()"
     },
     {
@@ -863,7 +863,7 @@
       "source_file": "src/app/api/contact/route.ts",
       "source_location": "L1",
       "id": "contact_route",
-      "community": 0,
+      "community": 8,
       "norm_label": "route.ts"
     },
     {
@@ -872,7 +872,7 @@
       "source_file": "src/app/api/contact/route.ts",
       "source_location": "L7",
       "id": "contact_route_post",
-      "community": 0,
+      "community": 8,
       "norm_label": "post()"
     },
     {
@@ -881,7 +881,7 @@
       "source_file": "src/app/api/orders/route.ts",
       "source_location": "L1",
       "id": "src_app_api_orders_route_ts_orders_route",
-      "community": 0,
+      "community": 8,
       "norm_label": "route.ts"
     },
     {
@@ -890,7 +890,7 @@
       "source_file": "src/app/api/orders/route.ts",
       "source_location": "L7",
       "id": "orders_route_post",
-      "community": 0,
+      "community": 8,
       "norm_label": "post()"
     },
     {
@@ -898,7 +898,7 @@
       "file_type": "code",
       "source_file": "src/app/api/payments/paypal/capture/route.ts",
       "source_location": "L1",
-      "id": "capture_route",
+      "id": "src_app_api_payments_paypal_capture_route_ts_capture_route",
       "community": 0,
       "norm_label": "route.ts"
     },
@@ -907,7 +907,7 @@
       "file_type": "code",
       "source_file": "src/app/api/payments/paypal/capture/route.ts",
       "source_location": "L6",
-      "id": "capture_route_post",
+      "id": "src_app_api_payments_paypal_capture_route_ts_capture_route_post",
       "community": 0,
       "norm_label": "post()"
     },
@@ -917,7 +917,7 @@
       "source_file": "src/app/api/payments/paypal/create/route.ts",
       "source_location": "L1",
       "id": "create_route",
-      "community": 0,
+      "community": 8,
       "norm_label": "route.ts"
     },
     {
@@ -926,7 +926,7 @@
       "source_file": "src/app/api/payments/paypal/create/route.ts",
       "source_location": "L7",
       "id": "create_route_post",
-      "community": 0,
+      "community": 8,
       "norm_label": "post()"
     },
     {
@@ -935,7 +935,7 @@
       "source_file": "src/app/api/payments/stripe/route.ts",
       "source_location": "L1",
       "id": "stripe_route",
-      "community": 0,
+      "community": 8,
       "norm_label": "route.ts"
     },
     {
@@ -944,7 +944,7 @@
       "source_file": "src/app/api/payments/stripe/route.ts",
       "source_location": "L8",
       "id": "stripe_route_post",
-      "community": 0,
+      "community": 8,
       "norm_label": "post()"
     },
     {
@@ -963,6 +963,42 @@
       "source_location": "L7",
       "id": "verify_route_post",
       "community": 0,
+      "norm_label": "post()"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "src/app/api/products/paypal/capture/route.ts",
+      "source_location": "L1",
+      "id": "src_app_api_products_paypal_capture_route_ts_capture_route",
+      "community": 30,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "POST()",
+      "file_type": "code",
+      "source_file": "src/app/api/products/paypal/capture/route.ts",
+      "source_location": "L4",
+      "id": "src_app_api_products_paypal_capture_route_ts_capture_route_post",
+      "community": 30,
+      "norm_label": "post()"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "src/app/api/products/paypal/route.ts",
+      "source_location": "L1",
+      "id": "paypal_route",
+      "community": 30,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "POST()",
+      "file_type": "code",
+      "source_file": "src/app/api/products/paypal/route.ts",
+      "source_location": "L4",
+      "id": "paypal_route_post",
+      "community": 30,
       "norm_label": "post()"
     },
     {
@@ -1436,6 +1472,24 @@
     {
       "label": "page.tsx",
       "file_type": "code",
+      "source_file": "src/app/products/page.tsx",
+      "source_location": "L1",
+      "id": "products_page",
+      "community": 30,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "ProductsPage()",
+      "file_type": "code",
+      "source_file": "src/app/products/page.tsx",
+      "source_location": "L25",
+      "id": "products_page_productspage",
+      "community": 30,
+      "norm_label": "productspage()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
       "source_file": "src/app/register/page.tsx",
       "source_location": "L1",
       "id": "register_page",
@@ -1518,7 +1572,7 @@
       "label": "Footer()",
       "file_type": "code",
       "source_file": "src/components/Footer.tsx",
-      "source_location": "L36",
+      "source_location": "L37",
       "id": "components_footer_footer",
       "community": 6,
       "norm_label": "footer()"
@@ -1545,7 +1599,7 @@
       "label": "Navbar()",
       "file_type": "code",
       "source_file": "src/components/Navbar.tsx",
-      "source_location": "L23",
+      "source_location": "L24",
       "id": "components_navbar_navbar",
       "community": 6,
       "norm_label": "navbar()"
@@ -1992,12 +2046,48 @@
       "norm_label": "createprismaclient()"
     },
     {
+      "label": "products.ts",
+      "file_type": "code",
+      "source_file": "src/lib/products.ts",
+      "source_location": "L1",
+      "id": "lib_products",
+      "community": 30,
+      "norm_label": "products.ts"
+    },
+    {
+      "label": "SoftwareProduct",
+      "file_type": "code",
+      "source_file": "src/lib/products.ts",
+      "source_location": "L3",
+      "id": "lib_products_softwareproduct",
+      "community": 30,
+      "norm_label": "softwareproduct"
+    },
+    {
+      "label": "SOFTWARE_PRODUCTS",
+      "file_type": "code",
+      "source_file": "src/lib/products.ts",
+      "source_location": "L22",
+      "id": "lib_products_software_products",
+      "community": 30,
+      "norm_label": "software_products"
+    },
+    {
+      "label": "generateProductLicense()",
+      "file_type": "code",
+      "source_file": "src/lib/products.ts",
+      "source_location": "L119",
+      "id": "lib_products_generateproductlicense",
+      "community": 30,
+      "norm_label": "generateproductlicense()"
+    },
+    {
       "label": "rate-limit.ts",
       "file_type": "code",
       "source_file": "src/lib/rate-limit.ts",
       "source_location": "L1",
       "id": "lib_rate_limit",
-      "community": 0,
+      "community": 8,
       "norm_label": "rate-limit.ts"
     },
     {
@@ -2006,7 +2096,7 @@
       "source_file": "src/lib/rate-limit.ts",
       "source_location": "L2",
       "id": "lib_rate_limit_ratelimitrecord",
-      "community": 0,
+      "community": 8,
       "norm_label": "ratelimitrecord"
     },
     {
@@ -2015,7 +2105,7 @@
       "source_file": "src/lib/rate-limit.ts",
       "source_location": "L7",
       "id": "lib_rate_limit_trackers",
-      "community": 0,
+      "community": 8,
       "norm_label": "trackers"
     },
     {
@@ -2024,7 +2114,7 @@
       "source_file": "src/lib/rate-limit.ts",
       "source_location": "L31",
       "id": "lib_rate_limit_checkratelimit",
-      "community": 0,
+      "community": 8,
       "norm_label": "checkratelimit()"
     },
     {
@@ -2033,7 +2123,7 @@
       "source_file": "src/lib/rate-limit.ts",
       "source_location": "L58",
       "id": "lib_rate_limit_getclientip",
-      "community": 0,
+      "community": 8,
       "norm_label": "getclientip()"
     },
     {
@@ -2755,6 +2845,24 @@
       "id": "nextauth_route_get_post",
       "community": 23,
       "norm_label": "{ get, post }"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "src/app/api/payments/paypal/capture/route.ts",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "route.ts",
+      "id": "capture_route"
+    },
+    {
+      "label": "POST()",
+      "file_type": "code",
+      "source_file": "src/app/api/payments/paypal/capture/route.ts",
+      "source_location": "L6",
+      "community": 0,
+      "norm_label": "post()",
+      "id": "capture_route_post"
     },
     {
       "label": "razorpay",
@@ -4051,25 +4159,15 @@
       "target": "lib_rate_limit_checkratelimit"
     },
     {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/app/api/payments/paypal/capture/route.ts",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "capture_route",
-      "target": "capture_route_post"
-    },
-    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/app/api/payments/paypal/capture/route.ts",
       "source_location": "L2",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "capture_route",
-      "target": "lib_auth"
+      "source": "src_app_api_payments_paypal_capture_route_ts_capture_route",
+      "target": "lib_auth",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -4078,9 +4176,19 @@
       "source_file": "src/app/api/payments/paypal/capture/route.ts",
       "source_location": "L3",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "capture_route",
-      "target": "lib_db"
+      "source": "src_app_api_payments_paypal_capture_route_ts_capture_route",
+      "target": "lib_db",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/payments/paypal/capture/route.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_app_api_payments_paypal_capture_route_ts_capture_route",
+      "target": "src_app_api_payments_paypal_capture_route_ts_capture_route_post",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -4243,6 +4351,92 @@
       "confidence_score": 1.0,
       "source": "verify_route",
       "target": "verify_route_post"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/products/paypal/capture/route.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_api_products_paypal_capture_route_ts_capture_route",
+      "target": "lib_products",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/products/paypal/capture/route.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_api_products_paypal_capture_route_ts_capture_route",
+      "target": "lib_products_generateproductlicense",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/products/paypal/capture/route.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_api_products_paypal_capture_route_ts_capture_route",
+      "target": "lib_products_software_products",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/products/paypal/capture/route.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_app_api_products_paypal_capture_route_ts_capture_route",
+      "target": "src_app_api_products_paypal_capture_route_ts_capture_route_post",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/app/api/products/paypal/capture/route.ts",
+      "source_location": "L82",
+      "weight": 1.0,
+      "source": "src_app_api_products_paypal_capture_route_ts_capture_route_post",
+      "target": "lib_products_generateproductlicense"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/products/paypal/route.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "paypal_route",
+      "target": "lib_products",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/products/paypal/route.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "paypal_route",
+      "target": "lib_products_software_products",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/products/paypal/route.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "paypal_route",
+      "target": "paypal_route_post",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -4908,6 +5102,71 @@
       "target": "sections_services"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/products/page.tsx",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "products_page",
+      "target": "lib_products",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/products/page.tsx",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "products_page",
+      "target": "lib_products_generateproductlicense",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/products/page.tsx",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "products_page",
+      "target": "lib_products_software_products",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/products/page.tsx",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "products_page",
+      "target": "lib_products_softwareproduct",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/products/page.tsx",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "products_page",
+      "target": "products_page_productspage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/products/page.tsx",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "products_page",
+      "target": "ui_spotlightcard",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/app/register/page.tsx",
@@ -5466,6 +5725,17 @@
       "target": "ui_spotlightcard_spotlightcardprops"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/payments/paypal/capture/route.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "capture_route",
+      "target": "lib_auth"
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/auth.ts",
@@ -5496,6 +5766,17 @@
       "confidence_score": 1.0,
       "source": "src_app_api_payments_stripe_verify_route_ts_verify_route",
       "target": "lib_auth"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/payments/paypal/capture/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "capture_route",
+      "target": "lib_db"
     },
     {
       "relation": "contains",
@@ -5538,6 +5819,36 @@
       "confidence_score": 1.0,
       "source": "test_query",
       "target": "lib_db"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/products.ts",
+      "source_location": "L119",
+      "weight": 1.0,
+      "source": "lib_products",
+      "target": "lib_products_generateproductlicense",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/products.ts",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "lib_products",
+      "target": "lib_products_software_products",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/products.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "lib_products",
+      "target": "lib_products_softwareproduct",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -5895,9 +6206,9 @@
       "source_file": "MEMORY.md",
       "source_location": "L89",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "memory_workspace_global_memory_checkpoint",
-      "target": "memory_full_app_optimization_audit_october_2026",
-      "confidence_score": 1.0
+      "target": "memory_full_app_optimization_audit_october_2026"
     },
     {
       "relation": "contains",
@@ -6292,6 +6603,16 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/app/api/payments/paypal/capture/route.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "capture_route",
+      "target": "capture_route_post"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/app/api/payments/stripe/verify/route.ts",
       "source_location": "L7",
       "weight": 1.0,
@@ -6431,5 +6752,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "8f0102f66833f798e93030e632d271d09ccc330f"
+  "built_at_commit": "c1e831fdc11ad3354250f01c39514fa494e1a765"
 }

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { FiSend, FiMail, FiMapPin, FiPhone, FiCheck, FiClock, FiShield } from "react-icons/fi";
+import { FiSend, FiMail, FiMapPin, FiCheck, FiClock, FiShield } from "react-icons/fi";
 import SpotlightCard from "@/components/ui/SpotlightCard";
 
 export default function Contact() {
@@ -53,10 +53,10 @@ export default function Contact() {
                 setTimeout(() => setIsSuccess(false), 5000);
             } else {
                 const data = await res.json().catch(() => ({}));
-                setErrorMsg(data.error || "Failed to transmit message. Please contact us directly at support@wesoftcorp.com.");
+                setErrorMsg(data.error || "Failed to transmit message. Please contact us directly at softcorp@wesoftcorp.com.");
             }
         } catch {
-            setErrorMsg("Network error. Please try again or reach us at support@wesoftcorp.com.");
+            setErrorMsg("Network error. Please try again or reach us at softcorp@wesoftcorp.com.");
         } finally {
             setIsSubmitting(false);
         }
@@ -102,25 +102,10 @@ export default function Contact() {
                                 <div>
                                     <p className="text-white font-semibold text-sm">Direct Email</p>
                                     <a
-                                        href="mailto:support@wesoftcorp.com"
+                                        href="mailto:softcorp@wesoftcorp.com"
                                         className="text-cyan-400 hover:text-cyan-300 transition-colors text-sm font-mono"
                                     >
-                                        support@wesoftcorp.com
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div className="flex items-start gap-4">
-                                <div className="w-10 h-10 rounded-xl gradient-brand flex items-center justify-center shrink-0 shadow-md">
-                                    <FiPhone size={18} className="text-white" />
-                                </div>
-                                <div>
-                                    <p className="text-white font-semibold text-sm">Direct Enterprise Line &amp; WhatsApp</p>
-                                    <a
-                                        href="tel:+19292664560"
-                                        className="text-slate-300 hover:text-white transition-colors text-sm font-mono"
-                                    >
-                                        +1 929-266-4560
+                                        softcorp@wesoftcorp.com
                                     </a>
                                 </div>
                             </div>
@@ -132,7 +117,7 @@ export default function Contact() {
                                 <div>
                                     <p className="text-white font-semibold text-sm">Registered Operations &amp; HQ</p>
                                     <p className="text-slate-300 text-xs leading-relaxed">
-                                        Plot No 17/18, Gulab Ashiyana, Chinhat, Matiyari, Lucknow, Uttar Pradesh - 226028, India
+                                        Lucknow, Uttar Pradesh - 226028, India
                                     </p>
                                     <span className="inline-block text-[11px] font-mono text-emerald-400 mt-0.5">
                                         MSME Reg: UDYAM-UP-50-0298723

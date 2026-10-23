@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FiMail, FiMapPin, FiPhone } from "react-icons/fi";
+import { FiMail, FiMapPin } from "react-icons/fi";
 import {
     FaLinkedinIn,
     FaXTwitter,
@@ -23,6 +23,7 @@ const socialLinks = [
 
 const quickLinks = [
     { name: "Home", href: "/#home" },
+    { name: "Software Products", href: "/products" },
     { name: "AI Solutions", href: "/ai-solutions" },
     { name: "Services", href: "/#services" },
     { name: "Case Studies", href: "/#case-studies" },
@@ -134,18 +135,14 @@ export default function Footer() {
                         <ul className="space-y-3.5 text-sm text-slate-400">
                             <li className="flex items-start gap-3">
                                 <FiMail className="mt-0.5 text-cyan-400 shrink-0" size={16} />
-                                <a href="mailto:support@wesoftcorp.com" className="hover:text-white transition-colors font-mono">
-                                    support@wesoftcorp.com
+                                <a href="mailto:softcorp@wesoftcorp.com" className="hover:text-white transition-colors font-mono">
+                                    softcorp@wesoftcorp.com
                                 </a>
-                            </li>
-                            <li className="flex items-start gap-3">
-                                <FiPhone className="mt-0.5 text-cyan-400 shrink-0" size={16} />
-                                <span className="font-mono">+1 929-266-4560 / WhatsApp Available</span>
                             </li>
                             <li className="flex items-start gap-3">
                                 <FiMapPin className="mt-0.5 text-cyan-400 shrink-0" size={16} />
                                 <span className="leading-relaxed">
-                                    Plot No 17/18, Gulab Ashiyana, Chinhat, Matiyari, Dewa Road, Lucknow, Uttar Pradesh, Pin - 226028, India
+                                    Lucknow, Uttar Pradesh - 226028, India
                                 </span>
                             </li>
                         </ul>

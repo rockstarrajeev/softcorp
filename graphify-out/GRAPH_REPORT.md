@@ -1,16 +1,16 @@
-# Graph Report - softcorp  (2026-10-10)
+# Graph Report - softcorp  (2026-10-23)
 
 ## Corpus Check
-- 68 files · ~105,266 words
+- 72 files · ~108,393 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 323 nodes · 342 edges · 32 communities (25 shown, 7 thin omitted)
-- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 1 edges (avg confidence: 0.8)
+- 335 nodes · 362 edges · 34 communities (26 shown, 8 thin omitted)
+- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 2 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `8f0102f6`
+- Built from commit: `c1e831fd`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -23,6 +23,7 @@
 - [[_COMMUNITY_Community 5|Community 5]]
 - [[_COMMUNITY_Community 6|Community 6]]
 - [[_COMMUNITY_Community 7|Community 7]]
+- [[_COMMUNITY_Community 8|Community 8]]
 - [[_COMMUNITY_Community 9|Community 9]]
 - [[_COMMUNITY_Community 10|Community 10]]
 - [[_COMMUNITY_Community 11|Community 11]]
@@ -37,6 +38,7 @@
 - [[_COMMUNITY_Community 27|Community 27]]
 - [[_COMMUNITY_Community 28|Community 28]]
 - [[_COMMUNITY_Community 29|Community 29]]
+- [[_COMMUNITY_Community 30|Community 30]]
 - [[_COMMUNITY_Community 63|Community 63]]
 
 ## God Nodes (most connected - your core abstractions)
@@ -58,19 +60,15 @@
   src/app/api/payments/paypal/create/route.ts → src/lib/rate-limit.ts
 - `POST()` --calls--> `checkRateLimit()`  [EXTRACTED]
   src/app/api/payments/stripe/route.ts → src/lib/rate-limit.ts
+- `POST()` --calls--> `generateProductLicense()`  [INFERRED]
+  src/app/api/products/paypal/capture/route.ts → src/lib/products.ts
 - `POST()` --calls--> `checkRateLimit()`  [EXTRACTED]
-  src/app/api/auth/register/route.ts → src/lib/rate-limit.ts
-- `POST()` --calls--> `getClientIp()`  [EXTRACTED]
   src/app/api/auth/register/route.ts → src/lib/rate-limit.ts
 
 ## Import Cycles
 - None detected.
 
-## Communities (32 total, 7 thin omitted)
-
-### Community 0 - "Community 0"
-Cohesion: 0.07
-Nodes (11): POST(), POST(), { handlers, auth, signIn, signOut }, globalForPrisma, checkRateLimit(), getClientIp(), RateLimitRecord, trackers (+3 more)
+## Communities (34 total, 8 thin omitted)
 
 ### Community 1 - "Community 1"
 Cohesion: 0.08
@@ -100,6 +98,10 @@ Nodes (10): geistMono, geistSans, metadata, viewport, quickLinks, socialLinks, n
 Cohesion: 0.14
 Nodes (14): 10. Contact & Footer Polishing (`src/components/sections/Contact.tsx`, `src/components/Footer.tsx`), 1. Global Visual System & Atmosphere (`src/app/globals.css`, `src/components/ui/AmbientBackground.tsx`), 2. Navigation Experience (`src/components/Navbar.tsx`), 3. Hero Section Overhaul (`src/components/sections/Hero.tsx`), 4. Next-Gen AI Solutions (`src/components/sections/AISolutions.tsx`), 5. Services Section (`src/components/sections/Services.tsx`), 6. Case Studies (`src/components/sections/CaseStudies.tsx`), 7. About Rajeev Upadhyay (`src/components/sections/About.tsx`) (+6 more)
 
+### Community 8 - "Community 8"
+Cohesion: 0.27
+Nodes (9): POST(), POST(), checkRateLimit(), getClientIp(), RateLimitRecord, trackers, POST(), POST() (+1 more)
+
 ### Community 9 - "Community 9"
 Cohesion: 0.25
 Nodes (5): categoryLabels, pricingLabels, Props, ServiceDetails, Window
@@ -128,6 +130,10 @@ Nodes (16): 1. Research Purpose, 2. Research Sources, 3.1 NIC 62011 — Custom S
 Cohesion: 0.13
 Nodes (14): 1. Vulnerability Findings & Security Hardening, 2. Performance & App Optimization, 3. Verification & Safety Gates, Issue 1: Critical Payment Bypass & IDOR in Razorpay (`src/app/api/payments/razorpay/verify/route.ts`), Issue 2: Cross-Tenant Order Tampering in Stripe (`src/app/api/payments/stripe/verify/route.ts`), Issue 3: Insecure Direct Object Reference (IDOR) in PayPal (`src/app/api/payments/paypal/capture/route.ts`), Issue 4: Public Unauthenticated Seed Endpoint (`src/app/api/seed/route.ts`), Issue 5: Missing Input Validation & Rate Limiting (`src/app/api/auth/register/route.ts`, `src/app/api/contact/route.ts`) (+6 more)
 
+### Community 30 - "Community 30"
+Cohesion: 0.36
+Nodes (4): generateProductLicense(), SOFTWARE_PRODUCTS, SoftwareProduct, POST()
+
 ### Community 63 - "Community 63"
 Cohesion: 0.07
 Nodes (17): aiCategories, Contact, FAQ, ROIQuickEstimator, UdyamVerification, highlights, aiCategories, interactiveWorkflows (+9 more)
@@ -135,17 +141,17 @@ Nodes (17): aiCategories, Contact, FAQ, ROIQuickEstimator, UdyamVerification, hi
 ## Knowledge Gaps
 - **171 isolated node(s):** `deploy.sh script`, `eslintConfig`, `ContentSecurityPolicy`, `nextConfig`, `name` (+166 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **8 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `dependencies` connect `Community 1` to `Community 2`?**
-  _High betweenness centrality (0.017) - this node is a cross-community bridge._
+  _High betweenness centrality (0.016) - this node is a cross-community bridge._
 - **What connects `deploy.sh script`, `eslintConfig`, `ContentSecurityPolicy` to the rest of the system?**
   _171 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.07373737373737374 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08064516129032258 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
   _Cohesion score 0.07692307692307693 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
