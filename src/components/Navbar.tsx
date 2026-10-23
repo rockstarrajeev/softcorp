@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { FiMenu, FiX, FiUser, FiArrowRight } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
+import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
     { name: "Home", href: "/" },
@@ -109,6 +110,7 @@ export default function Navbar() {
 
                 {/* Actions */}
                 <div className="hidden lg:flex items-center gap-3">
+                    <ThemeToggle />
                     {session?.user ? (
                         <Link
                             href={dashboardHref}
@@ -138,14 +140,17 @@ export default function Navbar() {
                     )}
                 </div>
 
-                {/* Mobile Toggle */}
-                <button
-                    onClick={() => setIsOpen(!isOpen)}
-                    className="lg:hidden text-white p-2.5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all"
-                    aria-label="Toggle Menu"
-                >
-                    {isOpen ? <FiX size={22} /> : <FiMenu size={22} />}
-                </button>
+                {/* Mobile Right Controls */}
+                <div className="flex items-center gap-2 lg:hidden">
+                    <ThemeToggle />
+                    <button
+                        onClick={() => setIsOpen(!isOpen)}
+                        className="text-white p-2.5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all"
+                        aria-label="Toggle Menu"
+                    >
+                        {isOpen ? <FiX size={22} /> : <FiMenu size={22} />}
+                    </button>
+                </div>
             </div>
 
             {/* Mobile Menu Drawer */}

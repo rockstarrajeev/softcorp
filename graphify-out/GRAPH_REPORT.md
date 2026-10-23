@@ -1,16 +1,16 @@
 # Graph Report - softcorp  (2026-10-23)
 
 ## Corpus Check
-- 77 files · ~109,687 words
+- 79 files · ~110,123 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 345 nodes · 376 edges · 32 communities (25 shown, 7 thin omitted)
+- 354 nodes · 389 edges · 33 communities (26 shown, 7 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 2 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `9affb9e9`
+- Built from commit: `6a784d7b`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -22,6 +22,7 @@
 - [[_COMMUNITY_Community 4|Community 4]]
 - [[_COMMUNITY_Community 5|Community 5]]
 - [[_COMMUNITY_Community 6|Community 6]]
+- [[_COMMUNITY_Community 7|Community 7]]
 - [[_COMMUNITY_Community 8|Community 8]]
 - [[_COMMUNITY_Community 10|Community 10]]
 - [[_COMMUNITY_Community 11|Community 11]]
@@ -66,11 +67,11 @@
 ## Import Cycles
 - None detected.
 
-## Communities (32 total, 7 thin omitted)
+## Communities (33 total, 7 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.07
-Nodes (7): { handlers, auth, signIn, signOut }, globalForPrisma, categoryLabels, pricingLabels, Props, ServiceDetails, Window
+Nodes (11): POST(), POST(), { handlers, auth, signIn, signOut }, globalForPrisma, checkRateLimit(), getClientIp(), RateLimitRecord, trackers (+3 more)
 
 ### Community 1 - "Community 1"
 Cohesion: 0.08
@@ -85,20 +86,24 @@ Cohesion: 0.10
 Nodes (19): compilerOptions, allowJs, esModuleInterop, incremental, isolatedModules, jsx, lib, module (+11 more)
 
 ### Community 4 - "Community 4"
-Cohesion: 0.11
+Cohesion: 0.12
 Nodes (9): AdminData, categoryLabels, ClientItem, MessageItem, OrderItem, ServiceItem, statusColors, statusOptions (+1 more)
 
 ### Community 5 - "Community 5"
-Cohesion: 0.11
+Cohesion: 0.12
 Nodes (10): categoryColors, categoryLabels, OrderItem, pricingLabels, Props, ServiceItem, statusColors, statusLabels (+2 more)
 
 ### Community 6 - "Community 6"
-Cohesion: 0.09
-Nodes (10): geistMono, geistSans, metadata, viewport, quickLinks, socialLinks, navLinks, NICItem (+2 more)
+Cohesion: 0.10
+Nodes (12): geistMono, geistSans, metadata, viewport, navLinks, Theme, ThemeContext, ThemeContextType (+4 more)
+
+### Community 7 - "Community 7"
+Cohesion: 0.25
+Nodes (5): quickLinks, socialLinks, NICItem, udyamDataset, UdyamMiniBadge()
 
 ### Community 8 - "Community 8"
-Cohesion: 0.27
-Nodes (9): POST(), POST(), checkRateLimit(), getClientIp(), RateLimitRecord, trackers, POST(), POST() (+1 more)
+Cohesion: 0.25
+Nodes (5): categoryLabels, pricingLabels, Props, ServiceDetails, Window
 
 ### Community 10 - "Community 10"
 Cohesion: 0.33
@@ -133,7 +138,7 @@ Cohesion: 0.06
 Nodes (17): aiCategories, Contact, FAQ, ROIQuickEstimator, UdyamVerification, highlights, aiCategories, interactiveWorkflows (+9 more)
 
 ## Knowledge Gaps
-- **171 isolated node(s):** `deploy.sh script`, `eslintConfig`, `ContentSecurityPolicy`, `nextConfig`, `name` (+166 more)
+- **175 isolated node(s):** `deploy.sh script`, `eslintConfig`, `ContentSecurityPolicy`, `nextConfig`, `name` (+170 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -141,11 +146,11 @@ Nodes (17): aiCategories, Contact, FAQ, ROIQuickEstimator, UdyamVerification, hi
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `dependencies` connect `Community 1` to `Community 2`?**
-  _High betweenness centrality (0.015) - this node is a cross-community bridge._
+  _High betweenness centrality (0.014) - this node is a cross-community bridge._
 - **What connects `deploy.sh script`, `eslintConfig`, `ContentSecurityPolicy` to the rest of the system?**
-  _171 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _175 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.06666666666666667 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07030527289546716 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
   _Cohesion score 0.07692307692307693 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
@@ -153,4 +158,4 @@ _Questions this graph is uniquely positioned to answer:_
 - **Should `Community 3` be split into smaller, more focused modules?**
   _Cohesion score 0.1 - nodes in this community are weakly interconnected._
 - **Should `Community 4` be split into smaller, more focused modules?**
-  _Cohesion score 0.1111111111111111 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.125 - nodes in this community are weakly interconnected._
