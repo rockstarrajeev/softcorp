@@ -114,7 +114,10 @@
 - **Official SoftCorp Logo Favicon Suite:**
   - Extracted and centered the official SoftCorp blue/cyan teardrop emblem (`public/logo-icon.png`).
   - Generated multi-resolution `favicon.ico` (16x16, 32x32, 48x48) in both `src/app/` and `public/`.
-  - Created high-res `icon.png` (512x512) and Apple Touch Icon `apple-icon.png` (180x180) in `src/app/` and `public/`.
-  - Updated Next.js App Router metadata configuration in `layout.tsx`.
+- **Day Mode Logo Contrast & Gradient Grey Glass Navbar:**
+  - Created `public/logo-dark.png` with solid `#0f172a` midnight slate text for "SoftCorp Group" and "IT AND SOFTWARE COMPANY", preserving the cyan/royal-blue teardrop emblem.
+  - Implemented `.dark-logo` and `.light-logo` classes across `Navbar`, `Footer`, `login`, and `register` pages.
+  - Upgraded floating navbar pill with Apple macOS/iOS gradient grey glass shade (`linear-gradient(135deg, rgba(238, 242, 247, 0.96) 0%, rgba(220, 228, 237, 0.92) 50%, rgba(234, 240, 246, 0.96) 100%)`), specular top/bottom rim highlights, and ambient drop shadows.
+  - Added gradient slate canvas backdrop (`linear-gradient(180deg, #f8fafc 0%, #edf2f7 40%, #f1f5f9 100%)`) and matching gradient grey glass footer.
 
 

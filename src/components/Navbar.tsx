@@ -72,7 +72,15 @@ export default function Navbar() {
                         alt="SoftCorp Group" 
                         width={240}
                         height={60}
-                        className="h-9 md:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                        className="h-9 md:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105 dark-logo"
+                        priority
+                    />
+                    <Image 
+                        src="/logo-dark.png" 
+                        alt="SoftCorp Group" 
+                        width={240}
+                        height={60}
+                        className="h-9 md:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105 light-logo"
                         priority
                     />
                 </Link>

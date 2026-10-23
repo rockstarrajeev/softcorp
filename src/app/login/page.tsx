@@ -51,12 +51,18 @@ export default function LoginPage() {
                 <div className="text-center mb-8">
                     <Link href="/" className="inline-block mb-2">
                         <Image 
-                            src="/logo.png" 
+                            src="/logo-clean.png" 
                             alt="SoftCorp Group" 
-                            width={256}
-                            height={256}
-                            className="h-24 lg:h-32 w-auto object-contain mx-auto"
-                            unoptimized
+                            width={240}
+                            height={60}
+                            className="h-10 md:h-12 w-auto object-contain mx-auto dark-logo"
+                        />
+                        <Image 
+                            src="/logo-dark.png" 
+                            alt="SoftCorp Group" 
+                            width={240}
+                            height={60}
+                            className="h-10 md:h-12 w-auto object-contain mx-auto light-logo"
                         />
                     </Link>
                     <p className="text-slate-400">Sign in to your account</p>

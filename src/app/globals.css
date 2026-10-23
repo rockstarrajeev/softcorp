@@ -199,8 +199,9 @@ html.light,
 
 html.light body,
 [data-theme="light"] body {
-  background-color: #f8fafc;
+  background: linear-gradient(180deg, #f8fafc 0%, #edf2f7 40%, #f1f5f9 100%) !important;
   color: #0f172a;
+  min-height: 100vh;
 }
 
 /* ─── Universal High-Contrast Typography Cascade (Day Mode) ─── */
@@ -417,31 +418,85 @@ html.light .gradient-brand * {
   color: #ffffff !important;
 }
 
-/* ─── Floating Header & Navigation Pill (iOS Glass) ─── */
-html.light header.bg-slate-950\/85 {
-  background: rgba(255, 255, 255, 0.78) !important;
-  backdrop-filter: blur(28px) saturate(190%) !important;
-  border-bottom: 1px solid rgba(226, 232, 240, 0.85) !important;
-  box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.06) !important;
+/* ─── Logo Adaptive Visibility (Day vs Night Mode) ─── */
+.dark-logo {
+  display: inline-block !important;
+}
+.light-logo {
+  display: none !important;
 }
 
-html.light nav.bg-white\/\[0\.03\] {
-  background: rgba(255, 255, 255, 0.8) !important;
-  border: 1px solid rgba(255, 255, 255, 0.95) !important;
-  box-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.06), inset 0 1px 1px rgba(255, 255, 255, 1) !important;
+html.light .dark-logo,
+[data-theme="light"] .dark-logo {
+  display: none !important;
+}
+
+html.light .light-logo,
+[data-theme="light"] .light-logo {
+  display: inline-block !important;
+}
+
+/* ─── Floating Header & Navigation Pill (Gradient Grey iOS Glass) ─── */
+html.light header.bg-slate-950\/85 {
+  background: linear-gradient(180deg, rgba(243, 246, 250, 0.94) 0%, rgba(225, 232, 240, 0.9) 100%) !important;
+  backdrop-filter: blur(28px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(200%) !important;
+  border-bottom: 1px solid rgba(203, 213, 225, 0.95) !important;
+  box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.1) !important;
+}
+
+html.light nav.bg-white\/\[0\.03\],
+html.light nav.backdrop-blur-xl {
+  background: linear-gradient(135deg, rgba(238, 242, 247, 0.96) 0%, rgba(220, 228, 237, 0.92) 50%, rgba(234, 240, 246, 0.96) 100%) !important;
+  backdrop-filter: blur(28px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(200%) !important;
+  border: 1px solid rgba(184, 198, 214, 0.9) !important;
+  box-shadow: 
+    0 14px 35px -8px rgba(15, 23, 42, 0.16),
+    0 4px 14px -2px rgba(15, 23, 42, 0.08),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.98),
+    inset 0 -1px 1px 0 rgba(148, 163, 184, 0.25) !important;
 }
 
 html.light nav a.text-slate-300 {
-  color: #334155 !important;
+  color: #1e293b !important;
+  font-weight: 600 !important;
 }
 
 html.light nav a.text-slate-300:hover {
-  color: #0f172a !important;
+  color: #0284c7 !important;
 }
 
 html.light nav a.text-cyan-400 {
   color: #0284c7 !important;
   font-weight: 700 !important;
+}
+
+/* Nav hover pill */
+html.light nav span.bg-cyan-500\/15 {
+  background-color: rgba(2, 132, 199, 0.12) !important;
+  border-color: rgba(2, 132, 199, 0.3) !important;
+}
+
+/* Action button in header (Client Portal) */
+html.light header a.bg-white\/5 {
+  background: linear-gradient(135deg, rgba(245, 248, 251, 0.95) 0%, rgba(228, 234, 242, 0.9) 100%) !important;
+  border: 1px solid rgba(203, 213, 225, 0.95) !important;
+  color: #0f172a !important;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06), inset 0 1px 0 rgba(255, 255, 255, 1) !important;
+}
+
+html.light header a.bg-white\/5:hover {
+  border-color: #0284c7 !important;
+  color: #0284c7 !important;
+}
+
+/* Mobile drawer in Day Mode */
+html.light .lg\:hidden.bg-slate-950\/95 {
+  background: linear-gradient(180deg, rgba(245, 248, 251, 0.97) 0%, rgba(228, 234, 242, 0.95) 100%) !important;
+  backdrop-filter: blur(28px) saturate(200%) !important;
+  border-bottom: 1px solid rgba(203, 213, 225, 0.9) !important;
+  box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.12) !important;
 }
 
 /* ─── Gradient Stops & Vignette Suppression in Day Mode ─── */
@@ -473,10 +528,25 @@ html.light [class*="border-slate-700"] {
   border-color: rgba(203, 213, 225, 0.85) !important;
 }
 
-/* ─── Footer in Day Mode ─── */
+/* ─── Footer in Day Mode (Gradient Grey Glass) ─── */
 html.light footer.bg-slate-950 {
-  background: rgba(241, 245, 249, 0.85) !important;
-  border-top: 1px solid rgba(226, 232, 240, 0.9) !important;
+  background: linear-gradient(180deg, rgba(245, 248, 251, 0.96) 0%, rgba(228, 234, 242, 0.94) 100%) !important;
+  border-top: 1px solid rgba(203, 213, 225, 0.95) !important;
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Footer social buttons in Day Mode */
+html.light footer a.bg-white\/5 {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(238, 242, 247, 0.9) 100%) !important;
+  border: 1px solid rgba(203, 213, 225, 0.95) !important;
+  color: #334155 !important;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05), inset 0 1px 0 rgba(255, 255, 255, 1) !important;
+}
+
+html.light footer a.bg-white\/5:hover {
+  background: rgba(2, 132, 199, 0.1) !important;
+  border-color: #0284c7 !important;
+  color: #0284c7 !important;
 }
 
 /* ─── Custom Scrollbar for Light Mode ─── */

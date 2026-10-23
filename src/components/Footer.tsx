@@ -58,7 +58,14 @@ export default function Footer() {
                                 alt="SoftCorp Group" 
                                 width={240}
                                 height={60}
-                                className="h-10 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                                className="h-10 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105 dark-logo"
+                            />
+                            <Image 
+                                src="/logo-dark.png" 
+                                alt="SoftCorp Group" 
+                                width={240}
+                                height={60}
+                                className="h-10 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105 light-logo"
                             />
                         </Link>
                         <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
