@@ -431,7 +431,9 @@ export default function ProductsPage() {
                         ? "Open Tradeboard Documentation & Platform"
                         : selectedProduct.id === "melodrift"
                         ? "Launch Melodrift Web Player"
-                        : "Open Microsoft Store / App Portal"}
+                        : selectedProduct.id === "spectrum"
+                        ? "Open Microsoft Store (Spectrum Studio)"
+                        : "Open App Portal"}
                     </a>
                     <button
                       type="button"
