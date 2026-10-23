@@ -1434,19 +1434,10 @@
       "norm_label": "roiquickestimator"
     },
     {
-      "label": "UdyamVerification",
-      "file_type": "code",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L14",
-      "id": "app_page_udyamverification",
-      "community": 63,
-      "norm_label": "udyamverification"
-    },
-    {
       "label": "FAQ",
       "file_type": "code",
       "source_file": "src/app/page.tsx",
-      "source_location": "L18",
+      "source_location": "L14",
       "id": "app_page_faq",
       "community": 63,
       "norm_label": "faq"
@@ -1455,7 +1446,7 @@
       "label": "Contact",
       "file_type": "code",
       "source_file": "src/app/page.tsx",
-      "source_location": "L22",
+      "source_location": "L18",
       "id": "app_page_contact",
       "community": 63,
       "norm_label": "contact"
@@ -1464,7 +1455,7 @@
       "label": "Home()",
       "file_type": "code",
       "source_file": "src/app/page.tsx",
-      "source_location": "L26",
+      "source_location": "L22",
       "id": "app_page_home",
       "community": 63,
       "norm_label": "home()"
@@ -1572,7 +1563,7 @@
       "label": "Footer()",
       "file_type": "code",
       "source_file": "src/components/Footer.tsx",
-      "source_location": "L37",
+      "source_location": "L36",
       "id": "components_footer_footer",
       "community": 6,
       "norm_label": "footer()"
@@ -1599,7 +1590,7 @@
       "label": "Navbar()",
       "file_type": "code",
       "source_file": "src/components/Navbar.tsx",
-      "source_location": "L24",
+      "source_location": "L23",
       "id": "components_navbar_navbar",
       "community": 6,
       "norm_label": "navbar()"
@@ -2845,6 +2836,15 @@
       "id": "nextauth_route_get_post",
       "community": 23,
       "norm_label": "{ get, post }"
+    },
+    {
+      "label": "UdyamVerification",
+      "file_type": "code",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L14",
+      "community": 63,
+      "norm_label": "udyamverification",
+      "id": "app_page_udyamverification"
     },
     {
       "label": "route.ts",
@@ -4165,9 +4165,9 @@
       "source_file": "src/app/api/payments/paypal/capture/route.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_payments_paypal_capture_route_ts_capture_route",
-      "target": "lib_auth",
-      "confidence_score": 1.0
+      "target": "lib_auth"
     },
     {
       "relation": "imports_from",
@@ -4176,9 +4176,9 @@
       "source_file": "src/app/api/payments/paypal/capture/route.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_payments_paypal_capture_route_ts_capture_route",
-      "target": "lib_db",
-      "confidence_score": 1.0
+      "target": "lib_db"
     },
     {
       "relation": "contains",
@@ -4186,9 +4186,9 @@
       "source_file": "src/app/api/payments/paypal/capture/route.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_payments_paypal_capture_route_ts_capture_route",
-      "target": "src_app_api_payments_paypal_capture_route_ts_capture_route_post",
-      "confidence_score": 1.0
+      "target": "src_app_api_payments_paypal_capture_route_ts_capture_route_post"
     },
     {
       "relation": "contains",
@@ -4359,9 +4359,9 @@
       "source_file": "src/app/api/products/paypal/capture/route.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_products_paypal_capture_route_ts_capture_route",
-      "target": "lib_products",
-      "confidence_score": 1.0
+      "target": "lib_products"
     },
     {
       "relation": "imports",
@@ -4370,9 +4370,9 @@
       "source_file": "src/app/api/products/paypal/capture/route.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_products_paypal_capture_route_ts_capture_route",
-      "target": "lib_products_generateproductlicense",
-      "confidence_score": 1.0
+      "target": "lib_products_generateproductlicense"
     },
     {
       "relation": "imports",
@@ -4381,9 +4381,9 @@
       "source_file": "src/app/api/products/paypal/capture/route.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_products_paypal_capture_route_ts_capture_route",
-      "target": "lib_products_software_products",
-      "confidence_score": 1.0
+      "target": "lib_products_software_products"
     },
     {
       "relation": "contains",
@@ -4391,9 +4391,9 @@
       "source_file": "src/app/api/products/paypal/capture/route.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_products_paypal_capture_route_ts_capture_route",
-      "target": "src_app_api_products_paypal_capture_route_ts_capture_route_post",
-      "confidence_score": 1.0
+      "target": "src_app_api_products_paypal_capture_route_ts_capture_route_post"
     },
     {
       "relation": "calls",
@@ -4413,9 +4413,9 @@
       "source_file": "src/app/api/products/paypal/route.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "paypal_route",
-      "target": "lib_products",
-      "confidence_score": 1.0
+      "target": "lib_products"
     },
     {
       "relation": "imports",
@@ -4424,9 +4424,9 @@
       "source_file": "src/app/api/products/paypal/route.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "paypal_route",
-      "target": "lib_products_software_products",
-      "confidence_score": 1.0
+      "target": "lib_products_software_products"
     },
     {
       "relation": "contains",
@@ -4434,9 +4434,9 @@
       "source_file": "src/app/api/products/paypal/route.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "paypal_route",
-      "target": "paypal_route_post",
-      "confidence_score": 1.0
+      "target": "paypal_route_post"
     },
     {
       "relation": "imports_from",
@@ -5108,9 +5108,9 @@
       "source_file": "src/app/products/page.tsx",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "products_page",
-      "target": "lib_products",
-      "confidence_score": 1.0
+      "target": "lib_products"
     },
     {
       "relation": "imports",
@@ -5119,9 +5119,9 @@
       "source_file": "src/app/products/page.tsx",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "products_page",
-      "target": "lib_products_generateproductlicense",
-      "confidence_score": 1.0
+      "target": "lib_products_generateproductlicense"
     },
     {
       "relation": "imports",
@@ -5130,9 +5130,9 @@
       "source_file": "src/app/products/page.tsx",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "products_page",
-      "target": "lib_products_software_products",
-      "confidence_score": 1.0
+      "target": "lib_products_software_products"
     },
     {
       "relation": "imports",
@@ -5141,9 +5141,9 @@
       "source_file": "src/app/products/page.tsx",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "products_page",
-      "target": "lib_products_softwareproduct",
-      "confidence_score": 1.0
+      "target": "lib_products_softwareproduct"
     },
     {
       "relation": "contains",
@@ -5151,9 +5151,9 @@
       "source_file": "src/app/products/page.tsx",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "products_page",
-      "target": "products_page_productspage",
-      "confidence_score": 1.0
+      "target": "products_page_productspage"
     },
     {
       "relation": "imports_from",
@@ -5162,9 +5162,9 @@
       "source_file": "src/app/products/page.tsx",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "products_page",
-      "target": "ui_spotlightcard",
-      "confidence_score": 1.0
+      "target": "ui_spotlightcard"
     },
     {
       "relation": "contains",
@@ -5826,9 +5826,9 @@
       "source_file": "src/lib/products.ts",
       "source_location": "L119",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_products",
-      "target": "lib_products_generateproductlicense",
-      "confidence_score": 1.0
+      "target": "lib_products_generateproductlicense"
     },
     {
       "relation": "contains",
@@ -5836,9 +5836,9 @@
       "source_file": "src/lib/products.ts",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_products",
-      "target": "lib_products_software_products",
-      "confidence_score": 1.0
+      "target": "lib_products_software_products"
     },
     {
       "relation": "contains",
@@ -5846,9 +5846,9 @@
       "source_file": "src/lib/products.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_products",
-      "target": "lib_products_softwareproduct",
-      "confidence_score": 1.0
+      "target": "lib_products_softwareproduct"
     },
     {
       "relation": "contains",
@@ -6752,5 +6752,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "c1e831fdc11ad3354250f01c39514fa494e1a765"
+  "built_at_commit": "40dbdd17751771e00044831ce46943462ac56790"
 }

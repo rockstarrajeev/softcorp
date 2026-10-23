@@ -288,9 +288,9 @@ export default function ProductsPage() {
         </div>
         <div className="space-y-1">
           <FiZap className="text-emerald-400 text-2xl mx-auto mb-2" />
-          <h4 className="text-white font-bold text-sm">Govt. MSME Certified</h4>
+          <h4 className="text-white font-bold text-sm">100% Clean Software</h4>
           <p className="text-slate-400 text-xs">
-            Published by Softcorp Group (UDYAM-UP-50-0298723). 100% legal, clean software.
+            Zero adware, zero spyware, and no background telemetry. Pure native execution.
           </p>
         </div>
         <div className="space-y-1">

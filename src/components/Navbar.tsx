@@ -16,7 +16,6 @@ const navLinks = [
     { name: "Case Studies", href: "/#case-studies" },
     { name: "About", href: "/#about" },
     { name: "Process", href: "/#process" },
-    { name: "MSME Verification", href: "/#udyam-verification" },
     { name: "FAQ", href: "/#faq" },
     { name: "Contact", href: "/#contact" },
 ];

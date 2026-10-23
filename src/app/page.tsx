@@ -11,10 +11,6 @@ const ROIQuickEstimator = dynamic(() => import("@/components/sections/ROIQuickEs
   loading: () => <div className="min-h-[300px] flex items-center justify-center opacity-0" />,
 });
 
-const UdyamVerification = dynamic(() => import("@/components/UdyamVerification"), {
-  loading: () => <div className="min-h-[400px] flex items-center justify-center opacity-0" />,
-});
-
 const FAQ = dynamic(() => import("@/components/sections/FAQ"), {
   loading: () => <div className="min-h-[300px] flex items-center justify-center opacity-0" />,
 });
@@ -33,7 +29,6 @@ export default function Home() {
       <CaseStudies />
       <About />
       <Process />
-      <UdyamVerification />
       <FAQ />
       <Contact />
     </>

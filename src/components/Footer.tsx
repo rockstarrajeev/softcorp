@@ -29,7 +29,6 @@ const quickLinks = [
     { name: "Case Studies", href: "/#case-studies" },
     { name: "Leadership", href: "/#about" },
     { name: "Delivery Process", href: "/#process" },
-    { name: "MSME Verification", href: "/#udyam-verification" },
     { name: "FAQ", href: "/#faq" },
     { name: "Contact", href: "/#contact" },
 ];
@@ -155,13 +154,6 @@ export default function Footer() {
                         © {new Date().getFullYear()} SOFTCORP GROUP (UDYAM-UP-50-0298723). Protected under Section 15 of MSMED Act. All rights reserved.
                     </p>
                     <div className="flex gap-6">
-                        <Link 
-                            href="/#udyam-verification" 
-                            onClick={(e) => handleFooterLinkClick(e, "/#udyam-verification")}
-                            className="text-emerald-400/80 hover:text-emerald-300 transition-colors cursor-pointer"
-                        >
-                            MSME Certificate
-                        </Link>
                         <span className="hover:text-slate-400 cursor-pointer transition-colors">
                             Privacy Policy
                         </span>
