@@ -78,7 +78,7 @@
       "label": "ContentSecurityPolicy",
       "file_type": "code",
       "source_file": "next.config.ts",
-      "source_location": "L3",
+      "source_location": "L5",
       "id": "next_config_contentsecuritypolicy",
       "community": 19,
       "norm_label": "contentsecuritypolicy"
@@ -87,7 +87,7 @@
       "label": "nextConfig",
       "file_type": "code",
       "source_file": "next.config.ts",
-      "source_location": "L17",
+      "source_location": "L19",
       "id": "next_config_nextconfig",
       "community": 19,
       "norm_label": "nextconfig"
@@ -246,19 +246,10 @@
       "norm_label": "@types/better-sqlite3"
     },
     {
-      "label": "@types/nodemailer",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L19",
-      "id": "package_dependencies_types_nodemailer",
-      "community": 1,
-      "norm_label": "@types/nodemailer"
-    },
-    {
       "label": "bcryptjs",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L20",
+      "source_location": "L19",
       "id": "package_dependencies_bcryptjs",
       "community": 1,
       "norm_label": "bcryptjs"
@@ -267,7 +258,7 @@
       "label": "better-sqlite3",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L21",
+      "source_location": "L20",
       "id": "package_dependencies_better_sqlite3",
       "community": 1,
       "norm_label": "better-sqlite3"
@@ -276,7 +267,7 @@
       "label": "framer-motion",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L22",
+      "source_location": "L21",
       "id": "package_dependencies_framer_motion",
       "community": 1,
       "norm_label": "framer-motion"
@@ -285,7 +276,7 @@
       "label": "lucide-react",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L23",
+      "source_location": "L22",
       "id": "package_dependencies_lucide_react",
       "community": 1,
       "norm_label": "lucide-react"
@@ -294,7 +285,7 @@
       "label": "next",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L24",
+      "source_location": "L23",
       "id": "package_dependencies_next",
       "community": 1,
       "norm_label": "next"
@@ -303,34 +294,16 @@
       "label": "next-auth",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L25",
+      "source_location": "L24",
       "id": "package_dependencies_next_auth",
       "community": 1,
       "norm_label": "next-auth"
     },
     {
-      "label": "next-pwa",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L26",
-      "id": "package_dependencies_next_pwa",
-      "community": 1,
-      "norm_label": "next-pwa"
-    },
-    {
-      "label": "nodemailer",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L27",
-      "id": "package_dependencies_nodemailer",
-      "community": 1,
-      "norm_label": "nodemailer"
-    },
-    {
       "label": "prisma",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L28",
+      "source_location": "L25",
       "id": "package_dependencies_prisma",
       "community": 1,
       "norm_label": "prisma"
@@ -339,7 +312,7 @@
       "label": "react",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L29",
+      "source_location": "L26",
       "id": "package_dependencies_react",
       "community": 1,
       "norm_label": "react"
@@ -348,7 +321,7 @@
       "label": "react-dom",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L30",
+      "source_location": "L27",
       "id": "package_dependencies_react_dom",
       "community": 1,
       "norm_label": "react-dom"
@@ -357,7 +330,7 @@
       "label": "react-icons",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L31",
+      "source_location": "L28",
       "id": "package_dependencies_react_icons",
       "community": 1,
       "norm_label": "react-icons"
@@ -366,7 +339,7 @@
       "label": "recharts",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L32",
+      "source_location": "L29",
       "id": "package_dependencies_recharts",
       "community": 1,
       "norm_label": "recharts"
@@ -375,25 +348,16 @@
       "label": "stripe",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L33",
+      "source_location": "L30",
       "id": "package_dependencies_stripe",
       "community": 1,
       "norm_label": "stripe"
     },
     {
-      "label": "styled-components",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L34",
-      "id": "package_dependencies_styled_components",
-      "community": 1,
-      "norm_label": "styled-components"
-    },
-    {
       "label": "zod",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L35",
+      "source_location": "L31",
       "id": "package_dependencies_zod",
       "community": 1,
       "norm_label": "zod"
@@ -402,7 +366,7 @@
       "label": "devDependencies",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L37",
+      "source_location": "L33",
       "id": "package_devdependencies",
       "community": 2,
       "norm_label": "devdependencies"
@@ -411,7 +375,7 @@
       "label": "@tailwindcss/postcss",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L38",
+      "source_location": "L34",
       "id": "package_devdependencies_tailwindcss_postcss",
       "community": 2,
       "norm_label": "@tailwindcss/postcss"
@@ -420,7 +384,7 @@
       "label": "@types/node",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L39",
+      "source_location": "L35",
       "id": "package_devdependencies_types_node",
       "community": 2,
       "norm_label": "@types/node"
@@ -429,7 +393,7 @@
       "label": "@types/react",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L40",
+      "source_location": "L36",
       "id": "package_devdependencies_types_react",
       "community": 2,
       "norm_label": "@types/react"
@@ -438,7 +402,7 @@
       "label": "@types/react-dom",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L41",
+      "source_location": "L37",
       "id": "package_devdependencies_types_react_dom",
       "community": 2,
       "norm_label": "@types/react-dom"
@@ -447,7 +411,7 @@
       "label": "dotenv",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L42",
+      "source_location": "L38",
       "id": "package_devdependencies_dotenv",
       "community": 2,
       "norm_label": "dotenv"
@@ -456,7 +420,7 @@
       "label": "eslint",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L43",
+      "source_location": "L39",
       "id": "package_devdependencies_eslint",
       "community": 2,
       "norm_label": "eslint"
@@ -465,7 +429,7 @@
       "label": "eslint-config-next",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L44",
+      "source_location": "L40",
       "id": "package_devdependencies_eslint_config_next",
       "community": 2,
       "norm_label": "eslint-config-next"
@@ -474,7 +438,7 @@
       "label": "minimatch",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L45",
+      "source_location": "L41",
       "id": "package_devdependencies_minimatch",
       "community": 2,
       "norm_label": "minimatch"
@@ -483,7 +447,7 @@
       "label": "tailwindcss",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L46",
+      "source_location": "L42",
       "id": "package_devdependencies_tailwindcss",
       "community": 2,
       "norm_label": "tailwindcss"
@@ -492,7 +456,7 @@
       "label": "typescript",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L47",
+      "source_location": "L43",
       "id": "package_devdependencies_typescript",
       "community": 2,
       "norm_label": "typescript"
@@ -501,7 +465,7 @@
       "label": "prisma",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L49",
+      "source_location": "L45",
       "id": "package_prisma",
       "community": 2,
       "norm_label": "prisma"
@@ -510,10 +474,28 @@
       "label": "seed",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L50",
+      "source_location": "L46",
       "id": "package_prisma_seed",
       "community": 2,
       "norm_label": "seed"
+    },
+    {
+      "label": "overrides",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L48",
+      "id": "package_overrides",
+      "community": 2,
+      "norm_label": "overrides"
+    },
+    {
+      "label": "braces",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L49",
+      "id": "package_overrides_braces",
+      "community": 2,
+      "norm_label": "braces"
     },
     {
       "label": "postcss.config.mjs",
@@ -773,7 +755,7 @@
       "source_file": "src/app/admin/page.tsx",
       "source_location": "L1",
       "id": "admin_page",
-      "community": 0,
+      "community": 4,
       "norm_label": "page.tsx"
     },
     {
@@ -782,7 +764,7 @@
       "source_file": "src/app/admin/page.tsx",
       "source_location": "L6",
       "id": "admin_page_admindashboard",
-      "community": 0,
+      "community": 4,
       "norm_label": "admindashboard()"
     },
     {
@@ -989,16 +971,16 @@
       "source_file": "src/app/api/products/paypal/capture/route.ts",
       "source_location": "L1",
       "id": "src_app_api_products_paypal_capture_route_ts_capture_route",
-      "community": 30,
+      "community": 0,
       "norm_label": "route.ts"
     },
     {
       "label": "POST()",
       "file_type": "code",
       "source_file": "src/app/api/products/paypal/capture/route.ts",
-      "source_location": "L4",
+      "source_location": "L5",
       "id": "src_app_api_products_paypal_capture_route_ts_capture_route_post",
-      "community": 30,
+      "community": 0,
       "norm_label": "post()"
     },
     {
@@ -1007,16 +989,16 @@
       "source_file": "src/app/api/products/paypal/route.ts",
       "source_location": "L1",
       "id": "paypal_route",
-      "community": 30,
+      "community": 0,
       "norm_label": "route.ts"
     },
     {
       "label": "POST()",
       "file_type": "code",
       "source_file": "src/app/api/products/paypal/route.ts",
-      "source_location": "L4",
+      "source_location": "L7",
       "id": "paypal_route_post",
-      "community": 30,
+      "community": 0,
       "norm_label": "post()"
     },
     {
@@ -1142,7 +1124,7 @@
       "source_file": "src/app/checkout/[serviceId]/page.tsx",
       "source_location": "L1",
       "id": "serviceid_page",
-      "community": 0,
+      "community": 8,
       "norm_label": "page.tsx"
     },
     {
@@ -1151,7 +1133,7 @@
       "source_file": "src/app/checkout/[serviceId]/page.tsx",
       "source_location": "L6",
       "id": "serviceid_page_checkoutpage",
-      "community": 0,
+      "community": 8,
       "norm_label": "checkoutpage()"
     },
     {
@@ -1385,7 +1367,7 @@
       "source_file": "src/app/dashboard/page.tsx",
       "source_location": "L1",
       "id": "dashboard_page",
-      "community": 0,
+      "community": 5,
       "norm_label": "page.tsx"
     },
     {
@@ -1394,7 +1376,7 @@
       "source_file": "src/app/dashboard/page.tsx",
       "source_location": "L6",
       "id": "dashboard_page_clientdashboard",
-      "community": 0,
+      "community": 5,
       "norm_label": "clientdashboard()"
     },
     {
@@ -1511,7 +1493,7 @@
       "source_file": "src/app/products/page.tsx",
       "source_location": "L1",
       "id": "products_page",
-      "community": 30,
+      "community": 0,
       "norm_label": "page.tsx"
     },
     {
@@ -1520,7 +1502,7 @@
       "source_file": "src/app/products/page.tsx",
       "source_location": "L25",
       "id": "products_page_productspage",
-      "community": 30,
+      "community": 0,
       "norm_label": "productspage()"
     },
     {
@@ -2166,7 +2148,7 @@
       "label": "globalForPrisma",
       "file_type": "code",
       "source_file": "src/lib/db.ts",
-      "source_location": "L5",
+      "source_location": "L6",
       "id": "lib_db_globalforprisma",
       "community": 0,
       "norm_label": "globalforprisma"
@@ -2175,7 +2157,7 @@
       "label": "createPrismaClient()",
       "file_type": "code",
       "source_file": "src/lib/db.ts",
-      "source_location": "L9",
+      "source_location": "L10",
       "id": "lib_db_createprismaclient",
       "community": 0,
       "norm_label": "createprismaclient()"
@@ -2186,7 +2168,7 @@
       "source_file": "src/lib/products.ts",
       "source_location": "L1",
       "id": "lib_products",
-      "community": 30,
+      "community": 0,
       "norm_label": "products.ts"
     },
     {
@@ -2195,7 +2177,7 @@
       "source_file": "src/lib/products.ts",
       "source_location": "L3",
       "id": "lib_products_softwareproduct",
-      "community": 30,
+      "community": 0,
       "norm_label": "softwareproduct"
     },
     {
@@ -2204,7 +2186,7 @@
       "source_file": "src/lib/products.ts",
       "source_location": "L31",
       "id": "lib_products_software_products",
-      "community": 30,
+      "community": 0,
       "norm_label": "software_products"
     },
     {
@@ -2213,7 +2195,7 @@
       "source_file": "src/lib/products.ts",
       "source_location": "L176",
       "id": "lib_products_generateproductlicense",
-      "community": 30,
+      "community": 0,
       "norm_label": "generateproductlicense()"
     },
     {
@@ -2982,6 +2964,42 @@
       "norm_label": "{ get, post }"
     },
     {
+      "label": "@types/nodemailer",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L19",
+      "community": 1,
+      "norm_label": "@types/nodemailer",
+      "id": "package_dependencies_types_nodemailer"
+    },
+    {
+      "label": "next-pwa",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L26",
+      "community": 1,
+      "norm_label": "next-pwa",
+      "id": "package_dependencies_next_pwa"
+    },
+    {
+      "label": "nodemailer",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L27",
+      "community": 1,
+      "norm_label": "nodemailer",
+      "id": "package_dependencies_nodemailer"
+    },
+    {
+      "label": "styled-components",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L34",
+      "community": 1,
+      "norm_label": "styled-components",
+      "id": "package_dependencies_styled_components"
+    },
+    {
       "label": "ROIQuickEstimator",
       "file_type": "code",
       "source_file": "src/app/page.tsx",
@@ -3279,6 +3297,16 @@
       "confidence_score": 1.0,
       "source": "package",
       "target": "package_name"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_overrides",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3719,6 +3747,16 @@
       "confidence_score": 1.0,
       "source": "package_prisma",
       "target": "package_prisma_seed"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "package_overrides",
+      "target": "package_overrides_braces",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -4578,6 +4616,39 @@
       "target": "lib_products_software_products"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/products/paypal/capture/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_app_api_products_paypal_capture_route_ts_capture_route",
+      "target": "lib_rate_limit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/products/paypal/capture/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_app_api_products_paypal_capture_route_ts_capture_route",
+      "target": "lib_rate_limit_checkratelimit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/products/paypal/capture/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_app_api_products_paypal_capture_route_ts_capture_route",
+      "target": "lib_rate_limit_getclientip",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/app/api/products/paypal/capture/route.ts",
@@ -4597,6 +4668,28 @@
       "weight": 1.0,
       "source": "src_app_api_products_paypal_capture_route_ts_capture_route_post",
       "target": "lib_products_generateproductlicense"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/app/api/products/paypal/capture/route.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "src_app_api_products_paypal_capture_route_ts_capture_route_post",
+      "target": "lib_rate_limit_checkratelimit"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/app/api/products/paypal/capture/route.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "src_app_api_products_paypal_capture_route_ts_capture_route_post",
+      "target": "lib_rate_limit_getclientip"
     },
     {
       "relation": "imports_from",
@@ -4621,6 +4714,39 @@
       "target": "lib_products_software_products"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/products/paypal/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "paypal_route",
+      "target": "lib_rate_limit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/products/paypal/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "paypal_route",
+      "target": "lib_rate_limit_checkratelimit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/products/paypal/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "paypal_route",
+      "target": "lib_rate_limit_getclientip",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/app/api/products/paypal/route.ts",
@@ -4629,6 +4755,28 @@
       "confidence_score": 1.0,
       "source": "paypal_route",
       "target": "paypal_route_post"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/api/products/paypal/route.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "paypal_route_post",
+      "target": "lib_rate_limit_checkratelimit"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/api/products/paypal/route.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "paypal_route_post",
+      "target": "lib_rate_limit_getclientip"
     },
     {
       "relation": "imports_from",
@@ -7208,5 +7356,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "2175834a37bdda66e64e70a7d2505268c25fe20b"
+  "built_at_commit": "48011cc98aa58d5ee38f18d75961d4e95f41023e"
 }

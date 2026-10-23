@@ -147,5 +147,20 @@
     - Integrated Framer Motion `whileInView` with staggered entrance reveals (`delay: index * 0.1s`, `viewport={{ once: true }}`) across Software Suite cards, Enterprise Capabilities, Case Studies preview, FAQ accordions, and Product Catalog.
   - **Universal Luxury Sheen CTAs:**
     - Added `.shine-sweep card-lift` to primary and secondary CTA buttons across Navbar, Hero, Products Page, Landing Page, AI Solutions, Services, ROI Estimator, and Contact Inquiry form.
+- **Production Optimization, Security Hardening & Pre-Deployment Audit (October 2026):**
+  - **Dependency Audit & Attack Surface Pruning:**
+    - Removed unused phantom dependencies (`nodemailer`, `@types/nodemailer`, `styled-components`, `next-pwa`), pruning 241 unused packages and eliminating 4 critical and 33 high vulnerabilities.
+    - Updated Next.js runtime and ESLint plugin to secure `16.4.2` release, resolving Next.js Image Optimization DoS/SSRF and Server Function disclosure advisories.
+  - **Payment Verification Cryptographic Hardening:**
+    - In `api/products/paypal/capture/route.ts`, enforced strict verification that captured amount matches `product.usdPrice.toFixed(2)` and currency matches `USD`. Prevents payment tampering or amount-spoofing attacks.
+    - Applied sliding-window rate limiting (10 req / 10 min) and email regex normalization across `api/products/paypal` and `api/products/paypal/capture`.
+  - **Authorization Granularity:**
+    - In `api/admin/orders` and `api/admin/messages`, separated 401 Unauthorized (unauthenticated) from 403 Forbidden (authenticated non-admin) for clean RFC-compliant error reporting.
+  - **Database Concurrency & Production WAL Mode:**
+    - In `src/lib/db.ts`, configured SQLite WAL mode (`PRAGMA journal_mode = WAL;`), `PRAGMA synchronous = NORMAL;`, 64MB memory cache (`cache_size = -64000`), and a 5,000ms `busy_timeout` to eliminate database contention and deadlocks under concurrent multi-user load.
+  - **CSP Hardening:**
+    - In `next.config.ts`, restricted `'unsafe-eval'` to development mode only; production CSP strictly prohibits dynamic code evaluation.
+  - **Deployment Script Refinement:**
+    - Streamlined `deploy.sh` for Ubuntu OCI VM with clean sequential step logging, swap-aware compilation (`NODE_OPTIONS="--max-old-space-size=2048"`), automated Prisma generation, schema sync, database seeding, and zero-downtime PM2 reload.
 
 

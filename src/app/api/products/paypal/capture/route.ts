@@ -1,8 +1,23 @@
 import { NextResponse } from "next/server";
 import { SOFTWARE_PRODUCTS, generateProductLicense } from "@/lib/products";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 export async function POST(request: Request) {
   try {
+    const clientIp = getClientIp(request);
+    const rateLimit = checkRateLimit(`product_capture_${clientIp}`, 10, 10 * 60 * 1000);
+    if (!rateLimit.success) {
+      return NextResponse.json(
+        { error: "Too many payment capture attempts. Please wait a few minutes." },
+        {
+          status: 429,
+          headers: {
+            "Retry-After": Math.ceil(rateLimit.resetMs / 1000).toString(),
+          },
+        }
+      );
+    }
+
     const { paypalOrderId, productId } = await request.json();
 
     if (!paypalOrderId || !productId) {
@@ -74,6 +89,23 @@ export async function POST(request: Request) {
             captureData.message ||
             "PayPal capture was not completed.",
         },
+        { status: 400 }
+      );
+    }
+
+    // Verify captured amount and currency to prevent amount-spoofing attacks
+    const capturePayment = captureData.purchase_units?.[0]?.payments?.captures?.[0];
+    const capturedAmount = capturePayment?.amount?.value;
+    const capturedCurrency = capturePayment?.amount?.currency_code;
+    const expectedAmount = product.usdPrice.toFixed(2);
+
+    if (capturedAmount !== expectedAmount || capturedCurrency !== "USD") {
+      console.error("PayPal capture amount/currency mismatch:", {
+        received: { amount: capturedAmount, currency: capturedCurrency },
+        expected: { amount: expectedAmount, currency: "USD" },
+      });
+      return NextResponse.json(
+        { error: "Payment verification failed: captured amount does not match product price." },
         { status: 400 }
       );
     }

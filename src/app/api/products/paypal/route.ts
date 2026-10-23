@@ -1,13 +1,38 @@
 import { NextResponse } from "next/server";
 import { SOFTWARE_PRODUCTS } from "@/lib/products";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
+
+const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
 
 export async function POST(request: Request) {
   try {
+    const clientIp = getClientIp(request);
+    const rateLimit = checkRateLimit(`product_order_${clientIp}`, 10, 10 * 60 * 1000);
+    if (!rateLimit.success) {
+      return NextResponse.json(
+        { error: "Too many checkout requests. Please wait a few minutes." },
+        {
+          status: 429,
+          headers: {
+            "Retry-After": Math.ceil(rateLimit.resetMs / 1000).toString(),
+          },
+        }
+      );
+    }
+
     const { productId, customerName, customerEmail } = await request.json();
 
-    if (!productId || !customerEmail) {
+    if (!productId || !customerEmail || typeof customerEmail !== "string") {
       return NextResponse.json(
-        { error: "Product ID and customer email are required." },
+        { error: "Product ID and a valid customer email are required." },
+        { status: 400 }
+      );
+    }
+
+    const normalizedEmail = customerEmail.trim().toLowerCase();
+    if (!EMAIL_REGEX.test(normalizedEmail) || normalizedEmail.length > 254) {
+      return NextResponse.json(
+        { error: "A valid customer email address is required." },
         { status: 400 }
       );
     }
@@ -67,8 +92,8 @@ export async function POST(request: Request) {
             description: `${product.name} - Lifetime License`,
             custom_id: JSON.stringify({
               productId: product.id,
-              customerEmail,
-              customerName: customerName || "Licensed User",
+              customerEmail: normalizedEmail,
+              customerName: customerName ? String(customerName).slice(0, 100) : "Licensed User",
             }),
             amount: {
               currency_code: "USD",

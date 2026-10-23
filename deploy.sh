@@ -8,24 +8,19 @@ echo "====================================="
 echo "1. Pulling latest code from Git..."
 git pull origin main
 
-echo "2. Verifying Sanity Environment Variables..."
-if [ -z "$NEXT_PUBLIC_SANITY_PROJECT_ID" ]; then
-    echo "Warning: NEXT_PUBLIC_SANITY_PROJECT_ID is not set. Data fetching may fail during build."
-fi
-
-echo "3. Installing production dependencies..."
+echo "2. Installing production dependencies..."
 npm install
 
-echo "2. Generating Prisma Client..."
+echo "3. Generating Prisma Client..."
 npx prisma generate
 
-echo "3. Synchronizing DB Schema..."
+echo "4. Synchronizing DB Schema..."
 npx prisma db push
 
-echo "4. Seeding Database (if not seeded)..."
+echo "5. Seeding Database (if not seeded)..."
 npx prisma db seed
 
-echo "6. Building Next.js production bundle..."
+echo "6. Building Next.js production bundle (swap-aware)..."
 NODE_OPTIONS="--max-old-space-size=2048" npm run build
 
 echo "7. Restarting application with PM2..."

@@ -6,11 +6,11 @@ import prisma from "@/lib/db";
 export async function PATCH(request: Request) {
     try {
         const session = await auth();
-        if (
-            !session?.user ||
-            (session.user as { role?: string }).role !== "admin"
-        ) {
+        if (!session?.user) {
             return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+        }
+        if ((session.user as { role?: string }).role !== "admin") {
+            return NextResponse.json({ error: "Forbidden: Admin access required" }, { status: 403 });
         }
 
         const body = await request.json();

@@ -1,16 +1,16 @@
 # Graph Report - softcorp  (2026-10-23)
 
 ## Corpus Check
-- 79 files · ~125,265 words
+- 79 files · ~126,003 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 354 nodes · 389 edges · 33 communities (26 shown, 7 thin omitted)
-- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 2 edges (avg confidence: 0.8)
+- 356 nodes · 401 edges · 32 communities (25 shown, 7 thin omitted)
+- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 4 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `2175834a`
+- Built from commit: `48011cc9`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -37,20 +37,19 @@
 - [[_COMMUNITY_Community 27|Community 27]]
 - [[_COMMUNITY_Community 28|Community 28]]
 - [[_COMMUNITY_Community 29|Community 29]]
-- [[_COMMUNITY_Community 30|Community 30]]
 - [[_COMMUNITY_Community 63|Community 63]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `compilerOptions` - 16 edges
-2. `checkRateLimit()` - 11 edges
+2. `checkRateLimit()` - 15 edges
 3. `Key Enhancements & Animations Breakdown` - 11 edges
-4. `3. Market Rate Benchmarks (Indian Market — Oct 2026)` - 9 edges
-5. `Workspace & Global Memory Checkpoint` - 8 edges
-6. `SOFTCORP GROUP — IT Services Pricing Research & Market Intelligence` - 8 edges
-7. `1. Vulnerability Findings & Security Hardening` - 8 edges
-8. `scripts` - 5 edges
-9. `SOFTWARE_PRODUCTS` - 5 edges
-10. `getClientIp()` - 5 edges
+4. `getClientIp()` - 9 edges
+5. `3. Market Rate Benchmarks (Indian Market — Oct 2026)` - 9 edges
+6. `Workspace & Global Memory Checkpoint` - 8 edges
+7. `SOFTCORP GROUP — IT Services Pricing Research & Market Intelligence` - 8 edges
+8. `1. Vulnerability Findings & Security Hardening` - 8 edges
+9. `scripts` - 5 edges
+10. `SOFTWARE_PRODUCTS` - 5 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `POST()` --calls--> `checkRateLimit()`  [INFERRED]
@@ -61,36 +60,36 @@
   src/app/api/payments/stripe/route.ts → src/lib/rate-limit.ts
 - `POST()` --calls--> `generateProductLicense()`  [INFERRED]
   src/app/api/products/paypal/capture/route.ts → src/lib/products.ts
-- `POST()` --calls--> `checkRateLimit()`  [EXTRACTED]
-  src/app/api/auth/register/route.ts → src/lib/rate-limit.ts
+- `POST()` --calls--> `checkRateLimit()`  [INFERRED]
+  src/app/api/products/paypal/capture/route.ts → src/lib/rate-limit.ts
 
 ## Import Cycles
 - None detected.
 
-## Communities (33 total, 7 thin omitted)
+## Communities (32 total, 7 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.07
-Nodes (11): POST(), POST(), { handlers, auth, signIn, signOut }, globalForPrisma, checkRateLimit(), getClientIp(), RateLimitRecord, trackers (+3 more)
+Nodes (16): POST(), POST(), { handlers, auth, signIn, signOut }, globalForPrisma, generateProductLicense(), SOFTWARE_PRODUCTS, SoftwareProduct, checkRateLimit() (+8 more)
 
 ### Community 1 - "Community 1"
 Cohesion: 0.08
 Nodes (26): dependencies, @auth/prisma-adapter, bcryptjs, better-sqlite3, framer-motion, lucide-react, next, next-auth (+18 more)
 
 ### Community 2 - "Community 2"
-Cohesion: 0.09
-Nodes (21): devDependencies, dotenv, eslint, eslint-config-next, minimatch, tailwindcss, @tailwindcss/postcss, @types/node (+13 more)
+Cohesion: 0.08
+Nodes (23): devDependencies, dotenv, eslint, eslint-config-next, minimatch, tailwindcss, @tailwindcss/postcss, @types/node (+15 more)
 
 ### Community 3 - "Community 3"
 Cohesion: 0.10
 Nodes (19): compilerOptions, allowJs, esModuleInterop, incremental, isolatedModules, jsx, lib, module (+11 more)
 
 ### Community 4 - "Community 4"
-Cohesion: 0.12
+Cohesion: 0.11
 Nodes (9): AdminData, categoryLabels, ClientItem, MessageItem, OrderItem, ServiceItem, statusColors, statusOptions (+1 more)
 
 ### Community 5 - "Community 5"
-Cohesion: 0.12
+Cohesion: 0.11
 Nodes (10): categoryColors, categoryLabels, OrderItem, pricingLabels, Props, ServiceItem, statusColors, statusLabels (+2 more)
 
 ### Community 6 - "Community 6"
@@ -102,7 +101,7 @@ Cohesion: 0.25
 Nodes (5): quickLinks, socialLinks, NICItem, udyamDataset, UdyamMiniBadge()
 
 ### Community 8 - "Community 8"
-Cohesion: 0.25
+Cohesion: 0.20
 Nodes (5): categoryLabels, pricingLabels, Props, ServiceDetails, Window
 
 ### Community 10 - "Community 10"
@@ -129,33 +128,29 @@ Nodes (16): 1. Research Purpose, 2. Research Sources, 3.1 NIC 62011 — Custom S
 Cohesion: 0.07
 Nodes (28): 10. Contact & Footer Polishing (`src/components/sections/Contact.tsx`, `src/components/Footer.tsx`), 1. Global Visual System & Atmosphere (`src/app/globals.css`, `src/components/ui/AmbientBackground.tsx`), 1. Vulnerability Findings & Security Hardening, 2. Navigation Experience (`src/components/Navbar.tsx`), 2. Performance & App Optimization, 3. Hero Section Overhaul (`src/components/sections/Hero.tsx`), 3. Verification & Safety Gates, 4. Next-Gen AI Solutions (`src/components/sections/AISolutions.tsx`) (+20 more)
 
-### Community 30 - "Community 30"
-Cohesion: 0.36
-Nodes (4): generateProductLicense(), SOFTWARE_PRODUCTS, SoftwareProduct, POST()
-
 ### Community 63 - "Community 63"
 Cohesion: 0.06
 Nodes (17): aiCategories, Contact, FAQ, ROIQuickEstimator, UdyamVerification, highlights, aiCategories, interactiveWorkflows (+9 more)
 
 ## Knowledge Gaps
-- **175 isolated node(s):** `deploy.sh script`, `eslintConfig`, `ContentSecurityPolicy`, `nextConfig`, `name` (+170 more)
+- **176 isolated node(s):** `deploy.sh script`, `eslintConfig`, `ContentSecurityPolicy`, `nextConfig`, `name` (+171 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `dependencies` connect `Community 1` to `Community 2`?**
-  _High betweenness centrality (0.014) - this node is a cross-community bridge._
+- **Why does `SOFTWARE_PRODUCTS` connect `Community 0` to `Community 63`?**
+  _High betweenness centrality (0.065) - this node is a cross-community bridge._
+- **Are the 2 inferred relationships involving `checkRateLimit()` (e.g. with `POST()` and `POST()`) actually correct?**
+  _`checkRateLimit()` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `deploy.sh script`, `eslintConfig`, `ContentSecurityPolicy` to the rest of the system?**
-  _175 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _176 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.07030527289546716 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07294117647058823 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
   _Cohesion score 0.07692307692307693 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
-  _Cohesion score 0.08695652173913043 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08 - nodes in this community are weakly interconnected._
 - **Should `Community 3` be split into smaller, more focused modules?**
   _Cohesion score 0.1 - nodes in this community are weakly interconnected._
-- **Should `Community 4` be split into smaller, more focused modules?**
-  _Cohesion score 0.125 - nodes in this community are weakly interconnected._
