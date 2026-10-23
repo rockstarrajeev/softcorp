@@ -113,6 +113,21 @@ export default function ProductsPage() {
     }
   };
 
+  const handleDirectLicenseClaim = () => {
+    if (!customerEmail || !customerEmail.includes("@")) {
+      setErrorMessage("Please enter a valid email address to receive your free license key.");
+      return;
+    }
+    if (!selectedProduct) return;
+    setErrorMessage("");
+    setIsProcessing(true);
+    setTimeout(() => {
+      const license = generateProductLicense(selectedProduct.id);
+      setCompletedLicenseKey(license);
+      setIsProcessing(false);
+    }, 1000);
+  };
+
   return (
     <div className="min-h-screen pt-28 pb-24 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto relative">
       {/* ─── Hero Section ─── */}
@@ -156,6 +171,33 @@ export default function ProductsPage() {
               ₹ INR (India UPI / Cards)
             </button>
           </div>
+        </div>
+      </div>
+
+      {/* ─── Limited-Time Product Showcase Access Banner ─── */}
+      <div className="mb-10 p-5 rounded-2xl border border-amber-500/30 bg-gradient-to-r from-amber-500/10 via-emerald-500/10 to-cyan-500/10 backdrop-blur-md flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="flex items-center gap-3.5">
+          <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-xl shrink-0 border border-amber-500/30">
+            🔥
+          </div>
+          <div>
+            <div className="flex items-center gap-2">
+              <h3 className="text-white font-bold text-sm sm:text-base">Limited-Time Product Showcase Access</h3>
+              <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                100% Free
+              </span>
+            </div>
+            <p className="text-slate-300 text-xs mt-0.5">
+              Experience Spectrum Studio & Melodrift with full commercial features at zero cost for a limited time during our software showcase.
+            </p>
+          </div>
+        </div>
+        <div className="text-xs font-mono text-amber-300 shrink-0 bg-amber-500/15 px-3 py-1.5 rounded-lg border border-amber-500/30 flex items-center gap-1.5">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+          </span>
+          Special Showcase Active
         </div>
       </div>
 
@@ -222,15 +264,44 @@ export default function ProductsPage() {
 
                 {/* Pricing Block */}
                 <div className="p-4 rounded-xl bg-white/[0.03] border border-white/5 flex items-baseline justify-between">
-                  <div>
-                    <span className="text-xs text-slate-400 block font-medium">Lifetime License</span>
-                    <span className="text-3xl font-extrabold text-white tracking-tight">
-                      {displayPrice}
-                    </span>
-                    <span className="text-xs text-slate-500 ml-1">/ one-time</span>
-                  </div>
+                  {product.isLimitedTimeFree ? (
+                    <div>
+                      <div className="flex items-center gap-1.5 mb-1">
+                        <span className="relative flex h-2 w-2">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                        </span>
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-400">
+                          Limited-Time Free Access
+                        </span>
+                      </div>
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-3xl font-extrabold text-emerald-400 tracking-tight">FREE</span>
+                        <span className="text-sm text-slate-500 line-through">
+                          {currency === "USD" ? `$${product.originalUsdPrice}` : `₹${product.originalInrPrice}`}
+                        </span>
+                        <span className="text-[11px] font-bold text-amber-300 bg-amber-500/15 border border-amber-500/30 px-2 py-0.5 rounded-full">
+                          100% OFF
+                        </span>
+                      </div>
+                    </div>
+                  ) : (
+                    <div>
+                      <span className="text-xs text-slate-400 block font-medium">Lifetime License</span>
+                      <span className="text-3xl font-extrabold text-white tracking-tight">
+                        {displayPrice}
+                      </span>
+                      <span className="text-xs text-slate-500 ml-1">/ one-time</span>
+                    </div>
+                  )}
                   <span className="text-xs text-emerald-400 font-medium bg-emerald-500/10 px-2 py-1 rounded border border-emerald-500/20">
-                    {isTradeboard ? "Self-Hosted Core" : isSDM ? "Free Trial Included" : "Store Version Ready"}
+                    {product.isLimitedTimeFree
+                      ? "Showcase Special"
+                      : isTradeboard
+                      ? "Self-Hosted Core"
+                      : isSDM
+                      ? "Free Trial Included"
+                      : "Store Version Ready"}
                   </span>
                 </div>
 
@@ -262,13 +333,20 @@ export default function ProductsPage() {
 
               {/* Action Buttons */}
               <div className="pt-6 mt-6 border-t border-white/10 space-y-2.5">
-                {/* Primary: Buy License */}
+                {/* Primary: Buy License or Claim Free */}
                 <button
                   type="button"
                   onClick={() => openCheckout(product)}
-                  className={`w-full py-3 px-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 shadow-lg hover:brightness-110 ${btnGradient}`}
+                  className={`w-full py-3 px-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 shadow-lg hover:brightness-110 ${
+                    product.isLimitedTimeFree
+                      ? "bg-gradient-to-r from-emerald-500 to-teal-400 text-slate-950 shadow-emerald-500/25"
+                      : btnGradient
+                  }`}
                 >
-                  <FiKey size={16} /> Buy Lifetime Pro ({displayPrice})
+                  <FiKey size={16} />{" "}
+                  {product.isLimitedTimeFree
+                    ? "Claim Free Lifetime License (100% OFF)"
+                    : `Buy Lifetime Pro (${displayPrice})`}
                 </button>
 
                 {/* Secondary: Download / Store / Docs / Web & Dashboard */}
@@ -449,12 +527,17 @@ export default function ProductsPage() {
                 <div className="space-y-6">
                   <div>
                     <h3 className="text-xl font-bold text-white tracking-tight">
-                      Order {selectedProduct.name}
+                      {selectedProduct.isLimitedTimeFree ? "Claim Free License: " : "Order "}
+                      {selectedProduct.name}
                     </h3>
                     <div className="flex items-center justify-between text-xs text-slate-400 mt-1">
-                      <span>One-Time Lifetime License</span>
-                      <span className="font-bold text-white text-base">
-                        {currency === "USD" ? `$${selectedProduct.usdPrice} USD` : `₹${selectedProduct.inrPrice} INR`}
+                      <span>{selectedProduct.isLimitedTimeFree ? "Limited-Time Showcase Promo" : "One-Time Lifetime License"}</span>
+                      <span className="font-bold text-emerald-400 text-base">
+                        {selectedProduct.isLimitedTimeFree
+                          ? "100% FREE"
+                          : currency === "USD"
+                          ? `$${selectedProduct.usdPrice} USD`
+                          : `₹${selectedProduct.inrPrice} INR`}
                       </span>
                     </div>
                   </div>
@@ -491,122 +574,157 @@ export default function ProductsPage() {
                     </div>
                   </div>
 
-                  {/* Payment Gateway Tabs */}
-                  <div className="space-y-3">
-                    <label className="text-xs font-medium text-slate-300 block">
-                      Select Payment Method
-                    </label>
-                    <div className="grid grid-cols-2 gap-2">
-                      <button
-                        type="button"
-                        onClick={() => setPaymentTab("paypal")}
-                        className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-1.5 transition-all cursor-pointer ${
-                          paymentTab === "paypal"
-                            ? "border-cyan-500 bg-cyan-500/10 text-cyan-300"
-                            : "border-white/10 bg-slate-950/60 text-slate-400 hover:text-white"
-                        }`}
-                      >
-                        <FaPaypal className="text-[#00457C]" size={22} />
-                        <span className="text-xs font-bold">PayPal / Cards</span>
-                        <span className="text-[10px] text-slate-500">Global (USD)</span>
-                      </button>
-
-                      <button
-                        type="button"
-                        onClick={() => setPaymentTab("upi")}
-                        className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-1.5 transition-all cursor-pointer ${
-                          paymentTab === "upi"
-                            ? "border-emerald-500 bg-emerald-500/10 text-emerald-300"
-                            : "border-white/10 bg-slate-950/60 text-slate-400 hover:text-white"
-                        }`}
-                      >
-                        <span className="font-bold text-emerald-400 text-sm">UPI Instant</span>
-                        <span className="text-xs font-bold">GPay / PhonePe / Paytm</span>
-                        <span className="text-[10px] text-slate-500">India (INR ₹)</span>
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Tab Details */}
-                  {paymentTab === "paypal" ? (
-                    <div className="space-y-4 p-4 rounded-xl bg-slate-950/50 border border-white/5 text-xs text-slate-400">
-                      <div className="flex items-center gap-2 text-cyan-400 font-semibold">
-                        <FaPaypal /> Instant PayPal Checkout
+                  {selectedProduct.isLimitedTimeFree ? (
+                    <div className="p-5 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 space-y-3.5">
+                      <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm">
+                        <FiZap /> Limited-Time Product Showcase Access (100% Free)
                       </div>
-                      <p>
-                        Pay securely with your PayPal account or any International Credit/Debit Card
-                        (Visa, Mastercard, Amex).
+                      <p className="text-xs text-slate-300 leading-relaxed">
+                        During our live software showcase, {selectedProduct.name} is available 100% free with full commercial features and zero subscription fees.
+                        Enter your delivery email above to claim your permanent, hardware-bound cryptographic Pro license key now.
                       </p>
+                      {errorMessage && (
+                        <div className="text-xs text-rose-400 bg-rose-500/10 border border-rose-500/20 p-2.5 rounded-lg">
+                          {errorMessage}
+                        </div>
+                      )}
                       <button
                         type="button"
-                        onClick={handlePayPalSubmit}
+                        onClick={handleDirectLicenseClaim}
                         disabled={isProcessing}
-                        className="w-full py-3 px-4 rounded-xl font-bold text-sm bg-[#0070BA] hover:bg-[#005ea6] text-white flex items-center justify-center gap-2 cursor-pointer transition-colors shadow-lg shadow-blue-500/20 disabled:opacity-50"
+                        className="w-full py-3.5 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-400 text-slate-950 flex items-center justify-center gap-2 hover:brightness-110 shadow-lg shadow-emerald-500/25 transition-all cursor-pointer disabled:opacity-50"
                       >
-                        {isProcessing ? "Connecting to PayPal..." : `Proceed to PayPal ($${selectedProduct.usdPrice})`}
+                        {isProcessing ? (
+                          <span className="flex items-center gap-2">
+                            <FiCpu className="animate-spin" /> Generating Your Lifetime Pro Serial...
+                          </span>
+                        ) : (
+                          <span className="flex items-center gap-2">
+                            <FiKey /> Claim 100% Free Lifetime License Key
+                          </span>
+                        )}
                       </button>
                     </div>
                   ) : (
-                    <form
-                      onSubmit={handleUpiSubmit}
-                      className="space-y-4 p-4 rounded-xl bg-slate-950/50 border border-emerald-500/20 text-xs"
-                    >
-                      <div className="flex items-center justify-between text-emerald-400 font-semibold">
-                        <span>Direct UPI Scan & Pay</span>
-                        <span className="font-mono text-sm font-bold">₹{selectedProduct.inrPrice}</span>
-                      </div>
-
-                      {/* UPI QR & VPA Box */}
-                      <div className="p-3 rounded-lg bg-black/60 border border-white/10 flex items-center justify-between gap-3">
-                        <div>
-                          <div className="text-[11px] text-slate-500">Official Merchant VPA / UPI ID:</div>
-                          <div className="font-mono text-sm font-bold text-white select-all">
-                            softcorp@wesoftcorp.com
-                          </div>
-                          <div className="text-[10px] text-emerald-400 mt-0.5">
-                            Verified Business: Softcorp Group (MSME)
-                          </div>
-                        </div>
-                        <div className="shrink-0 p-1.5 rounded bg-white">
-                          <img
-                            src={`https://api.qrserver.com/v1/create-qr-code/?size=90x90&data=${encodeURIComponent(
-                              `upi://pay?pa=softcorp@wesoftcorp.com&pn=Softcorp%20Group&am=${selectedProduct.inrPrice}&cu=INR`
-                            )}`}
-                            alt="UPI QR Code"
-                            className="w-16 h-16"
-                          />
-                        </div>
-                      </div>
-
-                      <div>
-                        <label className="text-[11px] font-medium text-slate-300 block mb-1">
-                          Enter 12-Digit UPI UTR / Reference ID <span className="text-emerald-400">*</span>
+                    <>
+                      {/* Payment Gateway Tabs */}
+                      <div className="space-y-3">
+                        <label className="text-xs font-medium text-slate-300 block">
+                          Select Payment Method
                         </label>
-                        <input
-                          type="text"
-                          required
-                          value={utrNumber}
-                          onChange={(e) => setUtrNumber(e.target.value)}
-                          placeholder="e.g. 429381928374"
-                          className="w-full px-3 py-2 rounded bg-slate-950 border border-white/15 text-white font-mono text-xs focus:outline-none focus:border-emerald-500"
-                        />
+                        <div className="grid grid-cols-2 gap-2">
+                          <button
+                            type="button"
+                            onClick={() => setPaymentTab("paypal")}
+                            className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-1.5 transition-all cursor-pointer ${
+                              paymentTab === "paypal"
+                                ? "border-cyan-500 bg-cyan-500/10 text-cyan-300"
+                                : "border-white/10 bg-slate-950/60 text-slate-400 hover:text-white"
+                            }`}
+                          >
+                            <FaPaypal className="text-[#00457C]" size={22} />
+                            <span className="text-xs font-bold">PayPal / Cards</span>
+                            <span className="text-[10px] text-slate-500">Global (USD)</span>
+                          </button>
+
+                          <button
+                            type="button"
+                            onClick={() => setPaymentTab("upi")}
+                            className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-1.5 transition-all cursor-pointer ${
+                              paymentTab === "upi"
+                                ? "border-emerald-500 bg-emerald-500/10 text-emerald-300"
+                                : "border-white/10 bg-slate-950/60 text-slate-400 hover:text-white"
+                            }`}
+                          >
+                            <span className="font-bold text-emerald-400 text-sm">UPI Instant</span>
+                            <span className="text-xs font-bold">GPay / PhonePe / Paytm</span>
+                            <span className="text-[10px] text-slate-500">India (INR ₹)</span>
+                          </button>
+                        </div>
                       </div>
 
-                      <button
-                        type="submit"
-                        disabled={isProcessing}
-                        className="w-full py-3 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 flex items-center justify-center gap-2 hover:brightness-110 cursor-pointer shadow-lg shadow-emerald-500/20 disabled:opacity-50"
-                      >
-                        {isProcessing ? "Verifying Transaction..." : `Confirm Payment & Unlock Key`}
-                      </button>
-                    </form>
-                  )}
+                      {/* Tab Details */}
+                      {paymentTab === "paypal" ? (
+                        <div className="space-y-4 p-4 rounded-xl bg-slate-950/50 border border-white/5 text-xs text-slate-400">
+                          <div className="flex items-center gap-2 text-cyan-400 font-semibold">
+                            <FaPaypal /> Instant PayPal Checkout
+                          </div>
+                          <p>
+                            Pay securely with your PayPal account or any International Credit/Debit Card
+                            (Visa, Mastercard, Amex).
+                          </p>
+                          <button
+                            type="button"
+                            onClick={handlePayPalSubmit}
+                            disabled={isProcessing}
+                            className="w-full py-3 px-4 rounded-xl font-bold text-sm bg-[#0070BA] hover:bg-[#005ea6] text-white flex items-center justify-center gap-2 cursor-pointer transition-colors shadow-lg shadow-blue-500/20 disabled:opacity-50"
+                          >
+                            {isProcessing ? "Connecting to PayPal..." : `Proceed to PayPal ($${selectedProduct.usdPrice})`}
+                          </button>
+                        </div>
+                      ) : (
+                        <form
+                          onSubmit={handleUpiSubmit}
+                          className="space-y-4 p-4 rounded-xl bg-slate-950/50 border border-emerald-500/20 text-xs"
+                        >
+                          <div className="flex items-center justify-between text-emerald-400 font-semibold">
+                            <span>Direct UPI Scan & Pay</span>
+                            <span className="font-mono text-sm font-bold">₹{selectedProduct.inrPrice}</span>
+                          </div>
 
-                  {/* Error Alert */}
-                  {errorMessage && (
-                    <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-xs">
-                      {errorMessage}
-                    </div>
+                          {/* UPI QR & VPA Box */}
+                          <div className="p-3 rounded-lg bg-black/60 border border-white/10 flex items-center justify-between gap-3">
+                            <div>
+                              <div className="text-[11px] text-slate-500">Official Merchant VPA / UPI ID:</div>
+                              <div className="font-mono text-sm font-bold text-white select-all">
+                                softcorp@wesoftcorp.com
+                              </div>
+                              <div className="text-[10px] text-emerald-400 mt-0.5">
+                                Verified Business: Softcorp Group (MSME)
+                              </div>
+                            </div>
+                            <div className="shrink-0 p-1.5 rounded bg-white">
+                              <img
+                                src={`https://api.qrserver.com/v1/create-qr-code/?size=90x90&data=${encodeURIComponent(
+                                  `upi://pay?pa=softcorp@wesoftcorp.com&pn=Softcorp%20Group&am=${selectedProduct.inrPrice}&cu=INR`
+                                )}`}
+                                alt="UPI QR Code"
+                                className="w-16 h-16"
+                              />
+                            </div>
+                          </div>
+
+                          <div>
+                            <label className="text-[11px] font-medium text-slate-300 block mb-1">
+                              Enter 12-Digit UPI UTR / Reference ID <span className="text-emerald-400">*</span>
+                            </label>
+                            <input
+                              type="text"
+                              required
+                              value={utrNumber}
+                              onChange={(e) => setUtrNumber(e.target.value)}
+                              placeholder="e.g. 429381928374"
+                              className="w-full px-3 py-2 rounded bg-slate-950 border border-white/15 text-white font-mono text-xs focus:outline-none focus:border-emerald-500"
+                            />
+                          </div>
+
+                          <button
+                            type="submit"
+                            disabled={isProcessing}
+                            className="w-full py-3 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 flex items-center justify-center gap-2 hover:brightness-110 cursor-pointer shadow-lg shadow-emerald-500/20 disabled:opacity-50"
+                          >
+                            {isProcessing ? "Verifying Transaction..." : `Confirm Payment & Unlock Key`}
+                          </button>
+                        </form>
+                      )}
+
+                      {/* Error Alert */}
+                      {errorMessage && (
+                        <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-xs">
+                          {errorMessage}
+                        </div>
+                      )}
+                    </>
                   )}
                 </div>
               )}

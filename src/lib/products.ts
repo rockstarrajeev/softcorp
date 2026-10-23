@@ -9,6 +9,10 @@ export interface SoftwareProduct {
   platform: string;
   usdPrice: number;
   inrPrice: number;
+  originalUsdPrice?: number;
+  originalInrPrice?: number;
+  isLimitedTimeFree?: boolean;
+  promoBadge?: string;
   installerFileName: string;
   downloadUrl: string;
   storeUrl?: string;
@@ -97,29 +101,33 @@ export const SOFTWARE_PRODUCTS: SoftwareProduct[] = [
     version: "v0.1.1",
     category: "Photography & Digital Imaging",
     platform: "Windows 10 / 11 (MSIX / x64)",
-    usdPrice: 24.99,
-    inrPrice: 1499,
+    usdPrice: 0,
+    inrPrice: 0,
+    originalUsdPrice: 24.99,
+    originalInrPrice: 1499,
+    isLimitedTimeFree: true,
+    promoBadge: "Limited-Time Free Access",
     installerFileName: "Spectrum_Setup_v0.1.1.exe",
     downloadUrl: "https://apps.microsoft.com/detail/9P1QW99KRX7N?hl=en-us&gl=IN&ocid=pdpshare",
     storeUrl: "https://apps.microsoft.com/detail/9P1QW99KRX7N?hl=en-us&gl=IN&ocid=pdpshare",
-    badge: "Microsoft Store Verified",
+    badge: "🔥 Free Showcase Access",
     rating: 4.8,
     downloadsCount: "18,400+",
     features: [
+      "Limited-Time Showcase Access: 100% Free full commercial Pro features",
       "Frameless spatial viewer with continuous analog momentum zoom (60/120 FPS)",
       "Native RAW support for Sony ARW, Canon CR2/CR3, Nikon NEF, DNG, Fuji RAF & standard images",
       "Creative Darkroom with interactive 8-point crop engine & rule-of-thirds alignment",
       "GPU-accelerated Exposure, Contrast, Color Temp, Saturation, Highlights & Shadows adjustments",
       "Virtualized viewport handles 5,000+ photo collections in < 800 KB RAM",
-      "100% offline & private: Zero telemetry, zero cloud tracking, Windows DPAPI security",
       "Official Microsoft Store distribution with automated sandboxed background updates"
     ],
     specs: [
+      { label: "Showcase Offer", value: "100% Free Limited Access" },
       { label: "OS Support", value: "Windows 10/11 (x64)" },
       { label: "Microsoft Store ID", value: "9P1QW99KRX7N" },
       { label: "Memory Footprint", value: "< 800 KB for 5,000 Photos" },
-      { label: "Framework", value: "Flutter 3 / Dart 3 Native" },
-      { label: "License Model", value: "Perpetual Commercial Pro" }
+      { label: "License Model", value: "Full Pro Showcase License" }
     ],
     licensePrefix: "SPEC-PRO"
   },
@@ -130,19 +138,23 @@ export const SOFTWARE_PRODUCTS: SoftwareProduct[] = [
     version: "v1.0.0",
     category: "Audio Streaming & Media Player",
     platform: "Web / Windows 10/11 (MSIX) / Android",
-    usdPrice: 14.99,
-    inrPrice: 799,
+    usdPrice: 0,
+    inrPrice: 0,
+    originalUsdPrice: 14.99,
+    originalInrPrice: 799,
+    isLimitedTimeFree: true,
+    promoBadge: "Limited-Time Free Access",
     installerFileName: "Melodrift_Setup_v1.0.exe",
     downloadUrl: "https://melodrift.rajeevupadhyay.com/",
     webUrl: "https://melodrift.rajeevupadhyay.com/",
     dashboardUrl: "https://melodash.wesoftcorp.com/",
     storeUrl: "https://apps.microsoft.com/detail/9NTMFZ12Q80S?hl=en-us&gl=IN&ocid=pdpshare",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.melodrift",
-    badge: "Web, Play & Store Verified",
+    badge: "🔥 Free Showcase Access",
     rating: 4.9,
     downloadsCount: "42,000+",
     features: [
-      "Sub-300ms zero-buffering audio engine with lookahead chunk prefetching",
+      "Limited-Time Showcase Access: 100% Free ad-free high-fidelity music streaming",
       "Live high-fidelity web player at melodrift.rajeevupadhyay.com",
       "Dedicated creator & station cloud dashboard at melodash.wesoftcorp.com",
       "10-band studio equalizer with bass boost, audio virtualizer & acoustic presets",
@@ -151,11 +163,11 @@ export const SOFTWARE_PRODUCTS: SoftwareProduct[] = [
       "100% ad-free & privacy-focused: Zero audio interruptions, Google AD_ID omitted"
     ],
     specs: [
+      { label: "Showcase Offer", value: "100% Free Limited Access" },
       { label: "Web Player", value: "melodrift.rajeevupadhyay.com" },
       { label: "Cloud Dashboard", value: "melodash.wesoftcorp.com" },
       { label: "Platforms", value: "Web, Windows & Android" },
-      { label: "Microsoft Store ID", value: "9NTMFZ12Q80S" },
-      { label: "License Model", value: "Producer Lifetime Supporter" }
+      { label: "License Model", value: "Full Supporter Showcase License" }
     ],
     licensePrefix: "MELO-PRO"
   }

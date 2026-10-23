@@ -76,12 +76,32 @@ export default function Home() {
 
                     <div className="pt-2 border-t border-white/5 flex items-baseline justify-between text-xs">
                       <div>
-                        <span className="text-slate-500 block">Lifetime Pro</span>
-                        <span className="text-lg font-bold text-white">${product.usdPrice}</span>
-                        <span className="text-slate-500 text-[11px] ml-1">/ ₹{product.inrPrice}</span>
+                        {product.isLimitedTimeFree ? (
+                          <div>
+                            <span className="text-amber-400 font-bold block text-[10px] uppercase tracking-wide">
+                              Limited Free Access
+                            </span>
+                            <div className="flex items-baseline gap-1.5">
+                              <span className="text-lg font-bold text-emerald-400">FREE</span>
+                              <span className="text-xs text-slate-500 line-through">
+                                ${product.originalUsdPrice}
+                              </span>
+                            </div>
+                          </div>
+                        ) : (
+                          <div>
+                            <span className="text-slate-500 block">Lifetime Pro</span>
+                            <span className="text-lg font-bold text-white">${product.usdPrice}</span>
+                            <span className="text-slate-500 text-[11px] ml-1">/ ₹{product.inrPrice}</span>
+                          </div>
+                        )}
                       </div>
                       <span className="text-emerald-400 text-[11px] bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
-                        {isTradeboard ? "Self-Hosted Core" : "Free Trial Included"}
+                        {product.isLimitedTimeFree
+                          ? "Showcase Special"
+                          : isTradeboard
+                          ? "Self-Hosted Core"
+                          : "Free Trial Included"}
                       </span>
                     </div>
                   </div>
@@ -98,7 +118,7 @@ export default function Home() {
                       href="/products"
                       className="py-2.5 px-3 rounded-xl font-bold text-xs bg-gradient-to-r from-cyan-500 to-teal-500 text-slate-950 flex items-center justify-center gap-1.5 hover:brightness-110 shadow-md shadow-cyan-500/20 shrink-0"
                     >
-                      <FiKey size={13} /> Buy
+                      <FiKey size={13} /> {product.isLimitedTimeFree ? "Claim" : "Buy"}
                     </Link>
                   </div>
                 </SpotlightCard>
