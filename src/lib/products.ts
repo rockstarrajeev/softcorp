@@ -12,6 +12,7 @@ export interface SoftwareProduct {
   originalUsdPrice?: number;
   originalInrPrice?: number;
   isLimitedTimeFree?: boolean;
+  isComingSoonBeta?: boolean;
   promoBadge?: string;
   installerFileName: string;
   downloadUrl: string;
@@ -33,16 +34,17 @@ export const SOFTWARE_PRODUCTS: SoftwareProduct[] = [
     id: "sdm",
     name: "Softcorp Download Manager (SDM)",
     tagline: "High-Performance 32-Socket HTTP Range Accelerator, Universal Video Grabber & Obsidian Cyber-Glass Engine",
-    version: "v1.0.0 Stable",
+    version: "v1.0.0 (Beta Preview)",
     category: "Network & Media Acceleration",
     platform: "Windows 10 / 11 (64-bit)",
     usdPrice: 19.99,
     inrPrice: 999,
     installerFileName: "SDM_Setup_v1.0.exe",
     downloadUrl: "/downloads/SDM_Setup_v1.0.exe",
-    badge: "Flagship Accelerator",
+    badge: "Coming Soon • Beta Testing",
+    isComingSoonBeta: true,
     rating: 4.9,
-    downloadsCount: "25,000+",
+    downloadsCount: "Private Beta",
     features: [
       "Up to 500% acceleration via 32 parallel socket chunk streams with dynamic load rebalancing",
       "Universal In-Page Video Grabber for YouTube, X (Twitter), Reddit, TikTok, Facebook & Vimeo",
@@ -53,11 +55,12 @@ export const SOFTWARE_PRODUCTS: SoftwareProduct[] = [
       "Obsidian Cyber-Glass UI with hardware-bound cryptographic activation & anti-tamper DRM"
     ],
     specs: [
+      { label: "Status", value: "Beta Testing Phase" },
       { label: "OS Support", value: "Windows 10/11 (64-bit)" },
       { label: "Installer Type", value: "Self-Contained Setup (.exe)" },
-      { label: "Package Size", value: "133.10 MB" },
+      { label: "Package Size", value: "133.12 MB" },
       { label: "Engine Core", value: "Bundled Node.js + Electron" },
-      { label: "License Model", value: "Lifetime License / 1 PC" }
+      { label: "License Model", value: "Coming Soon (Beta Preview)" }
     ],
     licensePrefix: "SDM-PRO"
   },

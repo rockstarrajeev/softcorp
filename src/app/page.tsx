@@ -64,13 +64,23 @@ export default function Home() {
                   transition={{ duration: 0.55, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
                   className="h-full flex"
                 >
-                  <SpotlightCard
+                    <SpotlightCard
                     className="p-7 flex flex-col justify-between border-white/10 w-full"
-                    spotlightColor={isSDM ? "rgba(6, 182, 212, 0.2)" : isTradeboard ? "rgba(99, 102, 241, 0.18)" : "rgba(16, 185, 129, 0.15)"}
+                    spotlightColor={isSDM ? "rgba(245, 158, 11, 0.2)" : isTradeboard ? "rgba(99, 102, 241, 0.18)" : "rgba(16, 185, 129, 0.15)"}
                   >
                     <div className="space-y-4">
                       <div className="flex items-center justify-between">
-                        <span className="text-[11px] font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-300">
+                        <span className={`text-[11px] font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-full border flex items-center gap-1.5 ${
+                          isSDM
+                            ? "border-amber-500/40 bg-amber-500/10 text-amber-300"
+                            : "border-cyan-500/30 bg-cyan-500/10 text-cyan-300"
+                        }`}>
+                          {isSDM && (
+                            <span className="relative flex h-2 w-2">
+                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                              <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+                            </span>
+                          )}
                           {product.badge}
                         </span>
                         <span className="text-xs text-slate-500 font-mono">{product.version}</span>
@@ -83,7 +93,16 @@ export default function Home() {
 
                       <div className="pt-2 border-t border-white/5 flex items-baseline justify-between text-xs">
                         <div>
-                          {product.isLimitedTimeFree ? (
+                          {product.isComingSoonBeta ? (
+                            <div>
+                              <span className="text-amber-400 font-bold block text-[10px] uppercase tracking-wide">
+                                Beta Testing Phase
+                              </span>
+                              <div className="flex items-baseline gap-1.5">
+                                <span className="text-lg font-bold text-amber-300">COMING SOON</span>
+                              </div>
+                            </div>
+                          ) : product.isLimitedTimeFree ? (
                             <div>
                               <span className="text-amber-400 font-bold block text-[10px] uppercase tracking-wide">
                                 Limited Free Access
@@ -103,8 +122,14 @@ export default function Home() {
                             </div>
                           )}
                         </div>
-                        <span className="text-emerald-400 text-[11px] bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
-                          {product.isLimitedTimeFree
+                        <span className={`text-[11px] px-2 py-0.5 rounded border ${
+                          product.isComingSoonBeta
+                            ? "text-amber-400 bg-amber-500/10 border-amber-500/20"
+                            : "text-emerald-400 bg-emerald-500/10 border-emerald-500/20"
+                        }`}>
+                          {product.isComingSoonBeta
+                            ? "Beta Testing"
+                            : product.isLimitedTimeFree
                             ? "Showcase Special"
                             : isTradeboard
                             ? "Self-Hosted Core"
@@ -118,14 +143,18 @@ export default function Home() {
                         href="/products"
                         className="w-full py-2.5 px-3 rounded-xl font-bold text-xs bg-white/5 hover:bg-white/10 border border-white/10 text-slate-200 flex items-center justify-center gap-2 transition-all shine-sweep"
                       >
-                        <FiDownload size={13} />
-                        {isSDM ? "Download Trial (.exe)" : isTradeboard ? "Docs & Platform" : product.id === "spectrum" ? "Microsoft Store" : product.id === "melodrift" ? "Launch Web Player" : "Get Software"}
+                        <FiDownload size={13} className={isSDM ? "text-amber-400" : ""} />
+                        {isSDM ? "Download Beta (.exe)" : isTradeboard ? "Docs & Platform" : product.id === "spectrum" ? "Microsoft Store" : product.id === "melodrift" ? "Launch Web Player" : "Get Software"}
                       </Link>
                       <Link
                         href="/products"
-                        className="py-2.5 px-3 rounded-xl font-bold text-xs bg-gradient-to-r from-cyan-500 to-teal-500 text-slate-950 flex items-center justify-center gap-1.5 hover:brightness-110 shadow-md shadow-cyan-500/20 shrink-0 shine-sweep card-lift"
+                        className={`py-2.5 px-3 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 hover:brightness-110 shadow-md shrink-0 shine-sweep card-lift ${
+                          product.isComingSoonBeta
+                            ? "bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 shadow-amber-500/20"
+                            : "bg-gradient-to-r from-cyan-500 to-teal-500 text-slate-950 shadow-cyan-500/20"
+                        }`}
                       >
-                        <FiKey size={13} /> {product.isLimitedTimeFree ? "Claim" : "Buy"}
+                        <FiKey size={13} /> {product.isComingSoonBeta ? "Join Beta" : product.isLimitedTimeFree ? "Claim" : "Buy"}
                       </Link>
                     </div>
                   </SpotlightCard>

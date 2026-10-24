@@ -2184,7 +2184,7 @@
       "label": "SOFTWARE_PRODUCTS",
       "file_type": "code",
       "source_file": "src/lib/products.ts",
-      "source_location": "L31",
+      "source_location": "L32",
       "id": "lib_products_software_products",
       "community": 0,
       "norm_label": "software_products"
@@ -2193,7 +2193,7 @@
       "label": "generateProductLicense()",
       "file_type": "code",
       "source_file": "src/lib/products.ts",
-      "source_location": "L175",
+      "source_location": "L178",
       "id": "lib_products_generateproductlicense",
       "community": 0,
       "norm_label": "generateproductlicense()"
@@ -7356,5 +7356,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "a8519ef933edc33537ae23eef55b56779c9fd3a9"
+  "built_at_commit": "818d7c65437d1b25f89265ea0f39bfc3d26fd5a4"
 }

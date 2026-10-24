@@ -219,7 +219,11 @@ export default function ProductsPage() {
           let spotlightColor = "rgba(6, 182, 212, 0.15)";
           let btnGradient = "bg-gradient-to-r from-cyan-500 to-teal-500 text-slate-950";
 
-          if (isTradeboard) {
+          if (isSDM) {
+            badgeStyle = "border-amber-500/50 bg-amber-500/15 text-amber-300";
+            spotlightColor = "rgba(245, 158, 11, 0.18)";
+            btnGradient = "bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950";
+          } else if (isTradeboard) {
             badgeStyle = "border-indigo-500/40 bg-indigo-500/10 text-indigo-300";
             spotlightColor = "rgba(99, 102, 241, 0.18)";
             btnGradient = "bg-gradient-to-r from-indigo-500 to-blue-600 text-white";
@@ -244,7 +248,7 @@ export default function ProductsPage() {
             >
               <SpotlightCard
                 className={`h-full flex flex-col justify-between p-7 relative transition-all duration-300 ${
-                  isSDM ? "border-cyan-500/40 ring-1 ring-cyan-500/20" : "border-white/10"
+                  isSDM ? "border-amber-500/40 ring-1 ring-amber-500/20" : "border-white/10"
                 }`}
                 spotlightColor={spotlightColor}
               >
@@ -252,8 +256,14 @@ export default function ProductsPage() {
                   {/* Header & Badges */}
                   <div className="flex items-center justify-between">
                     <span
-                      className={`text-[11px] font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${badgeStyle}`}
+                      className={`text-[11px] font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-full border flex items-center gap-1.5 ${badgeStyle}`}
                     >
+                      {isSDM && (
+                        <span className="relative flex h-2 w-2">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+                        </span>
+                      )}
                       {product.badge}
                     </span>
                     <div className="flex items-center gap-1 text-amber-400 text-xs font-bold">
@@ -276,7 +286,25 @@ export default function ProductsPage() {
 
                   {/* Pricing Block */}
                   <div className="p-4 rounded-xl bg-white/[0.03] border border-white/5 flex items-baseline justify-between">
-                    {product.isLimitedTimeFree ? (
+                    {product.isComingSoonBeta ? (
+                      <div>
+                        <div className="flex items-center gap-1.5 mb-1">
+                          <span className="relative flex h-2 w-2">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+                          </span>
+                          <span className="text-[11px] font-bold uppercase tracking-wider text-amber-400 font-mono">
+                            Beta Testing Phase
+                          </span>
+                        </div>
+                        <div className="flex items-baseline gap-2">
+                          <span className="text-2xl font-extrabold text-amber-300 tracking-tight">COMING SOON</span>
+                          <span className="text-xs text-slate-400">
+                            (Launch: {displayPrice})
+                          </span>
+                        </div>
+                      </div>
+                    ) : product.isLimitedTimeFree ? (
                       <div>
                         <div className="flex items-center gap-1.5 mb-1">
                           <span className="relative flex h-2 w-2">
@@ -306,13 +334,17 @@ export default function ProductsPage() {
                         <span className="text-xs text-slate-500 ml-1">/ one-time</span>
                       </div>
                     )}
-                    <span className="text-xs text-emerald-400 font-medium bg-emerald-500/10 px-2 py-1 rounded border border-emerald-500/20">
-                      {product.isLimitedTimeFree
+                    <span className={`text-xs font-medium px-2.5 py-1 rounded-full border ${
+                      product.isComingSoonBeta
+                        ? "text-amber-400 bg-amber-500/10 border-amber-500/20"
+                        : "text-emerald-400 bg-emerald-500/10 border-emerald-500/20"
+                    }`}>
+                      {product.isComingSoonBeta
+                        ? "Beta Testing"
+                        : product.isLimitedTimeFree
                         ? "Showcase Special"
                         : isTradeboard
                         ? "Self-Hosted Core"
-                        : isSDM
-                        ? "Free Trial Included"
                         : "Store Version Ready"}
                     </span>
                   </div>
@@ -345,20 +377,31 @@ export default function ProductsPage() {
 
                 {/* Action Buttons */}
                 <div className="pt-6 mt-6 border-t border-white/10 space-y-2.5">
-                  {/* Primary: Buy License or Claim Free */}
+                  {/* Primary: Pre-Register Beta / Buy License or Claim Free */}
                   <button
                     type="button"
                     onClick={() => openCheckout(product)}
                     className={`w-full py-3 px-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 shadow-lg hover:brightness-110 shine-sweep card-lift ${
-                      product.isLimitedTimeFree
+                      product.isComingSoonBeta
+                        ? "bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 shadow-amber-500/25"
+                        : product.isLimitedTimeFree
                         ? "bg-gradient-to-r from-emerald-500 to-teal-400 text-slate-950 shadow-emerald-500/25"
                         : btnGradient
                     }`}
                   >
-                    <FiKey size={16} />{" "}
-                    {product.isLimitedTimeFree
-                      ? "Claim Free Lifetime License (100% OFF)"
-                      : `Buy Lifetime Pro (${displayPrice})`}
+                    {product.isComingSoonBeta ? (
+                      <>
+                        <FiZap size={16} /> Pre-Register & Join Beta Testing
+                      </>
+                    ) : product.isLimitedTimeFree ? (
+                      <>
+                        <FiKey size={16} /> Claim Free Lifetime License (100% OFF)
+                      </>
+                    ) : (
+                      <>
+                        <FiKey size={16} /> Buy Lifetime Pro ({displayPrice})
+                      </>
+                    )}
                   </button>
 
                   {/* Secondary: Download / Store / Docs / Web */}
@@ -400,11 +443,11 @@ export default function ProductsPage() {
                       rel="noopener noreferrer"
                       className="w-full py-2.5 px-4 rounded-xl font-semibold text-xs text-slate-300 bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center gap-2 cursor-pointer transition-colors shine-sweep"
                     >
-                      {isSDM && <FiDownload size={14} />}
+                      {isSDM && <FiDownload size={14} className="text-amber-400" />}
                       {isTradeboard && <FiExternalLink size={14} />}
                       {isSpectrum && <FiExternalLink size={14} />}
                       <span>
-                        {isSDM && "Download Free Trial (.exe, 133 MB)"}
+                        {isSDM && "Download Beta Preview (.exe, 133 MB)"}
                         {isTradeboard && "Open Documentation & Quickstart"}
                         {isSpectrum && "Get on Microsoft Store (Verified)"}
                       </span>
@@ -530,13 +573,25 @@ export default function ProductsPage() {
                 <div className="space-y-6">
                   <div>
                     <h3 className="text-xl font-bold text-white tracking-tight">
-                      {selectedProduct.isLimitedTimeFree ? "Claim Free License: " : "Order "}
+                      {selectedProduct.isComingSoonBeta
+                        ? "Join Beta Testing: "
+                        : selectedProduct.isLimitedTimeFree
+                        ? "Claim Free License: "
+                        : "Order "}
                       {selectedProduct.name}
                     </h3>
                     <div className="flex items-center justify-between text-xs text-slate-400 mt-1">
-                      <span>{selectedProduct.isLimitedTimeFree ? "Limited-Time Showcase Promo" : "One-Time Lifetime License"}</span>
-                      <span className="font-bold text-emerald-400 text-base">
-                        {selectedProduct.isLimitedTimeFree
+                      <span>
+                        {selectedProduct.isComingSoonBeta
+                          ? "Coming Soon • Early Access Beta Testing Program"
+                          : selectedProduct.isLimitedTimeFree
+                          ? "Limited-Time Showcase Promo"
+                          : "One-Time Lifetime License"}
+                      </span>
+                      <span className={`font-bold text-base ${selectedProduct.isComingSoonBeta ? "text-amber-400" : "text-emerald-400"}`}>
+                        {selectedProduct.isComingSoonBeta
+                          ? "FREE BETA"
+                          : selectedProduct.isLimitedTimeFree
                           ? "100% FREE"
                           : currency === "USD"
                           ? `$${selectedProduct.usdPrice} USD`
@@ -577,7 +632,38 @@ export default function ProductsPage() {
                     </div>
                   </div>
 
-                  {selectedProduct.isLimitedTimeFree ? (
+                  {selectedProduct.isComingSoonBeta ? (
+                    <div className="p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30 space-y-3.5">
+                      <div className="flex items-center gap-2 text-amber-400 font-bold text-sm">
+                        <FiZap /> Closed Beta Testing Program (Early Access)
+                      </div>
+                      <p className="text-xs text-slate-300 leading-relaxed">
+                        Softcorp Download Manager (SDM) is currently in active beta testing.
+                        Join our early preview program to download the latest test builds, receive bugfix updates, and receive an instant complimentary Beta Pro License Key.
+                      </p>
+                      {errorMessage && (
+                        <div className="text-xs text-rose-400 bg-rose-500/10 border border-rose-500/20 p-2.5 rounded-lg">
+                          {errorMessage}
+                        </div>
+                      )}
+                      <button
+                        type="button"
+                        onClick={handleDirectLicenseClaim}
+                        disabled={isProcessing}
+                        className="w-full py-3.5 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 text-slate-950 flex items-center justify-center gap-2 hover:brightness-110 shadow-lg shadow-amber-500/25 transition-all cursor-pointer disabled:opacity-50"
+                      >
+                        {isProcessing ? (
+                          <span className="flex items-center gap-2">
+                            <FiCpu className="animate-spin" /> Registering Beta Access...
+                          </span>
+                        ) : (
+                          <span className="flex items-center gap-2">
+                            <FiKey /> Claim Complimentary Beta License & Join
+                          </span>
+                        )}
+                      </button>
+                    </div>
+                  ) : selectedProduct.isLimitedTimeFree ? (
                     <div className="p-5 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 space-y-3.5">
                       <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm">
                         <FiZap /> Limited-Time Product Showcase Access (100% Free)
