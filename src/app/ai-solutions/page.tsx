@@ -1,187 +1,185 @@
-"use client";
+import type { Metadata } from "next";
+import AISolutionsClient from "./AISolutionsClient";
 
-import { motion } from "framer-motion";
-import { serviceCategories } from "@/utils/serviceData";
-import { FiArrowLeft, FiCheckCircle, FiZap, FiArrowRight, FiShield, FiCpu } from "react-icons/fi";
-import Link from "next/link";
-import SpotlightCard from "@/components/ui/SpotlightCard";
+export const metadata: Metadata = {
+  title: "Enterprise AI Solutions, Autonomous Multi-Agent Systems & Private RAG | Softcorp Group",
+  description:
+    "Government of India Certified MSME (UDYAM-UP-50-0298723) Enterprise AI Solutions Architect. Deploy autonomous multi-agent fleets via Model Context Protocol (MCP), private RAG vector search (Qdrant/pgvector), and sovereign on-premise SLM inference (DeepSeek-R1, Llama 3) with zero data retention.",
+  keywords: [
+    "Enterprise AI Solutions",
+    "Autonomous AI Agents",
+    "Model Context Protocol",
+    "MCP Protocol",
+    "Private RAG Architecture",
+    "On-Premise LLM Deployment",
+    "DeepSeek R1 Enterprise",
+    "Llama 3.3 Enterprise",
+    "Vector Database Qdrant pgvector",
+    "AIOps Self-Healing Infrastructure",
+    "Enterprise AI Modernization",
+    "Zero Data Retention AI",
+    "Softcorp Group AI",
+    "Rajeev Upadhyay AI Architect"
+  ],
+  alternates: {
+    canonical: "/ai-solutions"
+  },
+  openGraph: {
+    title: "Enterprise AI Solutions, Multi-Agent Systems & Private RAG | Softcorp Group",
+    description:
+      "Govt. MSME Certified Enterprise AI Modernization. Custom multi-agent fleets, Model Context Protocol (MCP), private vector RAG, and on-premise SLM inference with zero data leakage.",
+    url: "https://wesoftcorp.com/ai-solutions",
+    siteName: "SOFTCORP GROUP",
+    type: "website",
+    locale: "en_US"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Enterprise AI Solutions & Autonomous Multi-Agent Architecture | Softcorp Group",
+    description:
+      "Govt. MSME Certified Enterprise AI Modernization. Private RAG vector pipelines, MCP multi-agent fleets, and air-gapped on-premise SLM inference.",
+    creator: "@rajeevrockstar"
+  }
+};
 
-const aiCategories = serviceCategories.filter(cat => 
-    cat.title.toLowerCase().includes("ai")
-);
+// ─── JSON-LD Structured Data for Maximum Search Engine Indexing ───
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://wesoftcorp.com/ai-solutions#webpage",
+      "url": "https://wesoftcorp.com/ai-solutions",
+      "name": "Enterprise AI Solutions & Autonomous Multi-Agent Systems | Softcorp Group",
+      "description":
+        "Government-certified MSME AI solutions architect. Custom enterprise LLM orchestration, Model Context Protocol (MCP), private RAG vector pipelines, on-premise SLMs, and autonomous workflows.",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://wesoftcorp.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "AI Solutions",
+            "item": "https://wesoftcorp.com/ai-solutions"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://wesoftcorp.com/ai-solutions#service-mcp-agents",
+      "name": "Autonomous Multi-Agent Fleets & Model Context Protocol (MCP) Orchestration",
+      "provider": {
+        "@type": "Organization",
+        "name": "Softcorp Group LLC",
+        "url": "https://wesoftcorp.com",
+        "identifier": "UDYAM-UP-50-0298723"
+      },
+      "serviceType": "Autonomous Agent Systems & Tool-Calling Integration",
+      "areaServed": "Global",
+      "description":
+        "Architecting and deploying self-directed fleets of specialized subagents communicating via Anthropic Model Context Protocol (MCP) with reflection loops and deterministic schemas."
+    },
+    {
+      "@type": "Service",
+      "@id": "https://wesoftcorp.com/ai-solutions#service-rag",
+      "name": "Private Enterprise RAG & Hybrid Vector Retrieval Pipelines",
+      "provider": {
+        "@type": "Organization",
+        "name": "Softcorp Group LLC",
+        "url": "https://wesoftcorp.com"
+      },
+      "serviceType": "Information Retrieval & Knowledge Engineering",
+      "areaServed": "Global",
+      "description":
+        "Dense vector embeddings (BGE-M3) combined with lexical BM25 search, HNSW indexing on Qdrant/pgvector, and cross-encoder rerankers to eliminate model hallucinations."
+    },
+    {
+      "@type": "Service",
+      "@id": "https://wesoftcorp.com/ai-solutions#service-onprem",
+      "name": "Air-Gapped On-Premise SLM & LLM High-Throughput Inference",
+      "provider": {
+        "@type": "Organization",
+        "name": "Softcorp Group LLC",
+        "url": "https://wesoftcorp.com"
+      },
+      "serviceType": "Sovereign AI Infrastructure",
+      "areaServed": "Global",
+      "description":
+        "Bare-metal GPU deployment of DeepSeek-R1, Llama 3.3, and Mistral using vLLM and TensorRT-LLM with PagedAttention and zero outbound internet connectivity."
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://wesoftcorp.com/ai-solutions#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does Softcorp prevent enterprise confidential data from training public AI models?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We operate under a strict Zero-Data-Retention architecture. For cloud models, we configure zero-retention enterprise API endpoints with cryptographically bound compliance agreements. For banking, healthcare, and defense clients, we deploy 100% air-gapped on-premise models (DeepSeek-R1, Llama 3.3) hosted on private bare-metal GPUs with zero outbound internet connections."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Model Context Protocol (MCP) and why is it superior to custom API scripts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Model Context Protocol (MCP) is the emerging open standard for connecting AI models to external tools and data sources. Instead of writing brittle custom API wrappers, MCP establishes an isolated, typed protocol layer allowing autonomous agents to inspect tools dynamically, request permissions, and execute sandboxed actions with full auditability."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can we deploy AI architectures completely on-premise without cloud internet access?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Softcorp specializes in sovereign, air-gapped on-premise deployments. We install and configure dedicated GPU inference clusters using vLLM and TensorRT-LLM on bare-metal servers or private VPCs. Your models, vector databases (Qdrant/pgvector), and application code run entirely on your local network with zero external dependencies."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does Retrieval-Augmented Generation (RAG) eliminate hallucinations for business documents?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "RAG forces the model to act as a pure reader: it searches your vector database for the exact, authoritative text passages relevant to the user query, and instructs the model to answer using only the retrieved context. With cross-encoder rerankers and citation guardrails, if the answer is not in your documents, the system deterministically replies that information is unavailable rather than fabricating facts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What hardware is required to run frontier private models like DeepSeek-R1 or Llama 3?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "With 4-bit and 8-bit AWQ quantization and vLLM PagedAttention, a single enterprise workstation with an NVIDIA RTX 6000 Ada (48GB VRAM) or two RTX 4090s can comfortably host a 70B parameter model at 30+ tokens/second. For multi-thousand user clusters, we architect multi-GPU nodes (NVIDIA A100/H100) with sub-second failover."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the typical timeline and engagement model for an enterprise AI deployment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A standard engagement starts with a 1-week Architecture Discovery and PoC roadmap. Production deployment of a Private RAG or Autonomous MCP Agent pipeline typically takes 2 to 4 weeks, including data connector integration, vector database indexing, security testing, and staff training."
+          }
+        }
+      ]
+    }
+  ]
+};
 
 export default function AISolutionsPage() {
-    return (
-        <main className="min-h-screen pt-32 pb-24 bg-slate-950 font-sans antialiased text-white selection:bg-cyan-500/30">
-            <div className="container mx-auto px-6 lg:px-12">
-                {/* Navigation Back */}
-                <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="mb-12"
-                >
-                    <Link 
-                        href="/" 
-                        className="inline-flex items-center gap-2 text-slate-400 hover:text-cyan-300 transition-colors text-sm font-semibold"
-                    >
-                        <FiArrowLeft size={16} /> 
-                        Back to Home
-                    </Link>
-                </motion.div>
-
-                {/* Hero Section */}
-                <div className="max-w-4xl mb-24">
-                    <motion.span
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 }}
-                        className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-mono text-xs uppercase tracking-wider mb-6"
-                    >
-                        <FiZap /> Applied Enterprise Intelligence
-                    </motion.span>
-                    <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 }}
-                        className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-8 leading-[1.1]"
-                    >
-                        Enterprise-Grade <br />
-                        <span className="gradient-text-animated">AI Modernization Solutions</span>
-                    </motion.h1>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3 }}
-                        className="text-lg sm:text-xl text-slate-300 leading-relaxed font-normal max-w-3xl"
-                    >
-                        Softcorp bridges legacy databases with autonomous, privacy-preserving AI architectures. 
-                        We integrate specialized machine learning, document parsers, and automated multi-agent 
-                        workflows directly into your enterprise stack to deliver 10x throughput with zero hallucination risk.
-                    </motion.p>
-                </div>
-
-                {/* Categories Grid */}
-                <div className="space-y-28">
-                    {aiCategories.map((category, index) => (
-                        <motion.section 
-                            key={category.title}
-                            initial={{ opacity: 0, y: 40 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.7 }}
-                            className="grid lg:grid-cols-12 gap-12 items-center"
-                        >
-                            <div className={`lg:col-span-7 ${index % 2 === 1 ? 'lg:order-2' : ''} space-y-6`}>
-                                <div className="flex items-center gap-4">
-                                    <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${category.color} flex items-center justify-center shadow-xl shadow-cyan-500/10 text-white`}>
-                                        <category.icon size={28} />
-                                    </div>
-                                    <div>
-                                        <span className="text-xs font-mono uppercase text-cyan-400 font-bold tracking-wider">Enterprise Domain</span>
-                                        <h2 className="text-3xl font-extrabold text-white">{category.title}</h2>
-                                    </div>
-                                </div>
-
-                                <p className="text-base text-slate-300 leading-relaxed">
-                                    {category.description}
-                                </p>
-
-                                <div className="grid sm:grid-cols-2 gap-4 pt-2">
-                                    {category.services.map((service, sIndex) => (
-                                        <div 
-                                            key={sIndex} 
-                                            className="p-4 rounded-xl bg-white/[0.03] border border-white/5 hover:border-cyan-500/30 hover:bg-cyan-500/10 transition-all group card-lift"
-                                        >
-                                            <div className="flex items-center gap-2.5 mb-1.5">
-                                                <service.icon size={16} className="text-cyan-400 group-hover:scale-110 transition-transform" />
-                                                <h3 className="font-bold text-sm text-white group-hover:text-cyan-300 transition-colors">{service.name}</h3>
-                                            </div>
-                                            <p className="text-xs text-slate-400 leading-relaxed">
-                                                Fully managed architecture from integration to continuous model monitoring.
-                                            </p>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-
-                            <div className={`lg:col-span-5 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                                <SpotlightCard className="p-8 border-cyan-500/20 space-y-6">
-                                    <div className="flex items-center justify-between">
-                                        <span className="text-xs font-mono text-cyan-400 font-semibold uppercase">Architecture Blueprint</span>
-                                        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                                    </div>
-
-                                    <div className="p-4 rounded-xl bg-black/40 border border-white/5 space-y-2">
-                                        <div className="flex items-center gap-2 text-xs font-mono text-slate-300">
-                                            <FiCpu className="text-cyan-400" />
-                                            <span>Zero Data Leakage Pipeline</span>
-                                        </div>
-                                        <p className="text-xs text-slate-400">
-                                            All enterprise models run inside dedicated virtual private clouds (VPC) with strictly isolated data boundaries.
-                                        </p>
-                                    </div>
-
-                                    <div className="space-y-3">
-                                        <div className="flex items-center gap-2.5 text-xs text-slate-300">
-                                            <FiCheckCircle className="text-emerald-400 shrink-0" size={15} />
-                                            <span>Deterministic Outputs via RAG & Vector Indices</span>
-                                        </div>
-                                        <div className="flex items-center gap-2.5 text-xs text-slate-300">
-                                            <FiCheckCircle className="text-emerald-400 shrink-0" size={15} />
-                                            <span>Full Audit Logging & SOC2 Compliance</span>
-                                        </div>
-                                        <div className="flex items-center gap-2.5 text-xs text-slate-300">
-                                            <FiCheckCircle className="text-emerald-400 shrink-0" size={15} />
-                                            <span>Instant ERP / CRM REST API Connectors</span>
-                                        </div>
-                                    </div>
-
-                                    <Link
-                                        href="/contact"
-                                        className="w-full py-3 px-4 gradient-brand rounded-xl text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:brightness-110 shadow-lg shadow-cyan-500/20 transition-all shine-sweep card-lift"
-                                    >
-                                        <span>Deploy This Architecture</span>
-                                        <FiArrowRight />
-                                    </Link>
-                                </SpotlightCard>
-                            </div>
-                        </motion.section>
-                    ))}
-                </div>
-
-                {/* Final Call To Action */}
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.96 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    className="mt-32 p-10 lg:p-16 rounded-3xl bg-gradient-to-br from-cyan-950/40 via-slate-900/90 to-blue-950/40 border border-cyan-500/30 text-center relative overflow-hidden shadow-2xl"
-                >
-                    <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent" />
-                    
-                    <h2 className="text-3xl md:text-5xl font-extrabold mb-4 relative z-10 text-white">
-                        Ready to Modernize Your Operations with <span className="gradient-text-animated">Softcorp AI</span>?
-                    </h2>
-                    <p className="text-base md:text-lg text-slate-300 mb-8 max-w-2xl mx-auto relative z-10">
-                        Schedule an executive discovery call with Rajeev Upadhyay and our solutions architects to review your technical roadmap.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
-                        <Link 
-                            href="/contact" 
-                            className="px-8 py-4 gradient-brand text-white font-bold text-sm rounded-xl hover:brightness-110 shadow-xl shadow-cyan-500/25 transition-all flex items-center justify-center gap-2 shine-sweep card-lift"
-                        >
-                            <span>Book Architecture Discovery</span>
-                            <FiArrowRight />
-                        </Link>
-                        <Link 
-                            href="/" 
-                            className="px-8 py-4 bg-white/5 border border-white/10 text-white font-semibold text-sm rounded-xl hover:bg-white/10 transition-colors shine-sweep"
-                        >
-                            Return to Home
-                        </Link>
-                    </div>
-                </motion.div>
-            </div>
-        </main>
-    );
+  return (
+    <>
+      {/* Schema.org Structured Data Injection for Google Rich Snippets & PAA Indexing */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <AISolutionsClient />
+    </>
+  );
 }
