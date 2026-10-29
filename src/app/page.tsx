@@ -13,8 +13,14 @@ import {
   FiZap, 
   FiActivity, 
   FiUsers, 
-  FiKey 
+  FiKey,
+  FiCheck,
+  FiExternalLink,
+  FiMusic,
+  FiMaximize2,
+  FiGlobe
 } from "react-icons/fi";
+import { FaMicrosoft } from "react-icons/fa";
 import Hero from "@/components/sections/Hero";
 import FAQ from "@/components/sections/FAQ";
 import SpotlightCard from "@/components/ui/SpotlightCard";
@@ -55,6 +61,58 @@ export default function Home() {
             {SOFTWARE_PRODUCTS.map((product, idx) => {
               const isSDM = product.id === "sdm";
               const isTradeboard = product.id === "tradeboard";
+              const isSpectrum = product.id === "spectrum";
+              const isMelodrift = product.id === "melodrift";
+
+              let badgeStyle = "border-cyan-500/30 bg-cyan-500/10 text-cyan-300";
+              let spotlightColor = "rgba(6, 182, 212, 0.15)";
+              let cardBorder = "border-white/10 hover:border-cyan-500/40";
+              let iconBg = "bg-cyan-500/10 border-cyan-500/30";
+              let categoryLabel = "Commercial Engine";
+
+              if (isSDM) {
+                badgeStyle = "border-amber-500/40 bg-amber-500/10 text-amber-300";
+                spotlightColor = "rgba(245, 158, 11, 0.18)";
+                cardBorder = "border-amber-500/30 hover:border-amber-500/60";
+                iconBg = "bg-amber-500/10 border-amber-500/30";
+                categoryLabel = "Download Manager";
+              } else if (isTradeboard) {
+                badgeStyle = "border-indigo-500/40 bg-indigo-500/10 text-indigo-300";
+                spotlightColor = "rgba(99, 102, 241, 0.18)";
+                cardBorder = "border-indigo-500/30 hover:border-indigo-500/60";
+                iconBg = "bg-indigo-500/10 border-indigo-500/30";
+                categoryLabel = "Fintech Algo Platform";
+              } else if (isSpectrum) {
+                badgeStyle = "border-sky-500/40 bg-sky-500/10 text-sky-300";
+                spotlightColor = "rgba(14, 165, 233, 0.16)";
+                cardBorder = "border-sky-500/30 hover:border-sky-500/60";
+                iconBg = "bg-sky-500/10 border-sky-500/30";
+                categoryLabel = "RAW Photo Darkroom";
+              } else if (isMelodrift) {
+                badgeStyle = "border-emerald-500/40 bg-emerald-500/10 text-emerald-300";
+                spotlightColor = "rgba(16, 185, 129, 0.16)";
+                cardBorder = "border-emerald-500/30 hover:border-emerald-500/60";
+                iconBg = "bg-emerald-500/10 border-emerald-500/30";
+                categoryLabel = "Hi-Fi Music Client";
+              }
+
+              const cleanVersion = product.version.split(" ")[0];
+
+              const getIcon = (id: string) => {
+                switch (id) {
+                  case "sdm":
+                    return <FiDownload className="text-xl text-amber-400" />;
+                  case "tradeboard":
+                    return <FiActivity className="text-xl text-indigo-400" />;
+                  case "spectrum":
+                    return <FiMaximize2 className="text-xl text-sky-400" />;
+                  case "melodrift":
+                    return <FiMusic className="text-xl text-emerald-400" />;
+                  default:
+                    return <FiCpu className="text-xl text-cyan-400" />;
+                }
+              };
+
               return (
                 <motion.div
                   key={product.id}
@@ -64,110 +122,157 @@ export default function Home() {
                   transition={{ duration: 0.55, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
                   className="h-full flex"
                 >
-                    <SpotlightCard
-                    className="p-7 flex flex-col justify-between border-white/10 w-full"
-                    spotlightColor={isSDM ? "rgba(245, 158, 11, 0.2)" : isTradeboard ? "rgba(99, 102, 241, 0.18)" : "rgba(16, 185, 129, 0.15)"}
+                  <SpotlightCard
+                    className={`p-6 sm:p-7 flex flex-col justify-between w-full h-full transition-all duration-300 ${cardBorder}`}
+                    spotlightColor={spotlightColor}
                   >
                     <div className="space-y-4">
-                      <div className="flex items-center justify-between">
-                        <span className={`text-[11px] font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-full border flex items-center gap-1.5 ${
-                          isSDM
-                            ? "border-amber-500/40 bg-amber-500/10 text-amber-300"
-                            : "border-cyan-500/30 bg-cyan-500/10 text-cyan-300"
-                        }`}>
+                      {/* 1. Category Tag + Version Row (Uniform Height & Baseline) */}
+                      <div className="flex items-center justify-between gap-2 h-7">
+                        <span className={`text-[11px] font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-full border flex items-center gap-1.5 ${badgeStyle}`}>
                           {isSDM && (
                             <span className="relative flex h-2 w-2">
                               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
                               <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
                             </span>
                           )}
-                          {product.badge}
+                          <span className="truncate">{categoryLabel}</span>
                         </span>
-                        <span className="text-xs text-slate-500 font-mono">{product.version}</span>
+                        <span className="text-xs text-slate-400 font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 shrink-0">
+                          {cleanVersion}
+                        </span>
                       </div>
 
-                      <h3 className="text-xl font-bold text-white tracking-tight">{product.name}</h3>
-                      <p className="text-slate-400 text-xs leading-relaxed line-clamp-3">
+                      {/* 2. Product Icon + Title (Guaranteed 48px Fixed Height for Symmetry) */}
+                      <div className="flex items-center gap-3">
+                        <div className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 border ${iconBg} shadow-inner`}>
+                          {getIcon(product.id)}
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <h3 className="text-base sm:text-lg font-bold text-white tracking-tight leading-snug line-clamp-2 h-12 flex items-center">
+                            {product.name}
+                          </h3>
+                        </div>
+                      </div>
+
+                      {/* 3. Description / Tagline (Guaranteed 60px Fixed Height) */}
+                      <p className="text-slate-400 text-xs leading-relaxed line-clamp-3 h-[3.75rem] flex items-start">
                         {product.tagline}
                       </p>
 
-                      <div className="pt-2 border-t border-white/5 flex items-baseline justify-between text-xs">
-                        <div>
-                          {product.isComingSoonBeta ? (
+                      {/* 4. Top 2 Feature Capabilities (Uniform Height) */}
+                      <div className="space-y-1.5 py-1">
+                        {product.highlights.slice(0, 2).map((highlight, hIdx) => (
+                          <div key={hIdx} className="flex items-center gap-1.5 text-[11px] text-slate-300">
+                            <FiCheck className="text-cyan-400 shrink-0 text-xs" />
+                            <span className="truncate">{highlight}</span>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* 5. Symmetrical Pricing / Access Status Row (Guaranteed 40px Height) */}
+                      <div className="pt-3 border-t border-white/5 flex items-center justify-between text-xs h-10">
+                        {isSDM ? (
+                          <>
                             <div>
-                              <span className="text-amber-400 font-bold block text-[10px] uppercase tracking-wide">
-                                Beta Testing Phase
-                              </span>
-                              <div className="flex items-baseline gap-1.5">
-                                <span className="text-lg font-bold text-amber-300">COMING SOON</span>
-                              </div>
+                              <span className="text-[10px] font-bold text-amber-400 uppercase tracking-wider block">Trial Model</span>
+                              <span className="text-sm font-extrabold text-white">14-Day Free Trial</span>
                             </div>
-                          ) : product.isLimitedTimeFree ? (
+                            <div className="text-right">
+                              <span className="text-[10px] text-slate-400 block">Upgrade</span>
+                              <span className="text-xs font-mono font-bold text-amber-300">$19.99 Pro</span>
+                            </div>
+                          </>
+                        ) : isTradeboard ? (
+                          <>
                             <div>
-                              <span className="text-amber-400 font-bold block text-[10px] uppercase tracking-wide">
-                                Limited Free Access
-                              </span>
-                              <div className="flex items-baseline gap-1.5">
-                                <span className="text-lg font-bold text-emerald-400">FREE</span>
-                                <span className="text-xs text-slate-500 line-through">
-                                  ${product.originalUsdPrice}
-                                </span>
-                              </div>
+                              <span className="text-[10px] font-bold text-indigo-400 uppercase tracking-wider block">Self-Hosted</span>
+                              <span className="text-sm font-extrabold text-white">$49.99 USD</span>
                             </div>
-                          ) : isSDM ? (
+                            <div className="text-right">
+                              <span className="text-[10px] text-slate-400 block">One-Time</span>
+                              <span className="text-xs font-mono font-bold text-indigo-300">₹3,999 INR</span>
+                            </div>
+                          </>
+                        ) : isSpectrum ? (
+                          <>
                             <div>
-                              <span className="text-emerald-400 font-bold block text-[10px] uppercase tracking-wide">
-                                14-Day Free Trial
-                              </span>
-                              <div className="flex items-baseline gap-1.5">
-                                <span className="text-lg font-bold text-white">FREE TRIAL</span>
-                                <span className="text-xs text-slate-500 font-normal">(${product.usdPrice} Pro)</span>
-                              </div>
+                              <span className="text-[10px] font-bold text-sky-400 uppercase tracking-wider block">Distribution</span>
+                              <span className="text-sm font-extrabold text-white">Microsoft Store</span>
                             </div>
-                          ) : (
+                            <div className="text-right">
+                              <span className="text-[10px] text-slate-400 block">Platform</span>
+                              <span className="text-xs font-mono font-bold text-sky-300">Windows 10/11</span>
+                            </div>
+                          </>
+                        ) : (
+                          <>
                             <div>
-                              <span className="text-slate-500 block">Lifetime Pro</span>
-                              <span className="text-lg font-bold text-white">${product.usdPrice}</span>
-                              <span className="text-slate-500 text-[11px] ml-1">/ ₹{product.inrPrice}</span>
+                              <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-wider block">Access</span>
+                              <span className="text-sm font-extrabold text-emerald-400">100% Free & Ad-Free</span>
                             </div>
-                          )}
-                        </div>
-                        <span className={`text-[11px] px-2 py-0.5 rounded border ${
-                          product.isComingSoonBeta
-                            ? "text-amber-400 bg-amber-500/10 border-amber-500/20"
-                            : "text-emerald-400 bg-emerald-500/10 border-emerald-500/20"
-                        }`}>
-                          {product.isComingSoonBeta
-                            ? "Beta Testing"
-                            : product.isLimitedTimeFree
-                            ? "Showcase Special"
-                            : isSDM
-                            ? "14-Day Free Trial"
-                            : isTradeboard
-                            ? "Self-Hosted Core"
-                            : "Free Trial Included"}
-                        </span>
+                            <div className="text-right">
+                              <span className="text-[10px] text-slate-400 block">Platforms</span>
+                              <span className="text-xs font-mono font-bold text-emerald-300">Web • Win • Android</span>
+                            </div>
+                          </>
+                        )}
                       </div>
                     </div>
 
-                    <div className="pt-6 mt-6 border-t border-white/10 flex items-center gap-2">
-                      <Link
-                        href="/products"
-                        className="w-full py-2.5 px-3 rounded-xl font-bold text-xs bg-white/5 hover:bg-white/10 border border-white/10 text-slate-200 flex items-center justify-center gap-2 transition-all shine-sweep"
-                      >
-                        <FiDownload size={13} className={isSDM ? "text-amber-400" : ""} />
-                        {isSDM ? "Download Free Trial (.exe)" : isTradeboard ? "Docs & Platform" : product.id === "spectrum" ? "Microsoft Store" : product.id === "melodrift" ? "Launch Web Player" : "Get Software"}
-                      </Link>
-                      <Link
-                        href="/products"
-                        className={`py-2.5 px-3 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 hover:brightness-110 shadow-md shrink-0 shine-sweep card-lift ${
-                          product.isComingSoonBeta
-                            ? "bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 shadow-amber-500/20"
-                            : "bg-gradient-to-r from-cyan-500 to-teal-500 text-slate-950 shadow-cyan-500/20"
-                        }`}
-                      >
-                        <FiKey size={13} /> {product.isComingSoonBeta ? "Join Beta" : product.isLimitedTimeFree ? "Claim" : isSDM ? "Pro Key" : "Buy"}
-                      </Link>
+                    {/* 6. Card Action Buttons (Uniform 40px Height Across All Cards) */}
+                    <div className="pt-4 mt-5 border-t border-white/10 flex items-center gap-2 h-14">
+                      {isSDM ? (
+                        <>
+                          <Link
+                            href="/products"
+                            className="flex-1 h-10 px-3 rounded-xl font-bold text-xs bg-amber-500/15 hover:bg-amber-500/25 border border-amber-500/30 text-amber-300 flex items-center justify-center gap-1.5 transition-all text-center"
+                          >
+                            <FiDownload size={13} /> Free Trial
+                          </Link>
+                          <Link
+                            href="/products"
+                            className="h-10 px-3.5 rounded-xl font-bold text-xs bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 flex items-center justify-center gap-1 hover:brightness-110 shadow-md shadow-amber-500/20 transition-all shrink-0"
+                          >
+                            <FiKey size={13} /> Buy Pro
+                          </Link>
+                        </>
+                      ) : isTradeboard ? (
+                        <>
+                          <a
+                            href="https://docs.algo.wesoftcorp.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex-1 h-10 px-3 rounded-xl font-bold text-xs bg-indigo-500/15 hover:bg-indigo-500/25 border border-indigo-500/30 text-indigo-300 flex items-center justify-center gap-1.5 transition-all text-center"
+                          >
+                            <FiExternalLink size={13} /> Quickstart
+                          </a>
+                          <Link
+                            href="/products"
+                            className="h-10 px-3.5 rounded-xl font-bold text-xs bg-gradient-to-r from-indigo-500 to-purple-500 text-white flex items-center justify-center gap-1 hover:brightness-110 shadow-md shadow-indigo-500/20 transition-all shrink-0"
+                          >
+                            <FiKey size={13} /> Buy Pro
+                          </Link>
+                        </>
+                      ) : isSpectrum ? (
+                        <a
+                          href="https://apps.microsoft.com/detail/9P1QW99KRX7N?hl=en-us&gl=IN&ocid=pdpshare"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-full h-10 px-4 rounded-xl font-bold text-xs bg-gradient-to-r from-sky-500 to-blue-500 hover:brightness-110 text-slate-950 flex items-center justify-center gap-2 shadow-md shadow-sky-500/20 transition-all text-center"
+                        >
+                          <FaMicrosoft size={13} /> Microsoft Store
+                        </a>
+                      ) : (
+                        <a
+                          href="https://melodrift.rajeevupadhyay.com/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-full h-10 px-4 rounded-xl font-bold text-xs bg-gradient-to-r from-emerald-500 to-teal-400 hover:brightness-110 text-slate-950 flex items-center justify-center gap-2 shadow-md shadow-emerald-500/20 transition-all text-center"
+                        >
+                          <FiGlobe size={14} /> Official Website
+                        </a>
+                      )}
                     </div>
                   </SpotlightCard>
                 </motion.div>
