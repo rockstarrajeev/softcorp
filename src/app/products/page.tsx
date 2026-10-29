@@ -375,6 +375,15 @@ export default function ProductsPage() {
                             (Pro: {displayPrice})
                           </span>
                         </div>
+                      ) : isMelodrift ? (
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-md">
+                            100% Free
+                          </span>
+                          <span className="text-xs text-slate-400">
+                            Web • Windows • Android
+                          </span>
+                        </div>
                       ) : product.isLimitedTimeFree ? (
                         <div className="flex items-center gap-2">
                           <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-md">
@@ -531,29 +540,31 @@ export default function ProductsPage() {
                       </div>
                     </div>
 
-                    {/* Pricing / Evaluation Summary */}
-                    <div className="p-4 rounded-xl bg-gradient-to-r from-slate-950 to-slate-900 border border-white/10 flex items-center justify-between gap-4">
-                      <div>
-                        <div className="text-xs text-slate-400">License & Access Model:</div>
-                        <div className="text-base font-bold text-white mt-0.5">
-                          {selectedProduct.id === "sdm" ? (
-                            <span className="text-amber-300">14-Day Full Free Trial Included</span>
-                          ) : selectedProduct.isLimitedTimeFree ? (
-                            <span className="text-emerald-400">100% Free Showcase License</span>
-                          ) : (
-                            <span>One-Time Lifetime License: {currency === "USD" ? `$${selectedProduct.usdPrice} USD` : `₹${selectedProduct.inrPrice} INR`}</span>
-                          )}
-                        </div>
-                      </div>
-                      {selectedProduct.id === "sdm" && (
-                        <div className="text-right">
-                          <div className="text-[11px] text-slate-400">Lifetime Pro:</div>
-                          <div className="text-sm font-extrabold text-cyan-400">
-                            {currency === "USD" ? `$${selectedProduct.usdPrice}` : `₹${selectedProduct.inrPrice}`}
+                    {/* Pricing / Evaluation Summary (Excluded for Melodrift) */}
+                    {selectedProduct.id !== "melodrift" && (
+                      <div className="p-4 rounded-xl bg-gradient-to-r from-slate-950 to-slate-900 border border-white/10 flex items-center justify-between gap-4">
+                        <div>
+                          <div className="text-xs text-slate-400">License & Access Model:</div>
+                          <div className="text-base font-bold text-white mt-0.5">
+                            {selectedProduct.id === "sdm" ? (
+                              <span className="text-amber-300">14-Day Full Free Trial Included</span>
+                            ) : selectedProduct.isLimitedTimeFree ? (
+                              <span className="text-emerald-400">100% Free Showcase License</span>
+                            ) : (
+                              <span>One-Time Lifetime License: {currency === "USD" ? `$${selectedProduct.usdPrice} USD` : `₹${selectedProduct.inrPrice} INR`}</span>
+                            )}
                           </div>
                         </div>
-                      )}
-                    </div>
+                        {selectedProduct.id === "sdm" && (
+                          <div className="text-right">
+                            <div className="text-[11px] text-slate-400">Lifetime Pro:</div>
+                            <div className="text-sm font-extrabold text-cyan-400">
+                              {currency === "USD" ? `$${selectedProduct.usdPrice}` : `₹${selectedProduct.inrPrice}`}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    )}
                   </div>
 
                   {/* Pinned Action & Download Options Footer */}
@@ -578,27 +589,18 @@ export default function ProductsPage() {
                       </div>
                     )}
 
-                    {/* Melodrift: Web Player + Microsoft Store + Google Play + Claim Free */}
+                    {/* Melodrift: Official Website + Microsoft Store + Google Play */}
                     {selectedProduct.id === "melodrift" && (
-                      <div className="space-y-2">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                          <a
-                            href={selectedProduct.webUrl || "https://melodrift.rajeevupadhyay.com/"}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="py-2.5 px-4 rounded-xl font-bold text-xs bg-emerald-500 hover:bg-emerald-400 text-slate-950 flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 transition-all cursor-pointer"
-                          >
-                            <FiGlobe size={15} /> Launch Web Player
-                          </a>
-                          <button
-                            type="button"
-                            onClick={startCheckout}
-                            className="py-2.5 px-4 rounded-xl font-bold text-xs bg-cyan-500 hover:bg-cyan-400 text-slate-950 flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20 transition-all cursor-pointer"
-                          >
-                            <FiKey size={15} /> Claim Free Showcase License
-                          </button>
-                        </div>
-                        <div className="grid grid-cols-2 gap-2">
+                      <div className="space-y-2.5">
+                        <a
+                          href={selectedProduct.webUrl || "https://melodrift.rajeevupadhyay.com/"}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-full py-2.5 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-emerald-500 to-teal-400 hover:brightness-110 text-slate-950 flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 transition-all cursor-pointer text-center"
+                        >
+                          <FiGlobe size={16} /> Official Website
+                        </a>
+                        <div className="grid grid-cols-2 gap-2.5">
                           <a
                             href={selectedProduct.storeUrl}
                             target="_blank"

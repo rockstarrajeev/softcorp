@@ -179,12 +179,12 @@ export const SOFTWARE_PRODUCTS: SoftwareProduct[] = [
     webUrl: "https://melodrift.rajeevupadhyay.com/",
     storeUrl: "https://apps.microsoft.com/detail/9NTMFZ12Q80S?hl=en-us&gl=IN&ocid=pdpshare",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.melodrift",
-    badge: "🔥 Free Showcase Access",
+    badge: "🎵 100% Free Ad-Free Music",
     rating: 4.9,
     downloadsCount: "42,000+",
     features: [
-      "Limited-Time Showcase Access: 100% Free ad-free high-fidelity music streaming",
-      "Live high-fidelity web player at melodrift.rajeevupadhyay.com",
+      "100% Free ad-free high-fidelity music streaming across devices",
+      "Official live web player at melodrift.rajeevupadhyay.com",
       "High-fidelity 320kbps audio engine with offline caching and zero buffering",
       "10-band studio equalizer with bass boost, audio virtualizer & acoustic presets",
       "Synchronized real-time karaoke lyrics with line-by-line and offline lyric caching",
@@ -192,11 +192,11 @@ export const SOFTWARE_PRODUCTS: SoftwareProduct[] = [
       "100% ad-free & privacy-focused: Zero audio interruptions, Google AD_ID omitted"
     ],
     specs: [
-      { label: "Showcase Offer", value: "100% Free Limited Access" },
-      { label: "Web Player", value: "melodrift.rajeevupadhyay.com" },
+      { label: "Access Model", value: "100% Free & Ad-Free" },
+      { label: "Official Web", value: "melodrift.rajeevupadhyay.com" },
       { label: "Audio Engine", value: "320kbps Studio Acoustic Engine" },
       { label: "Platforms", value: "Web, Windows & Android" },
-      { label: "License Model", value: "Full Supporter Showcase License" }
+      { label: "Distribution", value: "Web, Windows Store & Google Play" }
     ],
     licensePrefix: "MELO-PRO"
   }
