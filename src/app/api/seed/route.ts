@@ -1,19 +1,27 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/db";
 import bcrypt from "bcryptjs";
+import crypto from "crypto";
+
+function safeCompare(a: string, b: string): boolean {
+    const bufA = Buffer.from(a);
+    const bufB = Buffer.from(b);
+    if (bufA.length !== bufB.length) return false;
+    return crypto.timingSafeEqual(bufA, bufB);
+}
 
 // GET /api/seed — Secure database seeding endpoint
-// In production, requires header `x-seed-token` matching process.env.ADMIN_SEED_SECRET
+// Requires header `x-seed-token` matching process.env.ADMIN_SEED_SECRET
 export async function GET(request: Request) {
     try {
         const seedSecret = process.env.ADMIN_SEED_SECRET;
         const authHeader = request.headers.get("x-seed-token");
 
-        // Strict production check
-        if (process.env.NODE_ENV === "production") {
-            if (!seedSecret || authHeader !== seedSecret) {
+        // Strict authorization check: require secret in production or if ADMIN_SEED_SECRET is configured
+        if (process.env.NODE_ENV === "production" || seedSecret) {
+            if (!seedSecret || !authHeader || !safeCompare(authHeader, seedSecret)) {
                 return NextResponse.json(
-                    { error: "Forbidden: Seeding endpoint is disabled in production without valid authorization token." },
+                    { error: "Forbidden: Seeding endpoint is disabled without valid authorization token." },
                     { status: 403 }
                 );
             }

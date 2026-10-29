@@ -5,6 +5,7 @@ interface RateLimitRecord {
 }
 
 const trackers = new Map<string, RateLimitRecord>();
+const MAX_TRACKERS = 10000;
 
 // Cleanup expired buckets every 5 minutes to prevent memory leaks
 if (typeof setInterval !== "undefined") {
@@ -34,6 +35,23 @@ export function checkRateLimit(
     windowMs: number = 60 * 1000
 ): { success: boolean; remaining: number; resetMs: number } {
     const now = Date.now();
+
+    // Capacity bound: prune expired or oldest records if table approaches maximum limit
+    if (trackers.size >= MAX_TRACKERS) {
+        for (const [key, record] of trackers.entries()) {
+            if (now > record.resetTime) {
+                trackers.delete(key);
+            }
+        }
+        if (trackers.size >= MAX_TRACKERS) {
+            let pruned = 0;
+            for (const key of trackers.keys()) {
+                trackers.delete(key);
+                if (++pruned >= 1000) break;
+            }
+        }
+    }
+
     const record = trackers.get(identifier);
 
     if (!record || now > record.resetTime) {

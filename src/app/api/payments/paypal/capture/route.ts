@@ -74,6 +74,23 @@ export async function POST(request: Request) {
         const captureData = await captureRes.json();
 
         if (captureData.status === "COMPLETED") {
+            // Verify captured amount and currency to prevent amount-spoofing attacks
+            const capturePayment = captureData.purchase_units?.[0]?.payments?.captures?.[0];
+            const capturedAmount = parseFloat(capturePayment?.amount?.value || "0");
+            const capturedCurrency = capturePayment?.amount?.currency_code;
+            const expectedAmount = parseFloat(order.totalAmount.toFixed(2));
+
+            if (Math.abs(capturedAmount - expectedAmount) > 0.01 || capturedCurrency !== order.currency) {
+                console.error("PayPal capture amount/currency mismatch:", {
+                    received: { amount: capturedAmount, currency: capturedCurrency },
+                    expected: { amount: expectedAmount, currency: order.currency },
+                });
+                return NextResponse.json(
+                    { error: "Payment verification failed: captured amount does not match order price." },
+                    { status: 400 }
+                );
+            }
+
             // Update payment record
             await prisma.payment.update({
                 where: { orderId },

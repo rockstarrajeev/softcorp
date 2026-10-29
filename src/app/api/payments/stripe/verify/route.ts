@@ -43,10 +43,17 @@ export async function POST(request: Request) {
         const stripe = new Stripe(secretKey);
         const checkoutSession = await stripe.checkout.sessions.retrieve(sessionId);
 
-        // Verify the checkout session corresponds to this order
-        if (checkoutSession.metadata?.orderId && checkoutSession.metadata.orderId !== orderId) {
-            console.error("Stripe session metadata orderId mismatch:", checkoutSession.metadata.orderId, orderId);
+        // Strictly verify the checkout session corresponds to this order
+        if (!checkoutSession.metadata?.orderId || checkoutSession.metadata.orderId !== orderId) {
+            console.error("Stripe session metadata orderId mismatch:", checkoutSession.metadata?.orderId, orderId);
             return NextResponse.json({ error: "Payment session does not match order" }, { status: 400 });
+        }
+
+        // Verify captured amount to prevent amount-spoofing attacks
+        const expectedAmountCents = Math.round(order.totalAmount * 100);
+        if (checkoutSession.amount_total && Math.abs(checkoutSession.amount_total - expectedAmountCents) > 1) {
+            console.error("Stripe amount mismatch:", checkoutSession.amount_total, expectedAmountCents);
+            return NextResponse.json({ error: "Payment verification failed: captured amount does not match order price" }, { status: 400 });
         }
 
         if (checkoutSession.payment_status === "paid") {
