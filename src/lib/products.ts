@@ -4,6 +4,8 @@ export interface SoftwareProduct {
   id: string;
   name: string;
   tagline: string;
+  description: string;
+  highlights: string[];
   version: string;
   category: string;
   platform: string;
@@ -34,6 +36,12 @@ export const SOFTWARE_PRODUCTS: SoftwareProduct[] = [
     id: "sdm",
     name: "Softcorp Download Manager (SDM)",
     tagline: "High-Performance 32-Socket HTTP Range Accelerator, Universal Video Grabber & Obsidian Cyber-Glass Engine",
+    description: "High-performance parallel download accelerator and universal video stream grabber for Windows. Uses 32 concurrent HTTP range sockets to maximize download speeds by up to 500%, captures 4K/8K media with built-in FFmpeg muxing, and operates silently in the system tray so downloads never stop.",
+    highlights: [
+      "32-Socket HTTP Range Acceleration",
+      "Universal In-Page Video Grabber",
+      "Silent Background Tray Persistence"
+    ],
     version: "v1.0.0 (Official Release)",
     category: "Network & Media Acceleration",
     platform: "Windows 10 / 11 (64-bit)",
@@ -69,6 +77,12 @@ export const SOFTWARE_PRODUCTS: SoftwareProduct[] = [
     id: "tradeboard",
     name: "Tradeboard Algo Platform",
     tagline: "Unified Multi-Broker Algorithmic Trading Platform, Flow Visual Strategy Builder & Options Analytics Engine",
+    description: "Unified multi-broker algorithmic trading workstation and strategy development platform. Connects directly to 34+ Indian brokers via low-latency REST APIs, featuring a drag-and-drop visual strategy flow builder, Python isolation runtime, real-time options Greeks analytics, and a ₹1 Crore virtual paper-trading sandbox.",
+    highlights: [
+      "34+ Direct Broker Integrations",
+      "Drag-and-Drop Visual Flow Builder",
+      "₹1 Crore Paper Trading Sandbox"
+    ],
     version: "v2.0.2.7",
     category: "Fintech & Algorithmic Trading",
     platform: "Self-Hosted Web / Python 3.12+ / Docker",
@@ -102,6 +116,12 @@ export const SOFTWARE_PRODUCTS: SoftwareProduct[] = [
     id: "spectrum",
     name: "Spectrum Studio",
     tagline: "Ultra-Fast Hardware-Accelerated RAW Photo Viewer, Inspector & 60/120 FPS Darkroom for Windows",
+    description: "Ultra-fast, hardware-accelerated RAW digital photo viewer and darkroom workstation for Windows. Delivers continuous 60/120 FPS momentum zoom across massive 5,000+ photo collections in under 800 KB RAM, with non-destructive GPU color grading and native camera RAW decoding.",
+    highlights: [
+      "Buttery 60/120 FPS Momentum Zoom",
+      "Native Camera RAW Decoding",
+      "Micro-Footprint (< 800 KB RAM)"
+    ],
     version: "v0.1.1",
     category: "Photography & Digital Imaging",
     platform: "Windows 10 / 11 (MSIX / x64)",
@@ -139,6 +159,12 @@ export const SOFTWARE_PRODUCTS: SoftwareProduct[] = [
     id: "melodrift",
     name: "Melodrift",
     tagline: "High-Fidelity Ad-Free Music Streaming Client, 10-Band Studio Equalizer & Offline Vault",
+    description: "Ad-free, high-fidelity music streaming client and acoustic darkroom player. Features an audiophile 10-band studio equalizer with bass boost, synchronized real-time karaoke lyrics, cross-platform cloud library synchronization across Web, Windows, and Android, and an encrypted offline music vault.",
+    highlights: [
+      "Audiophile 10-Band Studio Equalizer",
+      "Real-Time Synchronized Lyrics",
+      "Cross-Platform Sync (Web/Win/Android)"
+    ],
     version: "v1.0.0",
     category: "Audio Streaming & Media Player",
     platform: "Web / Windows 10/11 (MSIX) / Android",
