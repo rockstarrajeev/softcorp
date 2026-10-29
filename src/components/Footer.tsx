@@ -37,7 +37,7 @@ export default function Footer() {
     if (pathname?.startsWith("/studio")) return null;
 
     return (
-        <footer className="bg-slate-950 border-t border-white/10 relative overflow-hidden">
+        <footer className="bg-slate-950 border-t border-white/10 relative overflow-hidden z-0">
             <div className="container mx-auto px-6 lg:px-12 py-16 relative z-10">
                 <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-12">
                     {/* Brand Column */}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -46,6 +47,26 @@ export default function ProductsPage() {
   // Completed Order State
   const [completedLicenseKey, setCompletedLicenseKey] = useState<string | null>(null);
   const [copiedKey, setCopiedKey] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Prevent background scrolling when modal is open
+  useEffect(() => {
+    if (detailsModalOpen) {
+      const originalBodyOverflow = document.body.style.overflow;
+      const originalHtmlOverflow = document.documentElement.style.overflow;
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+
+      return () => {
+        document.body.style.overflow = originalBodyOverflow;
+        document.documentElement.style.overflow = originalHtmlOverflow;
+      };
+    }
+  }, [detailsModalOpen]);
 
   // Close modal on ESC key
   useEffect(() => {
@@ -441,15 +462,17 @@ export default function ProductsPage() {
         </div>
       </div>
 
-      {/* ─── Product Details & Actions Modal (Interactive Popup) ─── */}
-      <AnimatePresence>
-        {detailsModalOpen && selectedProduct && (
-          <div
-            className="fixed inset-0 z-[100] flex items-start justify-center pt-24 sm:pt-28 pb-6 px-4 bg-slate-950/85 backdrop-blur-md overflow-hidden"
-            onClick={(e) => {
-              if (e.target === e.currentTarget) setDetailsModalOpen(false);
-            }}
-          >
+      {/* ─── Product Details & Actions Modal (Interactive Popup Portaled to Body) ─── */}
+      {mounted && typeof document !== "undefined" && createPortal(
+        <AnimatePresence>
+          {detailsModalOpen && selectedProduct && (
+            <div
+              className="fixed inset-0 z-[9999] flex items-start justify-center pt-24 sm:pt-28 pb-6 px-4 bg-slate-950/85 backdrop-blur-md overflow-hidden"
+              onWheel={(e) => e.stopPropagation()}
+              onClick={(e) => {
+                if (e.target === e.currentTarget) setDetailsModalOpen(false);
+              }}
+            >
             <motion.div
               initial={{ opacity: 0, scale: 0.96, y: 15 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -1001,7 +1024,9 @@ export default function ProductsPage() {
             </motion.div>
           </div>
         )}
-      </AnimatePresence>
-    </div>
-  );
+      </AnimatePresence>,
+      document.body
+    )}
+  </div>
+);
 }
