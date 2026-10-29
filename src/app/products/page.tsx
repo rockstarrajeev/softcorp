@@ -436,139 +436,142 @@ export default function ProductsPage() {
       <AnimatePresence>
         {detailsModalOpen && selectedProduct && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md overflow-y-auto"
+            className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-5 md:p-6 bg-slate-950/85 backdrop-blur-md overflow-hidden"
             onClick={(e) => {
               if (e.target === e.currentTarget) setDetailsModalOpen(false);
             }}
           >
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              initial={{ opacity: 0, scale: 0.96, y: 15 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative w-full max-w-2xl max-h-[90vh] rounded-2xl border border-white/15 bg-slate-900 p-6 sm:p-8 shadow-2xl text-left overflow-y-auto flex flex-col justify-between my-auto"
+              exit={{ opacity: 0, scale: 0.96, y: 15 }}
+              transition={{ duration: 0.2 }}
+              className="relative w-full max-w-2xl max-h-[85vh] rounded-2xl border border-white/15 bg-slate-900 shadow-2xl text-left flex flex-col overflow-hidden"
             >
-              {/* Close Button */}
-              <button
-                type="button"
-                onClick={() => setDetailsModalOpen(false)}
-                className="absolute top-5 right-5 text-slate-400 hover:text-white p-1.5 rounded-lg bg-white/5 hover:bg-white/10 transition-colors z-10 cursor-pointer"
-                title="Close (Esc)"
-              >
-                <FiX size={20} />
-              </button>
-
               {modalMode === "details" ? (
                 /* ─── View 1: Full Product Details & Download / Store Links ─── */
-                <div className="space-y-6">
-                  {/* Modal Header */}
-                  <div className="flex items-start gap-4 pr-8">
-                    <div className="w-14 h-14 rounded-xl flex items-center justify-center shrink-0 bg-white/5 border border-white/10 shadow-lg">
-                      {getProductIcon(selectedProduct.id, "text-3xl")}
-                    </div>
-                    <div>
-                      <div className="flex flex-wrap items-center gap-2 mb-1">
-                        <span className="text-[11px] font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-300">
-                          {selectedProduct.category}
-                        </span>
-                        <span className="text-[11px] font-mono px-2 py-0.5 rounded-full border border-white/10 text-slate-400 bg-white/5">
-                          {selectedProduct.platform}
-                        </span>
+                <>
+                  {/* Pinned Modal Header (Never Blocked) */}
+                  <div className="shrink-0 flex items-center justify-between px-5 sm:px-6 py-4 border-b border-white/10 bg-slate-900/95 backdrop-blur-md z-10">
+                    <div className="flex items-center gap-3 pr-4 min-w-0">
+                      <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 bg-white/5 border border-white/10 shadow-sm">
+                        {getProductIcon(selectedProduct.id, "text-xl")}
                       </div>
-                      <h2 className="text-2xl font-bold text-white tracking-tight">
-                        {selectedProduct.name}
-                      </h2>
-                      <div className="text-xs text-slate-400 mt-0.5 flex items-center gap-2">
-                        <span className="text-amber-400 font-bold flex items-center gap-1">
-                          <FiStar className="fill-amber-400" /> {selectedProduct.rating}
-                        </span>
-                        <span>•</span>
-                        <span>{selectedProduct.downloadsCount}</span>
-                        <span>•</span>
-                        <span className="font-mono text-cyan-400">{selectedProduct.version}</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Description */}
-                  <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5">
-                    <h4 className="text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
-                      <FiCpu className="text-cyan-400" /> Product Overview
-                    </h4>
-                    <p className="text-slate-300 text-sm leading-relaxed">
-                      {selectedProduct.description}
-                    </p>
-                  </div>
-
-                  {/* Core Capabilities Grid */}
-                  <div>
-                    <h4 className="text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
-                      <FiZap className="text-cyan-400" /> Core Capabilities & Architecture
-                    </h4>
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-300">
-                      {selectedProduct.features.map((feature, fIdx) => (
-                        <li key={fIdx} className="flex items-start gap-2 bg-slate-950/60 p-2.5 rounded-lg border border-white/5">
-                          <FiCheck className="text-cyan-400 shrink-0 mt-0.5 text-sm" />
-                          <span className="leading-snug">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Technical Specifications */}
-                  <div>
-                    <h4 className="text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
-                      <FiLayers className="text-cyan-400" /> Technical Specifications
-                    </h4>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
-                      {selectedProduct.specs.map((spec, sIdx) => (
-                        <div key={sIdx} className="bg-slate-950/40 p-2.5 rounded-lg border border-white/5">
-                          <div className="text-[11px] text-slate-500">{spec.label}</div>
-                          <div className="text-slate-200 font-medium truncate mt-0.5">{spec.value}</div>
+                      <div className="min-w-0">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <h2 className="text-lg sm:text-xl font-bold text-white tracking-tight truncate">
+                            {selectedProduct.name}
+                          </h2>
+                          <span className="text-[10px] font-mono px-2 py-0.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-300 shrink-0">
+                            {selectedProduct.version}
+                          </span>
                         </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Pricing / Evaluation Summary */}
-                  <div className="p-4 rounded-xl bg-gradient-to-r from-slate-950 to-slate-900 border border-white/10 flex items-center justify-between gap-4">
-                    <div>
-                      <div className="text-xs text-slate-400">License & Access Model:</div>
-                      <div className="text-base font-bold text-white mt-0.5">
-                        {selectedProduct.id === "sdm" ? (
-                          <span className="text-amber-300">14-Day Full Free Trial Included</span>
-                        ) : selectedProduct.isLimitedTimeFree ? (
-                          <span className="text-emerald-400">100% Free Showcase License</span>
-                        ) : (
-                          <span>One-Time Lifetime License: {currency === "USD" ? `$${selectedProduct.usdPrice} USD` : `₹${selectedProduct.inrPrice} INR`}</span>
-                        )}
-                      </div>
-                    </div>
-                    {selectedProduct.id === "sdm" && (
-                      <div className="text-right">
-                        <div className="text-[11px] text-slate-400">Lifetime Pro:</div>
-                        <div className="text-sm font-extrabold text-cyan-400">
-                          {currency === "USD" ? `$${selectedProduct.usdPrice}` : `₹${selectedProduct.inrPrice}`}
+                        <div className="text-xs text-slate-400 mt-0.5 flex items-center gap-2 truncate">
+                          <span className="text-amber-400 font-bold flex items-center gap-1 shrink-0">
+                            <FiStar className="fill-amber-400" /> {selectedProduct.rating}
+                          </span>
+                          <span>•</span>
+                          <span className="truncate">{selectedProduct.category}</span>
+                          <span>•</span>
+                          <span className="truncate">{selectedProduct.platform}</span>
                         </div>
                       </div>
-                    )}
+                    </div>
+
+                    {/* Pinned Close Button */}
+                    <button
+                      type="button"
+                      onClick={() => setDetailsModalOpen(false)}
+                      className="text-slate-400 hover:text-white p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors cursor-pointer shrink-0"
+                      title="Close (Esc)"
+                    >
+                      <FiX size={18} />
+                    </button>
                   </div>
 
-                  {/* Action & Download Options Bar */}
-                  <div className="pt-2 border-t border-white/10 space-y-2.5">
+                  {/* Scrollable Modal Body */}
+                  <div className="overflow-y-auto px-5 sm:px-6 py-5 space-y-5 flex-1">
+                    {/* Description */}
+                    <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                      <h4 className="text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
+                        <FiCpu className="text-cyan-400" /> Product Overview
+                      </h4>
+                      <p className="text-slate-300 text-sm leading-relaxed">
+                        {selectedProduct.description}
+                      </p>
+                    </div>
+
+                    {/* Core Capabilities Grid */}
+                    <div>
+                      <h4 className="text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
+                        <FiZap className="text-cyan-400" /> Core Capabilities & Architecture
+                      </h4>
+                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-300">
+                        {selectedProduct.features.map((feature, fIdx) => (
+                          <li key={fIdx} className="flex items-start gap-2 bg-slate-950/60 p-2.5 rounded-lg border border-white/5">
+                            <FiCheck className="text-cyan-400 shrink-0 mt-0.5 text-sm" />
+                            <span className="leading-snug">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Technical Specifications */}
+                    <div>
+                      <h4 className="text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
+                        <FiLayers className="text-cyan-400" /> Technical Specifications
+                      </h4>
+                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
+                        {selectedProduct.specs.map((spec, sIdx) => (
+                          <div key={sIdx} className="bg-slate-950/40 p-2.5 rounded-lg border border-white/5">
+                            <div className="text-[11px] text-slate-500">{spec.label}</div>
+                            <div className="text-slate-200 font-medium truncate mt-0.5">{spec.value}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Pricing / Evaluation Summary */}
+                    <div className="p-4 rounded-xl bg-gradient-to-r from-slate-950 to-slate-900 border border-white/10 flex items-center justify-between gap-4">
+                      <div>
+                        <div className="text-xs text-slate-400">License & Access Model:</div>
+                        <div className="text-base font-bold text-white mt-0.5">
+                          {selectedProduct.id === "sdm" ? (
+                            <span className="text-amber-300">14-Day Full Free Trial Included</span>
+                          ) : selectedProduct.isLimitedTimeFree ? (
+                            <span className="text-emerald-400">100% Free Showcase License</span>
+                          ) : (
+                            <span>One-Time Lifetime License: {currency === "USD" ? `$${selectedProduct.usdPrice} USD` : `₹${selectedProduct.inrPrice} INR`}</span>
+                          )}
+                        </div>
+                      </div>
+                      {selectedProduct.id === "sdm" && (
+                        <div className="text-right">
+                          <div className="text-[11px] text-slate-400">Lifetime Pro:</div>
+                          <div className="text-sm font-extrabold text-cyan-400">
+                            {currency === "USD" ? `$${selectedProduct.usdPrice}` : `₹${selectedProduct.inrPrice}`}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Pinned Action & Download Options Footer */}
+                  <div className="shrink-0 px-5 sm:px-6 py-3.5 border-t border-white/10 bg-slate-950/90 backdrop-blur-md z-10">
                     {/* SDM: 14-Day Free Trial EXE + Buy Pro */}
                     {selectedProduct.id === "sdm" && (
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <a
                           href={selectedProduct.downloadUrl}
                           download={selectedProduct.installerFileName}
-                          className="py-3 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 text-slate-950 flex items-center justify-center gap-2 hover:brightness-110 shadow-lg shadow-amber-500/25 transition-all cursor-pointer text-center"
+                          className="py-2.5 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 text-slate-950 flex items-center justify-center gap-2 hover:brightness-110 shadow-lg shadow-amber-500/25 transition-all cursor-pointer text-center"
                         >
                           <FiDownload size={16} /> Download 14-Day Trial (.exe)
                         </a>
                         <button
                           type="button"
                           onClick={startCheckout}
-                          className="py-3 px-4 rounded-xl font-bold text-sm bg-cyan-500 hover:bg-cyan-400 text-slate-950 flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20 transition-all cursor-pointer"
+                          className="py-2.5 px-4 rounded-xl font-bold text-sm bg-cyan-500 hover:bg-cyan-400 text-slate-950 flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20 transition-all cursor-pointer"
                         >
                           <FiKey size={16} /> Buy Lifetime Pro ({currency === "USD" ? `$${selectedProduct.usdPrice}` : `₹${selectedProduct.inrPrice}`})
                         </button>
@@ -577,41 +580,41 @@ export default function ProductsPage() {
 
                     {/* Melodrift: Web Player + Microsoft Store + Google Play + Claim Free */}
                     {selectedProduct.id === "melodrift" && (
-                      <div className="space-y-2.5">
+                      <div className="space-y-2">
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                           <a
                             href={selectedProduct.webUrl || "https://melodrift.rajeevupadhyay.com/"}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="py-3 px-4 rounded-xl font-bold text-xs bg-emerald-500 hover:bg-emerald-400 text-slate-950 flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 transition-all cursor-pointer"
+                            className="py-2.5 px-4 rounded-xl font-bold text-xs bg-emerald-500 hover:bg-emerald-400 text-slate-950 flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 transition-all cursor-pointer"
                           >
                             <FiGlobe size={15} /> Launch Web Player
                           </a>
                           <button
                             type="button"
                             onClick={startCheckout}
-                            className="py-3 px-4 rounded-xl font-bold text-xs bg-cyan-500 hover:bg-cyan-400 text-slate-950 flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20 transition-all cursor-pointer"
+                            className="py-2.5 px-4 rounded-xl font-bold text-xs bg-cyan-500 hover:bg-cyan-400 text-slate-950 flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20 transition-all cursor-pointer"
                           >
                             <FiKey size={15} /> Claim Free Showcase License
                           </button>
                         </div>
-                        <div className="grid grid-cols-2 gap-2 pt-1">
+                        <div className="grid grid-cols-2 gap-2">
                           <a
                             href={selectedProduct.storeUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="py-2.5 px-3 rounded-lg text-xs font-semibold text-slate-200 bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center gap-2 transition-colors"
+                            className="py-2 px-3 rounded-lg text-xs font-semibold text-slate-200 bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center gap-2 transition-colors"
                           >
-                            <FaMicrosoft size={14} className="text-cyan-400" />
+                            <FaMicrosoft size={13} className="text-cyan-400" />
                             <span>Microsoft Store</span>
                           </a>
                           <a
                             href={selectedProduct.playStoreUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="py-2.5 px-3 rounded-lg text-xs font-semibold text-slate-200 bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center gap-2 transition-colors"
+                            className="py-2 px-3 rounded-lg text-xs font-semibold text-slate-200 bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center gap-2 transition-colors"
                           >
-                            <FaGooglePlay size={13} className="text-emerald-400" />
+                            <FaGooglePlay size={12} className="text-emerald-400" />
                             <span>Google Play</span>
                           </a>
                         </div>
@@ -625,14 +628,14 @@ export default function ProductsPage() {
                           href={selectedProduct.storeUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="py-3 px-4 rounded-xl font-bold text-xs bg-sky-500 hover:bg-sky-400 text-slate-950 flex items-center justify-center gap-2 shadow-lg shadow-sky-500/20 transition-all cursor-pointer"
+                          className="py-2.5 px-4 rounded-xl font-bold text-xs bg-sky-500 hover:bg-sky-400 text-slate-950 flex items-center justify-center gap-2 shadow-lg shadow-sky-500/20 transition-all cursor-pointer"
                         >
                           <FaMicrosoft size={15} /> Get on Microsoft Store (Verified)
                         </a>
                         <button
                           type="button"
                           onClick={startCheckout}
-                          className="py-3 px-4 rounded-xl font-bold text-xs bg-emerald-500 hover:bg-emerald-400 text-slate-950 flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 transition-all cursor-pointer"
+                          className="py-2.5 px-4 rounded-xl font-bold text-xs bg-emerald-500 hover:bg-emerald-400 text-slate-950 flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 transition-all cursor-pointer"
                         >
                           <FiKey size={15} /> Claim 100% Free Showcase License
                         </button>
@@ -646,63 +649,76 @@ export default function ProductsPage() {
                           href={selectedProduct.docsUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="py-3 px-4 rounded-xl font-bold text-xs bg-white/10 hover:bg-white/15 text-white border border-white/10 flex items-center justify-center gap-2 transition-all cursor-pointer"
+                          className="py-2.5 px-4 rounded-xl font-bold text-xs bg-white/10 hover:bg-white/15 text-white border border-white/10 flex items-center justify-center gap-2 transition-all cursor-pointer"
                         >
-                          <FiExternalLink size={15} /> Open Documentation & Quickstart
+                          <FiExternalLink size={15} /> Open Platform & Quickstart
                         </a>
                         <button
                           type="button"
                           onClick={startCheckout}
-                          className="py-3 px-4 rounded-xl font-bold text-xs bg-indigo-500 hover:bg-indigo-400 text-white flex items-center justify-center gap-2 shadow-lg shadow-indigo-500/20 transition-all cursor-pointer"
+                          className="py-2.5 px-4 rounded-xl font-bold text-xs bg-indigo-500 hover:bg-indigo-400 text-white flex items-center justify-center gap-2 shadow-lg shadow-indigo-500/20 transition-all cursor-pointer"
                         >
                           <FiKey size={15} /> Buy Self-Hosted Pro ({currency === "USD" ? `$${selectedProduct.usdPrice}` : `₹${selectedProduct.inrPrice}`})
                         </button>
                       </div>
                     )}
                   </div>
-                </div>
+                </>
               ) : completedLicenseKey ? (
                 /* ─── View 2: License Key Completed / Issued ─── */
-                <div className="space-y-6 text-center py-4">
-                  <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto border border-emerald-500/40">
-                    <FiCheckCircle size={32} />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-white">License Key Activated!</h3>
-                    <p className="text-xs text-slate-400 mt-1">
-                      Thank you for choosing {selectedProduct.name}. Your hardware-bound license key is ready.
-                    </p>
-                  </div>
-
-                  {/* License Key Box */}
-                  <div className="p-4 rounded-xl bg-slate-950 border border-cyan-500/40 text-left space-y-2">
-                    <div className="text-[11px] font-mono text-cyan-400 uppercase tracking-wider flex justify-between">
-                      <span>Pro Lifetime Serial Key</span>
-                      <span className="text-emerald-400">Verified</span>
-                    </div>
-                    <div className="flex items-center justify-between gap-3 bg-white/5 px-3 py-2 rounded border border-white/10 font-mono text-base font-bold text-white tracking-widest">
-                      <span>{completedLicenseKey}</span>
-                      <button
-                        type="button"
-                        onClick={copyLicense}
-                        className="text-cyan-400 hover:text-cyan-300 p-1.5 rounded hover:bg-white/10 transition-colors cursor-pointer"
-                        title="Copy Key"
-                      >
-                        {copiedKey ? <FiCheck className="text-emerald-400" /> : <FiCopy />}
-                      </button>
-                    </div>
-                    <div className="text-[11px] text-slate-500">
-                      Delivered to: <span className="text-slate-300 font-mono">{customerEmail}</span>
-                    </div>
+                <>
+                  <div className="shrink-0 flex items-center justify-between px-5 sm:px-6 py-4 border-b border-white/10 bg-slate-900/95">
+                    <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                      <FiCheckCircle className="text-emerald-400" /> License Key Activated!
+                    </h3>
+                    <button
+                      type="button"
+                      onClick={() => setDetailsModalOpen(false)}
+                      className="text-slate-400 hover:text-white p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors cursor-pointer"
+                    >
+                      <FiX size={18} />
+                    </button>
                   </div>
 
-                  {/* Actions */}
-                  <div className="space-y-2.5 pt-2">
+                  <div className="overflow-y-auto px-5 sm:px-6 py-6 space-y-5 text-center flex-1">
+                    <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto border border-emerald-500/40">
+                      <FiCheckCircle size={32} />
+                    </div>
+                    <div>
+                      <p className="text-xs text-slate-400 mt-1">
+                        Thank you for choosing {selectedProduct.name}. Your hardware-bound license key is ready.
+                      </p>
+                    </div>
+
+                    {/* License Key Box */}
+                    <div className="p-4 rounded-xl bg-slate-950 border border-cyan-500/40 text-left space-y-2 max-w-lg mx-auto">
+                      <div className="text-[11px] font-mono text-cyan-400 uppercase tracking-wider flex justify-between">
+                        <span>Pro Lifetime Serial Key</span>
+                        <span className="text-emerald-400">Verified</span>
+                      </div>
+                      <div className="flex items-center justify-between gap-3 bg-white/5 px-3 py-2 rounded border border-white/10 font-mono text-base font-bold text-white tracking-widest">
+                        <span>{completedLicenseKey}</span>
+                        <button
+                          type="button"
+                          onClick={copyLicense}
+                          className="text-cyan-400 hover:text-cyan-300 p-1.5 rounded hover:bg-white/10 transition-colors cursor-pointer"
+                          title="Copy Key"
+                        >
+                          {copiedKey ? <FiCheck className="text-emerald-400" /> : <FiCopy />}
+                        </button>
+                      </div>
+                      <div className="text-[11px] text-slate-500">
+                        Delivered to: <span className="text-slate-300 font-mono">{customerEmail}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="shrink-0 px-5 sm:px-6 py-3.5 border-t border-white/10 bg-slate-950/90 flex items-center gap-3">
                     {selectedProduct.id === "sdm" ? (
                       <a
                         href={selectedProduct.downloadUrl}
                         download={selectedProduct.installerFileName}
-                        className="w-full py-3 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 flex items-center justify-center gap-2 hover:brightness-110 shadow-lg shadow-amber-500/25"
+                        className="flex-1 py-2.5 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 flex items-center justify-center gap-2 hover:brightness-110 shadow-lg shadow-amber-500/25 text-center"
                       >
                         <FiDownload size={16} /> Download SDM Setup Installer (.exe)
                       </a>
@@ -711,7 +727,7 @@ export default function ProductsPage() {
                         href={selectedProduct.webUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full py-3 px-4 rounded-xl font-bold text-sm bg-emerald-500 text-slate-950 flex items-center justify-center gap-2 hover:brightness-110"
+                        className="flex-1 py-2.5 px-4 rounded-xl font-bold text-sm bg-emerald-500 text-slate-950 flex items-center justify-center gap-2 hover:brightness-110 text-center"
                       >
                         <FiGlobe size={16} /> Open Melodrift Web Player
                       </a>
@@ -720,7 +736,7 @@ export default function ProductsPage() {
                         href={selectedProduct.storeUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full py-3 px-4 rounded-xl font-bold text-sm bg-sky-500 text-slate-950 flex items-center justify-center gap-2 hover:brightness-110"
+                        className="flex-1 py-2.5 px-4 rounded-xl font-bold text-sm bg-sky-500 text-slate-950 flex items-center justify-center gap-2 hover:brightness-110 text-center"
                       >
                         <FaMicrosoft size={16} /> Open in Microsoft Store
                       </a>
@@ -729,7 +745,7 @@ export default function ProductsPage() {
                         href={selectedProduct.docsUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full py-3 px-4 rounded-xl font-bold text-sm bg-indigo-500 text-white flex items-center justify-center gap-2 hover:brightness-110"
+                        className="flex-1 py-2.5 px-4 rounded-xl font-bold text-sm bg-indigo-500 text-white flex items-center justify-center gap-2 hover:brightness-110 text-center"
                       >
                         <FiExternalLink size={16} /> Open Tradeboard Platform
                       </a>
@@ -737,16 +753,16 @@ export default function ProductsPage() {
                     <button
                       type="button"
                       onClick={() => setDetailsModalOpen(false)}
-                      className="w-full py-2.5 text-xs text-slate-400 hover:text-white cursor-pointer"
+                      className="py-2.5 px-4 rounded-xl text-xs font-semibold text-slate-400 hover:text-white bg-white/5 hover:bg-white/10 transition-colors cursor-pointer"
                     >
                       Done & Close
                     </button>
                   </div>
-                </div>
+                </>
               ) : (
                 /* ─── View 3: Checkout / Free Claim Form ─── */
-                <div className="space-y-6">
-                  <div className="flex items-center justify-between">
+                <>
+                  <div className="shrink-0 flex items-center justify-between px-5 sm:px-6 py-4 border-b border-white/10 bg-slate-900/95">
                     <button
                       type="button"
                       onClick={() => setModalMode("details")}
@@ -754,220 +770,231 @@ export default function ProductsPage() {
                     >
                       <FiArrowLeft /> Back to Details
                     </button>
-                    <span className="text-xs text-slate-500 font-mono">Step 2 of 2</span>
+                    <span className="text-xs text-slate-400 font-mono">
+                      {selectedProduct.isLimitedTimeFree ? "Free License Claim" : "Secure Checkout"}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => setDetailsModalOpen(false)}
+                      className="text-slate-400 hover:text-white p-1.5 rounded-lg bg-white/5 hover:bg-white/10 transition-colors cursor-pointer"
+                    >
+                      <FiX size={18} />
+                    </button>
                   </div>
 
-                  <div>
-                    <h3 className="text-xl font-bold text-white tracking-tight">
-                      {selectedProduct.isLimitedTimeFree
-                        ? "Claim Free Showcase License: "
-                        : "Order License: "}
-                      {selectedProduct.name}
-                    </h3>
-                    <div className="flex items-center justify-between text-xs text-slate-400 mt-1">
-                      <span>
-                        {selectedProduct.isLimitedTimeFree
-                          ? "100% Free Lifetime Showcase Promo"
-                          : "One-Time Lifetime Hardware-Bound Pro Serial"}
-                      </span>
-                      <span className="font-bold text-base text-emerald-400">
-                        {selectedProduct.isLimitedTimeFree
-                          ? "100% FREE"
-                          : currency === "USD"
-                          ? `$${selectedProduct.usdPrice} USD`
-                          : `₹${selectedProduct.inrPrice} INR`}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Customer Inputs */}
-                  <div className="space-y-3">
+                  <div className="overflow-y-auto px-5 sm:px-6 py-5 space-y-5 flex-1">
                     <div>
-                      <label className="text-xs font-medium text-slate-300 block mb-1">
-                        Your Full Name
-                      </label>
-                      <input
-                        type="text"
-                        value={customerName}
-                        onChange={(e) => setCustomerName(e.target.value)}
-                        placeholder="Rajeev Upadhyay"
-                        className="w-full px-3.5 py-2.5 rounded-lg bg-slate-950 border border-white/10 text-white text-sm placeholder-slate-600 focus:outline-none focus:border-cyan-500 transition-colors"
-                      />
-                    </div>
-                    <div>
-                      <label className="text-xs font-medium text-slate-300 block mb-1">
-                        Delivery Email Address <span className="text-cyan-400">*</span>
-                      </label>
-                      <input
-                        type="email"
-                        required
-                        value={customerEmail}
-                        onChange={(e) => setCustomerEmail(e.target.value)}
-                        placeholder="customer@domain.com"
-                        className="w-full px-3.5 py-2.5 rounded-lg bg-slate-950 border border-white/10 text-white text-sm placeholder-slate-600 focus:outline-none focus:border-cyan-500 transition-colors"
-                      />
-                      <span className="text-[11px] text-slate-500 mt-0.5 block">
-                        Your permanent license key and invoice will be sent here.
-                      </span>
-                    </div>
-                  </div>
-
-                  {selectedProduct.isLimitedTimeFree ? (
-                    <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 space-y-3">
-                      <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm">
-                        <FiZap /> 100% Free Showcase License
+                      <h3 className="text-xl font-bold text-white tracking-tight">
+                        {selectedProduct.isLimitedTimeFree
+                          ? "Claim Free Showcase License: "
+                          : "Order License: "}
+                        {selectedProduct.name}
+                      </h3>
+                      <div className="flex items-center justify-between text-xs text-slate-400 mt-1">
+                        <span>
+                          {selectedProduct.isLimitedTimeFree
+                            ? "100% Free Lifetime Showcase Promo"
+                            : "One-Time Lifetime Hardware-Bound Pro Serial"}
+                        </span>
+                        <span className="font-bold text-base text-emerald-400">
+                          {selectedProduct.isLimitedTimeFree
+                            ? "100% FREE"
+                            : currency === "USD"
+                            ? `$${selectedProduct.usdPrice} USD`
+                            : `₹${selectedProduct.inrPrice} INR`}
+                        </span>
                       </div>
-                      <p className="text-xs text-slate-300 leading-relaxed">
-                        During our live software showcase, {selectedProduct.name} is available 100% free with full commercial features and zero subscription fees.
-                      </p>
-                      {errorMessage && (
-                        <div className="text-xs text-rose-400 bg-rose-500/10 border border-rose-500/20 p-2.5 rounded-lg">
-                          {errorMessage}
-                        </div>
-                      )}
-                      <button
-                        type="button"
-                        onClick={handleDirectLicenseClaim}
-                        disabled={isProcessing}
-                        className="w-full py-3.5 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-400 text-slate-950 flex items-center justify-center gap-2 hover:brightness-110 shadow-lg shadow-emerald-500/25 transition-all cursor-pointer disabled:opacity-50"
-                      >
-                        {isProcessing ? (
-                          <span className="flex items-center gap-2">
-                            <FiCpu className="animate-spin" /> Issuing Lifetime License...
-                          </span>
-                        ) : (
-                          <span className="flex items-center gap-2">
-                            <FiKey /> Claim 100% Free Lifetime Key
-                          </span>
-                        )}
-                      </button>
                     </div>
-                  ) : (
-                    <>
-                      {/* Payment Method Selector */}
-                      <div className="space-y-3">
-                        <label className="text-xs font-medium text-slate-300 block">
-                          Select Payment Method
+
+                    {/* Customer Inputs */}
+                    <div className="space-y-3">
+                      <div>
+                        <label className="text-xs font-medium text-slate-300 block mb-1">
+                          Your Full Name
                         </label>
-                        <div className="grid grid-cols-2 gap-2">
-                          <button
-                            type="button"
-                            onClick={() => setPaymentTab("paypal")}
-                            className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-1.5 transition-all cursor-pointer ${
-                              paymentTab === "paypal"
-                                ? "border-cyan-500 bg-cyan-500/10 text-cyan-300"
-                                : "border-white/10 bg-slate-950/60 text-slate-400 hover:text-white"
-                            }`}
-                          >
-                            <FaPaypal className="text-[#00457C]" size={22} />
-                            <span className="text-xs font-bold">PayPal / Cards</span>
-                            <span className="text-[10px] text-slate-500">Global (USD)</span>
-                          </button>
-
-                          <button
-                            type="button"
-                            onClick={() => setPaymentTab("upi")}
-                            className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-1.5 transition-all cursor-pointer ${
-                              paymentTab === "upi"
-                                ? "border-emerald-500 bg-emerald-500/10 text-emerald-300"
-                                : "border-white/10 bg-slate-950/60 text-slate-400 hover:text-white"
-                            }`}
-                          >
-                            <span className="font-bold text-emerald-400 text-sm">UPI Instant</span>
-                            <span className="text-xs font-bold">GPay / PhonePe / Paytm</span>
-                            <span className="text-[10px] text-slate-500">India (INR ₹)</span>
-                          </button>
-                        </div>
+                        <input
+                          type="text"
+                          value={customerName}
+                          onChange={(e) => setCustomerName(e.target.value)}
+                          placeholder="Rajeev Upadhyay"
+                          className="w-full px-3.5 py-2.5 rounded-lg bg-slate-950 border border-white/10 text-white text-sm placeholder-slate-600 focus:outline-none focus:border-cyan-500 transition-colors"
+                        />
                       </div>
+                      <div>
+                        <label className="text-xs font-medium text-slate-300 block mb-1">
+                          Delivery Email Address <span className="text-cyan-400">*</span>
+                        </label>
+                        <input
+                          type="email"
+                          required
+                          value={customerEmail}
+                          onChange={(e) => setCustomerEmail(e.target.value)}
+                          placeholder="customer@domain.com"
+                          className="w-full px-3.5 py-2.5 rounded-lg bg-slate-950 border border-white/10 text-white text-sm placeholder-slate-600 focus:outline-none focus:border-cyan-500 transition-colors"
+                        />
+                        <span className="text-[11px] text-slate-500 mt-0.5 block">
+                          Your permanent license key and invoice will be sent here.
+                        </span>
+                      </div>
+                    </div>
 
-                      {/* Payment Gateway Tabs */}
-                      {paymentTab === "paypal" ? (
-                        <div className="space-y-4 p-4 rounded-xl bg-slate-950/50 border border-white/5 text-xs text-slate-400">
-                          <div className="flex items-center gap-2 text-cyan-400 font-semibold">
-                            <FaPaypal /> Instant PayPal Checkout
-                          </div>
-                          <p>
-                            Pay securely with your PayPal account or any International Credit/Debit Card
-                            (Visa, Mastercard, Amex).
-                          </p>
-                          {errorMessage && (
-                            <div className="text-xs text-rose-400 bg-rose-500/10 border border-rose-500/20 p-2.5 rounded-lg">
-                              {errorMessage}
-                            </div>
-                          )}
-                          <button
-                            type="button"
-                            onClick={handlePayPalSubmit}
-                            disabled={isProcessing}
-                            className="w-full py-3 px-4 rounded-xl font-bold text-sm bg-[#0070BA] hover:bg-[#005ea6] text-white flex items-center justify-center gap-2 cursor-pointer transition-colors shadow-lg shadow-blue-500/20 disabled:opacity-50"
-                          >
-                            {isProcessing ? "Connecting to PayPal..." : `Proceed to PayPal ($${selectedProduct.usdPrice})`}
-                          </button>
+                    {selectedProduct.isLimitedTimeFree ? (
+                      <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 space-y-3">
+                        <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm">
+                          <FiZap /> 100% Free Showcase License
                         </div>
-                      ) : (
-                        <form
-                          onSubmit={handleUpiSubmit}
-                          className="space-y-4 p-4 rounded-xl bg-slate-950/50 border border-emerald-500/20 text-xs"
-                        >
-                          <div className="flex items-center justify-between text-emerald-400 font-semibold">
-                            <span>Direct UPI Scan & Pay</span>
-                            <span className="font-mono text-sm font-bold">₹{selectedProduct.inrPrice}</span>
+                        <p className="text-xs text-slate-300 leading-relaxed">
+                          During our live software showcase, {selectedProduct.name} is available 100% free with full commercial features and zero subscription fees.
+                        </p>
+                        {errorMessage && (
+                          <div className="text-xs text-rose-400 bg-rose-500/10 border border-rose-500/20 p-2.5 rounded-lg">
+                            {errorMessage}
                           </div>
+                        )}
+                        <button
+                          type="button"
+                          onClick={handleDirectLicenseClaim}
+                          disabled={isProcessing}
+                          className="w-full py-3 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-400 text-slate-950 flex items-center justify-center gap-2 hover:brightness-110 shadow-lg shadow-emerald-500/25 transition-all cursor-pointer disabled:opacity-50"
+                        >
+                          {isProcessing ? (
+                            <span className="flex items-center gap-2">
+                              <FiCpu className="animate-spin" /> Issuing Lifetime License...
+                            </span>
+                          ) : (
+                            <span className="flex items-center gap-2">
+                              <FiKey /> Claim 100% Free Lifetime Key
+                            </span>
+                          )}
+                        </button>
+                      </div>
+                    ) : (
+                      <>
+                        {/* Payment Method Selector */}
+                        <div className="space-y-3">
+                          <label className="text-xs font-medium text-slate-300 block">
+                            Select Payment Method
+                          </label>
+                          <div className="grid grid-cols-2 gap-2">
+                            <button
+                              type="button"
+                              onClick={() => setPaymentTab("paypal")}
+                              className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-1.5 transition-all cursor-pointer ${
+                                paymentTab === "paypal"
+                                  ? "border-cyan-500 bg-cyan-500/10 text-cyan-300"
+                                  : "border-white/10 bg-slate-950/60 text-slate-400 hover:text-white"
+                              }`}
+                            >
+                              <FaPaypal className="text-[#00457C]" size={20} />
+                              <span className="text-xs font-bold">PayPal / Cards</span>
+                              <span className="text-[10px] text-slate-500">Global (USD)</span>
+                            </button>
 
-                          {/* UPI QR & VPA Box */}
-                          <div className="p-3 rounded-lg bg-black/60 border border-white/10 flex items-center justify-between gap-3">
-                            <div>
-                              <div className="text-[11px] text-slate-500">Official Merchant VPA / UPI ID:</div>
-                              <div className="font-mono text-sm font-bold text-white select-all">
-                                softcorp@wesoftcorp.com
+                            <button
+                              type="button"
+                              onClick={() => setPaymentTab("upi")}
+                              className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-1.5 transition-all cursor-pointer ${
+                                paymentTab === "upi"
+                                  ? "border-emerald-500 bg-emerald-500/10 text-emerald-300"
+                                  : "border-white/10 bg-slate-950/60 text-slate-400 hover:text-white"
+                              }`}
+                            >
+                              <span className="font-bold text-emerald-400 text-sm">UPI Instant</span>
+                              <span className="text-xs font-bold">GPay / PhonePe / Paytm</span>
+                              <span className="text-[10px] text-slate-500">India (INR ₹)</span>
+                            </button>
+                          </div>
+                        </div>
+
+                        {/* Payment Gateway Tabs */}
+                        {paymentTab === "paypal" ? (
+                          <div className="space-y-4 p-4 rounded-xl bg-slate-950/50 border border-white/5 text-xs text-slate-400">
+                            <div className="flex items-center gap-2 text-cyan-400 font-semibold">
+                              <FaPaypal /> Instant PayPal Checkout
+                            </div>
+                            <p>
+                              Pay securely with your PayPal account or any International Credit/Debit Card
+                              (Visa, Mastercard, Amex).
+                            </p>
+                            {errorMessage && (
+                              <div className="text-xs text-rose-400 bg-rose-500/10 border border-rose-500/20 p-2.5 rounded-lg">
+                                {errorMessage}
                               </div>
-                              <div className="text-[10px] text-emerald-400 mt-0.5">
-                                Verified Business: Softcorp Group (MSME)
+                            )}
+                            <button
+                              type="button"
+                              onClick={handlePayPalSubmit}
+                              disabled={isProcessing}
+                              className="w-full py-3 px-4 rounded-xl font-bold text-sm bg-[#0070BA] hover:bg-[#005ea6] text-white flex items-center justify-center gap-2 cursor-pointer transition-colors shadow-lg shadow-blue-500/20 disabled:opacity-50"
+                            >
+                              {isProcessing ? "Connecting to PayPal..." : `Proceed to PayPal ($${selectedProduct.usdPrice})`}
+                            </button>
+                          </div>
+                        ) : (
+                          <form
+                            onSubmit={handleUpiSubmit}
+                            className="space-y-4 p-4 rounded-xl bg-slate-950/50 border border-emerald-500/20 text-xs"
+                          >
+                            <div className="flex items-center justify-between text-emerald-400 font-semibold">
+                              <span>Direct UPI Scan & Pay</span>
+                              <span className="font-mono text-sm font-bold">₹{selectedProduct.inrPrice}</span>
+                            </div>
+
+                            {/* UPI QR & VPA Box */}
+                            <div className="p-3 rounded-lg bg-black/60 border border-white/10 flex items-center justify-between gap-3">
+                              <div>
+                                <div className="text-[11px] text-slate-500">Official Merchant VPA / UPI ID:</div>
+                                <div className="font-mono text-sm font-bold text-white select-all">
+                                  softcorp@wesoftcorp.com
+                                </div>
+                                <div className="text-[10px] text-emerald-400 mt-0.5">
+                                  Verified Business: Softcorp Group (MSME)
+                                </div>
+                              </div>
+                              <div className="shrink-0 p-1.5 rounded bg-white">
+                                <img
+                                  src={`https://api.qrserver.com/v1/create-qr-code/?size=90x90&data=${encodeURIComponent(
+                                    `upi://pay?pa=softcorp@wesoftcorp.com&pn=Softcorp%20Group&am=${selectedProduct.inrPrice}&cu=INR`
+                                  )}`}
+                                  alt="UPI QR Code"
+                                  className="w-16 h-16"
+                                />
                               </div>
                             </div>
-                            <div className="shrink-0 p-1.5 rounded bg-white">
-                              <img
-                                src={`https://api.qrserver.com/v1/create-qr-code/?size=90x90&data=${encodeURIComponent(
-                                  `upi://pay?pa=softcorp@wesoftcorp.com&pn=Softcorp%20Group&am=${selectedProduct.inrPrice}&cu=INR`
-                                )}`}
-                                alt="UPI QR Code"
-                                className="w-16 h-16"
+
+                            <div>
+                              <label className="text-[11px] font-medium text-slate-300 block mb-1">
+                                Enter 12-Digit UPI UTR / Reference ID <span className="text-emerald-400">*</span>
+                              </label>
+                              <input
+                                type="text"
+                                required
+                                value={utrNumber}
+                                onChange={(e) => setUtrNumber(e.target.value)}
+                                placeholder="e.g. 429381928374"
+                                className="w-full px-3 py-2 rounded bg-slate-950 border border-white/15 text-white font-mono text-xs focus:outline-none focus:border-emerald-500"
                               />
                             </div>
-                          </div>
 
-                          <div>
-                            <label className="text-[11px] font-medium text-slate-300 block mb-1">
-                              Enter 12-Digit UPI UTR / Reference ID <span className="text-emerald-400">*</span>
-                            </label>
-                            <input
-                              type="text"
-                              required
-                              value={utrNumber}
-                              onChange={(e) => setUtrNumber(e.target.value)}
-                              placeholder="e.g. 429381928374"
-                              className="w-full px-3 py-2 rounded bg-slate-950 border border-white/15 text-white font-mono text-xs focus:outline-none focus:border-emerald-500"
-                            />
-                          </div>
+                            {errorMessage && (
+                              <div className="text-xs text-rose-400 bg-rose-500/10 border border-rose-500/20 p-2.5 rounded-lg">
+                                {errorMessage}
+                              </div>
+                            )}
 
-                          {errorMessage && (
-                            <div className="text-xs text-rose-400 bg-rose-500/10 border border-rose-500/20 p-2.5 rounded-lg">
-                              {errorMessage}
-                            </div>
-                          )}
-
-                          <button
-                            type="submit"
-                            disabled={isProcessing}
-                            className="w-full py-3 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 flex items-center justify-center gap-2 cursor-pointer transition-colors shadow-lg shadow-emerald-500/20 disabled:opacity-50"
-                          >
-                            {isProcessing ? "Verifying Transaction..." : `Confirm Payment & Generate License Key`}
-                          </button>
-                        </form>
-                      )}
-                    </>
-                  )}
-                </div>
+                            <button
+                              type="submit"
+                              disabled={isProcessing}
+                              className="w-full py-3 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 flex items-center justify-center gap-2 cursor-pointer transition-colors shadow-lg shadow-emerald-500/20 disabled:opacity-50"
+                            >
+                              {isProcessing ? "Verifying Transaction..." : `Confirm Payment & Generate License Key`}
+                            </button>
+                          </form>
+                        )}
+                      </>
+                    )}
+                  </div>
+                </>
               )}
             </motion.div>
           </div>
