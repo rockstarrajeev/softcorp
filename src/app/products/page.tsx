@@ -436,7 +436,7 @@ export default function ProductsPage() {
       <AnimatePresence>
         {detailsModalOpen && selectedProduct && (
           <div
-            className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-5 md:p-6 bg-slate-950/85 backdrop-blur-md overflow-hidden"
+            className="fixed inset-0 z-[100] flex items-start justify-center pt-24 sm:pt-28 pb-6 px-4 bg-slate-950/85 backdrop-blur-md overflow-hidden"
             onClick={(e) => {
               if (e.target === e.currentTarget) setDetailsModalOpen(false);
             }}
@@ -446,7 +446,7 @@ export default function ProductsPage() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.96, y: 15 }}
               transition={{ duration: 0.2 }}
-              className="relative w-full max-w-2xl max-h-[85vh] rounded-2xl border border-white/15 bg-slate-900 shadow-2xl text-left flex flex-col overflow-hidden"
+              className="relative w-full max-w-2xl max-h-[calc(100vh-7.5rem)] sm:max-h-[calc(100vh-8.5rem)] rounded-2xl border border-white/15 bg-slate-900 shadow-2xl text-left flex flex-col overflow-hidden"
             >
               {modalMode === "details" ? (
                 /* ─── View 1: Full Product Details & Download / Store Links ─── */
