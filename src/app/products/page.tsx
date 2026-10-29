@@ -325,6 +325,24 @@ export default function ProductsPage() {
                           </span>
                         </div>
                       </div>
+                    ) : isSDM ? (
+                      <div>
+                        <div className="flex items-center gap-1.5 mb-1">
+                          <span className="relative flex h-2 w-2">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                          </span>
+                          <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 font-mono">
+                            14-Day Free Trial Included
+                          </span>
+                        </div>
+                        <div className="flex items-baseline gap-2">
+                          <span className="text-2xl font-extrabold text-white tracking-tight">FREE TRIAL</span>
+                          <span className="text-xs text-slate-400">
+                            (Lifetime Pro: {displayPrice})
+                          </span>
+                        </div>
+                      </div>
                     ) : (
                       <div>
                         <span className="text-xs text-slate-400 block font-medium">Lifetime License</span>
@@ -343,6 +361,8 @@ export default function ProductsPage() {
                         ? "Beta Testing"
                         : product.isLimitedTimeFree
                         ? "Showcase Special"
+                        : isSDM
+                        ? "14-Day Free Trial"
                         : isTradeboard
                         ? "Self-Hosted Core"
                         : "Store Version Ready"}
@@ -377,81 +397,102 @@ export default function ProductsPage() {
 
                 {/* Action Buttons */}
                 <div className="pt-6 mt-6 border-t border-white/10 space-y-2.5">
-                  {/* Primary: Pre-Register Beta / Buy License or Claim Free */}
-                  <button
-                    type="button"
-                    onClick={() => openCheckout(product)}
-                    className={`w-full py-3 px-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 shadow-lg hover:brightness-110 shine-sweep card-lift ${
-                      product.isComingSoonBeta
-                        ? "bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 shadow-amber-500/25"
-                        : product.isLimitedTimeFree
-                        ? "bg-gradient-to-r from-emerald-500 to-teal-400 text-slate-950 shadow-emerald-500/25"
-                        : btnGradient
-                    }`}
-                  >
-                    {product.isComingSoonBeta ? (
-                      <>
-                        <FiZap size={16} /> Pre-Register & Join Beta Testing
-                      </>
-                    ) : product.isLimitedTimeFree ? (
-                      <>
-                        <FiKey size={16} /> Claim Free Lifetime License (100% OFF)
-                      </>
-                    ) : (
-                      <>
-                        <FiKey size={16} /> Buy Lifetime Pro ({displayPrice})
-                      </>
-                    )}
-                  </button>
-
-                  {/* Secondary: Download / Store / Docs / Web */}
-                  {isMelodrift ? (
-                    <div className="space-y-2">
+                  {isSDM ? (
+                    <div className="space-y-2.5">
                       <a
-                        href={product.webUrl || "https://melodrift.rajeevupadhyay.com/"}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full py-2.5 px-3 rounded-xl font-semibold text-xs text-emerald-300 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center gap-1.5 transition-colors shine-sweep"
+                        href={product.downloadUrl}
+                        download={product.installerFileName}
+                        className="w-full py-3 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 text-slate-950 flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 shadow-lg shadow-amber-500/25 hover:brightness-110 shine-sweep card-lift"
                       >
-                        <FiExternalLink size={13} /> Launch Melodrift Web Player
+                        <FiDownload size={16} /> Download 14-Day Free Trial (.exe, 133 MB)
                       </a>
-                      <div className="flex items-center justify-center gap-3 text-[11px] text-slate-400 pt-0.5">
-                        <a
-                          href={product.storeUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="hover:text-cyan-300 underline underline-offset-2 flex items-center gap-1"
-                        >
-                          <FiExternalLink size={11} /> Microsoft Store
-                        </a>
-                        <span>•</span>
-                        <a
-                          href={product.playStoreUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="hover:text-emerald-300 underline underline-offset-2 flex items-center gap-1"
-                        >
-                          <FiExternalLink size={11} /> Google Play
-                        </a>
-                      </div>
+                      <button
+                        type="button"
+                        onClick={() => openCheckout(product)}
+                        className="w-full py-2.5 px-4 rounded-xl font-semibold text-xs text-amber-300 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+                      >
+                        <FiKey size={13} /> Buy Lifetime Pro Serial Key ({displayPrice})
+                      </button>
                     </div>
                   ) : (
-                    <a
-                      href={product.downloadUrl}
-                      download={isSDM ? product.installerFileName : undefined}
-                      target={!isSDM ? "_blank" : undefined}
-                      rel="noopener noreferrer"
-                      className="w-full py-2.5 px-4 rounded-xl font-semibold text-xs text-slate-300 bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center gap-2 cursor-pointer transition-colors shine-sweep"
-                    >
-                      {isSDM && <FiDownload size={14} className="text-amber-400" />}
-                      {isTradeboard && <FiExternalLink size={14} />}
-                      {isSpectrum && <FiExternalLink size={14} />}
-                      <span>
-                        {isSDM && "Download Beta Preview (.exe, 133 MB)"}
-                        {isTradeboard && "Open Documentation & Quickstart"}
-                        {isSpectrum && "Get on Microsoft Store (Verified)"}
-                      </span>
-                    </a>
+                    <>
+                      {/* Primary: Pre-Register Beta / Buy License or Claim Free */}
+                      <button
+                        type="button"
+                        onClick={() => openCheckout(product)}
+                        className={`w-full py-3 px-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 shadow-lg hover:brightness-110 shine-sweep card-lift ${
+                          product.isComingSoonBeta
+                            ? "bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 shadow-amber-500/25"
+                            : product.isLimitedTimeFree
+                            ? "bg-gradient-to-r from-emerald-500 to-teal-400 text-slate-950 shadow-emerald-500/25"
+                            : btnGradient
+                        }`}
+                      >
+                        {product.isComingSoonBeta ? (
+                          <>
+                            <FiZap size={16} /> Pre-Register & Join Beta Testing
+                          </>
+                        ) : product.isLimitedTimeFree ? (
+                          <>
+                            <FiKey size={16} /> Claim Free Lifetime License (100% OFF)
+                          </>
+                        ) : (
+                          <>
+                            <FiKey size={16} /> Buy Lifetime Pro ({displayPrice})
+                          </>
+                        )}
+                      </button>
+
+                      {/* Secondary: Download / Store / Docs / Web */}
+                      {isMelodrift ? (
+                        <div className="space-y-2">
+                          <a
+                            href={product.webUrl || "https://melodrift.rajeevupadhyay.com/"}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-full py-2.5 px-3 rounded-xl font-semibold text-xs text-emerald-300 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center gap-1.5 transition-colors shine-sweep"
+                          >
+                            <FiExternalLink size={13} /> Launch Melodrift Web Player
+                          </a>
+                          <div className="flex items-center justify-center gap-3 text-[11px] text-slate-400 pt-0.5">
+                            <a
+                              href={product.storeUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="hover:text-cyan-300 underline underline-offset-2 flex items-center gap-1"
+                            >
+                              <FiExternalLink size={11} /> Microsoft Store
+                            </a>
+                            <span>•</span>
+                            <a
+                              href={product.playStoreUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="hover:text-emerald-300 underline underline-offset-2 flex items-center gap-1"
+                            >
+                              <FiExternalLink size={11} /> Google Play
+                            </a>
+                          </div>
+                        </div>
+                      ) : (
+                        <a
+                          href={product.downloadUrl}
+                          download={isSDM ? product.installerFileName : undefined}
+                          target={!isSDM ? "_blank" : undefined}
+                          rel="noopener noreferrer"
+                          className="w-full py-2.5 px-4 rounded-xl font-semibold text-xs text-slate-300 bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center gap-2 cursor-pointer transition-colors shine-sweep"
+                        >
+                          {isSDM && <FiDownload size={14} className="text-amber-400" />}
+                          {isTradeboard && <FiExternalLink size={14} />}
+                          {isSpectrum && <FiExternalLink size={14} />}
+                          <span>
+                            {isSDM && "Download 14-Day Free Trial (.exe, 133 MB)"}
+                            {isTradeboard && "Open Documentation & Quickstart"}
+                            {isSpectrum && "Get on Microsoft Store (Verified)"}
+                          </span>
+                        </a>
+                      )}
+                    </>
                   )}
                 </div>
               </SpotlightCard>
@@ -577,6 +618,8 @@ export default function ProductsPage() {
                         ? "Join Beta Testing: "
                         : selectedProduct.isLimitedTimeFree
                         ? "Claim Free License: "
+                        : selectedProduct.id === "sdm"
+                        ? "Upgrade to Lifetime Pro: "
                         : "Order "}
                       {selectedProduct.name}
                     </h3>
@@ -586,6 +629,8 @@ export default function ProductsPage() {
                           ? "Coming Soon • Early Access Beta Testing Program"
                           : selectedProduct.isLimitedTimeFree
                           ? "Limited-Time Showcase Promo"
+                          : selectedProduct.id === "sdm"
+                          ? "14-Day Free Trial Included • Lifetime Pro Key"
                           : "One-Time Lifetime License"}
                       </span>
                       <span className={`font-bold text-base ${selectedProduct.isComingSoonBeta ? "text-amber-400" : "text-emerald-400"}`}>

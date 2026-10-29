@@ -34,18 +34,19 @@ export const SOFTWARE_PRODUCTS: SoftwareProduct[] = [
     id: "sdm",
     name: "Softcorp Download Manager (SDM)",
     tagline: "High-Performance 32-Socket HTTP Range Accelerator, Universal Video Grabber & Obsidian Cyber-Glass Engine",
-    version: "v1.0.0 (Beta Preview)",
+    version: "v1.0.0 (Official Release)",
     category: "Network & Media Acceleration",
     platform: "Windows 10 / 11 (64-bit)",
     usdPrice: 19.99,
     inrPrice: 999,
     installerFileName: "SDM_Setup_v1.0.exe",
     downloadUrl: "/downloads/SDM_Setup_v1.0.exe",
-    badge: "Coming Soon • Beta Testing",
-    isComingSoonBeta: true,
+    badge: "Free 14-Day Trial Available",
+    isComingSoonBeta: false,
     rating: 4.9,
-    downloadsCount: "Private Beta",
+    downloadsCount: "Official v1.0",
     features: [
+      "14-Day Full-Featured Evaluation Trial included automatically on install — zero credit card or registration required",
       "Up to 500% acceleration via 32 parallel socket chunk streams with dynamic load rebalancing",
       "Universal In-Page Video Grabber for YouTube, X (Twitter), Reddit, TikTok, Facebook & Vimeo",
       "Integrated FFmpeg single-file muxer for automatic 4K/8K audio+video stream merge",
@@ -55,12 +56,12 @@ export const SOFTWARE_PRODUCTS: SoftwareProduct[] = [
       "Obsidian Cyber-Glass UI with hardware-bound cryptographic activation & anti-tamper DRM"
     ],
     specs: [
-      { label: "Status", value: "Beta Testing Phase" },
+      { label: "Evaluation", value: "14-Day Full Free Trial" },
       { label: "OS Support", value: "Windows 10/11 (64-bit)" },
       { label: "Installer Type", value: "Self-Contained Setup (.exe)" },
-      { label: "Package Size", value: "133.12 MB" },
-      { label: "Engine Core", value: "Bundled Node.js + Electron" },
-      { label: "License Model", value: "Coming Soon (Beta Preview)" }
+      { label: "Package Size", value: "133.15 MB" },
+      { label: "Engine Core", value: "Bundled Node.js + Tray Daemon" },
+      { label: "License Model", value: "14-Day Trial Included (Lifetime Pro Upgrade)" }
     ],
     licensePrefix: "SDM-PRO"
   },

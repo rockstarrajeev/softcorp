@@ -114,6 +114,16 @@ export default function Home() {
                                 </span>
                               </div>
                             </div>
+                          ) : isSDM ? (
+                            <div>
+                              <span className="text-emerald-400 font-bold block text-[10px] uppercase tracking-wide">
+                                14-Day Free Trial
+                              </span>
+                              <div className="flex items-baseline gap-1.5">
+                                <span className="text-lg font-bold text-white">FREE TRIAL</span>
+                                <span className="text-xs text-slate-500 font-normal">(${product.usdPrice} Pro)</span>
+                              </div>
+                            </div>
                           ) : (
                             <div>
                               <span className="text-slate-500 block">Lifetime Pro</span>
@@ -131,6 +141,8 @@ export default function Home() {
                             ? "Beta Testing"
                             : product.isLimitedTimeFree
                             ? "Showcase Special"
+                            : isSDM
+                            ? "14-Day Free Trial"
                             : isTradeboard
                             ? "Self-Hosted Core"
                             : "Free Trial Included"}
@@ -144,7 +156,7 @@ export default function Home() {
                         className="w-full py-2.5 px-3 rounded-xl font-bold text-xs bg-white/5 hover:bg-white/10 border border-white/10 text-slate-200 flex items-center justify-center gap-2 transition-all shine-sweep"
                       >
                         <FiDownload size={13} className={isSDM ? "text-amber-400" : ""} />
-                        {isSDM ? "Download Beta (.exe)" : isTradeboard ? "Docs & Platform" : product.id === "spectrum" ? "Microsoft Store" : product.id === "melodrift" ? "Launch Web Player" : "Get Software"}
+                        {isSDM ? "Download Free Trial (.exe)" : isTradeboard ? "Docs & Platform" : product.id === "spectrum" ? "Microsoft Store" : product.id === "melodrift" ? "Launch Web Player" : "Get Software"}
                       </Link>
                       <Link
                         href="/products"
@@ -154,7 +166,7 @@ export default function Home() {
                             : "bg-gradient-to-r from-cyan-500 to-teal-500 text-slate-950 shadow-cyan-500/20"
                         }`}
                       >
-                        <FiKey size={13} /> {product.isComingSoonBeta ? "Join Beta" : product.isLimitedTimeFree ? "Claim" : "Buy"}
+                        <FiKey size={13} /> {product.isComingSoonBeta ? "Join Beta" : product.isLimitedTimeFree ? "Claim" : isSDM ? "Pro Key" : "Buy"}
                       </Link>
                     </div>
                   </SpotlightCard>
