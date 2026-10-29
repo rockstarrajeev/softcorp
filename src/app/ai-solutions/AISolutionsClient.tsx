@@ -723,19 +723,19 @@ export default function AISolutionsClient() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             {ENTERPRISE_CAPABILITIES.map((cap) => {
               const Icon = cap.icon;
               return (
                 <SpotlightCard
                   key={cap.id}
-                  className="p-7 flex flex-col justify-between border-white/10 hover:border-cyan-500/40 transition-all duration-300"
+                  className="p-6 sm:p-7 flex flex-col justify-between border-white/10 hover:border-cyan-500/40 transition-all duration-300 h-full w-full"
                   spotlightColor="rgba(6, 182, 212, 0.15)"
                 >
                   <div className="space-y-4">
-                    {/* Header Row */}
-                    <div className="flex items-center justify-between gap-2">
-                      <span className="text-[11px] font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-300 truncate">
+                    {/* Header Row (Fixed Height) */}
+                    <div className="flex items-center justify-between gap-2 h-9">
+                      <span className="text-[11px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-300 truncate">
                         {cap.badge}
                       </span>
                       <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 border border-white/10 bg-white/5 ${cap.iconColor}`}>
@@ -743,35 +743,35 @@ export default function AISolutionsClient() {
                       </div>
                     </div>
 
-                    {/* Title */}
-                    <h3 className="text-xl font-bold text-white tracking-tight leading-snug">
+                    {/* Title (Guaranteed 56px Symmetrical Height) */}
+                    <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight leading-snug line-clamp-2 h-14 flex items-center">
                       {cap.title}
                     </h3>
 
-                    {/* Description */}
-                    <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                    {/* Description (Guaranteed 72px Symmetrical Height) */}
+                    <p className="text-slate-300 text-xs sm:text-sm leading-relaxed line-clamp-3 h-[4.5rem] flex items-start">
                       {cap.description}
                     </p>
 
-                    {/* Deliverables */}
-                    <div className="space-y-2 pt-2 border-t border-white/5">
-                      <div className="text-[11px] font-mono text-slate-400 uppercase tracking-wider">
+                    {/* Deliverables (Guaranteed Symmetrical List Height) */}
+                    <div className="space-y-2 pt-3 border-t border-white/5">
+                      <div className="text-[10px] font-mono text-slate-400 uppercase tracking-wider h-4 flex items-center">
                         Production Deliverables
                       </div>
-                      <ul className="space-y-1.5 text-xs text-slate-300">
+                      <ul className="space-y-2 text-xs text-slate-300 h-28">
                         {cap.deliverables.map((item, idx) => (
-                          <li key={idx} className="flex items-start gap-2">
+                          <li key={idx} className="flex items-start gap-2 h-5 overflow-hidden" title={item}>
                             <FiCheck className="text-cyan-400 shrink-0 mt-0.5 text-xs" />
-                            <span className="leading-tight">{item}</span>
+                            <span className="leading-snug truncate line-clamp-1">{item}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                   </div>
 
-                  {/* Footer: Tech Stack & Metric */}
-                  <div className="pt-5 mt-6 border-t border-white/10 space-y-3">
-                    <div className="flex flex-wrap gap-1.5">
+                  {/* Footer: Tech Stack & Metric (Guaranteed Symmetrical Height) */}
+                  <div className="pt-4 mt-5 border-t border-white/10 space-y-2.5">
+                    <div className="flex flex-wrap gap-1.5 h-12 overflow-hidden items-center">
                       {cap.tech.map((t, tIdx) => (
                         <span
                           key={tIdx}
@@ -781,7 +781,7 @@ export default function AISolutionsClient() {
                         </span>
                       ))}
                     </div>
-                    <div className="text-xs font-mono text-emerald-400 flex items-center gap-1.5 pt-1">
+                    <div className="text-xs font-mono text-emerald-400 flex items-center gap-1.5 pt-1 h-6">
                       <FiTrendingUp className="shrink-0" />
                       <span className="truncate">{cap.benchmark}</span>
                     </div>
@@ -1138,3 +1138,4 @@ export default function AISolutionsClient() {
     </div>
   );
 }
+
