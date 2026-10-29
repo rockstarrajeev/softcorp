@@ -405,6 +405,15 @@ export default function ProductsPage() {
                             Web • Windows • Android
                           </span>
                         </div>
+                      ) : isSpectrum ? (
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs font-bold text-sky-400 uppercase tracking-wider bg-sky-500/10 border border-sky-500/20 px-2.5 py-1 rounded-md">
+                            Microsoft Store
+                          </span>
+                          <span className="text-xs text-slate-400">
+                            Windows 10 / 11
+                          </span>
+                        </div>
                       ) : product.isLimitedTimeFree ? (
                         <div className="flex items-center gap-2">
                           <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-md">
@@ -563,8 +572,8 @@ export default function ProductsPage() {
                       </div>
                     </div>
 
-                    {/* Pricing / Evaluation Summary (Excluded for Melodrift) */}
-                    {selectedProduct.id !== "melodrift" && (
+                    {/* Pricing / Evaluation Summary (Excluded for Melodrift & Spectrum) */}
+                    {selectedProduct.id !== "melodrift" && selectedProduct.id !== "spectrum" && (
                       <div className="p-4 rounded-xl bg-gradient-to-r from-slate-950 to-slate-900 border border-white/10 flex items-center justify-between gap-4">
                         <div>
                           <div className="text-xs text-slate-400">License & Access Model:</div>
@@ -646,25 +655,16 @@ export default function ProductsPage() {
                       </div>
                     )}
 
-                    {/* Spectrum: Microsoft Store + Claim Free */}
+                    {/* Spectrum: Microsoft Store (Windows Only) */}
                     {selectedProduct.id === "spectrum" && (
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <a
-                          href={selectedProduct.storeUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="py-2.5 px-4 rounded-xl font-bold text-xs bg-sky-500 hover:bg-sky-400 text-slate-950 flex items-center justify-center gap-2 shadow-lg shadow-sky-500/20 transition-all cursor-pointer"
-                        >
-                          <FaMicrosoft size={15} /> Get on Microsoft Store (Verified)
-                        </a>
-                        <button
-                          type="button"
-                          onClick={startCheckout}
-                          className="py-2.5 px-4 rounded-xl font-bold text-xs bg-emerald-500 hover:bg-emerald-400 text-slate-950 flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 transition-all cursor-pointer"
-                        >
-                          <FiKey size={15} /> Claim 100% Free Showcase License
-                        </button>
-                      </div>
+                      <a
+                        href={selectedProduct.storeUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full py-2.5 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-sky-500 to-blue-500 hover:brightness-110 text-slate-950 flex items-center justify-center gap-2 shadow-lg shadow-sky-500/20 transition-all cursor-pointer text-center"
+                      >
+                        <FaMicrosoft size={16} /> Get on Microsoft Store (Windows)
+                      </a>
                     )}
 
                     {/* Tradeboard: Docs + Buy Pro */}

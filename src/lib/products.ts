@@ -129,29 +129,29 @@ export const SOFTWARE_PRODUCTS: SoftwareProduct[] = [
     inrPrice: 0,
     originalUsdPrice: 24.99,
     originalInrPrice: 1499,
-    isLimitedTimeFree: true,
-    promoBadge: "Limited-Time Free Access",
+    isLimitedTimeFree: false,
+    promoBadge: "Microsoft Store Certified",
     installerFileName: "Spectrum_Setup_v0.1.1.exe",
     downloadUrl: "https://apps.microsoft.com/detail/9P1QW99KRX7N?hl=en-us&gl=IN&ocid=pdpshare",
     storeUrl: "https://apps.microsoft.com/detail/9P1QW99KRX7N?hl=en-us&gl=IN&ocid=pdpshare",
-    badge: "🔥 Free Showcase Access",
+    badge: "🖼️ Microsoft Store (Windows)",
     rating: 4.8,
     downloadsCount: "18,400+",
     features: [
-      "Limited-Time Showcase Access: 100% Free full commercial Pro features",
+      "Official Microsoft Store release with seamless background updates",
       "Frameless spatial viewer with continuous analog momentum zoom (60/120 FPS)",
       "Native RAW support for Sony ARW, Canon CR2/CR3, Nikon NEF, DNG, Fuji RAF & standard images",
       "Creative Darkroom with interactive 8-point crop engine & rule-of-thirds alignment",
       "GPU-accelerated Exposure, Contrast, Color Temp, Saturation, Highlights & Shadows adjustments",
       "Virtualized viewport handles 5,000+ photo collections in < 800 KB RAM",
-      "Official Microsoft Store distribution with automated sandboxed background updates"
+      "Hardware-accelerated rendering engine with sub-millisecond frame dispatch"
     ],
     specs: [
-      { label: "Showcase Offer", value: "100% Free Limited Access" },
-      { label: "OS Support", value: "Windows 10/11 (x64)" },
-      { label: "Microsoft Store ID", value: "9P1QW99KRX7N" },
+      { label: "Distribution", value: "Official Microsoft Store" },
+      { label: "OS Support", value: "Windows 10/11 (MSIX / x64)" },
+      { label: "Store App ID", value: "9P1QW99KRX7N" },
       { label: "Memory Footprint", value: "< 800 KB for 5,000 Photos" },
-      { label: "License Model", value: "Full Pro Showcase License" }
+      { label: "Access Model", value: "Free on Microsoft Store" }
     ],
     licensePrefix: "SPEC-PRO"
   },
