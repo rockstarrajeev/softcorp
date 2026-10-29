@@ -236,38 +236,6 @@ export default function ProductsPage() {
         </div>
       </div>
 
-      {/* ─── Limited-Time Product Showcase Access Banner ─── */}
-      <motion.div
-        initial={{ opacity: 0, y: -15, scale: 0.98 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="mb-10 p-5 rounded-2xl border border-amber-500/30 bg-gradient-to-r from-amber-500/10 via-emerald-500/10 to-cyan-500/10 backdrop-blur-md flex flex-col md:flex-row items-center justify-between gap-4 shadow-xl shadow-amber-500/5 shine-sweep"
-      >
-        <div className="flex items-center gap-3.5">
-          <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-xl shrink-0 border border-amber-500/30">
-            🔥
-          </div>
-          <div>
-            <div className="flex items-center gap-2">
-              <h3 className="text-white font-bold text-sm sm:text-base">Limited-Time Product Showcase & Evaluation Access</h3>
-              <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
-                Active
-              </span>
-            </div>
-            <p className="text-slate-300 text-xs mt-0.5">
-              Experience Softcorp Download Manager with a full 14-day free trial, or claim 100% free showcase access for Spectrum Studio & Melodrift.
-            </p>
-          </div>
-        </div>
-        <div className="text-xs font-mono text-amber-300 shrink-0 bg-amber-500/15 px-3 py-1.5 rounded-lg border border-amber-500/30 flex items-center gap-1.5">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
-          </span>
-          Click Any Card to Open Details & Downloads
-        </div>
-      </motion.div>
-
       {/* ─── Symmetrical Product Cards Grid (No Buttons, Uniform Height, Click to Open) ─── */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
         {SOFTWARE_PRODUCTS.map((product, idx) => {
