@@ -2778,7 +2778,7 @@
       "label": "Udyam Services & Customer Self-Service Payment Portal Integration",
       "file_type": "document",
       "source_file": "MEMORY.md",
-      "source_location": "L62",
+      "source_location": "L63",
       "id": "memory_udyam_services_customer_self_service_payment_portal_integration",
       "community": 26,
       "norm_label": "udyam services & customer self-service payment portal integration"
@@ -2787,7 +2787,7 @@
       "label": "Security Hardening & Performance Optimization Audit (Oct 2026)",
       "file_type": "document",
       "source_file": "MEMORY.md",
-      "source_location": "L80",
+      "source_location": "L81",
       "id": "memory_security_hardening_performance_optimization_audit_oct_2026",
       "community": 26,
       "norm_label": "security hardening & performance optimization audit (oct 2026)"
@@ -2796,7 +2796,7 @@
       "label": "Full App Optimization Audit (October 2026)",
       "file_type": "document",
       "source_file": "MEMORY.md",
-      "source_location": "L95",
+      "source_location": "L96",
       "id": "memory_full_app_optimization_audit_october_2026",
       "community": 26,
       "norm_label": "full app optimization audit (october 2026)"
@@ -7752,5 +7752,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "b24408cc0308873aea9bd3e5aeaaf6c37c35f6a2"
+  "built_at_commit": "eee86ef8454667e0adee0ad0b06d159f65ed2d18"
 }

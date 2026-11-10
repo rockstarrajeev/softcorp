@@ -51,7 +51,8 @@
   - Added general enterprise privacy policy at [src/app/privacy/page.tsx](file:///d:/Code/Antigravity/My_Projects/softcorp/src/app/privacy/page.tsx) and terms at [src/app/terms/page.tsx](file:///d:/Code/Antigravity/My_Projects/softcorp/src/app/terms/page.tsx).
   - Linked in [Footer.tsx](file:///d:/Code/Antigravity/My_Projects/softcorp/src/components/Footer.tsx).
   - Production build compiled cleanly with all 37 routes statically prerendered.
-  - Committed and pushed to GitHub `origin/main` (`b24408c`). Requires server pull on OCI VM (`git pull origin main && ./deploy.sh`) to go live.
+  - Deployed live to OCI server (`144.24.147.231`) under PM2. All endpoints (`/products`, `/products/sdm-privacy`, `/privacy`, `/terms`) returning HTTP 200 OK.
+  - Uploaded latest SDM setup executable (`SDM_Setup_v1.0.exe`, 139,601,560 bytes, SHA256: `f7c994b24c1c472bc2f47c37b599c0038a9632286390d3911053062b2fd67718`) to `/downloads/SDM_Setup_v1.0.exe` (HTTP 200 OK verified).
 - **Top-Right "Book Consultation" Button:** Fixed `handleNavClick` in [Navbar.tsx](file:///d:/Code/Antigravity/My_Projects/softcorp/src/components/Navbar.tsx) to reliably scroll to `#contact` with `scrollIntoView({ behavior: "smooth", block: "start" })`. Handles both `"contact"`, `"#contact"`, and `"/#contact"`.
 - **Deep-Link / Cross-Route Hash Scroll:** Added an automated `useEffect` in [Navbar.tsx](file:///d:/Code/Antigravity/My_Projects/softcorp/src/components/Navbar.tsx) that detects `window.location.hash` after page mount/route change and smoothly navigates to the target section.
 - **Logo Scroll-to-Top:** Clicking the logo on the home page now triggers smooth scrolling to `window.scrollTo({ top: 0, behavior: "smooth" })` instead of a static no-op.
