@@ -571,13 +571,27 @@ export default function ProductsPage() {
                   <div className="shrink-0 px-5 sm:px-6 py-3.5 border-t border-white/10 bg-slate-950/90 backdrop-blur-md z-10">
                     {/* SDM: 100% Free Download (.exe) */}
                     {selectedProduct.id === "sdm" && (
-                      <a
-                        href={selectedProduct.downloadUrl}
-                        download={selectedProduct.installerFileName}
-                        className="w-full py-2.5 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 text-slate-950 flex items-center justify-center gap-2 hover:brightness-110 shadow-lg shadow-amber-500/25 transition-all cursor-pointer text-center"
-                      >
-                        <FiDownload size={16} /> Download Free Installer (.exe) — v1.0
-                      </a>
+                      <div className="space-y-2">
+                        <a
+                          href={selectedProduct.downloadUrl}
+                          download={selectedProduct.installerFileName}
+                          className="w-full py-2.5 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 text-slate-950 flex items-center justify-center gap-2 hover:brightness-110 shadow-lg shadow-amber-500/25 transition-all cursor-pointer text-center"
+                        >
+                          <FiDownload size={16} /> Download Free Installer (.exe) — v1.0 (133 MB)
+                        </a>
+                        <div className="flex items-center justify-between text-[11px] text-slate-400 px-1">
+                          <span className="flex items-center gap-1 text-emerald-400 font-medium">
+                            <FiCheck size={12} /> SHA256 Verified Clean
+                          </span>
+                          <Link
+                            href="/products/sdm-privacy"
+                            onClick={() => setDetailsModalOpen(false)}
+                            className="text-amber-400 hover:text-amber-300 underline underline-offset-2 transition-colors font-medium"
+                          >
+                            Privacy Policy & Extension Docs ↗
+                          </Link>
+                        </div>
+                      </div>
                     )}
 
                     {/* Melodrift: Official Website + Microsoft Store + Google Play */}

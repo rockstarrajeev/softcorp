@@ -2337,7 +2337,7 @@
       "label": "SOFTWARE_PRODUCTS",
       "file_type": "code",
       "source_file": "src/lib/products.ts",
-      "source_location": "L34",
+      "source_location": "L35",
       "id": "lib_products_software_products",
       "community": 0,
       "norm_label": "software_products"
@@ -2346,7 +2346,7 @@
       "label": "generateProductLicense()",
       "file_type": "code",
       "source_file": "src/lib/products.ts",
-      "source_location": "L205",
+      "source_location": "L209",
       "id": "lib_products_generateproductlicense",
       "community": 0,
       "norm_label": "generateproductlicense()"
@@ -2778,7 +2778,7 @@
       "label": "Udyam Services & Customer Self-Service Payment Portal Integration",
       "file_type": "document",
       "source_file": "MEMORY.md",
-      "source_location": "L56",
+      "source_location": "L62",
       "id": "memory_udyam_services_customer_self_service_payment_portal_integration",
       "community": 26,
       "norm_label": "udyam services & customer self-service payment portal integration"
@@ -2787,7 +2787,7 @@
       "label": "Security Hardening & Performance Optimization Audit (Oct 2026)",
       "file_type": "document",
       "source_file": "MEMORY.md",
-      "source_location": "L74",
+      "source_location": "L80",
       "id": "memory_security_hardening_performance_optimization_audit_oct_2026",
       "community": 26,
       "norm_label": "security hardening & performance optimization audit (oct 2026)"
@@ -2796,7 +2796,7 @@
       "label": "Full App Optimization Audit (October 2026)",
       "file_type": "document",
       "source_file": "MEMORY.md",
-      "source_location": "L89",
+      "source_location": "L95",
       "id": "memory_full_app_optimization_audit_october_2026",
       "community": 26,
       "norm_label": "full app optimization audit (october 2026)"
@@ -5845,9 +5845,9 @@
       "source_file": "src/app/privacy/page.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "privacy_page",
-      "target": "privacy_page_privacypolicypage",
-      "confidence_score": 1.0
+      "target": "privacy_page_privacypolicypage"
     },
     {
       "relation": "imports_from",
@@ -5856,9 +5856,9 @@
       "source_file": "src/app/privacy/page.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "privacy_page",
-      "target": "ui_spotlightcard",
-      "confidence_score": 1.0
+      "target": "ui_spotlightcard"
     },
     {
       "relation": "contains",
@@ -5952,9 +5952,9 @@
       "source_file": "src/app/products/sdm-privacy/page.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "sdm_privacy_page",
-      "target": "sdm_privacy_page_sdmprivacypage",
-      "confidence_score": 1.0
+      "target": "sdm_privacy_page_sdmprivacypage"
     },
     {
       "relation": "imports_from",
@@ -5963,9 +5963,9 @@
       "source_file": "src/app/products/sdm-privacy/page.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "sdm_privacy_page",
-      "target": "ui_spotlightcard",
-      "confidence_score": 1.0
+      "target": "ui_spotlightcard"
     },
     {
       "relation": "contains",
@@ -6035,9 +6035,9 @@
       "source_file": "src/app/terms/page.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "terms_page",
-      "target": "terms_page_termsofservicepage",
-      "confidence_score": 1.0
+      "target": "terms_page_termsofservicepage"
     },
     {
       "relation": "imports_from",
@@ -6046,9 +6046,9 @@
       "source_file": "src/app/terms/page.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "terms_page",
-      "target": "ui_spotlightcard",
-      "confidence_score": 1.0
+      "target": "ui_spotlightcard"
     },
     {
       "relation": "contains",
@@ -7752,5 +7752,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "e1362c60c1577a4c9916d08b813608b97dc02ae8"
+  "built_at_commit": "b24408cc0308873aea9bd3e5aeaaf6c37c35f6a2"
 }

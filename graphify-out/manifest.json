@@ -290,8 +290,8 @@
     "semantic_hash": ""
   },
   "MEMORY.md": {
-    "mtime": 1792757487.8253515,
-    "ast_hash": "cdfdd9bb609187861bcf9c41f7159d64",
+    "mtime": 1794333230.8837671,
+    "ast_hash": "1c3fada8b4283827a34413a61f9829c5",
     "semantic_hash": ""
   },
   "README.md": {
@@ -570,13 +570,13 @@
     "semantic_hash": ""
   },
   "src/app/products/page.tsx": {
-    "mtime": 1794292146.7987256,
-    "ast_hash": "9bee4e324f161b333ae60a9ff7d4645f",
+    "mtime": 1794333625.1936896,
+    "ast_hash": "46e5e346c03f17525c244497b1a577b2",
     "semantic_hash": ""
   },
   "src/lib/products.ts": {
-    "mtime": 1794292146.9720595,
-    "ast_hash": "8188ada2e189e9f6fb0fe62ef4be7923",
+    "mtime": 1794333608.3407428,
+    "ast_hash": "37202eab14212dd8b053da42de3215f2",
     "semantic_hash": ""
   },
   "src/app/about/page.tsx": {
@@ -655,8 +655,8 @@
     "semantic_hash": ""
   },
   "src/app/products/sdm-privacy/page.tsx": {
-    "mtime": 1794332344.4115732,
-    "ast_hash": "a0a06bf8cb1b8d73d39cf174109d7984",
+    "mtime": 1794333196.81722,
+    "ast_hash": "1ba7b914e0342d73f53324e08db31d45",
     "semantic_hash": ""
   },
   "src/app/terms/page.tsx": {

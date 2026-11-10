@@ -46,6 +46,12 @@
   - `src/components/Footer.tsx`: Clean branding and quick links.
 
 ## Recent Functional & Navigation Repairs
+- **Privacy Policy & Legal Routes Created & Pushed:**
+  - Added dedicated SDM product privacy policy page at [src/app/products/sdm-privacy/page.tsx](file:///d:/Code/Antigravity/My_Projects/softcorp/src/app/products/sdm-privacy/page.tsx) with zero-telemetry architecture, explicit MV3 permission justifications (`webRequest`, `nativeMessaging`, `cookies`, `storage`, `tabs`, `<all_urls>`), and no-data-sale pledge.
+  - Added general enterprise privacy policy at [src/app/privacy/page.tsx](file:///d:/Code/Antigravity/My_Projects/softcorp/src/app/privacy/page.tsx) and terms at [src/app/terms/page.tsx](file:///d:/Code/Antigravity/My_Projects/softcorp/src/app/terms/page.tsx).
+  - Linked in [Footer.tsx](file:///d:/Code/Antigravity/My_Projects/softcorp/src/components/Footer.tsx).
+  - Production build compiled cleanly with all 37 routes statically prerendered.
+  - Committed and pushed to GitHub `origin/main` (`b24408c`). Requires server pull on OCI VM (`git pull origin main && ./deploy.sh`) to go live.
 - **Top-Right "Book Consultation" Button:** Fixed `handleNavClick` in [Navbar.tsx](file:///d:/Code/Antigravity/My_Projects/softcorp/src/components/Navbar.tsx) to reliably scroll to `#contact` with `scrollIntoView({ behavior: "smooth", block: "start" })`. Handles both `"contact"`, `"#contact"`, and `"/#contact"`.
 - **Deep-Link / Cross-Route Hash Scroll:** Added an automated `useEffect` in [Navbar.tsx](file:///d:/Code/Antigravity/My_Projects/softcorp/src/components/Navbar.tsx) that detects `window.location.hash` after page mount/route change and smoothly navigates to the target section.
 - **Logo Scroll-to-Top:** Clicking the logo on the home page now triggers smooth scrolling to `window.scrollTo({ top: 0, behavior: "smooth" })` instead of a static no-op.

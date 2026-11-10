@@ -18,6 +18,7 @@ export interface SoftwareProduct {
   promoBadge?: string;
   installerFileName: string;
   downloadUrl: string;
+  privacyUrl?: string;
   storeUrl?: string;
   playStoreUrl?: string;
   docsUrl?: string;
@@ -49,6 +50,7 @@ export const SOFTWARE_PRODUCTS: SoftwareProduct[] = [
     inrPrice: 0,
     installerFileName: "SDM_Setup_v1.0.exe",
     downloadUrl: "/downloads/SDM_Setup_v1.0.exe",
+    privacyUrl: "/products/sdm-privacy",
     badge: "100% Free & Open",
     isComingSoonBeta: false,
     rating: 4.9,
@@ -68,7 +70,9 @@ export const SOFTWARE_PRODUCTS: SoftwareProduct[] = [
       { label: "Access", value: "Zero Registration Required" },
       { label: "OS Support", value: "Windows 10/11 (64-bit)" },
       { label: "Installer Type", value: "Self-Contained Setup (.exe)" },
-      { label: "Package Size", value: "133.15 MB" },
+      { label: "Package Size", value: "133.13 MB (SHA256 Verified)" },
+      { label: "Browser Extension", value: "Edge Add-ons & Chrome MV3" },
+      { label: "Privacy Policy", value: "Zero-Telemetry Architecture" },
       { label: "Engine Core", value: "Bundled Node.js + Tray Daemon" }
     ],
     licensePrefix: "SDM-FREE"

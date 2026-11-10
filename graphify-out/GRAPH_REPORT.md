@@ -1,7 +1,7 @@
 # Graph Report - softcorp  (2026-11-10)
 
 ## Corpus Check
-- 84 files · ~136,100 words
+- 84 files · ~136,255 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `e1362c60`
+- Built from commit: `b24408cc`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
