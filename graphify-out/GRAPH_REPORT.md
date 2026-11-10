@@ -1,16 +1,16 @@
-# Graph Report - softcorp  (2026-10-24)
+# Graph Report - softcorp  (2026-11-10)
 
 ## Corpus Check
-- 79 files · ~126,423 words
+- 84 files · ~136,100 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 356 nodes · 401 edges · 32 communities (25 shown, 7 thin omitted)
+- 376 nodes · 422 edges · 35 communities (26 shown, 9 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 4 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `818d7c65`
+- Built from commit: `e1362c60`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -24,6 +24,7 @@
 - [[_COMMUNITY_Community 6|Community 6]]
 - [[_COMMUNITY_Community 7|Community 7]]
 - [[_COMMUNITY_Community 8|Community 8]]
+- [[_COMMUNITY_Community 9|Community 9]]
 - [[_COMMUNITY_Community 10|Community 10]]
 - [[_COMMUNITY_Community 11|Community 11]]
 - [[_COMMUNITY_Community 12|Community 12]]
@@ -37,6 +38,8 @@
 - [[_COMMUNITY_Community 27|Community 27]]
 - [[_COMMUNITY_Community 28|Community 28]]
 - [[_COMMUNITY_Community 29|Community 29]]
+- [[_COMMUNITY_Community 30|Community 30]]
+- [[_COMMUNITY_Community 31|Community 31]]
 - [[_COMMUNITY_Community 63|Community 63]]
 
 ## God Nodes (most connected - your core abstractions)
@@ -66,7 +69,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (32 total, 7 thin omitted)
+## Communities (35 total, 9 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.07
@@ -85,11 +88,11 @@ Cohesion: 0.10
 Nodes (19): compilerOptions, allowJs, esModuleInterop, incremental, isolatedModules, jsx, lib, module (+11 more)
 
 ### Community 4 - "Community 4"
-Cohesion: 0.11
+Cohesion: 0.12
 Nodes (9): AdminData, categoryLabels, ClientItem, MessageItem, OrderItem, ServiceItem, statusColors, statusOptions (+1 more)
 
 ### Community 5 - "Community 5"
-Cohesion: 0.11
+Cohesion: 0.12
 Nodes (10): categoryColors, categoryLabels, OrderItem, pricingLabels, Props, ServiceItem, statusColors, statusLabels (+2 more)
 
 ### Community 6 - "Community 6"
@@ -103,6 +106,10 @@ Nodes (5): quickLinks, socialLinks, NICItem, udyamDataset, UdyamMiniBadge()
 ### Community 8 - "Community 8"
 Cohesion: 0.20
 Nodes (5): categoryLabels, pricingLabels, Props, ServiceDetails, Window
+
+### Community 9 - "Community 9"
+Cohesion: 0.08
+Nodes (17): CASE_STUDIES, ENTERPRISE_CAPABILITIES, FAQS, PIPELINE_WORKFLOWS, PipelineStep, PipelineWorkflow, TECH_ECOSYSTEM, aiCategories (+9 more)
 
 ### Community 10 - "Community 10"
 Cohesion: 0.33
@@ -130,24 +137,24 @@ Nodes (28): 10. Contact & Footer Polishing (`src/components/sections/Contact.tsx
 
 ### Community 63 - "Community 63"
 Cohesion: 0.06
-Nodes (17): aiCategories, Contact, FAQ, ROIQuickEstimator, UdyamVerification, highlights, aiCategories, interactiveWorkflows (+9 more)
+Nodes (9): Contact, FAQ, ROIQuickEstimator, UdyamVerification, highlights, CaseStudies, faqs, steps (+1 more)
 
 ## Knowledge Gaps
-- **176 isolated node(s):** `deploy.sh script`, `eslintConfig`, `ContentSecurityPolicy`, `nextConfig`, `name` (+171 more)
+- **186 isolated node(s):** `deploy.sh script`, `eslintConfig`, `ContentSecurityPolicy`, `nextConfig`, `name` (+181 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `SOFTWARE_PRODUCTS` connect `Community 0` to `Community 63`?**
-  _High betweenness centrality (0.065) - this node is a cross-community bridge._
+  _High betweenness centrality (0.068) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `checkRateLimit()` (e.g. with `POST()` and `POST()`) actually correct?**
   _`checkRateLimit()` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `deploy.sh script`, `eslintConfig`, `ContentSecurityPolicy` to the rest of the system?**
-  _176 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _186 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.07294117647058823 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07039187227866474 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
   _Cohesion score 0.07692307692307693 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**

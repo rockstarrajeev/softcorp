@@ -141,12 +141,12 @@ export default function Footer() {
                         © {new Date().getFullYear()} SOFTCORP GROUP (UDYAM-UP-50-0298723). Protected under Section 15 of MSMED Act. All rights reserved.
                     </p>
                     <div className="flex gap-6">
-                        <span className="hover:text-slate-400 cursor-pointer transition-colors">
+                        <Link href="/privacy" className="hover:text-cyan-400 transition-colors">
                             Privacy Policy
-                        </span>
-                        <span className="hover:text-slate-400 cursor-pointer transition-colors">
+                        </Link>
+                        <Link href="/terms" className="hover:text-cyan-400 transition-colors">
                             Terms of Service
-                        </span>
+                        </Link>
                     </div>
                 </div>
             </div>

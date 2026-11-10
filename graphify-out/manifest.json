@@ -20,8 +20,8 @@
     "semantic_hash": ""
   },
   "next.config.ts": {
-    "mtime": 1792755203.4781673,
-    "ast_hash": "5530e7c5bb3e74972c068a550a6640ae",
+    "mtime": 1793293678.6490254,
+    "ast_hash": "ed08a050513ec2add3ea6822ba39b3be",
     "semantic_hash": ""
   },
   "package.json": {
@@ -55,8 +55,8 @@
     "semantic_hash": ""
   },
   "src/app/ai-solutions/page.tsx": {
-    "mtime": 1792753696.8025026,
-    "ast_hash": "507806a2cd6077adfcbfe57207a80ae3",
+    "mtime": 1793292570.3043172,
+    "ast_hash": "2a4b954da2e7dc3c81fa22cc47f332e3",
     "semantic_hash": ""
   },
   "src/app/api/admin/messages/route.ts": {
@@ -90,8 +90,8 @@
     "semantic_hash": ""
   },
   "src/app/api/payments/paypal/capture/route.ts": {
-    "mtime": 1791634031.494692,
-    "ast_hash": "03899ad4d6c8a2eab42b5f451e8a07c6",
+    "mtime": 1793293537.1012075,
+    "ast_hash": "f878a8b678409cc55fa0826b198fbcad",
     "semantic_hash": ""
   },
   "src/app/api/payments/paypal/create/route.ts": {
@@ -105,13 +105,13 @@
     "semantic_hash": ""
   },
   "src/app/api/payments/stripe/verify/route.ts": {
-    "mtime": 1791634016.986644,
-    "ast_hash": "9de7a4ec1133defaea777659951acf04",
+    "mtime": 1793293895.6466181,
+    "ast_hash": "d07502ae1f4754539a8c684e871564d9",
     "semantic_hash": ""
   },
   "src/app/api/seed/route.ts": {
-    "mtime": 1791634044.3306024,
-    "ast_hash": "ba08f069387bccecde877417e674ca96",
+    "mtime": 1793293895.6956403,
+    "ast_hash": "9cf7b4913902e78b8e694d7f220eea84",
     "semantic_hash": ""
   },
   "src/app/api/services/route.ts": {
@@ -165,8 +165,8 @@
     "semantic_hash": ""
   },
   "src/app/page.tsx": {
-    "mtime": 1792844314.2171237,
-    "ast_hash": "b5dfa82dcc1c13519527ba299788b68f",
+    "mtime": 1794292146.6767354,
+    "ast_hash": "abb274e4ad3030c5ecf45b8e04081989",
     "semantic_hash": ""
   },
   "src/app/register/page.tsx": {
@@ -175,8 +175,8 @@
     "semantic_hash": ""
   },
   "src/components/Footer.tsx": {
-    "mtime": 1792753652.9765873,
-    "ast_hash": "a2b29877257df3d036ba0c3b3775ba59",
+    "mtime": 1794312159.232676,
+    "ast_hash": "dd93664bc227363b33d9217c05afd1a8",
     "semantic_hash": ""
   },
   "src/components/Navbar.tsx": {
@@ -255,8 +255,8 @@
     "semantic_hash": ""
   },
   "src/lib/auth.ts": {
-    "mtime": 1791636045.225615,
-    "ast_hash": "90944a8ef872e84ba15243cb8a90d7e0",
+    "mtime": 1793293895.9639351,
+    "ast_hash": "3a4ac1fd2c02f51cd00ef8a2fc22c0b1",
     "semantic_hash": ""
   },
   "src/lib/db.ts": {
@@ -545,18 +545,18 @@
     "semantic_hash": ""
   },
   "src/lib/rate-limit.ts": {
-    "mtime": 1791635120.2732866,
-    "ast_hash": "a91d57788fe5d1b86bfd8e92201a4851",
+    "mtime": 1793293563.9161417,
+    "ast_hash": "989172d492247cd5b1ba29e76dd20e12",
     "semantic_hash": ""
   },
   "src/app/robots.ts": {
-    "mtime": 1791635531.542376,
-    "ast_hash": "025cf00cffbdeb8d37514840489274c6",
+    "mtime": 1793293895.8216457,
+    "ast_hash": "c16fa35d9b98f34b7214e1b8d843f4a5",
     "semantic_hash": ""
   },
   "src/app/sitemap.ts": {
-    "mtime": 1791635538.5824406,
-    "ast_hash": "96999ccb7f75ec4b2b8d3441fab8dde0",
+    "mtime": 1793293639.198184,
+    "ast_hash": "e92990948e9bc5d49e3dc40e9e6b5115",
     "semantic_hash": ""
   },
   "src/app/api/products/paypal/capture/route.ts": {
@@ -570,13 +570,13 @@
     "semantic_hash": ""
   },
   "src/app/products/page.tsx": {
-    "mtime": 1792844267.6711614,
-    "ast_hash": "ae5f732f4c3edf9df942d01cf9ba428c",
+    "mtime": 1794292146.7987256,
+    "ast_hash": "9bee4e324f161b333ae60a9ff7d4645f",
     "semantic_hash": ""
   },
   "src/lib/products.ts": {
-    "mtime": 1792844168.4270995,
-    "ast_hash": "dac24c6d77cf6207c48c0a1d5737c85b",
+    "mtime": 1794292146.9720595,
+    "ast_hash": "8188ada2e189e9f6fb0fe62ef4be7923",
     "semantic_hash": ""
   },
   "src/app/about/page.tsx": {
@@ -637,6 +637,31 @@
   "public/logo-dark.png": {
     "mtime": 1792750455.626,
     "ast_hash": "71eff308753a5663b2509a3fedfd76c7",
+    "semantic_hash": ""
+  },
+  "src/app/ai-solutions/AISolutionsClient.tsx": {
+    "mtime": 1793292920.5972931,
+    "ast_hash": "161dceb7d853c4ad584cb1fd52f0e15a",
+    "semantic_hash": ""
+  },
+  "AGENTS.md": {
+    "mtime": 1792844955.9436774,
+    "ast_hash": "c98dbebb744eadc1acc4b9f58bfe0f42",
+    "semantic_hash": ""
+  },
+  "src/app/privacy/page.tsx": {
+    "mtime": 1794312074.0549145,
+    "ast_hash": "2fd51eb19faec3496340a6b7566c9441",
+    "semantic_hash": ""
+  },
+  "src/app/products/sdm-privacy/page.tsx": {
+    "mtime": 1794332344.4115732,
+    "ast_hash": "a0a06bf8cb1b8d73d39cf174109d7984",
+    "semantic_hash": ""
+  },
+  "src/app/terms/page.tsx": {
+    "mtime": 1794312074.1916842,
+    "ast_hash": "b4bb7d201ee347a147c8872d925a0250",
     "semantic_hash": ""
   }
 }

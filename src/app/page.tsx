@@ -175,12 +175,12 @@ export default function Home() {
                         {isSDM ? (
                           <>
                             <div>
-                              <span className="text-[10px] font-bold text-amber-400 uppercase tracking-wider block">Trial Model</span>
-                              <span className="text-sm font-extrabold text-white">14-Day Free Trial</span>
+                              <span className="text-[10px] font-bold text-amber-400 uppercase tracking-wider block">Access</span>
+                              <span className="text-sm font-extrabold text-amber-400">100% Free Edition</span>
                             </div>
                             <div className="text-right">
-                              <span className="text-[10px] text-slate-400 block">Upgrade</span>
-                              <span className="text-xs font-mono font-bold text-amber-300">$19.99 Pro</span>
+                              <span className="text-[10px] text-slate-400 block">License</span>
+                              <span className="text-xs font-mono font-bold text-slate-300">Unrestricted</span>
                             </div>
                           </>
                         ) : isTradeboard ? (
@@ -223,20 +223,13 @@ export default function Home() {
                     {/* 6. Card Action Buttons (Uniform 40px Height Across All Cards) */}
                     <div className="pt-4 mt-5 border-t border-white/10 flex items-center gap-2 h-14">
                       {isSDM ? (
-                        <>
-                          <Link
-                            href="/products"
-                            className="flex-1 h-10 px-3 rounded-xl font-bold text-xs bg-amber-500/15 hover:bg-amber-500/25 border border-amber-500/30 text-amber-300 flex items-center justify-center gap-1.5 transition-all text-center"
-                          >
-                            <FiDownload size={13} /> Free Trial
-                          </Link>
-                          <Link
-                            href="/products"
-                            className="h-10 px-3.5 rounded-xl font-bold text-xs bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 flex items-center justify-center gap-1 hover:brightness-110 shadow-md shadow-amber-500/20 transition-all shrink-0"
-                          >
-                            <FiKey size={13} /> Buy Pro
-                          </Link>
-                        </>
+                        <a
+                          href={product.downloadUrl}
+                          download={product.installerFileName}
+                          className="w-full h-10 px-3 rounded-xl font-bold text-xs bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 flex items-center justify-center gap-1.5 hover:brightness-110 shadow-md shadow-amber-500/20 transition-all text-center cursor-pointer"
+                        >
+                          <FiDownload size={14} /> Download Free (.exe)
+                        </a>
                       ) : isTradeboard ? (
                         <>
                           <a

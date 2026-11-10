@@ -45,33 +45,33 @@ export const SOFTWARE_PRODUCTS: SoftwareProduct[] = [
     version: "v1.0.0 (Official Release)",
     category: "Network & Media Acceleration",
     platform: "Windows 10 / 11 (64-bit)",
-    usdPrice: 19.99,
-    inrPrice: 999,
+    usdPrice: 0,
+    inrPrice: 0,
     installerFileName: "SDM_Setup_v1.0.exe",
     downloadUrl: "/downloads/SDM_Setup_v1.0.exe",
-    badge: "Free 14-Day Trial Available",
+    badge: "100% Free & Open",
     isComingSoonBeta: false,
     rating: 4.9,
     downloadsCount: "Official v1.0",
     features: [
-      "14-Day Full-Featured Evaluation Trial included automatically on install — zero credit card or registration required",
-      "Up to 500% acceleration via 32 parallel socket chunk streams with dynamic load rebalancing",
-      "Universal In-Page Video Grabber for YouTube, X (Twitter), Reddit, TikTok, Facebook & Vimeo",
+      "100% Free & Unrestricted Edition — Zero license keys, payment, or credit card required",
+      "Up to 500% acceleration via 32-64 parallel socket chunk streams with dynamic load rebalancing",
+      "Universal In-Page Video Grabber for YouTube, X (Twitter), Reddit, TikTok, Facebook, Vimeo & all HTML5 video sites",
       "Integrated FFmpeg single-file muxer for automatic 4K/8K audio+video stream merge",
       "Manifest V3 browser extensions for Chrome, Edge, Brave, Arc & Firefox with floating capture button",
       "Real-time socket array visualizer & live waveform throughput oscilloscope",
       "Byte-level sparse disk allocation with instant pause/resume checkpoints (.sdm.json)",
-      "Obsidian Cyber-Glass UI with hardware-bound cryptographic activation & anti-tamper DRM"
+      "Obsidian Cyber-Glass UI with unlimited lifetime access and zero paywalls"
     ],
     specs: [
-      { label: "Evaluation", value: "14-Day Full Free Trial" },
+      { label: "License Model", value: "100% Free (Unlimited Lifetime)" },
+      { label: "Access", value: "Zero Registration Required" },
       { label: "OS Support", value: "Windows 10/11 (64-bit)" },
       { label: "Installer Type", value: "Self-Contained Setup (.exe)" },
       { label: "Package Size", value: "133.15 MB" },
-      { label: "Engine Core", value: "Bundled Node.js + Tray Daemon" },
-      { label: "License Model", value: "14-Day Trial Included (Lifetime Pro Upgrade)" }
+      { label: "Engine Core", value: "Bundled Node.js + Tray Daemon" }
     ],
-    licensePrefix: "SDM-PRO"
+    licensePrefix: "SDM-FREE"
   },
   {
     id: "tradeboard",

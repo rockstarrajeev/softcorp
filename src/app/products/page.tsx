@@ -358,10 +358,10 @@ export default function ProductsPage() {
                       {isSDM ? (
                         <div className="flex items-center gap-2">
                           <span className="text-xs font-bold text-amber-400 uppercase tracking-wider bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-md">
-                            14-Day Free Trial
+                            100% Free Edition
                           </span>
                           <span className="text-xs text-slate-400">
-                            (Pro: {displayPrice})
+                            Zero Registration Required
                           </span>
                         </div>
                       ) : isMelodrift ? (
@@ -547,7 +547,7 @@ export default function ProductsPage() {
                           <div className="text-xs text-slate-400">License & Access Model:</div>
                           <div className="text-base font-bold text-white mt-0.5">
                             {selectedProduct.id === "sdm" ? (
-                              <span className="text-amber-300">14-Day Full Free Trial Included</span>
+                              <span className="text-amber-300">100% Free & Unrestricted (Zero License Required)</span>
                             ) : selectedProduct.isLimitedTimeFree ? (
                               <span className="text-emerald-400">100% Free Showcase License</span>
                             ) : (
@@ -557,9 +557,9 @@ export default function ProductsPage() {
                         </div>
                         {selectedProduct.id === "sdm" && (
                           <div className="text-right">
-                            <div className="text-[11px] text-slate-400">Lifetime Pro:</div>
-                            <div className="text-sm font-extrabold text-cyan-400">
-                              {currency === "USD" ? `$${selectedProduct.usdPrice}` : `₹${selectedProduct.inrPrice}`}
+                            <div className="text-[11px] text-slate-400">Access:</div>
+                            <div className="text-sm font-extrabold text-amber-400">
+                              Free Forever
                             </div>
                           </div>
                         )}
@@ -569,24 +569,15 @@ export default function ProductsPage() {
 
                   {/* Pinned Action & Download Options Footer */}
                   <div className="shrink-0 px-5 sm:px-6 py-3.5 border-t border-white/10 bg-slate-950/90 backdrop-blur-md z-10">
-                    {/* SDM: 14-Day Free Trial EXE + Buy Pro */}
+                    {/* SDM: 100% Free Download (.exe) */}
                     {selectedProduct.id === "sdm" && (
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <a
-                          href={selectedProduct.downloadUrl}
-                          download={selectedProduct.installerFileName}
-                          className="py-2.5 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 text-slate-950 flex items-center justify-center gap-2 hover:brightness-110 shadow-lg shadow-amber-500/25 transition-all cursor-pointer text-center"
-                        >
-                          <FiDownload size={16} /> Download 14-Day Trial (.exe)
-                        </a>
-                        <button
-                          type="button"
-                          onClick={startCheckout}
-                          className="py-2.5 px-4 rounded-xl font-bold text-sm bg-cyan-500 hover:bg-cyan-400 text-slate-950 flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20 transition-all cursor-pointer"
-                        >
-                          <FiKey size={16} /> Buy Lifetime Pro ({currency === "USD" ? `$${selectedProduct.usdPrice}` : `₹${selectedProduct.inrPrice}`})
-                        </button>
-                      </div>
+                      <a
+                        href={selectedProduct.downloadUrl}
+                        download={selectedProduct.installerFileName}
+                        className="w-full py-2.5 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 text-slate-950 flex items-center justify-center gap-2 hover:brightness-110 shadow-lg shadow-amber-500/25 transition-all cursor-pointer text-center"
+                      >
+                        <FiDownload size={16} /> Download Free Installer (.exe) — v1.0
+                      </a>
                     )}
 
                     {/* Melodrift: Official Website + Microsoft Store + Google Play */}

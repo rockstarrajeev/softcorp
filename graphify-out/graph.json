@@ -755,7 +755,7 @@
       "source_file": "src/app/admin/page.tsx",
       "source_location": "L1",
       "id": "admin_page",
-      "community": 4,
+      "community": 0,
       "norm_label": "page.tsx"
     },
     {
@@ -764,8 +764,89 @@
       "source_file": "src/app/admin/page.tsx",
       "source_location": "L6",
       "id": "admin_page_admindashboard",
-      "community": 4,
+      "community": 0,
       "norm_label": "admindashboard()"
+    },
+    {
+      "label": "AISolutionsClient.tsx",
+      "file_type": "code",
+      "source_file": "src/app/ai-solutions/AISolutionsClient.tsx",
+      "source_location": "L1",
+      "id": "ai_solutions_aisolutionsclient",
+      "community": 9,
+      "norm_label": "aisolutionsclient.tsx"
+    },
+    {
+      "label": "PipelineStep",
+      "file_type": "code",
+      "source_file": "src/app/ai-solutions/AISolutionsClient.tsx",
+      "source_location": "L32",
+      "id": "ai_solutions_aisolutionsclient_pipelinestep",
+      "community": 9,
+      "norm_label": "pipelinestep"
+    },
+    {
+      "label": "PipelineWorkflow",
+      "file_type": "code",
+      "source_file": "src/app/ai-solutions/AISolutionsClient.tsx",
+      "source_location": "L41",
+      "id": "ai_solutions_aisolutionsclient_pipelineworkflow",
+      "community": 9,
+      "norm_label": "pipelineworkflow"
+    },
+    {
+      "label": "PIPELINE_WORKFLOWS",
+      "file_type": "code",
+      "source_file": "src/app/ai-solutions/AISolutionsClient.tsx",
+      "source_location": "L53",
+      "id": "ai_solutions_aisolutionsclient_pipeline_workflows",
+      "community": 9,
+      "norm_label": "pipeline_workflows"
+    },
+    {
+      "label": "ENTERPRISE_CAPABILITIES",
+      "file_type": "code",
+      "source_file": "src/app/ai-solutions/AISolutionsClient.tsx",
+      "source_location": "L233",
+      "id": "ai_solutions_aisolutionsclient_enterprise_capabilities",
+      "community": 9,
+      "norm_label": "enterprise_capabilities"
+    },
+    {
+      "label": "TECH_ECOSYSTEM",
+      "file_type": "code",
+      "source_file": "src/app/ai-solutions/AISolutionsClient.tsx",
+      "source_location": "L351",
+      "id": "ai_solutions_aisolutionsclient_tech_ecosystem",
+      "community": 9,
+      "norm_label": "tech_ecosystem"
+    },
+    {
+      "label": "CASE_STUDIES",
+      "file_type": "code",
+      "source_file": "src/app/ai-solutions/AISolutionsClient.tsx",
+      "source_location": "L375",
+      "id": "ai_solutions_aisolutionsclient_case_studies",
+      "community": 9,
+      "norm_label": "case_studies"
+    },
+    {
+      "label": "FAQS",
+      "file_type": "code",
+      "source_file": "src/app/ai-solutions/AISolutionsClient.tsx",
+      "source_location": "L400",
+      "id": "ai_solutions_aisolutionsclient_faqs",
+      "community": 9,
+      "norm_label": "faqs"
+    },
+    {
+      "label": "AISolutionsClient()",
+      "file_type": "code",
+      "source_file": "src/app/ai-solutions/AISolutionsClient.tsx",
+      "source_location": "L433",
+      "id": "ai_solutions_aisolutionsclient_aisolutionsclient",
+      "community": 9,
+      "norm_label": "aisolutionsclient()"
     },
     {
       "label": "page.tsx",
@@ -773,25 +854,34 @@
       "source_file": "src/app/ai-solutions/page.tsx",
       "source_location": "L1",
       "id": "ai_solutions_page",
-      "community": 63,
+      "community": 9,
       "norm_label": "page.tsx"
     },
     {
-      "label": "aiCategories",
+      "label": "metadata",
       "file_type": "code",
       "source_file": "src/app/ai-solutions/page.tsx",
-      "source_location": "L9",
-      "id": "ai_solutions_page_aicategories",
-      "community": 63,
-      "norm_label": "aicategories"
+      "source_location": "L4",
+      "id": "ai_solutions_page_metadata",
+      "community": 9,
+      "norm_label": "metadata"
+    },
+    {
+      "label": "jsonLd",
+      "file_type": "code",
+      "source_file": "src/app/ai-solutions/page.tsx",
+      "source_location": "L46",
+      "id": "ai_solutions_page_jsonld",
+      "community": 9,
+      "norm_label": "jsonld"
     },
     {
       "label": "AISolutionsPage()",
       "file_type": "code",
       "source_file": "src/app/ai-solutions/page.tsx",
-      "source_location": "L13",
+      "source_location": "L174",
       "id": "ai_solutions_page_aisolutionspage",
-      "community": 63,
+      "community": 9,
       "norm_label": "aisolutionspage()"
     },
     {
@@ -1007,16 +1097,25 @@
       "source_file": "src/app/api/seed/route.ts",
       "source_location": "L1",
       "id": "seed_route",
-      "community": 0,
+      "community": 30,
       "norm_label": "route.ts"
+    },
+    {
+      "label": "safeCompare()",
+      "file_type": "code",
+      "source_file": "src/app/api/seed/route.ts",
+      "source_location": "L6",
+      "id": "seed_route_safecompare",
+      "community": 30,
+      "norm_label": "safecompare()"
     },
     {
       "label": "GET()",
       "file_type": "code",
       "source_file": "src/app/api/seed/route.ts",
-      "source_location": "L7",
+      "source_location": "L15",
       "id": "seed_route_get",
-      "community": 0,
+      "community": 30,
       "norm_label": "get()"
     },
     {
@@ -1367,7 +1466,7 @@
       "source_file": "src/app/dashboard/page.tsx",
       "source_location": "L1",
       "id": "dashboard_page",
-      "community": 5,
+      "community": 0,
       "norm_label": "page.tsx"
     },
     {
@@ -1376,7 +1475,7 @@
       "source_file": "src/app/dashboard/page.tsx",
       "source_location": "L6",
       "id": "dashboard_page_clientdashboard",
-      "community": 5,
+      "community": 0,
       "norm_label": "clientdashboard()"
     },
     {
@@ -1464,10 +1563,28 @@
       "label": "Home()",
       "file_type": "code",
       "source_file": "src/app/page.tsx",
-      "source_location": "L23",
+      "source_location": "L29",
       "id": "app_page_home",
       "community": 63,
       "norm_label": "home()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "src/app/privacy/page.tsx",
+      "source_location": "L1",
+      "id": "privacy_page",
+      "community": 63,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "PrivacyPolicyPage()",
+      "file_type": "code",
+      "source_file": "src/app/privacy/page.tsx",
+      "source_location": "L7",
+      "id": "privacy_page_privacypolicypage",
+      "community": 63,
+      "norm_label": "privacypolicypage()"
     },
     {
       "label": "page.tsx",
@@ -1500,10 +1617,28 @@
       "label": "ProductsPage()",
       "file_type": "code",
       "source_file": "src/app/products/page.tsx",
-      "source_location": "L25",
+      "source_location": "L33",
       "id": "products_page_productspage",
       "community": 0,
       "norm_label": "productspage()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "src/app/products/sdm-privacy/page.tsx",
+      "source_location": "L1",
+      "id": "sdm_privacy_page",
+      "community": 63,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "SDMPrivacyPage()",
+      "file_type": "code",
+      "source_file": "src/app/products/sdm-privacy/page.tsx",
+      "source_location": "L7",
+      "id": "sdm_privacy_page_sdmprivacypage",
+      "community": 63,
+      "norm_label": "sdmprivacypage()"
     },
     {
       "label": "page.tsx",
@@ -1547,7 +1682,7 @@
       "source_file": "src/app/services/page.tsx",
       "source_location": "L1",
       "id": "services_page",
-      "community": 63,
+      "community": 9,
       "norm_label": "page.tsx"
     },
     {
@@ -1556,7 +1691,7 @@
       "source_file": "src/app/services/page.tsx",
       "source_location": "L9",
       "id": "services_page_servicespage",
-      "community": 63,
+      "community": 9,
       "norm_label": "servicespage()"
     },
     {
@@ -1576,6 +1711,24 @@
       "id": "app_sitemap_sitemap",
       "community": 98,
       "norm_label": "sitemap()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "src/app/terms/page.tsx",
+      "source_location": "L1",
+      "id": "terms_page",
+      "community": 63,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "TermsOfServicePage()",
+      "file_type": "code",
+      "source_file": "src/app/terms/page.tsx",
+      "source_location": "L7",
+      "id": "terms_page_termsofservicepage",
+      "community": 63,
+      "norm_label": "termsofservicepage()"
     },
     {
       "label": "Footer.tsx",
@@ -1790,7 +1943,7 @@
       "source_file": "src/components/sections/AISolutions.tsx",
       "source_location": "L1",
       "id": "sections_aisolutions",
-      "community": 63,
+      "community": 9,
       "norm_label": "aisolutions.tsx"
     },
     {
@@ -1799,7 +1952,7 @@
       "source_file": "src/components/sections/AISolutions.tsx",
       "source_location": "L10",
       "id": "sections_aisolutions_aicategories",
-      "community": 63,
+      "community": 9,
       "norm_label": "aicategories"
     },
     {
@@ -1808,7 +1961,7 @@
       "source_file": "src/components/sections/AISolutions.tsx",
       "source_location": "L14",
       "id": "sections_aisolutions_interactiveworkflows",
-      "community": 63,
+      "community": 9,
       "norm_label": "interactiveworkflows"
     },
     {
@@ -1817,7 +1970,7 @@
       "source_file": "src/components/sections/AISolutions.tsx",
       "source_location": "L53",
       "id": "sections_aisolutions_aisolutions",
-      "community": 63,
+      "community": 9,
       "norm_label": "aisolutions()"
     },
     {
@@ -1961,7 +2114,7 @@
       "source_file": "src/components/sections/ROIQuickEstimator.tsx",
       "source_location": "L1",
       "id": "sections_roiquickestimator",
-      "community": 63,
+      "community": 9,
       "norm_label": "roiquickestimator.tsx"
     },
     {
@@ -1970,7 +2123,7 @@
       "source_file": "src/components/sections/ROIQuickEstimator.tsx",
       "source_location": "L9",
       "id": "sections_roiquickestimator_formatnumber",
-      "community": 63,
+      "community": 9,
       "norm_label": "formatnumber()"
     },
     {
@@ -1979,7 +2132,7 @@
       "source_file": "src/components/sections/ROIQuickEstimator.tsx",
       "source_location": "L13",
       "id": "sections_roiquickestimator_roiquickestimator",
-      "community": 63,
+      "community": 9,
       "norm_label": "roiquickestimator()"
     },
     {
@@ -1988,7 +2141,7 @@
       "source_file": "src/components/sections/Services.tsx",
       "source_location": "L1",
       "id": "sections_services",
-      "community": 63,
+      "community": 9,
       "norm_label": "services.tsx"
     },
     {
@@ -1997,7 +2150,7 @@
       "source_file": "src/components/sections/Services.tsx",
       "source_location": "L23",
       "id": "sections_services_services",
-      "community": 63,
+      "community": 9,
       "norm_label": "services()"
     },
     {
@@ -2184,7 +2337,7 @@
       "label": "SOFTWARE_PRODUCTS",
       "file_type": "code",
       "source_file": "src/lib/products.ts",
-      "source_location": "L32",
+      "source_location": "L34",
       "id": "lib_products_software_products",
       "community": 0,
       "norm_label": "software_products"
@@ -2193,7 +2346,7 @@
       "label": "generateProductLicense()",
       "file_type": "code",
       "source_file": "src/lib/products.ts",
-      "source_location": "L178",
+      "source_location": "L205",
       "id": "lib_products_generateproductlicense",
       "community": 0,
       "norm_label": "generateproductlicense()"
@@ -2229,7 +2382,7 @@
       "label": "checkRateLimit()",
       "file_type": "code",
       "source_file": "src/lib/rate-limit.ts",
-      "source_location": "L31",
+      "source_location": "L32",
       "id": "lib_rate_limit_checkratelimit",
       "community": 0,
       "norm_label": "checkratelimit()"
@@ -2238,7 +2391,7 @@
       "label": "getClientIp()",
       "file_type": "code",
       "source_file": "src/lib/rate-limit.ts",
-      "source_location": "L58",
+      "source_location": "L76",
       "id": "lib_rate_limit_getclientip",
       "community": 0,
       "norm_label": "getclientip()"
@@ -2249,7 +2402,7 @@
       "source_file": "src/utils/serviceData.ts",
       "source_location": "L1",
       "id": "utils_servicedata",
-      "community": 63,
+      "community": 9,
       "norm_label": "servicedata.ts"
     },
     {
@@ -2258,7 +2411,7 @@
       "source_file": "src/utils/serviceData.ts",
       "source_location": "L13",
       "id": "utils_servicedata_udyamserviceitem",
-      "community": 63,
+      "community": 9,
       "norm_label": "udyamserviceitem"
     },
     {
@@ -2267,7 +2420,7 @@
       "source_file": "src/utils/serviceData.ts",
       "source_location": "L38",
       "id": "utils_servicedata_udyamserviceslist",
-      "community": 63,
+      "community": 9,
       "norm_label": "udyamserviceslist"
     },
     {
@@ -2276,7 +2429,7 @@
       "source_file": "src/utils/serviceData.ts",
       "source_location": "L346",
       "id": "utils_servicedata_servicecategories",
-      "community": 63,
+      "community": 9,
       "norm_label": "servicecategories"
     },
     {
@@ -2494,6 +2647,24 @@
       "id": "rules_no_browser_directives_strict_prohibition_of_browser_tools",
       "community": 27,
       "norm_label": "directives: strict prohibition of browser tools"
+    },
+    {
+      "label": "AGENTS.md",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L1",
+      "id": "agents",
+      "community": 31,
+      "norm_label": "agents.md"
+    },
+    {
+      "label": "This is NOT the Next.js you know",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L3",
+      "id": "agents_this_is_not_the_next_js_you_know",
+      "community": 31,
+      "norm_label": "this is not the next.js you know"
     },
     {
       "label": "DEPLOYMENT_GUIDE.md",
@@ -2962,6 +3133,15 @@
       "id": "nextauth_route_get_post",
       "community": 23,
       "norm_label": "{ get, post }"
+    },
+    {
+      "label": "aiCategories",
+      "file_type": "code",
+      "source_file": "src/app/ai-solutions/page.tsx",
+      "source_location": "L9",
+      "community": 9,
+      "norm_label": "aicategories",
+      "id": "ai_solutions_page_aicategories"
     },
     {
       "label": "@types/nodemailer",
@@ -4046,6 +4226,108 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/app/ai-solutions/AISolutionsClient.tsx",
+      "source_location": "L433",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_solutions_aisolutionsclient",
+      "target": "ai_solutions_aisolutionsclient_aisolutionsclient"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/ai-solutions/AISolutionsClient.tsx",
+      "source_location": "L375",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_solutions_aisolutionsclient",
+      "target": "ai_solutions_aisolutionsclient_case_studies"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/ai-solutions/AISolutionsClient.tsx",
+      "source_location": "L233",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_solutions_aisolutionsclient",
+      "target": "ai_solutions_aisolutionsclient_enterprise_capabilities"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/ai-solutions/AISolutionsClient.tsx",
+      "source_location": "L400",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_solutions_aisolutionsclient",
+      "target": "ai_solutions_aisolutionsclient_faqs"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/ai-solutions/AISolutionsClient.tsx",
+      "source_location": "L53",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_solutions_aisolutionsclient",
+      "target": "ai_solutions_aisolutionsclient_pipeline_workflows"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/ai-solutions/AISolutionsClient.tsx",
+      "source_location": "L32",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_solutions_aisolutionsclient",
+      "target": "ai_solutions_aisolutionsclient_pipelinestep"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/ai-solutions/AISolutionsClient.tsx",
+      "source_location": "L41",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_solutions_aisolutionsclient",
+      "target": "ai_solutions_aisolutionsclient_pipelineworkflow"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/ai-solutions/AISolutionsClient.tsx",
+      "source_location": "L351",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_solutions_aisolutionsclient",
+      "target": "ai_solutions_aisolutionsclient_tech_ecosystem"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/ai-solutions/AISolutionsClient.tsx",
+      "source_location": "L29",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_solutions_aisolutionsclient",
+      "target": "ui_spotlightcard"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/ai-solutions/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_solutions_page",
+      "target": "ai_solutions_aisolutionsclient"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/app/ai-solutions/page.tsx",
       "source_location": "L8",
       "weight": 1.0,
@@ -4062,6 +4344,26 @@
       "confidence_score": 1.0,
       "source": "ai_solutions_page",
       "target": "ai_solutions_page_aisolutionspage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/ai-solutions/page.tsx",
+      "source_location": "L46",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_solutions_page",
+      "target": "ai_solutions_page_jsonld"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/ai-solutions/page.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_solutions_page",
+      "target": "ai_solutions_page_metadata"
     },
     {
       "relation": "imports_from",
@@ -4800,6 +5102,27 @@
       "target": "seed_route_get"
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/seed/route.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "seed_route",
+      "target": "seed_route_safecompare"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/seed/route.ts",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "seed_route_get",
+      "target": "seed_route_safecompare"
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -5519,6 +5842,27 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/app/privacy/page.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "privacy_page",
+      "target": "privacy_page_privacypolicypage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/privacy/page.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "privacy_page",
+      "target": "ui_spotlightcard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/app/process/page.tsx",
       "source_location": "L8",
       "weight": 1.0,
@@ -5605,6 +5949,27 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/app/products/sdm-privacy/page.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "sdm_privacy_page",
+      "target": "sdm_privacy_page_sdmprivacypage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/products/sdm-privacy/page.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "sdm_privacy_page",
+      "target": "ui_spotlightcard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/app/register/page.tsx",
       "source_location": "L10",
       "weight": 1.0,
@@ -5663,6 +6028,27 @@
       "confidence_score": 1.0,
       "source": "app_sitemap",
       "target": "app_sitemap_sitemap"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/terms/page.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "terms_page",
+      "target": "terms_page_termsofservicepage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/terms/page.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "terms_page",
+      "target": "ui_spotlightcard",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6737,6 +7123,16 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents",
+      "target": "agents_this_is_not_the_next_js_you_know"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "DEPLOYMENT_GUIDE.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -7356,5 +7752,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "818d7c65437d1b25f89265ea0f39bfc3d26fd5a4"
+  "built_at_commit": "e1362c60c1577a4c9916d08b813608b97dc02ae8"
 }
