@@ -50,6 +50,31 @@ export async function PATCH(request: Request) {
             include: { user: true, service: true },
         });
 
+        // Automated status update message inserted into chat stream
+        const statusDisplay: Record<string, string> = {
+            pending: "Pending Review",
+            confirmed: "Confirmed & Scheduled",
+            in_progress: "In Progress (Active Sprint)",
+            completed: "Completed & Verified",
+            cancelled: "Cancelled",
+        };
+
+        const adminUserId = (session.user as { id?: string }).id;
+        try {
+            await prisma.chatMessage.create({
+                data: {
+                    senderId: adminUserId || order.userId,
+                    receiverId: order.userId,
+                    orderId: order.id,
+                    message: `📢 Status Update: ${order.service.name} is now marked as "${statusDisplay[status] || status}".${sanitizedNotes ? ` (Admin Note: ${sanitizedNotes})` : ""}`,
+                    senderRole: "system",
+                    isRead: false,
+                },
+            });
+        } catch (chatErr) {
+            console.error("Non-blocking chat notify error:", chatErr);
+        }
+
         return NextResponse.json({
             success: true,
             order: {

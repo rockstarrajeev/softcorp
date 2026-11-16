@@ -10,6 +10,7 @@ function CheckoutSuccessContent() {
     const searchParams = useSearchParams();
     const orderId = searchParams.get("orderId");
     const isPaypal = searchParams.get("paypal") === "true";
+    const isRazorpay = searchParams.get("razorpay") === "true";
     const paypalOrderId = searchParams.get("paypalOrderId");
     const sessionId = searchParams.get("session_id");
     const [verified, setVerified] = useState(false);
@@ -27,6 +28,9 @@ function CheckoutSuccessContent() {
                     });
                     const data = await res.json();
                     setVerified(data.success);
+                } else if (isRazorpay && orderId) {
+                    // Razorpay: payment was already verified before redirect — just confirm
+                    setVerified(true);
                 } else if (sessionId && orderId) {
                     // Verify Stripe payment
                     const res = await fetch("/api/payments/stripe/verify", {
@@ -45,7 +49,7 @@ function CheckoutSuccessContent() {
             setVerifying(false);
         }
         verify();
-    }, [isPaypal, paypalOrderId, sessionId, orderId]);
+    }, [isPaypal, isRazorpay, paypalOrderId, sessionId, orderId]);
 
     return (
         <div className="min-h-screen flex items-center justify-center px-6 py-24">

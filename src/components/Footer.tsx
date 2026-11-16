@@ -131,6 +131,18 @@ export default function Footer() {
                                     Lucknow, Uttar Pradesh - 226028, India
                                 </span>
                             </li>
+                            <li className="flex items-start gap-3">
+                                <span className="text-cyan-400 font-bold text-xs mt-0.5 shrink-0">₹</span>
+                                <a
+                                    href="https://razorpay.me/@softcorpgroup"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hover:text-cyan-300 transition-colors font-mono text-xs flex items-center gap-1"
+                                >
+                                    <span>Pay Direct:</span>
+                                    <span className="underline underline-offset-2">razorpay.me/@softcorpgroup</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>

@@ -28,6 +28,7 @@ model User {
   sessions Session[]
   orders   Order[]
   payments Payment[]
+  sentMessages ChatMessage[] @relation("SentMessages")
 }
 
 model Account {
@@ -105,6 +106,7 @@ model Order {
   user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
   service Service @relation(fields: [serviceId], references: [id])
   payment Payment?
+  chatMessages ChatMessage[]
 
   @@index([userId])
   @@index([status])
@@ -142,3 +144,24 @@ model ContactMessage {
 
   @@index([isRead, createdAt])
 }
+
+model ChatMessage {
+  id         String   @id @default(cuid())
+  senderId   String
+  receiverId String?  // Optional target user ID
+  orderId    String?  // Optional linked order ID
+  message    String
+  senderRole String   @default("client") // "client" | "admin" | "system"
+  isRead     Boolean  @default(false)
+  createdAt  DateTime @default(now())
+
+  sender     User     @relation("SentMessages", fields: [senderId], references: [id], onDelete: Cascade)
+  order      Order?   @relation(fields: [orderId], references: [id], onDelete: SetNull)
+
+  @@index([senderId])
+  @@index([receiverId])
+  @@index([orderId])
+  @@index([createdAt])
+  @@index([isRead])
+}
+

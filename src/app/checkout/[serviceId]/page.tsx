@@ -15,8 +15,14 @@ export default async function CheckoutPage({
 
     const { serviceId } = await params;
 
-    const service = await prisma.service.findUnique({
-        where: { id: serviceId },
+    const service = await prisma.service.findFirst({
+        where: {
+            OR: [
+                { id: serviceId },
+                { slug: serviceId },
+            ],
+            isActive: true,
+        },
     });
 
     if (!service || !service.isActive) {
@@ -26,6 +32,7 @@ export default async function CheckoutPage({
     const gateways = {
         paypal: !!process.env.PAYPAL_CLIENT_ID && !!process.env.PAYPAL_CLIENT_SECRET,
         stripe: !!process.env.STRIPE_SECRET_KEY,
+        razorpay: !!process.env.RAZORPAY_KEY_ID && !!process.env.RAZORPAY_KEY_SECRET,
     };
 
     return (

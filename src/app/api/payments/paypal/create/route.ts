@@ -29,8 +29,14 @@ export async function POST(request: Request) {
             ? requirements.trim().slice(0, 3000)
             : null;
 
-        const service = await prisma.service.findUnique({
-            where: { id: serviceId },
+        const service = await prisma.service.findFirst({
+            where: {
+                OR: [
+                    { id: serviceId },
+                    { slug: serviceId },
+                ],
+                isActive: true,
+            },
         });
         if (!service || !service.isActive) {
             return NextResponse.json({ error: "Service not found" }, { status: 404 });

@@ -167,7 +167,65 @@
     - In `src/lib/db.ts`, configured SQLite WAL mode (`PRAGMA journal_mode = WAL;`), `PRAGMA synchronous = NORMAL;`, 64MB memory cache (`cache_size = -64000`), and a 5,000ms `busy_timeout` to eliminate database contention and deadlocks under concurrent multi-user load.
   - **CSP Hardening:**
     - In `next.config.ts`, restricted `'unsafe-eval'` to development mode only; production CSP strictly prohibits dynamic code evaluation.
-  - **Deployment Script Refinement:**
-    - Streamlined `deploy.sh` for Ubuntu OCI VM with clean sequential step logging, swap-aware compilation (`NODE_OPTIONS="--max-old-space-size=2048"`), automated Prisma generation, schema sync, database seeding, and zero-downtime PM2 reload.
+  - **Client & Admin Portal Login Enhancements & Unified Live Chat System (November 2026):**
+  - **Portal Login Experience (`src/app/login/page.tsx`):**
+    - Segmented switcher toggle between **Client Portal** (`/dashboard`) and **Admin Portal** (`/admin`) with contextual notices and security indicators (`FiShield` vs `FiUser`).
+    - Show/hide password interactive eye toggle (`FiEye` / `FiEyeOff`).
+    - "Remember this device" session checkbox.
+    - Direct support & credential recovery modal with registered office address, email (`support@wesoftcorp.com`), and direct WhatsApp/Phone (`+91 91703 33177`).
+    - Quick Demo Credentials Fill assistant for fast evaluation (`john@test.com` and `admin@wesoftcorp.com`).
+  - **Real-Time Database Schema (`prisma/schema.prisma`):**
+    - Added `ChatMessage` model with sender/receiver associations, order references, role tagging (`client` | `admin` | `system`), read receipts, and compound indexes.
+    - Synchronized schema to SQLite (`prisma/dev.db`) with WAL mode.
+  - **Chat API Infrastructure (`src/app/api/chat` & `src/app/api/chat/read`):**
+    - High-throughput sliding-window rate limiting (30 req / min).
+    - Bi-directional messaging: clients query order progress or general questions; admins respond and inspect client portfolios.
+    - Automated system status announcements whenever an order status is modified via `api/admin/orders`.
+  - **Client Portal (`src/app/dashboard/ClientDashboardClient.tsx`):**
+    - Added dedicated **"Messages & Support"** tab with real-time polling every 4 seconds.
+    - Conversation focus selector: switch between General Inquiry and specific client orders.
+    - Live order status telemetry card with animated milestone progress bar (25% → 50% → 75% → 100%) and SLA tracking.
+    - Quick prompt chips for instant status requests, staging links, and reviews.
+    - Added **"💬 Live Chat & Status"** quick action on every order card in Overview and Orders tabs.
+    - Added **"📄 View Official Invoice / Receipt"** modal generating printable Govt. MSME tax invoices with Section 15 MSMED Act compliance, GST breakdown, and print/PDF support.
+  - **Admin Operations Portal (`src/app/admin/AdminDashboardClient.tsx`):**
+    - Added dedicated **"Client Chat"** split-pane management center:
+      - Left pane: Client conversation roster with unread badges, latest message preview, and search filter.
+      - Center pane: Real-time chat stream with quick response templates and instant composer.
+      - Right pane: Client profile + associated orders list + **One-Click Order Status Changer** (`pending` → `confirmed` → `in_progress` → `completed` → `cancelled`) that instantly updates DB and announces changes in chat.
+    - Filterable orders tab with status pills and direct "Chat with Client" buttons.
+  - **Verification:**
+    - TypeScript compile passed with 0 errors (`npx tsc --noEmit`).
+    - Production build compiled all 41 routes cleanly (`npm run build`).
+    - End-to-end message creation, unread counting, and status announcement verified in SQLite.
+
+## State Checkpoint
+- **Timestamp:** 2026-11-16T16:52:30+05:30
+- **Session State:** `completed`
+- **Active Task:** Client & Admin Portal Login Enhancements, Live Chat & Status Hub with Isolated Container Scroll, Razorpay Live Payment Gateway, and 20-Service Catalog Expansion.
+- **Key Files Modified:**
+  - `src/app/login/page.tsx` — Dual-portal switcher (Client vs Admin), show/hide password, demo credentials assistant, support modal.
+  - `src/app/dashboard/ClientDashboardClient.tsx` — Messages & Support tab, milestone HUD, auto-scroll container fix, printable MSME invoice modal.
+  - `src/app/admin/AdminDashboardClient.tsx` — Client Chat & Status Hub, one-click order status dropdown, auto-scroll container fix.
+  - `src/app/api/chat/route.ts` & `src/app/api/chat/read/route.ts` — Bidirectional messaging API and read receipt endpoints.
+  - `src/app/api/admin/orders/route.ts` — Order status updater with automated system chat announcements.
+  - `prisma/schema.prisma` — Added `ChatMessage` model with user & order relations.
+  - `src/utils/serviceData.ts` & `src/components/sections/Services.tsx` — 20 market-researched digital engineering services with dual INR/USD pricing.
+  - `src/app/api/payments/razorpay/` — Razorpay Standard Checkout with live credentials and HMAC-SHA256 verification.
+- **Verification Summary:**
+  - `npx tsc --noEmit`: 0 errors.
+  - `npm run build`: 41 routes compiled in Turbopack without warnings/errors.
+  - `graphify update .`: 392 nodes, 451 edges refreshed.
+- **Next Action for Next Session:**
+  - Production deployment reload on Ubuntu OCI VM (`144.24.147.231`) via `deploy.sh` or user-directed testing.
+
+
+
+
+
+
+
+
+
 
 

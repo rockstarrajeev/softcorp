@@ -938,24 +938,37 @@ export default function ProductsPage() {
                               <span className="font-mono text-sm font-bold">₹{selectedProduct.inrPrice}</span>
                             </div>
 
-                            {/* UPI QR & VPA Box */}
-                            <div className="p-3 rounded-lg bg-black/60 border border-white/10 flex items-center justify-between gap-3">
-                              <div>
-                                <div className="text-[11px] text-slate-500">Official Merchant VPA / UPI ID:</div>
-                                <div className="font-mono text-sm font-bold text-white select-all">
-                                  softcorp@wesoftcorp.com
+                            {/* Razorpay Handle & UPI QR Box */}
+                            <div className="p-3.5 rounded-xl bg-black/60 border border-emerald-500/30 flex flex-col sm:flex-row items-center justify-between gap-3">
+                              <div className="space-y-1.5 text-center sm:text-left">
+                                <div className="text-[11px] text-slate-400 font-medium">Official Razorpay Payment Handle:</div>
+                                <a
+                                  href="https://razorpay.me/@softcorpgroup"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center gap-1.5 font-mono text-xs font-bold text-cyan-400 hover:text-cyan-300 underline underline-offset-2"
+                                >
+                                  razorpay.me/@softcorpgroup
+                                </a>
+                                <div className="text-[10px] text-emerald-400">
+                                  ✓ Verified MSME: Softcorp Group (UPI, Cards, NetBanking)
                                 </div>
-                                <div className="text-[10px] text-emerald-400 mt-0.5">
-                                  Verified Business: Softcorp Group (MSME)
-                                </div>
+                                <a
+                                  href="https://razorpay.me/@softcorpgroup"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-block mt-1 py-1.5 px-3 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-[11px] transition-all shadow-md shadow-emerald-500/20"
+                                >
+                                  Open Payment Handle ↗
+                                </a>
                               </div>
-                              <div className="shrink-0 p-1.5 rounded bg-white">
+                              <div className="shrink-0 p-1.5 rounded-lg bg-white shadow-md">
                                 <img
-                                  src={`https://api.qrserver.com/v1/create-qr-code/?size=90x90&data=${encodeURIComponent(
-                                    `upi://pay?pa=softcorp@wesoftcorp.com&pn=Softcorp%20Group&am=${selectedProduct.inrPrice}&cu=INR`
+                                  src={`https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=${encodeURIComponent(
+                                    "https://razorpay.me/@softcorpgroup"
                                   )}`}
-                                  alt="UPI QR Code"
-                                  className="w-16 h-16"
+                                  alt="Razorpay Handle QR Code"
+                                  className="w-20 h-20"
                                 />
                               </div>
                             </div>

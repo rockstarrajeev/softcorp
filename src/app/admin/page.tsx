@@ -22,6 +22,7 @@ export default async function AdminDashboard() {
         messages,
         services,
         clients,
+        totalUnreadChat,
     ] = await Promise.all([
         prisma.user.count({ where: { role: "client" } }),
         prisma.order.count(),
@@ -45,6 +46,9 @@ export default async function AdminDashboard() {
             orderBy: { createdAt: "desc" },
             include: { _count: { select: { orders: true } } },
         }),
+        prisma.chatMessage.count({
+            where: { senderRole: "client", isRead: false },
+        }),
     ]);
 
     const data = {
@@ -53,12 +57,14 @@ export default async function AdminDashboard() {
             totalOrders,
             totalRevenue: totalRevenue._sum.amount || 0,
             totalMessages,
+            totalUnreadChat,
         },
-        orders: orders.map((o) => ({
+        orders: (orders as any[]).map((o) => ({
             id: o.id,
-            clientName: o.user.name || "Unknown",
-            clientEmail: o.user.email,
-            serviceName: o.service.name,
+            userId: o.userId,
+            clientName: o.user?.name || "Unknown",
+            clientEmail: o.user?.email || "",
+            serviceName: o.service?.name || "Service",
             status: o.status,
             totalAmount: o.totalAmount,
             currency: o.currency,
@@ -67,7 +73,7 @@ export default async function AdminDashboard() {
             createdAt: o.createdAt.toISOString(),
             paymentStatus: o.payment?.status || "unpaid",
         })),
-        messages: messages.map((m) => ({
+        messages: (messages as any[]).map((m) => ({
             id: m.id,
             name: m.name,
             email: m.email,
@@ -77,7 +83,7 @@ export default async function AdminDashboard() {
             isRead: m.isRead,
             createdAt: m.createdAt.toISOString(),
         })),
-        services: services.map((s) => ({
+        services: (services as any[]).map((s) => ({
             id: s.id,
             name: s.name,
             slug: s.slug,
@@ -87,12 +93,12 @@ export default async function AdminDashboard() {
             pricingModel: s.pricingModel,
             isActive: s.isActive,
         })),
-        clients: clients.map((c) => ({
+        clients: (clients as any[]).map((c) => ({
             id: c.id,
             name: c.name || "No Name",
             email: c.email,
             image: c.image,
-            ordersCount: c._count.orders,
+            ordersCount: c._count?.orders || 0,
             createdAt: c.createdAt.toISOString(),
         })),
     };

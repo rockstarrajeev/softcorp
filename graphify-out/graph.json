@@ -309,10 +309,19 @@
       "norm_label": "prisma"
     },
     {
-      "label": "react",
+      "label": "razorpay",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L26",
+      "id": "package_dependencies_razorpay",
+      "community": 1,
+      "norm_label": "razorpay"
+    },
+    {
+      "label": "react",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L27",
       "id": "package_dependencies_react",
       "community": 1,
       "norm_label": "react"
@@ -321,7 +330,7 @@
       "label": "react-dom",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L27",
+      "source_location": "L28",
       "id": "package_dependencies_react_dom",
       "community": 1,
       "norm_label": "react-dom"
@@ -330,7 +339,7 @@
       "label": "react-icons",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L28",
+      "source_location": "L29",
       "id": "package_dependencies_react_icons",
       "community": 1,
       "norm_label": "react-icons"
@@ -339,7 +348,7 @@
       "label": "recharts",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L29",
+      "source_location": "L30",
       "id": "package_dependencies_recharts",
       "community": 1,
       "norm_label": "recharts"
@@ -348,7 +357,7 @@
       "label": "stripe",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L30",
+      "source_location": "L31",
       "id": "package_dependencies_stripe",
       "community": 1,
       "norm_label": "stripe"
@@ -357,7 +366,7 @@
       "label": "zod",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L31",
+      "source_location": "L32",
       "id": "package_dependencies_zod",
       "community": 1,
       "norm_label": "zod"
@@ -366,7 +375,7 @@
       "label": "devDependencies",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L33",
+      "source_location": "L34",
       "id": "package_devdependencies",
       "community": 2,
       "norm_label": "devdependencies"
@@ -375,7 +384,7 @@
       "label": "@tailwindcss/postcss",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L34",
+      "source_location": "L35",
       "id": "package_devdependencies_tailwindcss_postcss",
       "community": 2,
       "norm_label": "@tailwindcss/postcss"
@@ -384,7 +393,7 @@
       "label": "@types/node",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L35",
+      "source_location": "L36",
       "id": "package_devdependencies_types_node",
       "community": 2,
       "norm_label": "@types/node"
@@ -393,7 +402,7 @@
       "label": "@types/react",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L36",
+      "source_location": "L37",
       "id": "package_devdependencies_types_react",
       "community": 2,
       "norm_label": "@types/react"
@@ -402,7 +411,7 @@
       "label": "@types/react-dom",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L37",
+      "source_location": "L38",
       "id": "package_devdependencies_types_react_dom",
       "community": 2,
       "norm_label": "@types/react-dom"
@@ -411,7 +420,7 @@
       "label": "dotenv",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L38",
+      "source_location": "L39",
       "id": "package_devdependencies_dotenv",
       "community": 2,
       "norm_label": "dotenv"
@@ -420,7 +429,7 @@
       "label": "eslint",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L39",
+      "source_location": "L40",
       "id": "package_devdependencies_eslint",
       "community": 2,
       "norm_label": "eslint"
@@ -429,7 +438,7 @@
       "label": "eslint-config-next",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L40",
+      "source_location": "L41",
       "id": "package_devdependencies_eslint_config_next",
       "community": 2,
       "norm_label": "eslint-config-next"
@@ -438,7 +447,7 @@
       "label": "minimatch",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L41",
+      "source_location": "L42",
       "id": "package_devdependencies_minimatch",
       "community": 2,
       "norm_label": "minimatch"
@@ -447,7 +456,7 @@
       "label": "tailwindcss",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L42",
+      "source_location": "L43",
       "id": "package_devdependencies_tailwindcss",
       "community": 2,
       "norm_label": "tailwindcss"
@@ -456,7 +465,7 @@
       "label": "typescript",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L43",
+      "source_location": "L44",
       "id": "package_devdependencies_typescript",
       "community": 2,
       "norm_label": "typescript"
@@ -465,7 +474,7 @@
       "label": "prisma",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L45",
+      "source_location": "L46",
       "id": "package_prisma",
       "community": 2,
       "norm_label": "prisma"
@@ -474,7 +483,7 @@
       "label": "seed",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L46",
+      "source_location": "L47",
       "id": "package_prisma_seed",
       "community": 2,
       "norm_label": "seed"
@@ -483,7 +492,7 @@
       "label": "overrides",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L48",
+      "source_location": "L49",
       "id": "package_overrides",
       "community": 2,
       "norm_label": "overrides"
@@ -492,7 +501,7 @@
       "label": "braces",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L49",
+      "source_location": "L50",
       "id": "package_overrides_braces",
       "community": 2,
       "norm_label": "braces"
@@ -575,7 +584,7 @@
       "source_file": "src/app/about/page.tsx",
       "source_location": "L1",
       "id": "about_page",
-      "community": 63,
+      "community": 33,
       "norm_label": "page.tsx"
     },
     {
@@ -584,7 +593,7 @@
       "source_file": "src/app/about/page.tsx",
       "source_location": "L8",
       "id": "about_page_aboutpage",
-      "community": 63,
+      "community": 33,
       "norm_label": "aboutpage()"
     },
     {
@@ -600,7 +609,7 @@
       "label": "OrderItem",
       "file_type": "code",
       "source_file": "src/app/admin/AdminDashboardClient.tsx",
-      "source_location": "L23",
+      "source_location": "L31",
       "id": "admin_admindashboardclient_orderitem",
       "community": 4,
       "norm_label": "orderitem"
@@ -609,7 +618,7 @@
       "label": "MessageItem",
       "file_type": "code",
       "source_file": "src/app/admin/AdminDashboardClient.tsx",
-      "source_location": "L36",
+      "source_location": "L46",
       "id": "admin_admindashboardclient_messageitem",
       "community": 4,
       "norm_label": "messageitem"
@@ -618,7 +627,7 @@
       "label": "ServiceItem",
       "file_type": "code",
       "source_file": "src/app/admin/AdminDashboardClient.tsx",
-      "source_location": "L46",
+      "source_location": "L57",
       "id": "admin_admindashboardclient_serviceitem",
       "community": 4,
       "norm_label": "serviceitem"
@@ -627,7 +636,7 @@
       "label": "ClientItem",
       "file_type": "code",
       "source_file": "src/app/admin/AdminDashboardClient.tsx",
-      "source_location": "L56",
+      "source_location": "L68",
       "id": "admin_admindashboardclient_clientitem",
       "community": 4,
       "norm_label": "clientitem"
@@ -636,16 +645,34 @@
       "label": "AdminData",
       "file_type": "code",
       "source_file": "src/app/admin/AdminDashboardClient.tsx",
-      "source_location": "L65",
+      "source_location": "L77",
       "id": "admin_admindashboardclient_admindata",
       "community": 4,
       "norm_label": "admindata"
     },
     {
+      "label": "ChatMessageItem",
+      "file_type": "code",
+      "source_file": "src/app/admin/AdminDashboardClient.tsx",
+      "source_location": "L91",
+      "id": "admin_admindashboardclient_chatmessageitem",
+      "community": 4,
+      "norm_label": "chatmessageitem"
+    },
+    {
+      "label": "ClientChatSummary",
+      "file_type": "code",
+      "source_file": "src/app/admin/AdminDashboardClient.tsx",
+      "source_location": "L108",
+      "id": "admin_admindashboardclient_clientchatsummary",
+      "community": 4,
+      "norm_label": "clientchatsummary"
+    },
+    {
       "label": "tabs",
       "file_type": "code",
       "source_file": "src/app/admin/AdminDashboardClient.tsx",
-      "source_location": "L79",
+      "source_location": "L131",
       "id": "admin_admindashboardclient_tabs",
       "community": 4,
       "norm_label": "tabs"
@@ -654,7 +681,7 @@
       "label": "statusOptions",
       "file_type": "code",
       "source_file": "src/app/admin/AdminDashboardClient.tsx",
-      "source_location": "L87",
+      "source_location": "L140",
       "id": "admin_admindashboardclient_statusoptions",
       "community": 4,
       "norm_label": "statusoptions"
@@ -663,7 +690,7 @@
       "label": "statusColors",
       "file_type": "code",
       "source_file": "src/app/admin/AdminDashboardClient.tsx",
-      "source_location": "L95",
+      "source_location": "L148",
       "id": "admin_admindashboardclient_statuscolors",
       "community": 4,
       "norm_label": "statuscolors"
@@ -672,7 +699,7 @@
       "label": "categoryLabels",
       "file_type": "code",
       "source_file": "src/app/admin/AdminDashboardClient.tsx",
-      "source_location": "L103",
+      "source_location": "L156",
       "id": "admin_admindashboardclient_categorylabels",
       "community": 4,
       "norm_label": "categorylabels"
@@ -681,7 +708,7 @@
       "label": "AdminDashboardClient()",
       "file_type": "code",
       "source_file": "src/app/admin/AdminDashboardClient.tsx",
-      "source_location": "L111",
+      "source_location": "L171",
       "id": "admin_admindashboardclient_admindashboardclient",
       "community": 4,
       "norm_label": "admindashboardclient()"
@@ -690,7 +717,7 @@
       "label": "OverviewTab()",
       "file_type": "code",
       "source_file": "src/app/admin/AdminDashboardClient.tsx",
-      "source_location": "L274",
+      "source_location": "L361",
       "id": "admin_admindashboardclient_overviewtab",
       "community": 4,
       "norm_label": "overviewtab()"
@@ -699,16 +726,25 @@
       "label": "OrdersTab()",
       "file_type": "code",
       "source_file": "src/app/admin/AdminDashboardClient.tsx",
-      "source_location": "L387",
+      "source_location": "L502",
       "id": "admin_admindashboardclient_orderstab",
       "community": 4,
       "norm_label": "orderstab()"
     },
     {
+      "label": "AdminChatTab()",
+      "file_type": "code",
+      "source_file": "src/app/admin/AdminDashboardClient.tsx",
+      "source_location": "L663",
+      "id": "admin_admindashboardclient_adminchattab",
+      "community": 4,
+      "norm_label": "adminchattab()"
+    },
+    {
       "label": "ServicesTab()",
       "file_type": "code",
       "source_file": "src/app/admin/AdminDashboardClient.tsx",
-      "source_location": "L505",
+      "source_location": "L1192",
       "id": "admin_admindashboardclient_servicestab",
       "community": 4,
       "norm_label": "servicestab()"
@@ -717,7 +753,7 @@
       "label": "MessagesTab()",
       "file_type": "code",
       "source_file": "src/app/admin/AdminDashboardClient.tsx",
-      "source_location": "L573",
+      "source_location": "L1225",
       "id": "admin_admindashboardclient_messagestab",
       "community": 4,
       "norm_label": "messagestab()"
@@ -726,7 +762,7 @@
       "label": "ClientsTab()",
       "file_type": "code",
       "source_file": "src/app/admin/AdminDashboardClient.tsx",
-      "source_location": "L675",
+      "source_location": "L1305",
       "id": "admin_admindashboardclient_clientstab",
       "community": 4,
       "norm_label": "clientstab()"
@@ -950,6 +986,51 @@
     {
       "label": "route.ts",
       "file_type": "code",
+      "source_file": "src/app/api/chat/read/route.ts",
+      "source_location": "L1",
+      "id": "read_route",
+      "community": 0,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "PATCH()",
+      "file_type": "code",
+      "source_file": "src/app/api/chat/read/route.ts",
+      "source_location": "L6",
+      "id": "read_route_patch",
+      "community": 0,
+      "norm_label": "patch()"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "src/app/api/chat/route.ts",
+      "source_location": "L1",
+      "id": "chat_route",
+      "community": 0,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "GET()",
+      "file_type": "code",
+      "source_file": "src/app/api/chat/route.ts",
+      "source_location": "L7",
+      "id": "chat_route_get",
+      "community": 0,
+      "norm_label": "get()"
+    },
+    {
+      "label": "POST()",
+      "file_type": "code",
+      "source_file": "src/app/api/chat/route.ts",
+      "source_location": "L238",
+      "id": "chat_route_post",
+      "community": 0,
+      "norm_label": "post()"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
       "source_file": "src/app/api/contact/route.ts",
       "source_location": "L1",
       "id": "contact_route",
@@ -1022,6 +1103,42 @@
     {
       "label": "route.ts",
       "file_type": "code",
+      "source_file": "src/app/api/payments/razorpay/create-order/route.ts",
+      "source_location": "L1",
+      "id": "create_order_route",
+      "community": 0,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "POST()",
+      "file_type": "code",
+      "source_file": "src/app/api/payments/razorpay/create-order/route.ts",
+      "source_location": "L10",
+      "id": "create_order_route_post",
+      "community": 0,
+      "norm_label": "post()"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "src/app/api/payments/razorpay/verify/route.ts",
+      "source_location": "L1",
+      "id": "src_app_api_payments_razorpay_verify_route_ts_verify_route",
+      "community": 0,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "POST()",
+      "file_type": "code",
+      "source_file": "src/app/api/payments/razorpay/verify/route.ts",
+      "source_location": "L10",
+      "id": "src_app_api_payments_razorpay_verify_route_ts_verify_route_post",
+      "community": 0,
+      "norm_label": "post()"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
       "source_file": "src/app/api/payments/stripe/route.ts",
       "source_location": "L1",
       "id": "stripe_route",
@@ -1042,7 +1159,7 @@
       "file_type": "code",
       "source_file": "src/app/api/payments/stripe/verify/route.ts",
       "source_location": "L1",
-      "id": "verify_route",
+      "id": "src_app_api_payments_stripe_verify_route_ts_verify_route",
       "community": 0,
       "norm_label": "route.ts"
     },
@@ -1051,7 +1168,7 @@
       "file_type": "code",
       "source_file": "src/app/api/payments/stripe/verify/route.ts",
       "source_location": "L7",
-      "id": "verify_route_post",
+      "id": "src_app_api_payments_stripe_verify_route_ts_verify_route_post",
       "community": 0,
       "norm_label": "post()"
     },
@@ -1061,7 +1178,7 @@
       "source_file": "src/app/api/products/paypal/capture/route.ts",
       "source_location": "L1",
       "id": "src_app_api_products_paypal_capture_route_ts_capture_route",
-      "community": 0,
+      "community": 32,
       "norm_label": "route.ts"
     },
     {
@@ -1070,7 +1187,7 @@
       "source_file": "src/app/api/products/paypal/capture/route.ts",
       "source_location": "L5",
       "id": "src_app_api_products_paypal_capture_route_ts_capture_route_post",
-      "community": 0,
+      "community": 32,
       "norm_label": "post()"
     },
     {
@@ -1142,7 +1259,7 @@
       "source_file": "src/app/case-studies/page.tsx",
       "source_location": "L1",
       "id": "case_studies_page",
-      "community": 63,
+      "community": 33,
       "norm_label": "page.tsx"
     },
     {
@@ -1151,7 +1268,7 @@
       "source_file": "src/app/case-studies/page.tsx",
       "source_location": "L8",
       "id": "case_studies_page_casestudiespage",
-      "community": 63,
+      "community": 33,
       "norm_label": "casestudiespage()"
     },
     {
@@ -1167,7 +1284,7 @@
       "label": "ServiceDetails",
       "file_type": "code",
       "source_file": "src/app/checkout/[serviceId]/CheckoutClient.tsx",
-      "source_location": "L21",
+      "source_location": "L22",
       "id": "serviceid_checkoutclient_servicedetails",
       "community": 8,
       "norm_label": "servicedetails"
@@ -1176,7 +1293,7 @@
       "label": "Props",
       "file_type": "code",
       "source_file": "src/app/checkout/[serviceId]/CheckoutClient.tsx",
-      "source_location": "L31",
+      "source_location": "L32",
       "id": "serviceid_checkoutclient_props",
       "community": 8,
       "norm_label": "props"
@@ -1185,7 +1302,7 @@
       "label": "categoryLabels",
       "file_type": "code",
       "source_file": "src/app/checkout/[serviceId]/CheckoutClient.tsx",
-      "source_location": "L38",
+      "source_location": "L39",
       "id": "serviceid_checkoutclient_categorylabels",
       "community": 8,
       "norm_label": "categorylabels"
@@ -1194,7 +1311,7 @@
       "label": "pricingLabels",
       "file_type": "code",
       "source_file": "src/app/checkout/[serviceId]/CheckoutClient.tsx",
-      "source_location": "L53",
+      "source_location": "L54",
       "id": "serviceid_checkoutclient_pricinglabels",
       "community": 8,
       "norm_label": "pricinglabels"
@@ -1203,7 +1320,7 @@
       "label": "CheckoutClient()",
       "file_type": "code",
       "source_file": "src/app/checkout/[serviceId]/CheckoutClient.tsx",
-      "source_location": "L59",
+      "source_location": "L60",
       "id": "serviceid_checkoutclient_checkoutclient",
       "community": 8,
       "norm_label": "checkoutclient()"
@@ -1212,7 +1329,7 @@
       "label": "GatewayOption()",
       "file_type": "code",
       "source_file": "src/app/checkout/[serviceId]/CheckoutClient.tsx",
-      "source_location": "L310",
+      "source_location": "L438",
       "id": "serviceid_checkoutclient_gatewayoption",
       "community": 8,
       "norm_label": "gatewayoption()"
@@ -1223,7 +1340,7 @@
       "source_file": "src/app/checkout/[serviceId]/page.tsx",
       "source_location": "L1",
       "id": "serviceid_page",
-      "community": 8,
+      "community": 0,
       "norm_label": "page.tsx"
     },
     {
@@ -1232,7 +1349,7 @@
       "source_file": "src/app/checkout/[serviceId]/page.tsx",
       "source_location": "L6",
       "id": "serviceid_page_checkoutpage",
-      "community": 8,
+      "community": 0,
       "norm_label": "checkoutpage()"
     },
     {
@@ -1275,7 +1392,7 @@
       "label": "CheckoutSuccessPage()",
       "file_type": "code",
       "source_file": "src/app/checkout/success/page.tsx",
-      "source_location": "L108",
+      "source_location": "L112",
       "id": "success_page_checkoutsuccesspage",
       "community": 13,
       "norm_label": "checkoutsuccesspage()"
@@ -1286,7 +1403,7 @@
       "source_file": "src/app/contact/page.tsx",
       "source_location": "L1",
       "id": "contact_page",
-      "community": 63,
+      "community": 33,
       "norm_label": "page.tsx"
     },
     {
@@ -1295,7 +1412,7 @@
       "source_file": "src/app/contact/page.tsx",
       "source_location": "L8",
       "id": "contact_page_contactpage",
-      "community": 63,
+      "community": 33,
       "norm_label": "contactpage()"
     },
     {
@@ -1311,7 +1428,7 @@
       "label": "OrderItem",
       "file_type": "code",
       "source_file": "src/app/dashboard/ClientDashboardClient.tsx",
-      "source_location": "L24",
+      "source_location": "L31",
       "id": "dashboard_clientdashboardclient_orderitem",
       "community": 5,
       "norm_label": "orderitem"
@@ -1320,16 +1437,25 @@
       "label": "ServiceItem",
       "file_type": "code",
       "source_file": "src/app/dashboard/ClientDashboardClient.tsx",
-      "source_location": "L39",
+      "source_location": "L46",
       "id": "dashboard_clientdashboardclient_serviceitem",
       "community": 5,
       "norm_label": "serviceitem"
     },
     {
+      "label": "ChatMessageItem",
+      "file_type": "code",
+      "source_file": "src/app/dashboard/ClientDashboardClient.tsx",
+      "source_location": "L57",
+      "id": "dashboard_clientdashboardclient_chatmessageitem",
+      "community": 5,
+      "norm_label": "chatmessageitem"
+    },
+    {
       "label": "Props",
       "file_type": "code",
       "source_file": "src/app/dashboard/ClientDashboardClient.tsx",
-      "source_location": "L50",
+      "source_location": "L74",
       "id": "dashboard_clientdashboardclient_props",
       "community": 5,
       "norm_label": "props"
@@ -1338,7 +1464,7 @@
       "label": "tabs",
       "file_type": "code",
       "source_file": "src/app/dashboard/ClientDashboardClient.tsx",
-      "source_location": "L59",
+      "source_location": "L83",
       "id": "dashboard_clientdashboardclient_tabs",
       "community": 5,
       "norm_label": "tabs"
@@ -1347,7 +1473,7 @@
       "label": "categoryLabels",
       "file_type": "code",
       "source_file": "src/app/dashboard/ClientDashboardClient.tsx",
-      "source_location": "L66",
+      "source_location": "L91",
       "id": "dashboard_clientdashboardclient_categorylabels",
       "community": 5,
       "norm_label": "categorylabels"
@@ -1356,7 +1482,7 @@
       "label": "categoryColors",
       "file_type": "code",
       "source_file": "src/app/dashboard/ClientDashboardClient.tsx",
-      "source_location": "L80",
+      "source_location": "L105",
       "id": "dashboard_clientdashboardclient_categorycolors",
       "community": 5,
       "norm_label": "categorycolors"
@@ -1365,7 +1491,7 @@
       "label": "statusSteps",
       "file_type": "code",
       "source_file": "src/app/dashboard/ClientDashboardClient.tsx",
-      "source_location": "L94",
+      "source_location": "L119",
       "id": "dashboard_clientdashboardclient_statussteps",
       "community": 5,
       "norm_label": "statussteps"
@@ -1374,7 +1500,7 @@
       "label": "statusLabels",
       "file_type": "code",
       "source_file": "src/app/dashboard/ClientDashboardClient.tsx",
-      "source_location": "L95",
+      "source_location": "L120",
       "id": "dashboard_clientdashboardclient_statuslabels",
       "community": 5,
       "norm_label": "statuslabels"
@@ -1383,7 +1509,7 @@
       "label": "statusColors",
       "file_type": "code",
       "source_file": "src/app/dashboard/ClientDashboardClient.tsx",
-      "source_location": "L103",
+      "source_location": "L128",
       "id": "dashboard_clientdashboardclient_statuscolors",
       "community": 5,
       "norm_label": "statuscolors"
@@ -1392,7 +1518,7 @@
       "label": "pricingLabels",
       "file_type": "code",
       "source_file": "src/app/dashboard/ClientDashboardClient.tsx",
-      "source_location": "L111",
+      "source_location": "L136",
       "id": "dashboard_clientdashboardclient_pricinglabels",
       "community": 5,
       "norm_label": "pricinglabels"
@@ -1401,7 +1527,7 @@
       "label": "ClientDashboardClient()",
       "file_type": "code",
       "source_file": "src/app/dashboard/ClientDashboardClient.tsx",
-      "source_location": "L118",
+      "source_location": "L143",
       "id": "dashboard_clientdashboardclient_clientdashboardclient",
       "community": 5,
       "norm_label": "clientdashboardclient()"
@@ -1410,7 +1536,7 @@
       "label": "OverviewTab()",
       "file_type": "code",
       "source_file": "src/app/dashboard/ClientDashboardClient.tsx",
-      "source_location": "L282",
+      "source_location": "L367",
       "id": "dashboard_clientdashboardclient_overviewtab",
       "community": 5,
       "norm_label": "overviewtab()"
@@ -1419,7 +1545,7 @@
       "label": "ServicesTab()",
       "file_type": "code",
       "source_file": "src/app/dashboard/ClientDashboardClient.tsx",
-      "source_location": "L438",
+      "source_location": "L573",
       "id": "dashboard_clientdashboardclient_servicestab",
       "community": 5,
       "norm_label": "servicestab()"
@@ -1428,19 +1554,37 @@
       "label": "OrdersTab()",
       "file_type": "code",
       "source_file": "src/app/dashboard/ClientDashboardClient.tsx",
-      "source_location": "L539",
+      "source_location": "L680",
       "id": "dashboard_clientdashboardclient_orderstab",
       "community": 5,
       "norm_label": "orderstab()"
     },
     {
+      "label": "ChatTab()",
+      "file_type": "code",
+      "source_file": "src/app/dashboard/ClientDashboardClient.tsx",
+      "source_location": "L965",
+      "id": "dashboard_clientdashboardclient_chattab",
+      "community": 5,
+      "norm_label": "chattab()"
+    },
+    {
       "label": "ProfileTab()",
       "file_type": "code",
       "source_file": "src/app/dashboard/ClientDashboardClient.tsx",
-      "source_location": "L778",
+      "source_location": "L1406",
       "id": "dashboard_clientdashboardclient_profiletab",
       "community": 5,
       "norm_label": "profiletab()"
+    },
+    {
+      "label": "InvoiceModal()",
+      "file_type": "code",
+      "source_file": "src/app/dashboard/ClientDashboardClient.tsx",
+      "source_location": "L1468",
+      "id": "dashboard_clientdashboardclient_invoicemodal",
+      "community": 5,
+      "norm_label": "invoicemodal()"
     },
     {
       "label": "error.tsx",
@@ -1545,7 +1689,7 @@
       "label": "LoginPage()",
       "file_type": "code",
       "source_file": "src/app/login/page.tsx",
-      "source_location": "L12",
+      "source_location": "L24",
       "id": "login_page_loginpage",
       "community": 18,
       "norm_label": "loginpage()"
@@ -1556,7 +1700,7 @@
       "source_file": "src/app/page.tsx",
       "source_location": "L1",
       "id": "app_page",
-      "community": 63,
+      "community": 33,
       "norm_label": "page.tsx"
     },
     {
@@ -1565,7 +1709,7 @@
       "source_file": "src/app/page.tsx",
       "source_location": "L29",
       "id": "app_page_home",
-      "community": 63,
+      "community": 33,
       "norm_label": "home()"
     },
     {
@@ -1574,7 +1718,7 @@
       "source_file": "src/app/privacy/page.tsx",
       "source_location": "L1",
       "id": "privacy_page",
-      "community": 63,
+      "community": 33,
       "norm_label": "page.tsx"
     },
     {
@@ -1583,7 +1727,7 @@
       "source_file": "src/app/privacy/page.tsx",
       "source_location": "L7",
       "id": "privacy_page_privacypolicypage",
-      "community": 63,
+      "community": 33,
       "norm_label": "privacypolicypage()"
     },
     {
@@ -1592,7 +1736,7 @@
       "source_file": "src/app/process/page.tsx",
       "source_location": "L1",
       "id": "process_page",
-      "community": 63,
+      "community": 33,
       "norm_label": "page.tsx"
     },
     {
@@ -1601,7 +1745,7 @@
       "source_file": "src/app/process/page.tsx",
       "source_location": "L8",
       "id": "process_page_processpage",
-      "community": 63,
+      "community": 33,
       "norm_label": "processpage()"
     },
     {
@@ -1610,7 +1754,7 @@
       "source_file": "src/app/products/page.tsx",
       "source_location": "L1",
       "id": "products_page",
-      "community": 0,
+      "community": 32,
       "norm_label": "page.tsx"
     },
     {
@@ -1619,7 +1763,7 @@
       "source_file": "src/app/products/page.tsx",
       "source_location": "L33",
       "id": "products_page_productspage",
-      "community": 0,
+      "community": 32,
       "norm_label": "productspage()"
     },
     {
@@ -1628,7 +1772,7 @@
       "source_file": "src/app/products/sdm-privacy/page.tsx",
       "source_location": "L1",
       "id": "sdm_privacy_page",
-      "community": 63,
+      "community": 33,
       "norm_label": "page.tsx"
     },
     {
@@ -1637,7 +1781,7 @@
       "source_file": "src/app/products/sdm-privacy/page.tsx",
       "source_location": "L7",
       "id": "sdm_privacy_page_sdmprivacypage",
-      "community": 63,
+      "community": 33,
       "norm_label": "sdmprivacypage()"
     },
     {
@@ -1718,7 +1862,7 @@
       "source_file": "src/app/terms/page.tsx",
       "source_location": "L1",
       "id": "terms_page",
-      "community": 63,
+      "community": 33,
       "norm_label": "page.tsx"
     },
     {
@@ -1727,7 +1871,7 @@
       "source_file": "src/app/terms/page.tsx",
       "source_location": "L7",
       "id": "terms_page_termsofservicepage",
-      "community": 63,
+      "community": 33,
       "norm_label": "termsofservicepage()"
     },
     {
@@ -1979,7 +2123,7 @@
       "source_file": "src/components/sections/About.tsx",
       "source_location": "L1",
       "id": "sections_about",
-      "community": 63,
+      "community": 33,
       "norm_label": "about.tsx"
     },
     {
@@ -1988,7 +2132,7 @@
       "source_file": "src/components/sections/About.tsx",
       "source_location": "L7",
       "id": "sections_about_highlights",
-      "community": 63,
+      "community": 33,
       "norm_label": "highlights"
     },
     {
@@ -1997,7 +2141,7 @@
       "source_file": "src/components/sections/About.tsx",
       "source_location": "L38",
       "id": "sections_about_about",
-      "community": 63,
+      "community": 33,
       "norm_label": "about()"
     },
     {
@@ -2006,7 +2150,7 @@
       "source_file": "src/components/sections/CaseStudies.tsx",
       "source_location": "L1",
       "id": "sections_casestudies",
-      "community": 63,
+      "community": 33,
       "norm_label": "casestudies.tsx"
     },
     {
@@ -2015,7 +2159,7 @@
       "source_file": "src/components/sections/CaseStudies.tsx",
       "source_location": "L44",
       "id": "sections_casestudies_casestudies",
-      "community": 63,
+      "community": 33,
       "norm_label": "casestudies"
     },
     {
@@ -2024,7 +2168,7 @@
       "source_file": "src/components/sections/Contact.tsx",
       "source_location": "L1",
       "id": "sections_contact",
-      "community": 63,
+      "community": 33,
       "norm_label": "contact.tsx"
     },
     {
@@ -2033,7 +2177,7 @@
       "source_file": "src/components/sections/Contact.tsx",
       "source_location": "L8",
       "id": "sections_contact_contact",
-      "community": 63,
+      "community": 33,
       "norm_label": "contact()"
     },
     {
@@ -2042,7 +2186,7 @@
       "source_file": "src/components/sections/FAQ.tsx",
       "source_location": "L1",
       "id": "sections_faq",
-      "community": 63,
+      "community": 33,
       "norm_label": "faq.tsx"
     },
     {
@@ -2051,7 +2195,7 @@
       "source_file": "src/components/sections/FAQ.tsx",
       "source_location": "L8",
       "id": "sections_faq_faqs",
-      "community": 63,
+      "community": 33,
       "norm_label": "faqs"
     },
     {
@@ -2060,7 +2204,7 @@
       "source_file": "src/components/sections/FAQ.tsx",
       "source_location": "L31",
       "id": "sections_faq_faq",
-      "community": 63,
+      "community": 33,
       "norm_label": "faq()"
     },
     {
@@ -2087,7 +2231,7 @@
       "source_file": "src/components/sections/Process.tsx",
       "source_location": "L1",
       "id": "sections_process",
-      "community": 63,
+      "community": 33,
       "norm_label": "process.tsx"
     },
     {
@@ -2096,7 +2240,7 @@
       "source_file": "src/components/sections/Process.tsx",
       "source_location": "L7",
       "id": "sections_process_steps",
-      "community": 63,
+      "community": 33,
       "norm_label": "steps"
     },
     {
@@ -2105,7 +2249,7 @@
       "source_file": "src/components/sections/Process.tsx",
       "source_location": "L42",
       "id": "sections_process_process",
-      "community": 63,
+      "community": 33,
       "norm_label": "process()"
     },
     {
@@ -2148,7 +2292,7 @@
       "label": "Services()",
       "file_type": "code",
       "source_file": "src/components/sections/Services.tsx",
-      "source_location": "L23",
+      "source_location": "L19",
       "id": "sections_services_services",
       "community": 9,
       "norm_label": "services()"
@@ -2249,7 +2393,7 @@
       "source_file": "src/components/ui/SpotlightCard.tsx",
       "source_location": "L1",
       "id": "ui_spotlightcard",
-      "community": 63,
+      "community": 33,
       "norm_label": "spotlightcard.tsx"
     },
     {
@@ -2258,7 +2402,7 @@
       "source_file": "src/components/ui/SpotlightCard.tsx",
       "source_location": "L5",
       "id": "ui_spotlightcard_spotlightcardprops",
-      "community": 63,
+      "community": 33,
       "norm_label": "spotlightcardprops"
     },
     {
@@ -2267,7 +2411,7 @@
       "source_file": "src/components/ui/SpotlightCard.tsx",
       "source_location": "L11",
       "id": "ui_spotlightcard_spotlightcard",
-      "community": 63,
+      "community": 33,
       "norm_label": "spotlightcard()"
     },
     {
@@ -2321,7 +2465,7 @@
       "source_file": "src/lib/products.ts",
       "source_location": "L1",
       "id": "lib_products",
-      "community": 0,
+      "community": 32,
       "norm_label": "products.ts"
     },
     {
@@ -2330,7 +2474,7 @@
       "source_file": "src/lib/products.ts",
       "source_location": "L3",
       "id": "lib_products_softwareproduct",
-      "community": 0,
+      "community": 32,
       "norm_label": "softwareproduct"
     },
     {
@@ -2339,7 +2483,7 @@
       "source_file": "src/lib/products.ts",
       "source_location": "L35",
       "id": "lib_products_software_products",
-      "community": 0,
+      "community": 32,
       "norm_label": "software_products"
     },
     {
@@ -2348,7 +2492,7 @@
       "source_file": "src/lib/products.ts",
       "source_location": "L209",
       "id": "lib_products_generateproductlicense",
-      "community": 0,
+      "community": 32,
       "norm_label": "generateproductlicense()"
     },
     {
@@ -2409,7 +2553,7 @@
       "label": "UdyamServiceItem",
       "file_type": "code",
       "source_file": "src/utils/serviceData.ts",
-      "source_location": "L13",
+      "source_location": "L25",
       "id": "utils_servicedata_udyamserviceitem",
       "community": 9,
       "norm_label": "udyamserviceitem"
@@ -2418,16 +2562,25 @@
       "label": "udyamServicesList",
       "file_type": "code",
       "source_file": "src/utils/serviceData.ts",
-      "source_location": "L38",
+      "source_location": "L52",
       "id": "utils_servicedata_udyamserviceslist",
       "community": 9,
       "norm_label": "udyamserviceslist"
     },
     {
+      "label": "ServiceCategory",
+      "file_type": "code",
+      "source_file": "src/utils/serviceData.ts",
+      "source_location": "L875",
+      "id": "utils_servicedata_servicecategory",
+      "community": 9,
+      "norm_label": "servicecategory"
+    },
+    {
       "label": "serviceCategories",
       "file_type": "code",
       "source_file": "src/utils/serviceData.ts",
-      "source_location": "L346",
+      "source_location": "L884",
       "id": "utils_servicedata_servicecategories",
       "community": 9,
       "norm_label": "servicecategories"
@@ -2802,6 +2955,15 @@
       "norm_label": "full app optimization audit (october 2026)"
     },
     {
+      "label": "State Checkpoint",
+      "file_type": "document",
+      "source_file": "MEMORY.md",
+      "source_location": "L202",
+      "id": "memory_state_checkpoint",
+      "community": 26,
+      "norm_label": "state checkpoint"
+    },
+    {
       "label": "README.md",
       "file_type": "document",
       "source_file": "README.md",
@@ -3135,6 +3297,24 @@
       "norm_label": "{ get, post }"
     },
     {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "src/app/api/payments/stripe/verify/route.ts",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "route.ts",
+      "id": "verify_route"
+    },
+    {
+      "label": "POST()",
+      "file_type": "code",
+      "source_file": "src/app/api/payments/stripe/verify/route.ts",
+      "source_location": "L7",
+      "community": 0,
+      "norm_label": "post()",
+      "id": "verify_route_post"
+    },
+    {
       "label": "aiCategories",
       "file_type": "code",
       "source_file": "src/app/ai-solutions/page.tsx",
@@ -3184,7 +3364,7 @@
       "file_type": "code",
       "source_file": "src/app/page.tsx",
       "source_location": "L10",
-      "community": 63,
+      "community": 33,
       "norm_label": "roiquickestimator",
       "id": "app_page_roiquickestimator"
     },
@@ -3193,7 +3373,7 @@
       "file_type": "code",
       "source_file": "src/app/page.tsx",
       "source_location": "L14",
-      "community": 63,
+      "community": 33,
       "norm_label": "faq",
       "id": "app_page_faq"
     },
@@ -3202,7 +3382,7 @@
       "file_type": "code",
       "source_file": "src/app/page.tsx",
       "source_location": "L18",
-      "community": 63,
+      "community": 33,
       "norm_label": "contact",
       "id": "app_page_contact"
     },
@@ -3211,7 +3391,7 @@
       "file_type": "code",
       "source_file": "src/app/page.tsx",
       "source_location": "L14",
-      "community": 63,
+      "community": 33,
       "norm_label": "udyamverification",
       "id": "app_page_udyamverification"
     },
@@ -3232,33 +3412,6 @@
       "community": 0,
       "norm_label": "post()",
       "id": "capture_route_post"
-    },
-    {
-      "label": "razorpay",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L29",
-      "community": 1,
-      "norm_label": "razorpay",
-      "id": "package_dependencies_razorpay"
-    },
-    {
-      "label": "route.ts",
-      "file_type": "code",
-      "source_file": "src/app/api/payments/stripe/verify/route.ts",
-      "source_location": "L1",
-      "community": 0,
-      "norm_label": "route.ts",
-      "id": "src_app_api_payments_stripe_verify_route_ts_verify_route"
-    },
-    {
-      "label": "POST()",
-      "file_type": "code",
-      "source_file": "src/app/api/payments/stripe/verify/route.ts",
-      "source_location": "L7",
-      "community": 0,
-      "norm_label": "post()",
-      "id": "src_app_api_payments_stripe_verify_route_ts_verify_route_post"
     },
     {
       "label": "Window",
@@ -4013,6 +4166,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/app/admin/AdminDashboardClient.tsx",
+      "source_location": "L662",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "admin_admindashboardclient",
+      "target": "admin_admindashboardclient_adminchattab"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/admin/AdminDashboardClient.tsx",
       "source_location": "L111",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -4038,6 +4201,26 @@
       "confidence_score": 1.0,
       "source": "admin_admindashboardclient",
       "target": "admin_admindashboardclient_categorylabels"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/admin/AdminDashboardClient.tsx",
+      "source_location": "L90",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "admin_admindashboardclient",
+      "target": "admin_admindashboardclient_chatmessageitem"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/admin/AdminDashboardClient.tsx",
+      "source_location": "L107",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "admin_admindashboardclient",
+      "target": "admin_admindashboardclient_clientchatsummary"
     },
     {
       "relation": "contains",
@@ -4550,6 +4733,113 @@
       "target": "lib_rate_limit_getclientip"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/chat/read/route.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "read_route",
+      "target": "lib_auth"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/chat/read/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "read_route",
+      "target": "lib_db"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/chat/read/route.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "read_route",
+      "target": "read_route_patch"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/chat/route.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "chat_route",
+      "target": "chat_route_get"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/chat/route.ts",
+      "source_location": "L238",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "chat_route",
+      "target": "chat_route_post"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/chat/route.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "chat_route",
+      "target": "lib_auth"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/chat/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "chat_route",
+      "target": "lib_db"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/chat/route.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "chat_route",
+      "target": "lib_rate_limit"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/chat/route.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "chat_route",
+      "target": "lib_rate_limit_checkratelimit"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/api/chat/route.ts",
+      "source_location": "L251",
+      "weight": 1.0,
+      "source": "chat_route_post",
+      "target": "lib_rate_limit_checkratelimit"
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/app/api/contact/route.ts",
@@ -4788,6 +5078,136 @@
       "target": "lib_rate_limit_checkratelimit"
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/payments/razorpay/create-order/route.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "create_order_route",
+      "target": "create_order_route_post"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/payments/razorpay/create-order/route.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "create_order_route",
+      "target": "lib_auth"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/payments/razorpay/create-order/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "create_order_route",
+      "target": "lib_db"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/payments/razorpay/create-order/route.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "create_order_route",
+      "target": "lib_rate_limit"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/payments/razorpay/create-order/route.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "create_order_route",
+      "target": "lib_rate_limit_checkratelimit"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/api/payments/razorpay/create-order/route.ts",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "create_order_route_post",
+      "target": "lib_rate_limit_checkratelimit"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/payments/razorpay/verify/route.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_api_payments_razorpay_verify_route_ts_verify_route",
+      "target": "lib_auth"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/payments/razorpay/verify/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_api_payments_razorpay_verify_route_ts_verify_route",
+      "target": "lib_db"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/payments/razorpay/verify/route.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_api_payments_razorpay_verify_route_ts_verify_route",
+      "target": "lib_rate_limit"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/payments/razorpay/verify/route.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_api_payments_razorpay_verify_route_ts_verify_route",
+      "target": "lib_rate_limit_checkratelimit"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/payments/razorpay/verify/route.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_api_payments_razorpay_verify_route_ts_verify_route",
+      "target": "src_app_api_payments_razorpay_verify_route_ts_verify_route_post"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/app/api/payments/razorpay/verify/route.ts",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "src_app_api_payments_razorpay_verify_route_ts_verify_route_post",
+      "target": "lib_rate_limit_checkratelimit"
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -4860,7 +5280,7 @@
       "source_location": "L2",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "verify_route",
+      "source": "src_app_api_payments_stripe_verify_route_ts_verify_route",
       "target": "lib_auth"
     },
     {
@@ -4871,7 +5291,7 @@
       "source_location": "L3",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "verify_route",
+      "source": "src_app_api_payments_stripe_verify_route_ts_verify_route",
       "target": "lib_db"
     },
     {
@@ -4881,8 +5301,8 @@
       "source_location": "L7",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "verify_route",
-      "target": "verify_route_post"
+      "source": "src_app_api_payments_stripe_verify_route_ts_verify_route",
+      "target": "src_app_api_payments_stripe_verify_route_ts_verify_route_post"
     },
     {
       "relation": "imports_from",
@@ -5352,11 +5772,41 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/app/dashboard/ClientDashboardClient.tsx",
+      "source_location": "L56",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dashboard_clientdashboardclient",
+      "target": "dashboard_clientdashboardclient_chatmessageitem"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/dashboard/ClientDashboardClient.tsx",
+      "source_location": "L964",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dashboard_clientdashboardclient",
+      "target": "dashboard_clientdashboardclient_chattab"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/dashboard/ClientDashboardClient.tsx",
       "source_location": "L104",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "dashboard_clientdashboardclient",
       "target": "dashboard_clientdashboardclient_clientdashboardclient"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/dashboard/ClientDashboardClient.tsx",
+      "source_location": "L1348",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dashboard_clientdashboardclient",
+      "target": "dashboard_clientdashboardclient_invoicemodal"
     },
     {
       "relation": "contains",
@@ -6754,7 +7204,7 @@
       "source_location": "L2",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "src_app_api_payments_stripe_verify_route_ts_verify_route",
+      "source": "verify_route",
       "target": "lib_auth"
     },
     {
@@ -6792,22 +7242,22 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/app/api/payments/stripe/verify/route.ts",
-      "source_location": "L3",
+      "source_file": "test_query.ts",
+      "source_location": "L1",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "src_app_api_payments_stripe_verify_route_ts_verify_route",
+      "source": "test_query",
       "target": "lib_db"
     },
     {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "test_query.ts",
-      "source_location": "L1",
+      "source_file": "src/app/api/payments/stripe/verify/route.ts",
+      "source_location": "L3",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "test_query",
+      "source": "verify_route",
       "target": "lib_db"
     },
     {
@@ -6889,6 +7339,16 @@
       "confidence_score": 1.0,
       "source": "utils_servicedata",
       "target": "utils_servicedata_servicecategories"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/serviceData.ts",
+      "source_location": "L875",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "utils_servicedata",
+      "target": "utils_servicedata_servicecategory"
     },
     {
       "relation": "contains",
@@ -7254,6 +7714,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "MEMORY.md",
+      "source_location": "L202",
+      "weight": 1.0,
+      "source": "memory_workspace_global_memory_checkpoint",
+      "target": "memory_state_checkpoint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MEMORY.md",
       "source_location": "L55",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -7603,22 +8073,22 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/app/api/payments/stripe/verify/route.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "verify_route",
+      "target": "verify_route_post"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/app/api/payments/paypal/capture/route.ts",
       "source_location": "L6",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "capture_route",
       "target": "capture_route_post"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/app/api/payments/stripe/verify/route.ts",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app_api_payments_stripe_verify_route_ts_verify_route",
-      "target": "src_app_api_payments_stripe_verify_route_ts_verify_route_post"
     },
     {
       "relation": "contains",
@@ -7752,5 +8222,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "eee86ef8454667e0adee0ad0b06d159f65ed2d18"
+  "built_at_commit": "3c9a9c39c9a64493f899d7a96d54e377398abf2a"
 }

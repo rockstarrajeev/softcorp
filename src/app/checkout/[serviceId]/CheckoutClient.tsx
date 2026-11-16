@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Script from "next/script";
 import { motion } from "framer-motion";
 import {
     FiArrowLeft,
@@ -30,7 +31,7 @@ interface ServiceDetails {
 
 interface Props {
     service: ServiceDetails;
-    gateways: { paypal: boolean; stripe: boolean };
+    gateways: { paypal: boolean; stripe: boolean; razorpay: boolean };
     userName: string;
     userEmail: string;
 }
@@ -128,10 +129,107 @@ export default function CheckoutClient({
     function handlePay() {
         if (selectedGateway === "paypal") handlePayPal();
         else if (selectedGateway === "stripe") handleStripe();
+        else if (selectedGateway === "razorpay") handleRazorpay();
+    }
+
+    /** Opens the Razorpay Standard Checkout modal */
+    async function handleRazorpay() {
+        setProcessing(true);
+        setError("");
+        try {
+            // Step 1: Create a Razorpay order on the backend
+            const res = await fetch("/api/payments/razorpay/create-order", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    serviceId: service.id,
+                    requirements: requirements || null,
+                }),
+            });
+            const data = await res.json();
+
+            if (!data.order_id) {
+                throw new Error(data.error || "Failed to create Razorpay order");
+            }
+
+            const keyId = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID;
+            if (!keyId) {
+                throw new Error("Razorpay key not configured");
+            }
+
+            // Step 2: Open the Razorpay checkout modal
+            const options = {
+                key: keyId,
+                amount: data.amount,
+                currency: data.currency,
+                name: "Softcorp Group",
+                description: service.name,
+                order_id: data.order_id,
+                prefill: {
+                    name: userName,
+                    email: userEmail,
+                },
+                theme: { color: "#06b6d4" },
+                handler: async (response: {
+                    razorpay_payment_id: string;
+                    razorpay_order_id: string;
+                    razorpay_signature: string;
+                }) => {
+                    // Step 3: Verify signature on backend
+                    try {
+                        const verifyRes = await fetch("/api/payments/razorpay/verify", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({
+                                razorpay_payment_id: response.razorpay_payment_id,
+                                razorpay_order_id: response.razorpay_order_id,
+                                razorpay_signature: response.razorpay_signature,
+                                orderId: data.orderId,
+                            }),
+                        });
+                        const verifyData = await verifyRes.json();
+
+                        if (verifyData.success) {
+                            router.push(`/checkout/success?orderId=${data.orderId}&razorpay=true`);
+                        } else {
+                            setError("Payment verification failed. Contact support.");
+                            setProcessing(false);
+                        }
+                    } catch {
+                        setError("Failed to verify payment. Please contact support.");
+                        setProcessing(false);
+                    }
+                },
+                modal: {
+                    ondismiss: () => {
+                        setError("Payment was cancelled.");
+                        setProcessing(false);
+                    },
+                },
+            };
+
+            // Load the Razorpay checkout script dynamically
+            if (!(window as unknown as Record<string, unknown>).Razorpay) {
+                await new Promise<void>((resolve, reject) => {
+                    const script = document.createElement("script");
+                    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+                    script.onload = () => resolve();
+                    script.onerror = () => reject(new Error("Failed to load Razorpay SDK"));
+                    document.head.appendChild(script);
+                });
+            }
+
+            const rzp = new (window as unknown as { Razorpay: new (opts: unknown) => { open: () => void } }).Razorpay(options);
+            rzp.open();
+        } catch (err) {
+            setError(err instanceof Error ? err.message : "Razorpay error");
+            setProcessing(false);
+        }
     }
 
     return (
         <div className="min-h-screen pt-24 pb-12 px-6">
+            <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="lazyOnload" />
             <div className="absolute inset-0">
                 <div className="absolute top-1/4 -left-32 w-96 h-96 bg-brand-600/10 rounded-full blur-[128px]" />
                 <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-accent-500/8 rounded-full blur-[128px]" />
@@ -226,6 +324,20 @@ export default function CheckoutClient({
                                         onSelect={() => setSelectedGateway("stripe")}
                                     />
                                 )}
+                                {gateways.razorpay && (
+                                    <GatewayOption
+                                        id="razorpay"
+                                        label="Razorpay — UPI, Cards, Net Banking & Wallets"
+                                        description="Pay in ₹ via UPI, Rupay, NEFT, Paytm & all Indian payment methods"
+                                        icon={
+                                            <div className="flex items-center justify-center w-7 h-7 rounded bg-[#2D65F8] text-white font-bold text-xs">
+                                                Rₚ
+                                            </div>
+                                        }
+                                        selected={selectedGateway === "razorpay"}
+                                        onSelect={() => setSelectedGateway("razorpay")}
+                                    />
+                                )}
                             </div>
 
                             {error && (
@@ -288,7 +400,11 @@ export default function CheckoutClient({
                                         <FiCreditCard size={16} />
                                         {selectedGateway
                                             ? `Pay ₹${service.price.toLocaleString("en-IN")} with ${
-                                                  selectedGateway === "paypal" ? "PayPal" : "Stripe"
+                                                  selectedGateway === "paypal"
+                                                      ? "PayPal"
+                                                      : selectedGateway === "razorpay"
+                                                      ? "Razorpay"
+                                                      : "Stripe"
                                               }`
                                             : "Select a payment method"}
                                     </>
@@ -298,6 +414,18 @@ export default function CheckoutClient({
                             <div className="mt-4 flex items-center justify-center gap-2 text-xs text-slate-500">
                                 <FiShield size={12} />
                                 Secure 256-bit SSL encrypted checkout
+                            </div>
+
+                            <div className="mt-3 pt-3 border-t border-white/5 text-center">
+                                <a
+                                    href="https://razorpay.me/@softcorpgroup"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-[11px] text-cyan-400 hover:text-cyan-300 inline-flex items-center gap-1 transition-colors"
+                                >
+                                    <span className="text-slate-400">⚡ Direct Handle:</span>
+                                    <span className="font-mono font-semibold underline underline-offset-2">razorpay.me/@softcorpgroup</span>
+                                </a>
                             </div>
                         </div>
                     </motion.div>
